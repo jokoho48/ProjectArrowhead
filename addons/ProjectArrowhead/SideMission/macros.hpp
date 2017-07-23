@@ -1,2 +1,2 @@
 #define MODULE SideMission
-#include "\bso\BSOCoop\addons\BSOCoop\macros.hpp"
+#include "\paw\ProjectArrowhead\addons\ProjectArrowhead\macros.hpp"
