@@ -2,7 +2,7 @@
 
 class CfgCLibModules {
     class ProjectArrowhead {
-        path = "\bso\BSOPublic\addons\BSOPublic"; // TODO add Simplifyed Macro for this
+        path = "\paw\ProjectArrowhead\addons\ProjectArrowhead"; // TODO add Simplifyed Macro for this
         dependency[] = {"CLib", "BSO/RBU", "BSO/Common", "BSO/BFT"};
 
         MODULE(BaseProtection) {
@@ -14,6 +14,8 @@ class CfgCLibModules {
             MODULE(Misc) {
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
+                FNC(setUnitSurrender);
+                FNC(setUnitHostage);
             };
 
             MODULE(Position) {
@@ -27,6 +29,7 @@ class CfgCLibModules {
             };
 
             MODULE(Spawn) {
+                FNC(spawnGroup);
                 FNC(spawnSniper);
                 FNC(spawnTower);
             };

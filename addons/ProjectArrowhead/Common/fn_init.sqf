@@ -62,18 +62,24 @@ DFUNC(onPinged) = {
 
 
 GVAR(unitPoolFriendly) = [];
+GVAR(vehiclePoolFriendly) = [];
+GVAR(airPoolFriendly) = [];
+
 GVAR(unitPoolEnemy) = [];
-GVAR(unitPoolRebels) = [];
-GVAR(unitPoolCiv) = [];
-GVAR(vehiclePool) = [];
 GVAR(vehiclePoolEnemy) = [];
+GVAR(airPoolEnemy) = [];
+GVAR(sniperPoolEnemy) = [];
+
+GVAR(unitPoolRebels) = [];
+GVAR(vehiclePoolRebels) = [];
+
+GVAR(unitPoolCiv) = [];
 GVAR(vehiclePoolCiv) = [];
-GVAR(sniperPool) = [];
 
 GVAR(enemySide) = East;
 
 GVAR(locations) = [];
-{ // if location is in _SEN_blacklistLocation, does not have a name or is near the MOB safezone, it is not added to DCG
+{
     private _locName = text _x;
     private _locPos = getpos _x;
     _locPos set [2,0];
@@ -82,3 +88,9 @@ GVAR(locations) = [];
     };
     nil
 } count (nearestLocations [GVAR(centerPos), ["NameCityCapital","NameCity","NameVillage"], worldSize/2]);
+
+["ACE_handcuffeUnit", {
+    (_this select 0) params ["_unit", "_state"];
+    if !(local _unit) exitWith {};
+    [_unit, _state] call ace_captives_fnc_setHandcuffed;
+}] call CFUNC(addEventhandler);

@@ -15,42 +15,59 @@
 */
 params [["_obj", objNull, [objNull]]];
 
-if (typeOf _obj isKindOf "Air") exitWith {
+if (_obj isKindOf "Air") exitWith {
     LOG("fn_setUnitSurrender: Object is AIR type. Can't surrender.");
+    private _grp = group _obj;
+
+    {
+        deleteWaypoint _x;
+        nil
+    } count waypoints _grp;
+    private _wp = _grp addWaypoint [[-1000,-1000,-1000], 10];
+    _wp setWaypointStatements ["true", "
+        private _veh = vehicle this;
+        {
+            deleteVehicle _x;
+            nil
+        } count (crew _veh);
+        deleteVehicle _veh;"
+    ];
+    _grp setCurrentWaypoint _wp;
 };
 
-if (typeOf _obj isKindOf "LandVehicle" || {typeOf _obj isKindOf "Ship"}) exitWith {
-    if (typeOf _obj isKindOf "StaticWeapon") then {
+if (_obj isKindOf "LandVehicle" || {_obj isKindOf "Ship"}) exitWith {
+    if (_obj isKindOf "StaticWeapon") then {
         {
             moveOut _x;
             _x setBehaviour "CARELESS";
             [_x,true] call ace_captives_fnc_setSurrendered;
-            [0,"%1 surrenders.",typeOf _x] call SEN_fnc_log;
+            DUMP(typeOf _x + " surrenders.");
             nil
         } count (crew _obj);
-
     } else {
         private _driver = driver _obj;
-        _driver setVariable ["SEN_patrol_exit", true];
+        (group _driver) setVariable [QGVAR(ExitPatrol), true];
         _obj limitSpeed 0;
-        sleep 2;
-        group _driver leaveVehicle _obj;
-        sleep 5;
-        {
-            _x setBehaviour "CARELESS";
-            doStop _x;
-            [_x,true] call ace_captives_fnc_setSurrendered;
-            [0,"%1 surrenders.",typeOf _x] call SEN_fnc_log;
-            nil
-        } count units (group _driver);
+
+        [{
+            (group _driver) leaveVehicle _obj;
+            {
+                moveOut _x;
+                _x setBehaviour "CARELESS";
+                doStop _x;
+                [_x,true] call ace_captives_fnc_setSurrendered;
+                DUMP(typeOf _x + " surrenders.");
+                nil
+            } count (crew _obj);
+        }, 4, [_obj, _driver]] call CFUNC(wait);
     };
     true
 };
 
 [_obj] joinSilent grpNull;
-_obj setVariable ["SEN_patrol_exit",true];
+(group _obj) setVariable [QGVAR(ExitPatrol), true];
 _obj setBehaviour "CARELESS";
 doStop _obj;
 [_obj,true] call ace_captives_fnc_setSurrendered;
-[0,"%1 surrenders.",typeOf _obj] call SEN_fnc_log;
+DUMP(typeOf _obj + " surrenders.");
 true

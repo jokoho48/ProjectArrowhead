@@ -24,7 +24,7 @@ private _usesHouses = (_houseArray isEqualTo []);
 for "_i" from 1 to 50 do {
     if (_usesHouses && {random 1 < 0.35}) then {
         private _house = selectRandom _houseArray;
-        private _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
+        private _housePosArray = _house buildingPos -1;
         private _houses = _houses - [_house];
         if (count _housePosArray > 1) then {
             private _pos2 = getPos _house;
