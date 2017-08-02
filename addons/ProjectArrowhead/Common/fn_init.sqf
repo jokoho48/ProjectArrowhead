@@ -89,7 +89,7 @@ GVAR(locations) = [];
     nil
 } count (nearestLocations [GVAR(centerPos), ["NameCityCapital","NameCity","NameVillage"], worldSize/2]);
 
-["ACE_handcuffeUnit", {
+["ACE_handcuffUnit", {
     (_this select 0) params ["_unit", "_state"];
     if !(local _unit) exitWith {};
     [_unit, _state] call ace_captives_fnc_setHandcuffed;

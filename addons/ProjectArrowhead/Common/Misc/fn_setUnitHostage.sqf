@@ -15,4 +15,4 @@
 */
 params ["_unit", "_state"];
 
-["ACE_handcuffeUnit", [_unit, _state]] call CFUNC(globalEvent);
+["ACE_handcuffUnit", [_unit, _state]] call CFUNC(globalEvent);
