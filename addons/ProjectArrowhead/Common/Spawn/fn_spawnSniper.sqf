@@ -30,9 +30,8 @@ for "_i" from 1 to _count do {
             [_pos, 1, _min, _max, _side, _nocache, _force - 1] call FUNC(spawnSniper);
         };
     } else {
-        private _type = selectRandom GVAR(sniperPoolEnemy);
         private _grp = createGroup _side;
-        private _unit = _grp createUnit [_type, _overwatch, [], 0, "NONE"];
+        private _unit = _grp createUnit [GETUNIT(_side,3), _overwatch, [], 0, "NONE"];
         _unit setUnitPos "DOWN";
         _unit setskill ["spotDistance",0.97];
         (units _grp) doWatch _pos;

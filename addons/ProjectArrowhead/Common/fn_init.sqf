@@ -94,3 +94,12 @@ GVAR(locations) = [];
     if !(local _unit) exitWith {};
     [_unit, _state] call ace_captives_fnc_setHandcuffed;
 }] call CFUNC(addEventhandler);
+
+GVAR(taskID) = 0;
+
+DFUNC(taskName) = {
+    params ["_name"];
+    _name = _name str GVAR(taskID);
+    GVAR(taskID) = GVAR(taskID) + 1;
+    _name
+};

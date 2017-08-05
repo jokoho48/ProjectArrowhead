@@ -30,27 +30,27 @@ for "_j" from 0 to (_count - 1) do {
 
     call {
         if (_type isEqualTo 0) exitWith {
-            (selectRandom _unitPool) createUnit [_pos, _grp];
+            GETUNIT(_side,0) createUnit [_pos, _grp];
         };
         private _veh = if (_type isEqualTo 1) then {
-            (selectRandom _vehPool) createVehicle _pos;
+            GETUNIT(_side,1) createVehicle _pos;
         } else {
-            createVehicle [(selectRandom _airPool),_pos,[],0,"FLY"];
+            createVehicle [GETUNIT(_side,2),_pos,[],0,"FLY"];
         };
 
-        private _unit = _grp createUnit [(selectRandom _unitPool),_pos, [], 0, "NONE"];
+        private _unit = _grp createUnit [GETUNIT(_side,0),_pos, [], 0, "NONE"];
         _unit moveInDriver _veh;
         _driverArray pushBack _unit;
 
         if !((_veh emptyPositions "gunner") isEqualTo 0) then {
             for "_i" from 0 to (_veh emptyPositions "gunner") do {
-                _unit = _grp createUnit [(selectRandom _unitPool),_pos, [], 0, "NONE"];
+                _unit = _grp createUnit [GETUNIT(_side,0),_pos, [], 0, "NONE"];
                 _unit moveInGunner _veh;
             };
         };
         if !((_veh emptyPositions "commander") isEqualTo 0) then {
             for "_i" from 0 to (_veh emptyPositions "commander") do {
-                _unit = _grp createUnit [(selectRandom _unitPool), _pos, [], 0, "NONE"];
+                _unit = _grp createUnit [GETUNIT(_side,0), _pos, [], 0, "NONE"];
                 _unit moveInCommander _veh;
             };
         };

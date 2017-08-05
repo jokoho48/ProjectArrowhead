@@ -21,12 +21,12 @@
 
 #include "\tc\CLib\addons\CLib\macros.hpp"
 
-
-
-#define poolWest 0
-#define poolEast 1
-#define poolGuer 2
-#define poolCiv  3
-
 #define NOCAHE(var) var setVariable [QEGVAR(Caching,onCache), true, true]
 #define NOCLEAN(var) var setVariable [QCGVAR(noClean), true, true];
+
+#define MFUNC(var) EFUNC(Common,var)
+#define QMFUNC(var) QUOTE(MFUNC(var))
+#define MGVAR(var) EGVAR(Common,var)
+#define QMGVAR(var) QUOTE(MGVAR(var))
+
+#define GETUNIT(var1,var2) ([var1, var2] call FUNC(getClassName))

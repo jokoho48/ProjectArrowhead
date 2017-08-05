@@ -26,8 +26,7 @@ if !(_posArray isEqualTo []) then {
         _tower setdir random 360;
         _tower setPosATL _x;
         _tower setvectorup [0,0,1];
-        private _type = selectRandom GVAR(unitPoolEnemy);
-        private _unit = _grp createUnit [_type, [0,0,0], [], 0, "NONE"];
+        private _unit = _grp createUnit [GETUNIT(_side,0), [0,0,0], [], 0, "NONE"];
         _unit setFormDir (getDir _tower);
         _unit setDir (getDir _tower);
         _unit setpos (_tower buildingpos 1);

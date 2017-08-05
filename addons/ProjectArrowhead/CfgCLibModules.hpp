@@ -3,7 +3,7 @@
 class CfgCLibModules {
     class ProjectArrowhead {
         path = "\paw\ProjectArrowhead\addons\ProjectArrowhead"; // TODO add Simplifyed Macro for this
-        dependency[] = {"CLib", "BSO/RBU", "BSO/Common", "BSO/BFT"};
+        dependency[] = {"CLib"};
 
         MODULE(BaseProtection) {
             FNC(clientInit);
@@ -12,6 +12,7 @@ class CfgCLibModules {
 
         MODULE(Common) {
             MODULE(Misc) {
+                FNC(getClassName);
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
                 FNC(setUnitSurrender);
@@ -35,6 +36,8 @@ class CfgCLibModules {
             };
 
             MODULE(UnitMovment) {
+                FNC(occupyBuilding);
+                FNC(serverInit);
                 FNC(setPatrolInf);
                 FNC(setPatrolVeh);
                 FNC(taskPatrol);
@@ -48,10 +51,16 @@ class CfgCLibModules {
         };
 
         MODULE(MainAO) {
+            FNC(selectMainMission);
             FNC(serverInit);
         };
 
+        MODULE(Missions) {
+            FNC(clearTown);
+        };
+
         MODULE(SideMission) {
+            FNC(selectSideMission);
             FNC(serverInit);
         };
     };
