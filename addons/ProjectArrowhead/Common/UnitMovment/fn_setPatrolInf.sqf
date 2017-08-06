@@ -1,6 +1,6 @@
 #include "macros.hpp"
 /*
-    Community Lib - CLib
+    Project Arrowhead
 
     Author: joko // Jonas
 
