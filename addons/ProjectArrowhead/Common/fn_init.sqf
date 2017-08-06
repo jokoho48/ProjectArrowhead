@@ -84,7 +84,7 @@ GVAR(locations) = [];
     private _locName = text _x;
     private _locPos = getpos _x;
     _locPos set [2,0];
-    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 1000 + 900) then {
+    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 900) then {
         GVAR(locations) pushBack _x
     };
     nil

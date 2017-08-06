@@ -31,4 +31,4 @@ GVAR(missionCounter) = 0;
 } forEach [missionConfigFile, configFile];
 [{
     call FUNC(selectMainMission);
-}, 30] call CFUNC(wait);
+}, 5] call CFUNC(wait);

@@ -62,7 +62,7 @@ if !(_isAir) then {
             };
             if (count _posArray isEqualTo 5) then {
                 [_grp, _wpindex] setWaypointStatements ["true", "(group this) setCurrentWaypoint [group this, 1];" + DFUNC(exitPatrol)];
-                breakTo SCRIPTSCOPENAME;
+                breakOut SCRIPTSCOPENAME;
             };
         };
     } else {
@@ -83,7 +83,7 @@ if !(_isAir) then {
 
             if (count _posArray isEqualTo 5) then {
                 [_grp, _wpindex] setWaypointStatements ["true", "(group this) setCurrentWaypoint [group this, 1];" + DFUNC(exitPatrol)];
-                breakTo SCRIPTSCOPENAME;
+                breakOut SCRIPTSCOPENAME;
             };
         };
     };

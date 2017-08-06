@@ -28,17 +28,16 @@ for "_j" from 0 to (_count - 1) do {
             private _unit = (GETUNIT(_side,_type) createUnit [_pos, _grp]);
             _unit allowDamage false;
         };
-        _pos = _spawnPos vectorAdd [random 100, random 100, 0];
         private _veh = if (_type isEqualTo 1) then {
             private _type = GETUNIT(_side,_type);
             _pos = [_pos, 10, 0, _type] call CFUNC(findSavePosition);
             createVehicle [_type,_pos,[],100,"NONE"];
         } else {
             private _type = GETUNIT(_side,_type);
-            _pos = [_pos, 10, 0, _type] call CFUNC(findSavePosition);
             if (surfaceIsWater _pos) then {
                 createVehicle [_type,_pos,[],100,"FLY"];
             } else {
+                _pos = [_pos, 10, 0, _type] call CFUNC(findSavePosition);
                 createVehicle [_type,_pos,[],100,"NONE"];
             };
         };
