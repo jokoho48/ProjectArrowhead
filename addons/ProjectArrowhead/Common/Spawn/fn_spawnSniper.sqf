@@ -26,14 +26,14 @@ for "_i" from 1 to _count do {
 
     if (_overwatch isEqualTo [0,0,0] || {_overwatch isEqualTo []} || {_overwatch distance _pos > _max} || {_overwatchASL < 80}) then {
         LOG("fn_spawnSniper cannot find suitable overwatch position.");
-        if (_force != 0) then {
-            [_pos, 1, _min, _max, _side, _nocache, _force - 1] call FUNC(spawnSniper);
+        if (_force > 0) then {
+            [_pos, 1, _min, _max + 100, _side, _nocache, _force - 1] call FUNC(spawnSniper);
         };
     } else {
         private _grp = createGroup _side;
         private _unit = _grp createUnit [GETUNIT(_side,3), _overwatch, [], 0, "NONE"];
         _unit setUnitPos "DOWN";
-        _unit setskill ["spotDistance",0.97];
+        _unit setskill ["spotDistance", 1];
         (units _grp) doWatch _pos;
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";

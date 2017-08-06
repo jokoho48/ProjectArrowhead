@@ -13,9 +13,9 @@
     Returns:
     0: Return <Type>
 */
-params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_side", SEN_enemySide]];
+params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_side", GVAR(enemySide)], ["_unitCount", 1, [0]]];
 
-private _posArray = [_pos,_range,(_range*0.3),_count] call FUNC(findPosArray);
+private _posArray = [_pos,_range,(_range*0.2),_count] call FUNC(findPosArray);
 
 if !(_posArray isEqualTo []) then {
     private _grp = createGroup _side;
@@ -26,13 +26,18 @@ if !(_posArray isEqualTo []) then {
         _tower setdir random 360;
         _tower setPosATL _x;
         _tower setvectorup [0,0,1];
-        private _unit = _grp createUnit [GETUNIT(_side,0), [0,0,0], [], 0, "NONE"];
-        _unit setFormDir (getDir _tower);
-        _unit setDir (getDir _tower);
-        _unit setpos (_tower buildingpos 1);
-        _unit setUnitPos "UP";
-        _unit setskill ["spotDistance",0.90];
-        _unit disableAI "MOVE";
+        private _bPos = (_tower buildingpos -1);
+        for "_i" from 1 to (count _bPos) min _unitCount do {
+            private _unit = _grp createUnit [GETUNIT(_side,0), [0,0,0], [], 0, "NONE"];
+            _unit setFormDir (getDir _tower);
+            _unit setDir (getDir _tower);
+            private _uBPos = selectRandom _bPos;
+            _bPos deleteAt (_uBPos find _bPos);
+            _unit setPos _uBPos;
+            _unit setUnitPos "UP";
+            _unit setSkill ["spotDistance",1];
+            _unit disableAI "MOVE";
+        };
         nil
     } count _posArray;
 

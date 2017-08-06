@@ -17,7 +17,13 @@ params ["_grp", "_maxRange", "_houseArray", ["_waypointCount", 5]];
 private _minDist = _maxRange * 0.30;
 private _waypointsrange = 5;
 private _posArray = [];
-private _pos1 = getposATL (leader _grp);
+private _pos1 = if (_grp isEqualType []) then {
+    private _temp = _grp select 1;
+    _grp = _grp select 0;
+    _temp
+} else {
+    getposATL (leader _grp);
+};
 private _wpindex = 0;
 private _usesHouses = (_houseArray isEqualTo []);
 
