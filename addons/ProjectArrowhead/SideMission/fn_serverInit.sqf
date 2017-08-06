@@ -34,9 +34,8 @@ GVAR(sideMissionDelay) = 240;
 if (isNumber (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay")) then {
     GVAR(sideMissionDelay) = (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay");
 };
-
+/*
 GVAR(sideMissionRunning) = false;
-
 call FUNC(selectSideMission);
 
 [{
@@ -44,3 +43,4 @@ call FUNC(selectSideMission);
         call FUNC(selectSideMission);
     };
 }, 1] call CFUNC(addPerFrameHandler);
+*/

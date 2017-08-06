@@ -17,12 +17,12 @@
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 
-// #define ISDEV
+#define ISDEV
 
 #include "\tc\CLib\addons\CLib\macros.hpp"
 
-#define NOCAHE(var) var setVariable [QEGVAR(Caching,onCache), true, true]
-#define NOCLEAN(var) var setVariable [QCGVAR(noClean), true, true];
+#define NOCACHE(var) var setVariable [QEGVAR(Caching,onCache), true, true]
+#define NOCLEAN(var) var setVariable [QCGVAR(noClean), true, true]
 
 #define MFUNC(var) EFUNC(Common,var)
 #define QMFUNC(var) QUOTE(MFUNC(var))

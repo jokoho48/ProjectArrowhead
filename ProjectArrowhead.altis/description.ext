@@ -41,3 +41,13 @@ class BSO {
         CoefDefault = "2";
     };
 };
+
+class ProjectArrowhead {
+    MainAOSize = 2;
+    class sideMissions {};
+    class mainMissions {
+        class clearTown {
+            function = "ProjectArrowhead_Missions_fnc_clearTown";
+        };
+    };
+};

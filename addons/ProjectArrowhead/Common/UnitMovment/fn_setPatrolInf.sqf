@@ -66,3 +66,4 @@ for "_i" from 1 to 50 do {
         breakTo SCRIPTSCOPENAME;
     };
 };
+_grp setCurrentWaypoint [_grp, 1];

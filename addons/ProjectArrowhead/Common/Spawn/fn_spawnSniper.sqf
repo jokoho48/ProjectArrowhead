@@ -38,7 +38,7 @@ for "_i" from 1 to _count do {
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";
 
-        if (_nocache) then {NOCAHE(_grp);};
+        if (_nocache) then {NOCACHE(_grp);};
 
     };
     deleteVehicle _ref1;

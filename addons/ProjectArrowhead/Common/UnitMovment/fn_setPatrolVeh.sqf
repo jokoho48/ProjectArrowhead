@@ -15,6 +15,14 @@
 */
 params ["_driver", "_maxRange", "_isAir"];
 
+private _pos1 = if (_driver isEqualType []) then {
+    private _temp = _driver select 1;
+    _driver = _driver select 0;
+    _temp
+} else {
+    getPosATL _driver;
+};
+
 _maxRange = _maxRange min 1000;
 _driver setBehaviour "SAFE";
 private _veh = vehicle _driver;
@@ -32,7 +40,7 @@ if !(_isAir) then {
     _veh forceSpeed (_veh getSpeed "SLOW");
 
     if (_roads isEqualTo []) then {
-        private _pos1 = getposATL _veh;
+
 
         for "_i" from 1 to 100 do {
             private _dir = random 360;
@@ -82,7 +90,6 @@ if !(_isAir) then {
 } else {
     private _height = 180;
     _veh flyInHeight _height;
-    private _pos1 = getposATL _veh;
 
     for "_i" from 1 to 100 do {
         private _dir = random 360;

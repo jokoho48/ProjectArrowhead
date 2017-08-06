@@ -20,7 +20,7 @@ private _posArray = [_pos,_range,(_range*0.3),_count] call FUNC(findPosArray);
 if !(_posArray isEqualTo []) then {
     private _grp = createGroup _side;
     _grp allowfleeing 0;
-    NOCAHE(_grp);
+    NOCACHE(_grp);
     {
         private _tower = "Land_Cargo_Patrol_V1_F" createVehicle [0,0,0];
         _tower setdir random 360;

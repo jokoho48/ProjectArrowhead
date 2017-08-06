@@ -14,7 +14,7 @@
     0: Return <Type>
 */
 
-if ((MGVAR(missionAmount) > 0) && {MGVAR(missionAmount) == MGVAR(missionCounter)}) then {
+if ((GVAR(missionAmount) > 0) && {GVAR(missionAmount) == GVAR(missionCounter)}) then {
     "WON" call BIS_fnc_EndMissionServer;
 } else {
     private _mission = selectRandom GVAR(mainMissions);

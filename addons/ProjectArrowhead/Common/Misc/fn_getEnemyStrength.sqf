@@ -13,6 +13,6 @@
     Returns:
     0: Return <Type>
 */
-
+params [["_value", 1]];
 private _playerCount = count allPlayers;
-ceil ((_playerCount max 1) * abs(log(((_playerCount max 1)/6)/256)));
+ceil ((_playerCount max _value) * abs(log(((_playerCount max _value)/6)/256)));

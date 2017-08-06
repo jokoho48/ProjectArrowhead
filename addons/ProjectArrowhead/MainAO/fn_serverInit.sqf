@@ -14,6 +14,9 @@
     0: Return <Type>
 */
 GVAR(mainMissions) = [];
+
+GVAR(missionAmount) = 10;
+GVAR(missionCounter) = 0;
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;
     {
@@ -26,3 +29,5 @@ GVAR(mainMissions) = [];
     } count configProperties [_x >> "ProjectArrowhead" >> "mainMissions" , "isClass _x || isText _x", true];
     nil
 } forEach [missionConfigFile, configFile];
+
+call FUNC(selectMainMission);

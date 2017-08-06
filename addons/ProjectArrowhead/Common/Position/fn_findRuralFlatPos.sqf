@@ -20,7 +20,7 @@ private _pos = [0,0,0];
 
 for "_s" from 0 to 100 do {
     _pos = [_center,0,_range] call FUNC(selectRandomPos);
-    if !([_pos, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker) then {
+    if !([_pos, EGVAR(Common,baseMarker)] call FUNC(inArea)) then {
         if (count (_pos isFlatEmpty [1, 0, 0.3, 30, 0, false, objNull]) != 0 && {count (_pos isFlatEmpty [1, 0, 0.12, _dist min 300, 0, false, objNull]) != 0}) then {
             if (count (nearestObjects [_pos, ["house"], _dist*1.7]) isEqualTo 0) then {
                 private _dummypad = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];

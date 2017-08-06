@@ -6,6 +6,7 @@ class CfgCLibModules {
         dependency[] = {"CLib"};
 
         MODULE(BaseProtection) {
+            dependency[] = {"ProjectArrowhead/Common"};
             FNC(clientInit);
             FNC(serverInit);
         };
@@ -23,7 +24,7 @@ class CfgCLibModules {
                 FNC(findHousePos);
                 FNC(findPosArray);
                 FNC(findRuralFlatPos);
-                FNC(findRutalHousePos);
+                FNC(findRuralHousePos);
                 FNC(findTriPos);
                 FNC(inArea);
                 FNC(selectRandomPos);
@@ -47,19 +48,24 @@ class CfgCLibModules {
         };
 
         MODULE(IED) {
+            dependency[] = {"ProjectArrowhead/Common"};
             FNC(serverInit);
         };
 
         MODULE(MainAO) {
+            dependency[] = {"ProjectArrowhead/Common"};
             FNC(selectMainMission);
             FNC(serverInit);
         };
 
         MODULE(Missions) {
+            dependency[] = {"ProjectArrowhead/Common"};
             FNC(clearTown);
+            FNC(init);
         };
 
         MODULE(SideMission) {
+            dependency[] = {"ProjectArrowhead/Common"};
             FNC(selectSideMission);
             FNC(serverInit);
         };

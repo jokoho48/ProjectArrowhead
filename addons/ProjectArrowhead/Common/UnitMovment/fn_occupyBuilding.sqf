@@ -15,16 +15,16 @@
 */
 params [
     ["_pos", [0,0,0], [[]]],
-    ["_types", ["Building"], [[]]],
     ["_units", [], [[], grpNull]],
     ["_radius", 50, [0]],
     ["_random", false, [true]]
 ];
 private _buildings = if (_radius < 60) then {
-    nearestObjects [_pos, _types, _radius];
+    nearestObjects [_pos, ["Building"], _radius];
 } else {
-    private _temp = nearestObjects [_pos, _types, _radius];
+    private _temp = nearestObjects [_pos, ["Building"], _radius];
     _temp = _temp call CFUNC(shuffleArray);
+    _temp
 };
 if (_buildings isEqualTo []) exitWith {DUMP("NoBuildings Found")};
 private _buildingPos = [];
