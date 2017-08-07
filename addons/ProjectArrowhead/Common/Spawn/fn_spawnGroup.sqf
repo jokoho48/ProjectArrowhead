@@ -21,7 +21,7 @@ _grp allowfleeing 0;
 private _driverArray = [];
 private _vehArray = [];
 for "_j" from 0 to (_count - 1) do {
-    private _pos = _spawnPos; //[_spawnPos, 500] call CFUNC(findSavePosition);
+    private _pos = _spawnPos;
     _pos set [2, 0];
     call {
         if (_type isEqualTo 0) exitWith {
@@ -30,16 +30,11 @@ for "_j" from 0 to (_count - 1) do {
         };
         private _veh = if (_type isEqualTo 1) then {
             private _type = GETUNIT(_side,_type);
-            //_pos = [_pos, 500, 0, _type] call CFUNC(findSavePosition);
             createVehicle [_type,_pos,[],500,"NONE"];
         } else {
             private _type = GETUNIT(_side,_type);
-            if (surfaceIsWater _pos) then {
-                createVehicle [_type,_pos,[],500,"FLY"];
-            } else {
-                //_pos = [_pos, 500, 0, _type] call CFUNC(findSavePosition);
-                createVehicle [_type,_pos,[],500,"NONE"];
-            };
+            createVehicle [_type,_pos,[],500,"FLY"];
+
         };
         _vehArray pushBack _veh;
         _veh allowDamage false;

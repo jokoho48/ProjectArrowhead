@@ -16,26 +16,32 @@
 
 params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
 private _return = [];
-private _posASL = AGLToASL _pos;
+
 private _loc = nearestLocations [_pos, ["Hill", "Mount"], _max];
 private _posiblePos = [];
 {
-    private _checkPos = AGLToASL getPos _x;
+    private _checkPos = locationPosition _x;
     private _name = createMarker [QGVAR(debugMarkerSniper) + (str _forEachIndex), _checkPos];
     _name setMarkerShape "ICON";
     _name setMarkerType "hd_dot";
-    if !(terrainIntersectASL [_posASL, _checkPos]) then {
+    private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
+    private _distance = _checkPos distance2D _pos;
+    if ((_distance > _min) && {(_distance < _max)} && {_height > 40}) then {
         _name setMarkerColor "ColorBlue";
-        private _ref1 = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];
-        private _ref2 = createVehicle ["Land_HelipadEmpty_F", _checkPos, [], 0, "CAN_COLLIDE"];
-        private _height = ((getposASL _ref2) vectorDiff (getPosASL _ref1)) select 2;
-        private _distance = _checkPos distance _pos;
-        if ((_distance > _min) && {(_distance < _max)} && {_height > 80}) then {
-            _posiblePos pushback _checkPos;
+        private _in = str _forEachIndex;
+        private _lis = lineIntersectsSurfaces [AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 3], AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
+        {
+            _x params ["_aslPos"];
+            private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in, _aslPos];
+            _name setMarkerShape "ICON";
+            _name setMarkerType "hd_dot";
             _name setMarkerColor "ColorRed";
+            nil
+        } forEach _lis;
+        if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,getTerrainHeightASL _pos + 3], AGLToASL(_checkPos)]) then {
+            _posiblePos pushback _checkPos;
+            _name setMarkerColor "ColorGreen";
         };
-        deleteVehicle _ref1;
-        deleteVehicle _ref2;
     };
     nil
 } forEach _loc;
@@ -44,7 +50,7 @@ for "_i" from 1 to _count do {
     if (_posiblePos isEqualTo []) then {
         LOG("fn_spawnSniper cannot find suitable overwatch position.");
         if (_force > 0) then {
-            [_pos, 1, _min, _max + 100, _side, _nocache, _force - 1] call FUNC(spawnSniper);
+            [_pos, 1, _min, _max + 300, _side, _nocache, _force - 1] call FUNC(spawnSniper);
         };
     } else {
         private _overwatch = selectRandom _posiblePos;
@@ -53,12 +59,12 @@ for "_i" from 1 to _count do {
 
         private _relDir = (_ppos select 0) atan2 (_ppos select 1);
 
-        _overwatch = [_overwatch, 0, random [25, 50, 100], [_relDir - 60, _relDir + 60]] call MFUNC(selectRandomPos);
+        _overwatch = [_overwatch, 0, random [25, 50, 100], [_relDir - 20, _relDir + 20]] call MFUNC(selectRandomPos);
 
-        private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 100];
+        private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 20];
         if !(_objs isEqualTo []) then {
             {
-                if !(terrainIntersectASL [_posASL, (getPosASL _x)]) exitWith {
+                if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,(getTerrainHeightASL (getPosASL _x)) + 3], getPosASL _x]) exitWith {
                     _overwatch = getPos _x;
                 };
             } forEach _objs

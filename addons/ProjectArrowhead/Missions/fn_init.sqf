@@ -18,7 +18,7 @@ GVAR(mainAOGroupCount) = 10;
 GVAR(mainAOVehicleCount) = 5;
 GVAR(mainAOAirCount) = 2;
 GVAR(mainAOTower) = 3;
-GVAR(mainAOSniper) = 4;
+GVAR(mainAOSniper) = 2;
 [QGVAR(spawnClearTownUnits), {
     (_this select 0) params ["_aoPos"];
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
