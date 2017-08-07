@@ -23,9 +23,9 @@ private _roads = _pos nearRoads _range;
 
 for "_s" from 0 to 100 do {
     call {
-        if (_random) then {_type = ceil random 7};
+        if (_random) then {_type = floor random 2};
 
-        if (_type in [1, 4, 6]) exitWith { // open static
+        if (_type isEqualTo 0) exitWith { // open static
             if (count _roads < 1) exitWith {};
             private _road = selectRandom _roads;
             private _roadConnectedTo = (roadsConnectedTo _road) select 0;
@@ -55,7 +55,7 @@ for "_s" from 0 to 100 do {
             _gunner setDir _dir + 180;
             _gunnerArray pushBack _gunner;
         };
-        if (_type in [2, 5, 7]) exitWith { // bunkered static
+        if (_type isEqualTo 1) exitWith { // bunkered static
             if (count _roads < 1) exitWith {};
             private _road = selectRandom _roads;
             private _roadConnectedTo = (roadsConnectedTo _road) select 0;

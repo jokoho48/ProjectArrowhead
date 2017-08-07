@@ -14,7 +14,6 @@
     0: Return <Type>
 */
 
-
 private _location = selectRandom MGVAR(locations);
 GVAR(mainAOSize) = ((size _location) select 0) * (getNumber (missionConfigFile >> "ProjectArrowhead" >> "MainAOSize"));
 publicVariable QGVAR(mainAOSize);

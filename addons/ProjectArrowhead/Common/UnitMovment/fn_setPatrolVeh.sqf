@@ -13,7 +13,7 @@
     Returns:
     0: Return <Type>
 */
-params ["_driver", "_maxRange", "_isAir"];
+params ["_driver", "_maxRange", "_isAir", ["_height", 160]];
 
 private _pos1 = if (_driver isEqualType []) then {
     private _temp = _driver select 1;
@@ -88,7 +88,6 @@ if !(_isAir) then {
         };
     };
 } else {
-    private _height = 180;
     _veh flyInHeight _height;
 
     for "_i" from 1 to 100 do {

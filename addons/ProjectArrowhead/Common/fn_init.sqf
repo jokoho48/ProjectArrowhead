@@ -13,8 +13,6 @@
     Returns:
     None
 */
-
-
 GVAR(baseMarker) = "Base";
 ["DisplayHint", {
     (_this select 0) params ["_headerText", "_mainText"];

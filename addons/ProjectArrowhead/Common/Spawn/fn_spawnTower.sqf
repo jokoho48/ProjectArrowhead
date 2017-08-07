@@ -29,17 +29,22 @@ if !(_posArray isEqualTo []) then {
         _tower setPosATL _x;
         _tower setVectorUp [0,0,1];
         private _bPos = (_tower buildingpos -1);
-        for "_i" from 1 to (count _bPos) min _unitCount do {
+        for "_i" from 1 to ((count _bPos) min _unitCount) do {
             private _unit = _grp createUnit [GETCLASS(_side,0), [0,0,0], [], 0, "NONE"];
             _unit setFormDir (getDir _tower);
             _unit setDir 180 + (getDir _tower);
-            private _uBPos = selectRandom _bPos;
-            _bPos deleteAt (_uBPos find _bPos);
+            private _uBPos = _bPos select (_i - 1);
             _unit setPos _uBPos;
             _unit setUnitPos "UP";
             _unit setSkill ["spotDistance",1];
             _unit disableAI "MOVE";
         };
+        #ifdef ISDEV
+        private _mrk = createMarker [format[QGVAR(Tower_%1),_x], _x];
+        _mrk setMarkerType "mil_dot";
+        _mrk setMarkerColor "ColorEAST";
+        _mrk setMarkerText "TOWER";
+        #endif
         nil
     } count _posArray;
 

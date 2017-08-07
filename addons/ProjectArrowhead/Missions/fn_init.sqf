@@ -22,6 +22,12 @@ GVAR(mainAOSniper) = 2;
 GVAR(mainAOStatic) = 3;
 [QGVAR(spawnClearTownUnits), {
     (_this select 0) params ["_aoPos"];
+
+    [_aoPos, GVAR(mainAOSize)*0.5, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic); // Spawn Statics expect from Mortar
+    [_aoPos, GVAR(mainAOSize)*0.1, 1, 2, east] call MFUNC(spawnStatic); // Spawn Mortar
+    [_aoPos, GVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, 4] call MFUNC(spawnTower); // Spawn Watch Towers
+
+    // Spawn Inf Groups
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
         private _pos = _aoPos vectorAdd [random 200, random 200, 0];
         private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
@@ -32,6 +38,7 @@ GVAR(mainAOStatic) = 3;
         };
     };
 
+    // Spawn Vehicles
     private _posArray = [_aoPos, GVAR(mainAOSize), 0, GVAR(mainAOVehicleCount), true, 10] call MFUNC(findPosArray);
     {
         private _vehicles = [_x, 1, 1, east] call MFUNC(spawnGroup);
@@ -42,6 +49,7 @@ GVAR(mainAOStatic) = 3;
         nil
     } count _posArray;
 
+    // Spawn Air Vehciles
     for "_i" from 1 to GVAR(mainAOAirCount) do {
         private _pos = [_aoPos, GVAR(mainAOSize)*2, GVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
         private _vehicles = [_pos, 2, 1, east] call MFUNC(spawnGroup);
@@ -51,7 +59,6 @@ GVAR(mainAOStatic) = 3;
         } count _vehicles;
     };
 
-    [_aoPos, GVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, 3] call MFUNC(spawnTower);
+    // Spawn Snipers
     [_aoPos, GVAR(mainAOSniper), GVAR(mainAOSize)*0.2, GVAR(mainAOSize)*1.3, east, false, 2] call MFUNC(spawnSniper);
-    [_aoPos, GVAR(mainAOSize)*0.6, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic);
 }] call CFUNC(addEventhandler);

@@ -30,7 +30,7 @@ private _posiblePos = [];
     #endif
     private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
-    if ((_distance > _min) && {(_distance < _max)} && {_height > 60}) then {
+    if ((_distance > _min) && {(_distance < _max)} && {_height > 50}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         #ifdef ISDEV
         _name setMarkerColor "ColorBlue";
@@ -54,6 +54,8 @@ private _posiblePos = [];
     nil
 } forEach _loc;
 _posiblePos = _posiblePos call CFUNC(shuffleArray);
+private _pCount = count _posiblePos;
+private _randomI = floor (random _pCount);
 for "_i" from 1 to _count do {
     if (_posiblePos isEqualTo []) then {
         LOG("fn_spawnSniper cannot find suitable overwatch position.");
@@ -61,7 +63,7 @@ for "_i" from 1 to _count do {
             [_pos, 1, _min, _max + 300, _side, _nocache, _force - 1] call FUNC(spawnSniper);
         };
     } else {
-        private _overwatch = selectRandom _posiblePos;
+        private _overwatch = _posiblePos select ((_randomI + _i) mod _pCount);
         _posiblePos deleteAt (_overwatch find _posiblePos);
         private _ppos = _pos vectorDiff _overwatch;
 
@@ -86,7 +88,12 @@ for "_i" from 1 to _count do {
         (units _grp) doWatch _pos;
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";
-
+        #ifdef ISDEV
+        private _mrk = createMarker [format[QGVAR(Tower_%1),_overwatch], _overwatch];
+        _mrk setMarkerType "mil_dot";
+        _mrk setMarkerColor "ColorEAST";
+        _mrk setMarkerText "SNIPER";
+        #endif
         if (_nocache) then {NOCACHE(_grp);};
     };
 };
