@@ -23,7 +23,7 @@ private _posiblePos = [];
     private _checkPos = locationPosition _x;
     #ifdef ISDEV
     deleteMarker (QGVAR(debugMarkerSniper) + (str _forEachIndex));
-    private _name = createMarker [QGVAR(debugMarkerSniper) + (str _forEachIndex), _checkPos];
+    private _name = createMarker [QGVAR(debugMarkerSniper) + (str _forEachIndex) + (str _checkPos), _checkPos];
     _name setMarkerShape "ICON";
     _name setMarkerType "hd_dot";
     #endif
@@ -36,8 +36,7 @@ private _posiblePos = [];
         private _lis = lineIntersectsSurfaces [AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 3], AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         {
             _x params ["_aslPos"];
-            deleteMarker (QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in);
-            private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in, _aslPos];
+            private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in + str _aslPos, _aslPos];
             _name setMarkerShape "ICON";
             _name setMarkerType "hd_dot";
             _name setMarkerColor "ColorRed";
@@ -78,7 +77,7 @@ for "_i" from 1 to _count do {
             } forEach (_objs call CFUNC(shuffleArray));
         };
         private _grp = createGroup _side;
-        private _unit = _grp createUnit [GETUNIT(_side,3), _overwatch, [], 0, "NONE"];
+        private _unit = _grp createUnit [GETCLASS(_side,3), _overwatch, [], 0, "NONE"];
         _unit setUnitPos "DOWN";
         _unit setSkill ["spotDistance", 1];
         _unit setUnitRank "COLONEL";

@@ -30,7 +30,7 @@ if !(_posArray isEqualTo []) then {
         _tower setVectorUp [0,0,1];
         private _bPos = (_tower buildingpos -1);
         for "_i" from 1 to (count _bPos) min _unitCount do {
-            private _unit = _grp createUnit [GETUNIT(_side,0), [0,0,0], [], 0, "NONE"];
+            private _unit = _grp createUnit [GETCLASS(_side,0), [0,0,0], [], 0, "NONE"];
             _unit setFormDir (getDir _tower);
             _unit setDir 180 + (getDir _tower);
             private _uBPos = selectRandom _bPos;

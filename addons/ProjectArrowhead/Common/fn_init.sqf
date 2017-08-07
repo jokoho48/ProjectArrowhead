@@ -25,29 +25,29 @@ GVAR(baseMarker) = "Base";
 DFUNC(onPinged) = {
     params ["_curator", "_unit"];
 
-    private _pingCount = _unit getVariable "derp_curatorPingCount";
-    private _lastPingTime = _unit getVariable "derp_lastPingTime";
+    private _pingCount = _unit getVariable QGVAR(curatorPingCount);
+    private _lastPingTime = _unit getVariable QGVAR(lastPingTime);
 
     if (isnil "_pingCount") then {
-        _unit setVariable ["derp_curatorPingCount", 1, false];
-        _unit setVariable ["derp_lastPingTime", time, false];
+        _unit setVariable [QGVAR(curatorPingCount), 1, false];
+        _unit setVariable [QGVAR(lastPingTime), time, false];
     } else {
         _pingCount = _pingCount + 1;
 
         if (_lastPingTime <= time - 20) then {
             _unit setVariable ["derp_lastPingTime", time, false];
-            _unit setVariable ["derp_curatorPingCount", 1, false];
+            _unit setVariable [QGVAR(lastPingTime), 1, false];
         } else {
             if (_pingCount == 4) then {
                 ["DisplayHint", _unit, ["YOU HAVE ANGERD ZEUS", "wait 20s before pressing the zeus ping button again, or die."]] call CFUNC(targetEvent);
             };
             if (_pingCount >= 5) then {
                 _unit setDamage 1;
-                _unit setVariable ["derp_curatorPingCount", nil, false];
-                _unit setVariable ["derp_lastPingTime", nil, false];
+                _unit setVariable [QGVAR(curatorPingCount), nil, false];
+                _unit setVariable [QGVAR(lastPingTime), nil, false];
             } else {
-                _unit setVariable ["derp_lastPingTime", time, false];
-                _unit setVariable ["derp_curatorPingCount", _pingCount, false];
+                _unit setVariable [QGVAR(lastPingTime), time, false];
+                _unit setVariable [QGVAR(curatorPingCount), _pingCount, false];
             };
         };
     };
@@ -73,6 +73,20 @@ if (isServer) then {
     }] call CFUNC(addEventhandler);
 };
 
+
+private _fnc_flattenArray = {
+    private _return = [];
+    {
+        if (_x isEqualType []) then {
+            _x params ["_class", "_count"];
+            for "_i" from 1 to _count do {
+                _return pushBack _class;
+            };
+        } else {
+            _return pushBack _x;
+        };
+    } count _this;
+};
 GVAR(unitPoolFriendly) = [];
 GVAR(vehiclePoolFriendly) = [];
 GVAR(airPoolFriendly) = [];
@@ -81,6 +95,9 @@ GVAR(unitPoolEnemy) = ["O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F",
 GVAR(vehiclePoolEnemy) = ["O_MBT_02_cannon_F", "O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "O_APC_Tracked_02_AA_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];
 GVAR(airPoolEnemy) = ["O_Heli_Light_02_F"];
 GVAR(sniperPoolEnemy) = ["O_sniper_F"];
+GVAR(staticPoolEnemy) = ["O_GMG_01_F", "O_HMG_01_F"];
+GVAR(staticHighPoolEnemy) = ["O_GMG_01_high_F", "O_HMG_01_high_F"];
+GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];
 
 GVAR(unitPoolRebels) = [];
 GVAR(vehiclePoolRebels) = [];
@@ -96,7 +113,7 @@ GVAR(locations) = [];
     private _locName = text _x;
     private _locPos = getpos _x;
     _locPos set [2,0];
-    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 1500) then {
+    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500) then {
         GVAR(locations) pushBack _x
     };
     nil

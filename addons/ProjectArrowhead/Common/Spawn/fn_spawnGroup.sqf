@@ -25,34 +25,34 @@ for "_j" from 0 to (_count - 1) do {
     _pos set [2, 0];
     call {
         if (_type isEqualTo 0) exitWith {
-            private _unit = (GETUNIT(_side,_type) createUnit [_pos, _grp]);
+            private _unit = (GETCLASS(_side,_type) createUnit [_pos, _grp]);
             _unit allowDamage false;
         };
         private _veh = if (_type isEqualTo 1) then {
-            private _type = GETUNIT(_side,_type);
+            private _type = GETCLASS(_side,_type);
             createVehicle [_type,_pos,[],500,"NONE"];
         } else {
-            private _type = GETUNIT(_side,_type);
+            private _type = GETCLASS(_side,_type);
             createVehicle [_type,_pos,[],500,"FLY"];
 
         };
         _vehArray pushBack _veh;
         _veh allowDamage false;
-        private _unit = _grp createUnit [GETUNIT(_side,0),_pos, [], 100, "NONE"];
+        private _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 100, "NONE"];
         _unit moveInDriver _veh;
         _unit allowDamage false;
         _driverArray pushBack _unit;
 
         if !((_veh emptyPositions "gunner") isEqualTo 0) then {
             for "_i" from 1 to (_veh emptyPositions "gunner") do {
-                _unit = _grp createUnit [GETUNIT(_side,0),_pos, [], 100, "NONE"];
+                _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 100, "NONE"];
                 _unit moveInGunner _veh;
                 _unit allowDamage false;
             };
         };
         if !((_veh emptyPositions "commander") isEqualTo 0) then {
             for "_i" from 1 to (_veh emptyPositions "commander") do {
-                _unit = _grp createUnit [GETUNIT(_side,0), _pos, [], 100, "NONE"];
+                _unit = _grp createUnit [GETCLASS(_side,0), _pos, [], 100, "NONE"];
                 _unit moveInCommander _veh;
                 _unit allowDamage false;
             };

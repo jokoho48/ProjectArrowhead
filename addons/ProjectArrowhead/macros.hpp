@@ -29,4 +29,4 @@
 #define MGVAR(var) EGVAR(Common,var)
 #define QMGVAR(var) QUOTE(MGVAR(var))
 
-#define GETUNIT(var1,var2) ([var1, var2] call FUNC(getClassName))
+#define GETCLASS(var1,var2) ([var1, var2] call FUNC(getClassName))

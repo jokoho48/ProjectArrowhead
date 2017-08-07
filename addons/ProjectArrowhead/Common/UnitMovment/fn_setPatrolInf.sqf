@@ -25,7 +25,7 @@ private _pos1 = if (_grp isEqualType []) then {
     getposATL (leader _grp);
 };
 private _wpindex = 0;
-private _usesHouses = (_houseArray isEqualTo []);
+private _usesHouses = !(_houseArray isEqualTo []);
 
 for "_i" from 1 to 50 do {
     if (_usesHouses && {random 1 < 0.45}) then {

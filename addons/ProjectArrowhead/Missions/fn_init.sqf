@@ -19,6 +19,7 @@ GVAR(mainAOVehicleCount) = 5;
 GVAR(mainAOAirCount) = 2;
 GVAR(mainAOTower) = 3;
 GVAR(mainAOSniper) = 2;
+GVAR(mainAOStatic) = 3;
 [QGVAR(spawnClearTownUnits), {
     (_this select 0) params ["_aoPos"];
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
@@ -49,6 +50,8 @@ GVAR(mainAOSniper) = 2;
             nil
         } count _vehicles;
     };
+
     [_aoPos, GVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, 3] call MFUNC(spawnTower);
     [_aoPos, GVAR(mainAOSniper), GVAR(mainAOSize)*0.2, GVAR(mainAOSize)*1.3, east, false, 2] call MFUNC(spawnSniper);
+    [_aoPos, GVAR(mainAOSize)*0.6, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic);
 }] call CFUNC(addEventhandler);

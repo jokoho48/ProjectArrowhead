@@ -15,13 +15,20 @@
     0: Return <Type>
 */
 params [["_side", east], ["_type", 0]];
+
+if (_type isEqualType 0) then {
+    _type = ["inf", "veh", "air", "sniper", "static", "statichigh", "staticmortar"] select _type;
+} else {
+    _type = toLower _type;
+};
+
 switch (_side) do {
     case (west): {
         switch (_type) do {
-            case (1): {
+            case ("veh"): {
                 selectRandom GVAR(vehiclePoolFriendly);
             };
-            case (2): {
+            case ("air"): {
                 selectRandom GVAR(airPoolFriendly);
             };
             default {
@@ -31,7 +38,7 @@ switch (_side) do {
     };
     case (independent): {
         switch (_type) do {
-            case (1): {
+            case ("veh"): {
                 selectRandom GVAR(vehiclePoolRebels);
             };
             default {
@@ -41,7 +48,7 @@ switch (_side) do {
     };
     case (Civilian): {
         switch (_type) do {
-            case (1): {
+            case ("veh"): {
                 selectRandom GVAR(vehiclePoolCiv);
             };
             default {
@@ -51,14 +58,23 @@ switch (_side) do {
     };
     default {
         switch (_type) do {
-            case (1): {
+            case ("veh"): {
                 selectRandom GVAR(vehiclePoolEnemy);
             };
-            case (2): {
+            case ("air"): {
                 selectRandom GVAR(airPoolEnemy);
             };
-            case (3): {
+            case ("sniper"): {
                 selectRandom GVAR(sniperPoolEnemy);
+            };
+            case ("static"): {
+                selectRandom GVAR(staticPoolEnemy);
+            };
+            case ("statichigh"): {
+                selectRandom GVAR(staticHighPoolEnemy);
+            };
+            case ("staticmortar"): {
+                selectRandom GVAR(staticMortarEnemy);
             };
             default {
                 selectRandom GVAR(unitPoolEnemy);

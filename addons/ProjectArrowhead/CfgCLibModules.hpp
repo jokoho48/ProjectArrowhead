@@ -13,7 +13,6 @@ class CfgCLibModules {
 
         MODULE(Common) {
             MODULE(Misc) {
-                FNC(getClassName);
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
                 FNC(setUnitSurrender);
@@ -31,8 +30,10 @@ class CfgCLibModules {
             };
 
             MODULE(Spawn) {
+                FNC(getClassName);
                 FNC(spawnGroup);
                 FNC(spawnSniper);
+                FNC(spawnStatic);
                 FNC(spawnTower);
             };
 
