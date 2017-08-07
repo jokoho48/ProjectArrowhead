@@ -21,26 +21,34 @@ private _loc = nearestLocations [_pos, ["Hill", "Mount"], _max];
 private _posiblePos = [];
 {
     private _checkPos = locationPosition _x;
+    #ifdef ISDEV
+    deleteMarker (QGVAR(debugMarkerSniper) + (str _forEachIndex));
     private _name = createMarker [QGVAR(debugMarkerSniper) + (str _forEachIndex), _checkPos];
     _name setMarkerShape "ICON";
     _name setMarkerType "hd_dot";
+    #endif
     private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
-    if ((_distance > _min) && {(_distance < _max)} && {_height > 40}) then {
+    if ((_distance > _min) && {(_distance < _max)} && {_height > 60}) then {
+        #ifdef ISDEV
         _name setMarkerColor "ColorBlue";
         private _in = str _forEachIndex;
         private _lis = lineIntersectsSurfaces [AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 3], AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         {
             _x params ["_aslPos"];
+            deleteMarker (QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in);
             private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in, _aslPos];
             _name setMarkerShape "ICON";
             _name setMarkerType "hd_dot";
             _name setMarkerColor "ColorRed";
             nil
         } forEach _lis;
+        #endif
         if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,getTerrainHeightASL _pos + 3], AGLToASL(_checkPos)]) then {
+            #ifdef ISDEV
             _posiblePos pushback _checkPos;
             _name setMarkerColor "ColorGreen";
+            #endif
         };
     };
     nil
@@ -61,13 +69,13 @@ for "_i" from 1 to _count do {
 
         _overwatch = [_overwatch, 0, random [25, 50, 100], [_relDir - 20, _relDir + 20]] call MFUNC(selectRandomPos);
 
-        private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 20];
+        private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 100];
         if !(_objs isEqualTo []) then {
             {
                 if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,(getTerrainHeightASL (getPosASL _x)) + 3], getPosASL _x]) exitWith {
                     _overwatch = getPos _x;
                 };
-            } forEach _objs
+            } forEach (_objs call CFUNC(shuffleArray));
         };
         private _grp = createGroup _side;
         private _unit = _grp createUnit [GETUNIT(_side,3), _overwatch, [], 0, "NONE"];
