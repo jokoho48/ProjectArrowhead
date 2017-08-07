@@ -17,6 +17,7 @@
 params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
 private _return = [];
 
+private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
 private _loc = nearestLocations [_pos, ["Hill", "Mount"], _max];
 private _posiblePos = [];
 {
@@ -30,10 +31,10 @@ private _posiblePos = [];
     private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
     if ((_distance > _min) && {(_distance < _max)} && {_height > 60}) then {
+        private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         #ifdef ISDEV
         _name setMarkerColor "ColorBlue";
         private _in = str _forEachIndex;
-        private _lis = lineIntersectsSurfaces [AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 3], AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         {
             _x params ["_aslPos"];
             private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in + str _aslPos, _aslPos];
@@ -43,7 +44,7 @@ private _posiblePos = [];
             nil
         } forEach _lis;
         #endif
-        if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,getTerrainHeightASL _pos + 3], AGLToASL(_checkPos)]) then {
+        if (_lis isEqualTo []) then {
             #ifdef ISDEV
             _posiblePos pushback _checkPos;
             _name setMarkerColor "ColorGreen";
@@ -71,7 +72,8 @@ for "_i" from 1 to _count do {
         private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 100];
         if !(_objs isEqualTo []) then {
             {
-                if !(terrainIntersectASL [AGLToASL(_pos) vectorAdd [0,0,(getTerrainHeightASL (getPosASL _x)) + 3], getPosASL _x]) exitWith {
+                private _lis = lineIntersectsSurfaces [_posASL, getPosASL _x, objNull, objNull, true, -1, "NONE", "NONE"];
+                if (_lis isEqualTo []) exitWith {
                     _overwatch = getPos _x;
                 };
             } forEach (_objs call CFUNC(shuffleArray));
