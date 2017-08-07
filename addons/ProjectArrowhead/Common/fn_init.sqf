@@ -58,8 +58,20 @@ DFUNC(onPinged) = {
     if (_obj isKindOf "ModuleCurator_F") then {
         _obj addEventHandler ["CuratorPinged", { _this call FUNC(onPinged); }];
     };
+    if !(_obj getVariable [QEGVAR(Caching,onCache), false]) then {
+        _obj enableDynamicSimulation true;
+        (group _obj) enableDynamicSimulation true;
+    };
 }] call CFUNC(addEventhandler);
 
+if (isServer) then {
+    ["entityCreated", {
+        (_this select 0) params ["_obj"];
+        {
+            _x addCuratorEditableObjects [[_obj], true];
+        } count allCurators;
+    }] call CFUNC(addEventhandler);
+};
 
 GVAR(unitPoolFriendly) = [];
 GVAR(vehiclePoolFriendly) = [];
@@ -78,17 +90,17 @@ GVAR(vehiclePoolCiv) = [];
 
 GVAR(enemySide) = East;
 
-GVAR(centerPos) = [worldSize, worldSize];
+GVAR(centerPos) = [worldSize/2, worldSize/2];
 GVAR(locations) = [];
 {
     private _locName = text _x;
     private _locPos = getpos _x;
     _locPos set [2,0];
-    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 900) then {
+    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 1500) then {
         GVAR(locations) pushBack _x
     };
     nil
-} count (nearestLocations [GVAR(centerPos), ["NameCityCapital","NameCity","NameVillage"], worldSize/2]);
+} count (nearestLocations [GVAR(centerPos), ["NameCityCapital","NameCity","NameVillage"], worldSize]);
 
 GVAR(locations) call CFUNC(shuffleArray);
 

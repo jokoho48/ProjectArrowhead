@@ -23,14 +23,16 @@ if !(_posArray isEqualTo []) then {
     NOCACHE(_grp);
     {
         private _tower = "Land_Cargo_Patrol_V1_F" createVehicle [0,0,0];
-        _tower setdir random 360;
         _tower setPosATL _x;
-        _tower setvectorup [0,0,1];
+        private _dir = (_tower getRelDir _pos) - 90 + (random 180);
+        _tower setDir _dir;
+        _tower setPosATL _x;
+        _tower setVectorUp [0,0,1];
         private _bPos = (_tower buildingpos -1);
         for "_i" from 1 to (count _bPos) min _unitCount do {
             private _unit = _grp createUnit [GETUNIT(_side,0), [0,0,0], [], 0, "NONE"];
             _unit setFormDir (getDir _tower);
-            _unit setDir (getDir _tower);
+            _unit setDir 180 + (getDir _tower);
             private _uBPos = selectRandom _bPos;
             _bPos deleteAt (_uBPos find _bPos);
             _unit setPos _uBPos;

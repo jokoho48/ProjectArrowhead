@@ -29,6 +29,5 @@ GVAR(missionCounter) = 0;
     } count configProperties [_x >> "ProjectArrowhead" >> "mainMissions" , "isClass _x || isText _x", true];
     nil
 } forEach [missionConfigFile, configFile];
-[{
-    call FUNC(selectMainMission);
-}, 5] call CFUNC(wait);
+
+call FUNC(selectMainMission);

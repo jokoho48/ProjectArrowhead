@@ -21,7 +21,6 @@ GVAR(mainAOTower) = 3;
 GVAR(mainAOSniper) = 4;
 [QGVAR(spawnClearTownUnits), {
     (_this select 0) params ["_aoPos"];
-
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
         private _pos = _aoPos vectorAdd [random 200, random 200, 0];
         private _grp = [_pos, 0, floor (random [3, 7, 12]), east] call MFUNC(spawnGroup);
@@ -31,22 +30,25 @@ GVAR(mainAOSniper) = 4;
             [_aoPos, units _grp, GVAR(mainAOSize)*0.3, true] call MFUNC(occupyBuilding);
         };
     };
-    for "_i" from 1 to GVAR(mainAOVehicleCount) do {
-        private _pos = _aoPos vectorAdd [random 500, random 500, 0];
-        private _vehicles = [_pos, 1, 1, east] call MFUNC(spawnGroup);
+
+    private _posArray = [_aoPos, GVAR(mainAOSize), 0, GVAR(mainAOVehicleCount), true, 10] call MFUNC(findPosArray);
+    {
+        private _vehicles = [_x, 1, 1, east] call MFUNC(spawnGroup);
         {
-            [[_x, _aoPos], (random [GVAR(mainAOSize), GVAR(mainAOSize)*2, GVAR(mainAOSize)*3]), false] call MFUNC(setPatrolVeh);
+            [[_x, _aoPos], (random [GVAR(mainAOSize)*1.5, GVAR(mainAOSize)*3, GVAR(mainAOSize)*4]), false] call MFUNC(setPatrolVeh);
             nil
         } count _vehicles;
-    };
+        nil
+    } count _posArray;
+
     for "_i" from 1 to GVAR(mainAOAirCount) do {
-        private _pos = [_aoPos, worldSize/2, GVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
+        private _pos = [_aoPos, GVAR(mainAOSize)*2, GVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
         private _vehicles = [_pos, 2, 1, east] call MFUNC(spawnGroup);
         {
             [[_x, _aoPos], (random [GVAR(mainAOSize)*2, GVAR(mainAOSize)*3, GVAR(mainAOSize)*4]), true] call MFUNC(setPatrolVeh);
             nil
         } count _vehicles;
     };
-    [_aoPos, GVAR(mainAOSize)*1.5, GVAR(mainAOTower), east, 3] call MFUNC(spawnTower);
-    //[_this, GVAR(mainAOSniper), GVAR(mainAOTower)/2, GVAR(mainAOTower)*2, east, false, 1] call MFUNC(spawnSniper);
+    [_aoPos, GVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, 3] call MFUNC(spawnTower);
+    [_aoPos, GVAR(mainAOSniper), GVAR(mainAOSize)*0.2, GVAR(mainAOSize)*2, east, false, 2] call MFUNC(spawnSniper);
 }] call CFUNC(addEventhandler);

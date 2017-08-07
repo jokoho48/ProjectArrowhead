@@ -28,11 +28,11 @@ private _wpindex = 0;
 private _usesHouses = (_houseArray isEqualTo []);
 
 for "_i" from 1 to 50 do {
-    if (_usesHouses && {random 1 < 0.35}) then {
+    if (_usesHouses && {random 1 < 0.45}) then {
         private _house = selectRandom _houseArray;
         private _housePosArray = _house buildingPos -1;
-        private _houses = _houses - [_house];
-        if (count _housePosArray > 1) then {
+        _houseArray deleteAt (_houseArray find _house);
+        if !(_housePosArray isEqualTo []) then {
             private _pos2 = getPos _house;
             _posArray pushBack _pos2;
             _wpindex = _wpindex + 1;
