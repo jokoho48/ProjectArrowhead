@@ -24,7 +24,7 @@ if !(_posArray isEqualTo []) then {
     {
         private _tower = "Land_Cargo_Patrol_V1_F" createVehicle [0,0,0];
         _tower setPosATL _x;
-        private _dir = (_tower getRelDir _pos) - 90 + (random 180);
+        private _dir = (_tower getRelDir _pos) - 55 + (random 110);
         _tower setDir _dir;
         _tower setPosATL _x;
         _tower setVectorUp [0,0,1];
@@ -32,7 +32,7 @@ if !(_posArray isEqualTo []) then {
         for "_i" from 1 to ((count _bPos) min _unitCount) do {
             private _unit = _grp createUnit [GETCLASS(_side,0), [0,0,0], [], 0, "NONE"];
             _unit setFormDir (getDir _tower);
-            _unit setDir 180 + (getDir _tower);
+            _unit setDir (180 + (getDir _tower));
             private _uBPos = _bPos select (_i - 1);
             _unit setPos _uBPos;
             _unit setUnitPos "UP";

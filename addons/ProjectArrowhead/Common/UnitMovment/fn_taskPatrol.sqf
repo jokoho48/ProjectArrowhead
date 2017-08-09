@@ -26,6 +26,6 @@ if (_grp isEqualType objNull) then {
 };
 _grp setBehaviour "SAFE";
 private _lead = leader _grp;
-private _houseArray = (getposATL _lead) nearObjects ["house", _range];
+private _houseArray = (getPosATL _lead) nearObjects ["house", _range];
 
 [_grpInput, _range, _houseArray, _waypointCount] call FUNC(setPatrolInf);

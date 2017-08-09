@@ -109,7 +109,7 @@ GVAR(centerPos) = [worldSize/2, worldSize/2];
 GVAR(locations) = [];
 {
     private _locName = text _x;
-    private _locPos = getpos _x;
+    private _locPos = getPos _x;
     _locPos set [2,0];
     if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500) then {
         GVAR(locations) pushBack _x

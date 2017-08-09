@@ -27,7 +27,7 @@ for "_s" from 0 to 100 do {
     if (_ifRoad) then {
         _range = _range min 1000;
         private _roads = _center nearRoads _range;
-        _pos = getposATL (selectRandom _roads);
+        _pos = getPosATL (selectRandom _roads);
 
         if (count _posArray >= 1) then {
             {

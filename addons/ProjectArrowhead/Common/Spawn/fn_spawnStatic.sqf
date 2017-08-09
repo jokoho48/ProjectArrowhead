@@ -22,8 +22,8 @@ private _random = _type isEqualTo -1;
 private _roads = _pos nearRoads _range;
 
 for "_s" from 0 to 100 do {
+    if (_random) then {_type = floor random 2};
     call {
-        if (_random) then {_type = floor random 2};
 
         if (_type isEqualTo 0) exitWith { // open static
             if (count _roads < 1) exitWith {};
@@ -31,7 +31,7 @@ for "_s" from 0 to 100 do {
             private _roadConnectedTo = (roadsConnectedTo _road) select 0;
             if (isNil "_roadConnectedTo") exitWith {};
             private _dir = _road getDir _roadConnectedTo;
-            private _staticPos = [getposATL _road, getposATL _roadConnectedTo] call FUNC(findTriPos);
+            private _staticPos = [getPosATL _road, getPosATL _roadConnectedTo] call FUNC(findTriPos);
             private _check = _staticPos isFlatEmpty [2, 0, 0.4, 2, 0, false, objNull];
 
             {
@@ -51,8 +51,8 @@ for "_s" from 0 to 100 do {
             private _gunner = _grp createUnit [GETCLASS(_side,"inf"), [0,0,0], [], 0, "NONE"];
             _gunner moveInGunner _static;
             _gunner setBehaviour "COMBAT";
-            _gunner setFormDir _dir + 180;
-            _gunner setDir _dir + 180;
+            _gunner setFormDir (_dir + 180);
+            _gunner setDir (_dir + 180);
             _gunnerArray pushBack _gunner;
         };
         if (_type isEqualTo 1) exitWith { // bunkered static
@@ -61,7 +61,7 @@ for "_s" from 0 to 100 do {
             private _roadConnectedTo = (roadsConnectedTo _road) select 0;
             if (isNil "_roadConnectedTo") exitWith {};
             private _dir = _road getDir _roadConnectedTo;
-            private _staticPos = [getposATL _road, getposATL _roadConnectedTo] call FUNC(findTriPos);
+            private _staticPos = [getPosATL _road, getPosATL _roadConnectedTo] call FUNC(findTriPos);
             private _check = _staticPos isFlatEmpty [2, 0, 0.4, 3, 0, false, objNull];
 
             if (count _posArray > 0) then {
@@ -137,7 +137,7 @@ for "_s" from 0 to 100 do {
 
 #ifdef ISDEV
 {
-    private _mrk = createMarker [format[QGVAR(static_%1_%2),_x,getposATL _x], getpos _x];
+    private _mrk = createMarker [format[QGVAR(static_%1_%2),_x,getPosATL _x], getPos _x];
     _mrk setMarkerType "mil_dot";
     _mrk setMarkerColor "ColorEAST";
     _mrk setMarkerText "STATIC";

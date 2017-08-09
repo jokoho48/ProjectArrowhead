@@ -22,7 +22,7 @@ private _pos1 = if (_grp isEqualType []) then {
     _grp = _grp select 0;
     _temp
 } else {
-    getposATL (leader _grp);
+    getPosATL (leader _grp);
 };
 private _wpindex = 0;
 private _usesHouses = !(_houseArray isEqualTo []);

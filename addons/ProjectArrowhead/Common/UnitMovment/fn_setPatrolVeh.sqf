@@ -69,9 +69,9 @@ if !(_isAir) then {
         for "_i" from 1 to 100 do {
             private _road = selectRandom _roads;
             if ({(_road distance _x) < _minDist} count _posArray isEqualTo 0) then {
-                _posArray pushBack (getposATL _road);
+                _posArray pushBack (getPosATL _road);
                 _wpindex = _wpindex + 1;
-                private _wp = _grp addWaypoint [(getposATL _road), 0];
+                private _wp = _grp addWaypoint [(getPosATL _road), 0];
                 _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
                 [_grp, _wpindex] setWaypointBehaviour "SAFE";
                 [_grp, _wpindex] setWaypointCombatMode "RED";
