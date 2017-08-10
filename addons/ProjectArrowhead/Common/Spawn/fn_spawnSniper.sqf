@@ -31,8 +31,8 @@ private _posiblePos = [];
     private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
     if ((_distance > _min) && {(_distance < _max)} && {_height > 50}) then {
-        private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         #ifdef ISDEV
+        private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         _name setMarkerColor "ColorBlue";
         private _in = str _forEachIndex;
         {
@@ -45,8 +45,8 @@ private _posiblePos = [];
         } forEach _lis;
         #endif
         if (_lis isEqualTo []) then {
-            #ifdef ISDEV
             _posiblePos pushback _checkPos;
+            #ifdef ISDEV
             _name setMarkerColor "ColorGreen";
             #endif
         };

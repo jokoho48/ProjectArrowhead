@@ -60,7 +60,7 @@ for "_j" from 0 to (_count - 1) do {
     };
 };
 
-#ifndef ISDEV
+#ifdef ISDEV
 [{
     (_this select 0) params ["_obj"];
     private _mrk = createMarker [format[QGVAR(Group_%1_%2), getPos _obj, str _obj], getPos _obj];
