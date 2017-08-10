@@ -40,10 +40,12 @@ for "_i" from 1 to GVAR(randomCampCount) do {
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [1000, 1500, 2000])] call MFUNC(taskPatrol);
 
+    #ifdef ISDEV
     private _mrk = createMarker [format[QGVAR(CampPos_%1), _pos], _pos];
     _mrk setMarkerType "mil_triangle";
     _mrk setMarkerText "Random Camp Pos";
     _mrk setMarkerColor "ColorEAST";
+    #endif
 };
 
 for "_i" from 1 to GVAR(randomPatrolCount) do {
@@ -51,10 +53,13 @@ for "_i" from 1 to GVAR(randomPatrolCount) do {
 
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [1000, 1500, 2000])] call MFUNC(taskPatrol);
+
+    #ifdef ISDEV
     private _mrk = createMarker [format[QGVAR(RInfPatrolStart_%1), _pos], _pos];
     _mrk setMarkerType "mil_triangle";
     _mrk setMarkerText "Random Inf Patrol";
     _mrk setMarkerColor "ColorEAST";
+    #endif
 };
 
 // Spawn Vehicles
@@ -66,9 +71,12 @@ private _posArray = [MGVAR(centerPos), MGVAR(worldSize), 0, GVAR(randomPatrolVeh
         [_x, (random [1000, 1500, 2000]), false] call MFUNC(setPatrolVeh);
         nil
     } count _vehicles;
+
+    #ifdef ISDEV
     private _mrk = createMarker [format[QGVAR(RInfPatrolStart_%1), _pos], _pos];
     _mrk setMarkerType "mil_triangle";
     _mrk setMarkerText "Random Veh Patrol";
     _mrk setMarkerColor "ColorEAST";
+    #endif
     nil
 } count _posArray;
