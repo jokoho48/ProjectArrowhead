@@ -14,10 +14,9 @@
     0: Return <Type>
 */
 
-
-GVAR(randomCampCount) = 10;    // TODO: make settings
-GVAR(randomPatrolCount) = 10;    // TODO: make settings
-GVAR(randomPatrolVehCount) = 5;    // TODO: make settings
+GVAR(randomCampCount) = 5;    // TODO: make settings
+GVAR(randomPatrolCount) = 5;    // TODO: make settings
+GVAR(randomPatrolVehCount) = 2;    // TODO: make settings
 GVAR(ObjCompArray) = [["smallTestCamp", 15, false]];    // TODO: make settings
 for "_i" from 1 to GVAR(randomCampCount) do {
     private _randomType = selectRandom GVAR(ObjCompArray);
