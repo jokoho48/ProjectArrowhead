@@ -14,12 +14,12 @@
     0: Return <Type>
 */
 
-GVAR(mainAOGroupCount) = 10;
-GVAR(mainAOVehicleCount) = 5;
-GVAR(mainAOAirCount) = 2;
-GVAR(mainAOTower) = 3;
-GVAR(mainAOSniper) = 2;
-GVAR(mainAOStatic) = 3;
+GVAR(mainAOGroupCount) = 10;    // TODO: make settings
+GVAR(mainAOVehicleCount) = 5;    // TODO: make settings
+GVAR(mainAOAirCount) = 2;    // TODO: make settings
+GVAR(mainAOTower) = 3;    // TODO: make settings
+GVAR(mainAOSniper) = 2;    // TODO: make settings
+GVAR(mainAOStatic) = 3;    // TODO: make settings
 [QGVAR(spawnClearTownUnits), {
     (_this select 0) params ["_aoPos"];
 

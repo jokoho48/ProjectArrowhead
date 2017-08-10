@@ -1,4 +1,4 @@
-#define PREFIX ProjectArrowhead
+#define PREFIX PRAW
 #define PATH paw
 #define MOD ProjectArrowhead
 

@@ -13,7 +13,7 @@
     Returns:
     None
 */
-
+// TODO: Make Task Based system and remove the current one
 private _trgE = createTrigger ["EmptyDetector", (getMarkerPos "Base")];
 private _trgG = createTrigger ["EmptyDetector", (getMarkerPos "Base")];
 _trgE setTriggerArea [1000, 1000, 0, false, 200];

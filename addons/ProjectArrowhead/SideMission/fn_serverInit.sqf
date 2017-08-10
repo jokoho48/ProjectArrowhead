@@ -34,7 +34,7 @@ GVAR(sideMissionDelay) = 240;
 if (isNumber (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay")) then {
     GVAR(sideMissionDelay) = (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay");
 };
-/*
+/* TODO: add Missions
 GVAR(sideMissionRunning) = false;
 call FUNC(selectSideMission);
 

@@ -15,7 +15,7 @@
 */
 GVAR(mainMissions) = [];
 
-GVAR(missionAmount) = 10;
+GVAR(missionAmount) = 10;    // TODO: make settings
 GVAR(missionCounter) = 0;
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;

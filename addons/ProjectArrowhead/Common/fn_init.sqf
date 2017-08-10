@@ -13,7 +13,7 @@
     Returns:
     None
 */
-GVAR(baseMarker) = "Base";
+GVAR(baseMarker) = "Base";    // TODO: make settings
 ["DisplayHint", {
     (_this select 0) params ["_headerText", "_mainText"];
     [format ["<t size='1' color='#ff0000'>%1</t><br/><t size='0.6'>%2</t>", _headerText, _mainText]] spawn bis_fnc_dynamicText;
@@ -33,7 +33,7 @@ DFUNC(onPinged) = {
         _pingCount = _pingCount + 1;
 
         if (_lastPingTime <= time - 20) then {
-            _unit setVariable ["derp_lastPingTime", time, false];
+            _unit setVariable [QGVAR(lastPingTime), time, false];
             _unit setVariable [QGVAR(lastPingTime), 1, false];
         } else {
             if (_pingCount == 4) then {
@@ -85,34 +85,37 @@ private _fnc_flattenArray = {
         };
     } count _this;
 };
-GVAR(unitPoolFriendly) = [];
-GVAR(vehiclePoolFriendly) = [];
-GVAR(airPoolFriendly) = [];
 
-GVAR(unitPoolEnemy) = ["O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"];
-GVAR(vehiclePoolEnemy) = ["O_MBT_02_cannon_F", "O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "O_APC_Tracked_02_AA_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];
-GVAR(airPoolEnemy) = ["O_Heli_Light_02_F"];
-GVAR(sniperPoolEnemy) = ["O_sniper_F"];
-GVAR(staticPoolEnemy) = ["O_GMG_01_F", "O_HMG_01_F"];
-GVAR(staticHighPoolEnemy) = ["O_GMG_01_high_F", "O_HMG_01_high_F"];
-GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];
+GVAR(unitPoolFriendly) = [];    // TODO: Make setting
+GVAR(vehiclePoolFriendly) = [];    // TODO: Make setting
+GVAR(airPoolFriendly) = [];    // TODO: Make setting
 
-GVAR(unitPoolRebels) = [];
-GVAR(vehiclePoolRebels) = [];
+GVAR(unitPoolEnemy) = ["O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"];    // TODO: Make setting
+GVAR(vehiclePoolEnemy) = ["O_MBT_02_cannon_F", "O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "O_APC_Tracked_02_AA_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];    // TODO: Make setting
+GVAR(airPoolEnemy) = ["O_Heli_Light_02_F"];    // TODO: Make setting
+GVAR(sniperPoolEnemy) = ["O_sniper_F"];    // TODO: Make setting
+GVAR(staticPoolEnemy) = ["O_GMG_01_F", "O_HMG_01_F"];    // TODO: Make setting
+GVAR(staticHighPoolEnemy) = ["O_GMG_01_high_F", "O_HMG_01_high_F"];    // TODO: Make setting
+GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];    // TODO: Make setting
 
-GVAR(unitPoolCiv) = [];
-GVAR(vehiclePoolCiv) = [];
+GVAR(unitPoolRebels) = [];    // TODO: Make setting
+GVAR(vehiclePoolRebels) = [];    // TODO: Make setting
 
-GVAR(enemySide) = East;
+GVAR(unitPoolCiv) = [];    // TODO: Make setting
+GVAR(vehiclePoolCiv) = [];    // TODO: Make setting
+
+GVAR(enemySide) = East;    // TODO: Make setting
 
 GVAR(centerPos) = [worldSize/2, worldSize/2];
+GVAR(worldSize) = (worldSize/2);
 GVAR(locations) = [];
+GVAR(blackListLocations) = [];    // TODO: Make setting
 {
     private _locName = text _x;
     private _locPos = getPos _x;
     _locPos set [2,0];
-    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500) then {
-        GVAR(locations) pushBack _x
+    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500 && !((text _locPos) in [])) then {
+        GVAR(locations) pushBack _x;
     };
     nil
 } count (nearestLocations [GVAR(centerPos), ["NameCityCapital","NameCity","NameVillage"], worldSize]);
