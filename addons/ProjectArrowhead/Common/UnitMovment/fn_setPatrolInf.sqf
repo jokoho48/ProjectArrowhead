@@ -27,7 +27,7 @@ private _pos1 = if (_grp isEqualType []) then {
 private _wpindex = 0;
 private _usesHouses = !(_houseArray isEqualTo []);
 
-for "_i" from 1 to 50 do {
+for "_i" from 1 to 100 do {
     if (_usesHouses && {random 1 < 0.45}) then {
         private _house = selectRandom _houseArray;
         private _housePosArray = _house buildingPos -1;

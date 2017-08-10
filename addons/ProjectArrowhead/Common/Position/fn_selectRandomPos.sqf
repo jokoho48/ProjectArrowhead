@@ -14,7 +14,6 @@
     0: Return <Type>
 */
 params [["_center", [], [[]]],["_min", 0, [0]],["_max", 100, [0]],["_dirArray", [], [[]]]];
-
 private _dir = if (count _dirArray isEqualTo 0) then {
     random 360
 } else {
@@ -22,4 +21,6 @@ private _dir = if (count _dirArray isEqualTo 0) then {
     (_dMin + random _dMax) min _dMax;
 };
 private _range = (ceil (random _max)) max _min;
-[(_center select 0) + (sin _dir) * _range, (_center select 1) + (cos _dir) * _range, 0];
+private _pos = [(_center select 0) + (sin _dir) * _range, (_center select 1) + (cos _dir) * _range, 0];
+if (_pos call FUNC(nearBase)) exitWith { _this call (missionNamespace getVariable [_fnc_scriptName, {}]); };
+_pos

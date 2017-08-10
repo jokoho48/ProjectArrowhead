@@ -24,7 +24,8 @@ if !(_houseArray isEqualTo []) then {
 
     if !(_housePosArray isEqualTo []) then {
         {
-            private _dummypad = createVehicle ["Land_HelipadEmpty_F", _x, [], 0, "CAN_COLLIDE"];
+            private _dummypad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
+            _dummypad setPos _x;
             if !((lineIntersectsObjs [(getPosASL _dummypad), [(getPosASL _dummypad select 0),(getPosASL _dummypad select 1),((getPosASL _dummypad select 2) + 20)]]) isEqualTo []) exitWith { // TODO: replace with ILS
                 deleteVehicle _dummypad;
                 [_house, _x] breakOut SCRIPTSCOPENAME;

@@ -23,7 +23,6 @@ if !(_posArray isEqualTo []) then {
     NOCACHE(_grp);
     {
         private _tower = "Land_Cargo_Patrol_V1_F" createVehicle [0,0,0];
-        _tower setPosATL _x;
         private _dir = (_tower getRelDir _pos) - 55 + (random 110);
         _tower setDir _dir;
         _tower setPosATL _x;

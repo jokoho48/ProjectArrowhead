@@ -15,24 +15,29 @@
 */
 
 
-GVAR(randomCampCount) = 3;    // TODO: make settings
-GVAR(randomPatrolCount) = 5;    // TODO: make settings
-GVAR(ObjComp) = [["oneRandomCampName", 15]];    // TODO: make settings
+GVAR(randomCampCount) = 10;    // TODO: make settings
+GVAR(randomPatrolCount) = 15;    // TODO: make settings
+GVAR(ObjCompArray) = [["smallTestCamp", 15, false]];    // TODO: make settings
 for "_i" from 1 to GVAR(randomCampCount) do {
-    private _randomType = selectRandom GVAR(ObjComp);
-    _randomType params ["_class", "_size"];
+    private _randomType = selectRandom GVAR(ObjCompArray);
+    _randomType params ["_class", "_size", "_isSOF"];
     private _pos = [MGVAR(centerPos), MGVAR(worldSize), _size] call MFUNC(findRuralFlatPos);
-    private _mrk = createMarker [format[QGVAR(CampPos_%1), _pos], _pos];
-    _mrk setMarkerType "mil_triangle";
-    _mrk setMarkerText "Random Camp Pos";
-    _mrk setMarkerColor "ColorEAST";
-
-    // TODO: Create test Camp with SOF
-    // [_class, _pos, random 360] call CFUNC(createSimpleObjectComp);
+    private _dir = [(random 2) - 1, (random 2) - 1, 0];
+    _pos set [2,-(getTerrainHeightASL _pos)];
+    if (_isSOF) then {
+        [_class, _pos, _dir] call CFUNC(createSimpleObjectComp);
+    } else {
+        [_class, _pos, _dir] call MFUNC(createObjectComp);
+    };
     private _aiPos = [_pos, 100, 5] call MFUNC(findRuralFlatPos);
 
     private _grp = [_aiPos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _aiPos], (random [1000, 1500, 2000])] call MFUNC(taskPatrol);
+
+    private _mrk = createMarker [format[QGVAR(CampPos_%1), _pos], _pos];
+    _mrk setMarkerType "mil_triangle";
+    _mrk setMarkerText "Random Camp Pos";
+    _mrk setMarkerColor "ColorEAST";
 };
 
 for "_i" from 1 to GVAR(randomPatrolCount) do {

@@ -65,7 +65,7 @@ for "_j" from 0 to (_count - 1) do {
     (_this select 0) params ["_obj"];
     private _mrk = createMarker [format[QGVAR(Group_%1_%2), getPos _obj, str _obj], getPos _obj];
     _mrk setMarkerType "mil_triangle";
-    _mrk setMarkerDir (getDir _obj);
+    _mrk setMarkerDir (180 - (getDir _obj));
     _mrk setMarkerColor "ColorEAST";
 }, 10, [leader _grp]] call CFUNC(addPerFrameHandler);
 #endif

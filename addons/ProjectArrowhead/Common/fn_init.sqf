@@ -114,7 +114,7 @@ GVAR(blackListLocations) = [];    // TODO: Make setting
     private _locName = text _x;
     private _locPos = getPos _x;
     _locPos set [2,0];
-    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500 && !((text _locPos) in [])) then {
+    if (_locPos distance (getmarkerpos GVAR(baseMarker)) > 2500 && !(_locName in [])) then {
         GVAR(locations) pushBack _x;
     };
     nil

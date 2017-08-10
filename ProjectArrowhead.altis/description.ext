@@ -12,8 +12,8 @@ enableDebugConsole = 2;
 
 disabledAI = 1;
 author = "joko // Jonas";
-onLoadName = "BSO Test Mission";
-onLoadMission = "BSO Test Mission";
+onLoadName = "ProjectArrowhead Test Mission";
+onLoadMission = "ProjectArrowhead Test Mission";
 
 // skipLobby = 1;
 

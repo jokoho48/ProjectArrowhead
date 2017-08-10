@@ -21,7 +21,7 @@ private _posArray = [];
 
 if (_minDist >= _range) then {_minDist = ((_range*0.25)/(_count*2))};
 
-for "_s" from 0 to 100 do {
+for "_s" from 0 to 200 do {
     private _usePos = true;
     private "_pos";
     if (_ifRoad) then {

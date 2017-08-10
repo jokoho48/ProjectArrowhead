@@ -2,8 +2,8 @@
 
 class CfgCLibModules {
     class ProjectArrowhead {
-        path = "\paw\ProjectArrowhead\addons\ProjectArrowhead"; // TODO add Simplifyed Macro for this
         dependency[] = {"CLib"};
+        path = "\paw\ProjectArrowhead\addons\ProjectArrowhead"; // TODO add Simplifyed Macro for this
 
         MODULE(BaseProtection) {
             dependency[] = {"ProjectArrowhead/Common"};
@@ -19,6 +19,12 @@ class CfgCLibModules {
                 FNC(setUnitHostage);
             };
 
+            MODULE(ObjectComp) {
+                FNC(createObjectComp);
+                FNC(initObjComp);
+                FNC(readObjectComp);
+            };
+
             MODULE(Position) {
                 FNC(findHousePos);
                 FNC(findPosArray);
@@ -26,6 +32,7 @@ class CfgCLibModules {
                 FNC(findRuralHousePos);
                 FNC(findTriPos);
                 FNC(inArea);
+                FNC(nearBase);
                 FNC(selectRandomPos);
             };
 
@@ -39,7 +46,7 @@ class CfgCLibModules {
 
             MODULE(UnitMovment) {
                 FNC(occupyBuilding);
-                FNC(serverInit);
+                FNC(serverInitUnitMovment);
                 FNC(setPatrolInf);
                 FNC(setPatrolVeh);
                 FNC(taskPatrol);

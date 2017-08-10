@@ -68,7 +68,7 @@ if !(_isAir) then {
     } else {
         for "_i" from 1 to 100 do {
             private _road = selectRandom _roads;
-            if ({(_road distance _x) < _minDist} count _posArray isEqualTo 0) then {
+            if ({(_road distance _x) < _minDist && !((getPos _road) call FUNC(nearBase))} count _posArray isEqualTo 0) then {
                 _posArray pushBack (getPosATL _road);
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [(getPosATL _road), 0];
