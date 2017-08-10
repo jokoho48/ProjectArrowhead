@@ -35,6 +35,7 @@ for "_i" from 1 to 100 do {
         if !(_housePosArray isEqualTo []) then {
             private _pos2 = getPos _house;
             _posArray pushBack _pos2;
+            if (_pos2 call FUNC(nearBase)) exitWith {};
             _wpindex = _wpindex + 1;
             private _wp = _grp addWaypoint [_pos2, 0];
             _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
@@ -55,6 +56,7 @@ for "_i" from 1 to 100 do {
         if !(surfaceIsWater _pos2) then {
             if ({(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0) then {
                 _posArray pushBack _pos2;
+                if (_pos2 call FUNC(nearBase)) exitWith {};
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [_pos2, 0];
                 _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);

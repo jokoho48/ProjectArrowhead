@@ -31,7 +31,7 @@ for "_s" from 0 to 200 do {
 
         if (count _posArray >= 1) then {
             {
-                if (_x distance _pos < _minDist) exitWith {
+                if (_x distance _pos < _minDist || _pos call FUNC(nearBase)) exitWith {
                     _usePos = false;
                 };
                 nil
@@ -41,7 +41,8 @@ for "_s" from 0 to 200 do {
         _pos = [_center,0,_range] call FUNC(selectRandomPos);
         private _isEmpty = _pos isFlatEmpty [_posBuffer, 0, 1, _posBuffer, 0, false, objNull];
         if !(count _isEmpty isEqualTo 0) then {
-            if !(count (_pos nearRoads 12) isEqualTo 0) exitWith { _usePos = false };
+            if !(count (_pos nearRoads 12) isEqualTo 0) exitWith { _usePos = false; };
+            if (_pos call FUNC(nearBase)) exitWith { _usePos = false; };
             if (count _posArray >= 1) then {
                 {
                      if (_x distance _pos < _minDist) exitWith { _usePos = false; };

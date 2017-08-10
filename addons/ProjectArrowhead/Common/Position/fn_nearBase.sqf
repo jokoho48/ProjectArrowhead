@@ -13,6 +13,5 @@
     Returns:
     0: Return <Type>
 */
-params ["_pos"];
-(_pos distance (getMarkerPos GVAR(baseMarker))) < 1000 &&
-[_pos, GVAR(baseMarker)] call FUNC(inArea)
+(_this distance (getMarkerPos GVAR(baseMarker))) < 3000 ||
+[_this, GVAR(baseMarker)] call FUNC(inArea)

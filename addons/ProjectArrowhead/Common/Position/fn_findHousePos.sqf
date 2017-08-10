@@ -15,7 +15,6 @@
 */
 params [["_center", [0,0,0]], ["_range", 100, [0]]];
 private _pos = [0,0,0];
-private _return = [objNull,[[0,0,0]]];
 
 private _houseArray = _center nearObjects ["House",_range];
 if !(_houseArray isEqualTo []) then {
@@ -26,7 +25,8 @@ if !(_houseArray isEqualTo []) then {
         {
             private _dummypad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
             _dummypad setPos _x;
-            if !((lineIntersectsObjs [(getPosASL _dummypad), [(getPosASL _dummypad select 0),(getPosASL _dummypad select 1),((getPosASL _dummypad select 2) + 20)]]) isEqualTo []) exitWith { // TODO: replace with ILS
+            private _lis = lineIntersectsSurfaces [(getPosASL _dummypad), (getPosASL _dummypad) vectorAdd [0, 0, 20]];
+            if (_lis isEqualTo []) exitWith { // TODO: replace with ILS
                 deleteVehicle _dummypad;
                 [_house, _x] breakOut SCRIPTSCOPENAME;
             };
@@ -35,4 +35,4 @@ if !(_houseArray isEqualTo []) then {
         } count _housePosArray;
     };
 };
-_return
+[objNull,[[0,0,0]]] // Default Return when no pos was found

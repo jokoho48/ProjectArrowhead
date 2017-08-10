@@ -47,7 +47,10 @@ if !(_isAir) then {
             private _range = (ceil random _maxRange);
             private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
             if !(surfaceIsWater _pos2) then {
-                if ({(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0) then {
+                if (
+                    {(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0
+                     && !(_pos2 call FUNC(nearBase))
+                ) then {
                     _posArray pushBack _pos2;
                     _wpindex = _wpindex + 1;
                     private _wp = _grp addWaypoint [_pos2, 0];
@@ -68,7 +71,10 @@ if !(_isAir) then {
     } else {
         for "_i" from 1 to 100 do {
             private _road = selectRandom _roads;
-            if ({(_road distance _x) < _minDist && !((getPos _road) call FUNC(nearBase))} count _posArray isEqualTo 0) then {
+            if (
+                ({(_road distance _x) < _minDist} count _posArray) isEqualTo 0
+                 && !((getPos _road) call FUNC(nearBase))
+            ) then {
                 _posArray pushBack (getPosATL _road);
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [(getPosATL _road), 0];
