@@ -19,7 +19,6 @@ GVAR(baseMarker) = "Base";    // TODO: make settings
     [format ["<t size='1' color='#ff0000'>%1</t><br/><t size='0.6'>%2</t>", _headerText, _mainText]] spawn bis_fnc_dynamicText;
 }] call CFUNC(addEventhandler);
 
-
 DFUNC(onPinged) = {
     params ["_curator", "_unit"];
 
@@ -70,7 +69,6 @@ if (isServer) then {
         } count allCurators;
     }] call CFUNC(addEventhandler);
 };
-
 
 private _fnc_flattenArray = {
     private _return = [];
@@ -136,3 +134,13 @@ DFUNC(taskName) = {
     GVAR(taskID) = GVAR(taskID) + 1;
     _name
 };
+
+["excuteFunction", {
+    (_this select 0) params [["_function", ""], "_args"];
+    _args call (missionNamespace getVariable [_function, {LOG("Error Function not found")}]);
+}] call CFUNC(addEventhandler);
+
+["excuteCode", {
+    (_this select 0) params [["_code", {}], "_args"];
+    _args call _code;
+}] call CFUNC(addEventhandler);
