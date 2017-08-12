@@ -14,6 +14,10 @@
     None
 */
 GVAR(baseMarker) = "Base";    // TODO: make settings
+if (isServer) then {
+    GVAR(OverwatchCache) = true call CFUNC(createNamespace);
+    publicVariable QGVAR(OverwatchCache);
+};
 ["DisplayHint", {
     (_this select 0) params ["_headerText", "_mainText", ["_color", "#ff0000"]];
     [

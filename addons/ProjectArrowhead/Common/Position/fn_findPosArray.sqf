@@ -14,7 +14,6 @@
     0: Return <Type>
 */
 
-
 params [["_center", [], [[]]],["_range", 100, [0]],["_minDist", 0, [0]],["_count", 1, [0]],["_ifRoad", false],["_posBuffer", 5, [0]]];
 
 private _posArray = [];

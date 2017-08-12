@@ -16,37 +16,7 @@
 
 params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
 private _return = [];
-
-private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
-private _loc = nearestLocations [_pos, ["Hill", "Mount"], _max];
-private _posiblePos = [];
-{
-    private _checkPos = locationPosition _x;
-    #ifdef ISDEV
-    private _mrk = [_checkPos, "hd_dot"] call FUNC(createMarker);
-    #endif
-    private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
-    private _distance = _checkPos distance2D _pos;
-    if ((_distance > _min) && {(_distance < _max)} && {_height > 50}) then {
-        private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
-        #ifdef ISDEV
-        _mrk setMarkerColor "ColorBlue";
-        private _in = str _forEachIndex;
-        {
-            _x params ["_aslPos"];
-            private _mrk = [_aslPos, "hd_dot", "ColorRed"] call FUNC(createMarker);
-            nil
-        } forEach _lis;
-        #endif
-        if (_lis isEqualTo []) then {
-            _posiblePos pushback _checkPos;
-            #ifdef ISDEV
-            _mrk setMarkerColor "ColorGreen";
-            #endif
-        };
-    };
-    nil
-} forEach _loc;
+private _posiblePos = [_pos, _min, _max] call FUNC(findOverwatchPos);
 _posiblePos = _posiblePos call CFUNC(shuffleArray);
 private _pCount = count _posiblePos;
 private _randomI = floor (random _pCount);
@@ -66,13 +36,15 @@ for "_i" from 1 to _count do {
         _overwatch = [_overwatch, 0, random [25, 50, 100], [_relDir - 20, _relDir + 20]] call MFUNC(selectRandomPos);
 
         private _objs = nearestTerrainObjects [_overwatch, ["BUSH", "ROCK", "ROCKS"], 100];
+        private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
         if !(_objs isEqualTo []) then {
             {
                 private _lis = lineIntersectsSurfaces [_posASL, getPosASL _x, objNull, objNull, true, -1, "NONE", "NONE"];
                 if (_lis isEqualTo []) exitWith {
                     _overwatch = getPos _x;
                 };
-            } forEach (_objs call CFUNC(shuffleArray));
+                nil
+            } count (_objs call CFUNC(shuffleArray));
         };
         private _grp = createGroup _side;
         private _unit = _grp createUnit [GETCLASS(_side,3), _overwatch, [], 0, "NONE"];

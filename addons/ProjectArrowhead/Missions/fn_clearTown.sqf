@@ -22,8 +22,8 @@ private _count = {
 } count (size _location);
 _size = _size / _count;
 _size = _size * ([CFGPRAW(MainAOSize), 2] call CFUNC(getSetting));
-GVAR(mainAOSize) = _size;
-publicVariable QGVAR(mainAOSize);
+MGVAR(mainAOSize) = _size;
+publicVariable QMGVAR(mainAOSize);
 MGVAR(mainAOPos) = getPos _location;
 publicVariable QMGVAR(mainAOPos);
 QGVAR(spawnClearTownUnits) call CFUNC(localEvent);

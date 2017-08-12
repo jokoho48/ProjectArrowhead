@@ -28,6 +28,7 @@ class CfgCLibModules {
 
             MODULE(Position) {
                 FNC(findHousePos);
+                FNC(findOverwatchPos);
                 FNC(findPosArray);
                 FNC(findRuralFlatPos);
                 FNC(findRuralHousePos);

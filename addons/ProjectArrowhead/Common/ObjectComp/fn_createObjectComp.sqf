@@ -49,7 +49,7 @@ private _originPosASL = AGLToASL _originPosAGL;
 private _return = [];
 {
     _x params ["_class", "_posOffset", "_dirOffset", "_upOffset"];
-    
+
     private _obj = createVehicle [_class, AGLToASL (_originObj modelToWorld _posOffset), [], 0, "CAN_COLLIDE"];
     _obj setVectorDirAndUp [AGLToASL (_originObj modelToWorld _dirOffset) vectorDiff _originPosASL, AGLToASL (_originObj modelToWorld _upOffset) vectorDiff _originPosASL];
     _return pushBack _obj;
@@ -57,5 +57,8 @@ private _return = [];
 } count _objects;
 
 deleteVehicle _originObj;
-
+{
+    ["addCuratorEditableObjects", [_x, [_return, true]]] call CFUNC(serverEvent);
+    nil
+} count allCurators;
 _return;

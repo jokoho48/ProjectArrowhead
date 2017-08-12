@@ -10,9 +10,9 @@ class ProjectArrowhead {
         };
     };
     class RandomCampPatrols {
-        randomCampCount = 5;
-        randomPatrolCount = 5;
-        randomPatrolVehCount = 2;
+        randomCampCount = 10;
+        randomPatrolCount = 10;
+        randomPatrolVehCount = 4;
     };
 
     class Caching {
