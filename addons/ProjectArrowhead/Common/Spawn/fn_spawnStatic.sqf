@@ -117,6 +117,10 @@ for "_s" from 0 to 100 do {
             _fort setPosATL _fortPos;
             _fort setDir (_fort getDir _static);
             _fort setVectorUp (surfaceNormal (getPos _fort));
+            {
+                ["addCuratorEditableObjects", [_x, [[_fort], true]]] call CFUNC(serverEvent);
+                nil
+            } count allCurators;
             nil
         } count [
             [0,2.3,0],

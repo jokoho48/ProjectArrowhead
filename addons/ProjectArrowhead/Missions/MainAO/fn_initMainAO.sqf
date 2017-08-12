@@ -74,9 +74,9 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
         [
             format ["Clear %1 from enemy forces", MGVAR(locationData) select 1],
             "Clear Town",
-            "attack"
+            ""
         ],
-        MGVAR(mainAOPos), 1, 1, false, "attack", true
+        MGVAR(mainAOPos), "Created", 5, true, "attack", true
     ] call BIS_fnc_taskCreate;
     private _aiCount = count nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)];
     [{

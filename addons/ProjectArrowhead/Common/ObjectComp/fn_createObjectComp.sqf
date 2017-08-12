@@ -26,7 +26,7 @@ _inputData params ["_alignOnSurface", "_objects"];
 
 private _intersections = lineIntersectsSurfaces [
     AGLToASL _pos,
-    AGLToASL _pos vectorAdd [0, 0, -100],
+    AGLToASL _pos vectorAdd [0, 0, -1000],
     _ignoreObj1,
     _ignoreObj2
 ];

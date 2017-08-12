@@ -30,7 +30,7 @@ GVAR(randomPatrolVehCount) = [CFGPRAW2(RandomCampPatrols,randomPatrolVehCount), 
 for "_i" from 1 to GVAR(randomCampCount) do {
     private _randomType = selectRandom GVAR(ObjCompArray);
     _randomType params ["_class", "_size", "_isSOF"];
-    private _pos = [_aoPos, MGVAR(worldSize)*3, _size, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
+    private _pos = [_aoPos, MGVAR(worldSize)*3, _size, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
     private _dir = [(random 2) - 1, (random 2) - 1, 0];
     _pos set [2,-(getTerrainHeightASL _pos)];
     if (_isSOF) then {
@@ -54,7 +54,7 @@ for "_i" from 1 to GVAR(randomCampCount) do {
 };
 
 for "_i" from 1 to GVAR(randomPatrolCount) do {
-    private _pos = [_aoPos, MGVAR(worldSize)*3, 5, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
+    private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
 
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [1000, 1500, 2000])] call MFUNC(taskPatrol);
@@ -65,7 +65,7 @@ for "_i" from 1 to GVAR(randomPatrolCount) do {
 };
 
 // Spawn Vehicles
-private _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*2, GVAR(randomPatrolVehCount), true, 10] call MFUNC(findPosArray);
+private _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(randomPatrolVehCount), true, 10] call MFUNC(findPosArray);
 {
     private _pos = [_x, 1000, 5] call MFUNC(findRuralFlatPos);
     private _vehicles = [_pos, 1, 1, east] call MFUNC(spawnGroup);
