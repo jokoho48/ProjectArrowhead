@@ -15,7 +15,7 @@
 */
 GVAR(mainMissions) = [];
 
-GVAR(missionAmount) = 10;    // TODO: make settings
+GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);    // TODO: make settings
 GVAR(missionCounter) = 0;
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;

@@ -15,6 +15,7 @@ class CfgCLibModules {
             MODULE(Misc) {
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
+                FNC(onPinged);
                 FNC(setUnitSurrender);
                 FNC(setUnitHostage);
             };

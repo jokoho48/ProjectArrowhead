@@ -30,10 +30,8 @@ GVAR(sideMissions) = [];
 } forEach [missionConfigFile, configFile];
 
 
-GVAR(sideMissionDelay) = 240;
-if (isNumber (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay")) then {
-    GVAR(sideMissionDelay) = (missionConfigFile >> "ProjectArrowhead" >> "sideMissionDelay");
-};
+GVAR(sideMissionDelay) = [CFGPRAW(sideMissionDelay), 240] call CFUNC(getSetting);
+
 /* TODO: add Missions
 GVAR(sideMissionRunning) = false;
 call FUNC(selectSideMission);

@@ -43,11 +43,11 @@ class BSO {
 };
 
 class ProjectArrowhead {
-    MainAOSize = 2;
-    class sideMissions {};
-    class mainMissions {
-        class clearTown {
-            function = "ProjectArrowhead_Missions_fnc_clearTown";
+    class RandomCampCompositions {
+        class testClass {
+            classname = "smallTestCamp";
+            size = 15;
+            useSOF = 0;
         };
     };
 };

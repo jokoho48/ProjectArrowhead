@@ -13,12 +13,55 @@
     Returns:
     None
 */
-// TODO: Make Task Based system and remove the current one
-private _trgE = createTrigger ["EmptyDetector", (getMarkerPos "Base")];
-private _trgG = createTrigger ["EmptyDetector", (getMarkerPos "Base")];
-_trgE setTriggerArea [1000, 1000, 0, false, 200];
-_trgG setTriggerArea [1000, 1000, 0, false, 200];
-_trgE setTriggerActivation ["EAST", "PRESENT", true];
-_trgG setTriggerActivation ["GUER", "PRESENT", true];
-_trgE setTriggerStatements ["this", "{if (side _x isEqualTo east) then {deleteVehicle _x}} count thisList", ""];
-_trgG setTriggerStatements ["this", "{if (side _x isEqualTo independent) then {deleteVehicle _x}} count thisList", ""];
+
+private _stateMachine = call CFUNC(createStatemachine);
+[_stateMachine, "init", {
+    [
+        true,
+        ["DefendMainBase"],
+        [
+            "Defend the Mother Fucking Main Base",
+            "Earn Cookie",
+            "defend"
+        ],
+        MGVAR(baseMarker), 1, 1, false, true
+    ] call BIS_fnc_taskCreate;
+    GVAR(lastTaskName) = "";
+    GVAR(index) = -1;
+    GVAR(Group) = grpNull;
+    "checkGroup"
+}] call CFUNC(addStatemachineState);
+
+[_stateMachine, "checkGroup", {
+    private _exitState = "checkGroup";
+    GVAR(index) = (GVAR(index) + 1) mod ((count allGroups));
+    private _grp = allGroups select GVAR(index);
+    GVAR(Group) = _grp;
+    private _nearBase = (getPos (leader _grp)) call FUNC(nearBase);
+    if !(_nearBase) exitWith {_exitState};
+    if (!(GVAR(lastTaskName) call BIS_fnc_taskExists) || {GVAR(lastTaskName) call BIS_fnc_taskCompleted}) then {
+
+        GVAR(lastTaskName) = "DefendBase" call MFUNC(taskName);
+        [
+            true,
+            ["DefendMainBase", GVAR(lastTaskName)],
+            [
+                "Defend the Mother Fucking Main Base",
+                "Earn Cookie",
+                "defend"
+            ],
+            objNull, 1, 1, false, true
+        ] call BIS_fnc_taskCreate;
+        _exitState = "checkTask";
+    };
+    _exitState
+}] call CFUNC(addStatemachineState);
+
+[_stateMachine, "checkTask", {
+    private _nearBase = (getPos (leader GVAR(Group))) call FUNC(nearBase);
+    if (_nearBase) exitWith {"checkTask"};
+    [GVAR(lastTaskName), "SUCCEEDED",true] call BIS_fnc_taskSetState;
+    "checkGroup"
+}] call CFUNC(addStatemachineState);
+
+[_stateMachine, "init", 1] call CFUNC(startStatemachine);

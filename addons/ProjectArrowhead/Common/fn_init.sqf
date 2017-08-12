@@ -15,47 +15,27 @@
 */
 GVAR(baseMarker) = "Base";    // TODO: make settings
 ["DisplayHint", {
-    (_this select 0) params ["_headerText", "_mainText"];
-    [format ["<t size='1' color='#ff0000'>%1</t><br/><t size='0.6'>%2</t>", _headerText, _mainText]] spawn bis_fnc_dynamicText;
+    (_this select 0) params ["_headerText", "_mainText", ["_color", "#ff0000"]];
+    [
+        format [
+            "<t size='1' color=''>%1</t><br/><t size='0.6'>%2</t>",
+            _headerText,
+            _mainText,
+            _color
+        ]
+    ] spawn BIS_fnc_dynamicText;
 }] call CFUNC(addEventhandler);
-
-DFUNC(onPinged) = {
-    params ["_curator", "_unit"];
-
-    private _pingCount = _unit getVariable QGVAR(curatorPingCount);
-    private _lastPingTime = _unit getVariable QGVAR(lastPingTime);
-
-    if (isnil "_pingCount") then {
-        _unit setVariable [QGVAR(curatorPingCount), 1, false];
-        _unit setVariable [QGVAR(lastPingTime), time, false];
-    } else {
-        _pingCount = _pingCount + 1;
-
-        if (_lastPingTime <= time - 20) then {
-            _unit setVariable [QGVAR(lastPingTime), time, false];
-            _unit setVariable [QGVAR(lastPingTime), 1, false];
-        } else {
-            if (_pingCount == 4) then {
-                ["DisplayHint", _unit, ["YOU HAVE ANGERD ZEUS", "wait 20s before pressing the zeus ping button again, or die."]] call CFUNC(targetEvent);
-            };
-            if (_pingCount >= 5) then {
-                _unit setDamage 1;
-                _unit setVariable [QGVAR(curatorPingCount), nil, false];
-                _unit setVariable [QGVAR(lastPingTime), nil, false];
-            } else {
-                _unit setVariable [QGVAR(lastPingTime), time, false];
-                _unit setVariable [QGVAR(curatorPingCount), _pingCount, false];
-            };
-        };
-    };
-};
 
 ["entityCreated", {
     (_this select 0) params ["_obj"];
     if (_obj isKindOf "ModuleCurator_F") then {
         _obj addEventHandler ["CuratorPinged", { _this call FUNC(onPinged); }];
     };
-    if !(_obj getVariable [QEGVAR(Caching,onCache), false]) then {
+}] call CFUNC(addEventhandler);
+
+["entityCreated", {
+    (_this select 0) params ["_obj"];
+    if !(_obj getVariable [QEGVAR(Caching,onCache), false] || (group _obj) getVariable [QEGVAR(Caching,onCache), false]) then {
         _obj enableDynamicSimulation true;
         (group _obj) enableDynamicSimulation true;
     };
@@ -144,3 +124,32 @@ DFUNC(taskName) = {
     (_this select 0) params [["_code", {}], "_args"];
     _args call _code;
 }] call CFUNC(addEventhandler);
+
+{
+    private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
+    if (_data != -1) then {
+        _x setDynamicSimulationDistance _data;
+    };
+    nil
+} count ["Group", "Vehicle", "EmptyVehicle", "Prop"];
+
+{
+    private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
+    if (_data != -1) then {
+        _x setDynamicSimulationDistanceCoef _data;
+    };
+    nil
+} count ["IsMoving"];
+
+
+GVAR(useViewDistance) = ([CFGPRAW2(Caching,useViewDistance), 1] call CFUNC(getSetting)) isEqualTo 1;
+if (GVAR(useViewDistance)) then {
+    ["cameraViewChanged", {
+        (_this select 0) params ["_new", "_old"];
+        if (cameraView isEqualTo _new) then {
+            "Group" setDynamicSimulationDistance (viewDistance - (viewDistance * fog));
+        } else {
+            "Group" setDynamicSimulationDistance ((viewDistance * 0.8) - (viewDistance * fog));
+        };
+    }] call CFUNC(addEventhandler);
+};

@@ -30,3 +30,8 @@
 #define QMGVAR(var) QUOTE(MGVAR(var))
 
 #define GETCLASS(var1,var2) ([var1, var2] call FUNC(getClassName))
+
+#define MISSIONCLASS missionConfigFile >> "ProjectArrowhead"
+
+#define CFGPRAW(var) QUOTE(PREFIX/ProjectArrowhead/var)
+#define CFGPRAW2(var1,var2) QUOTE(PREFIX/ProjectArrowhead/var1/var2)
