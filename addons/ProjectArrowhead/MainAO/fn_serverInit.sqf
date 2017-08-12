@@ -16,7 +16,6 @@
 GVAR(mainMissions) = [];
 GVAR(isFirstCallDone) = false;
 GVAR(missionCounter) = 0;
-
 GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);    // TODO: make settings
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;
@@ -31,5 +30,7 @@ GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);    //
     nil
 } forEach [missionConfigFile, configFile];
 ["missionStarted", {
-    call FUNC(selectMainMission);
+    [{
+        call FUNC(selectMainMission);
+    }, 5] call CFUNC(wait);
 }] call CFUNC(addEventhandler);

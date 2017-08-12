@@ -13,11 +13,14 @@ class CfgCLibModules {
 
         MODULE(Common) {
             MODULE(Misc) {
+                FNC(fillLocations);
+                FNC(flattenArray);
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
                 FNC(onPinged);
                 FNC(setUnitSurrender);
                 FNC(setUnitHostage);
+                FNC(taskName);
             };
 
             MODULE(ObjectComp) {
@@ -33,6 +36,7 @@ class CfgCLibModules {
                 FNC(findRuralFlatPos);
                 FNC(findRuralHousePos);
                 FNC(findTriPos);
+                FNC(getLocation);
                 FNC(inArea);
                 FNC(nearBase);
                 FNC(selectRandomPos);
@@ -54,7 +58,12 @@ class CfgCLibModules {
                 FNC(taskPatrol);
             };
 
+            FNC(clientInit);
             FNC(init);
+            FNC(initDynamicCaching);
+            FNC(serverInit);
+            FNC(Settings);
+
         };
 
         MODULE(IED) {
@@ -70,7 +79,10 @@ class CfgCLibModules {
 
         MODULE(Missions) {
             dependency[] = {"ProjectArrowhead/Common"};
-            FNC(clearTown);
+            MODULE(MainAO) {
+                FNC(clearTown);
+                FNC(initMainAO);
+            };
             FNC(init);
         };
 

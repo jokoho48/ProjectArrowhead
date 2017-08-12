@@ -25,7 +25,7 @@ private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
     #ifdef ISDEV
     private _mrk = [_checkPos, "hd_dot"] call FUNC(createMarker);
     #endif
-    private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
+    private _height = (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
     if ((_distance > _min) && {(_distance < _max)} && {_height > 50}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];

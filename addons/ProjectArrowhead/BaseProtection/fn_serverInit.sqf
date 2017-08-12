@@ -21,7 +21,7 @@ private _stateMachine = call CFUNC(createStatemachine);
         ["DefendMainBase"],
         [
             "Defend the Mother Fucking Main Base",
-            "Earn Cookie",
+            "Defend Main Base",
             "defend"
         ],
         MGVAR(baseMarker), 1, 1, false, "defend",true
