@@ -14,4 +14,13 @@ class ProjectArrowhead {
         randomPatrolCount = 5;
         randomPatrolVehCount = 2;
     };
+
+    class Caching {
+        Group = 2000;
+        Vehicle = 2500;
+        EmptyVehicle = 1000;
+        Prop = 250;
+        IsMoving = 2.2;
+        useViewDistance = 0;
+    };
 };
