@@ -18,7 +18,7 @@ GVAR(baseMarker) = "Base";    // TODO: make settings
     (_this select 0) params ["_headerText", "_mainText", ["_color", "#ff0000"]];
     [
         format [
-            "<t size='1' color=''>%1</t><br/><t size='0.6'>%2</t>",
+            "<t size='1' color='%3'>%1</t><br/><t size='0.6'>%2</t>",
             _headerText,
             _mainText,
             _color
@@ -125,34 +125,36 @@ DFUNC(taskName) = {
     _args call _code;
 }] call CFUNC(addEventhandler);
 
-{
-    private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
-    if (_data != -1) then {
-        _x setDynamicSimulationDistance _data;
-    };
-    nil
-} count ["Group", "Vehicle", "EmptyVehicle", "Prop"];
-
-{
-    private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
-    if (_data != -1) then {
-        _x setDynamicSimulationDistanceCoef _data;
-    };
-    nil
-} count ["IsMoving"];
-
-
-GVAR(useViewDistance) = ([CFGPRAW2(Caching,useViewDistance), 1] call CFUNC(getSetting)) isEqualTo 1;
-if (GVAR(useViewDistance)) then {
-    ["cameraViewChanged", {
-        (_this select 0) params ["_new", "_old"];
-        if (cameraView isEqualTo _new) then {
-            "Group" setDynamicSimulationDistance (viewDistance - (viewDistance * fog));
-        } else {
-            "Group" setDynamicSimulationDistance ((viewDistance * 0.8) - (viewDistance * fog));
+[{
+    {
+        private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
+        if (_data != -1) then {
+            _x setDynamicSimulationDistance _data;
         };
-    }] call CFUNC(addEventhandler);
-};
+        nil
+    } count ["Group", "Vehicle", "EmptyVehicle", "Prop"];
+
+    {
+        private _data = [format[CFGPRAW2(Caching,%1), _x], -1] call CFUNC(getSetting);
+        if (_data != -1) then {
+            _x setDynamicSimulationDistanceCoef _data;
+        };
+        nil
+    } count ["IsMoving"];
+
+
+    GVAR(useViewDistance) = ([CFGPRAW2(Caching,useViewDistance), 1] call CFUNC(getSetting)) isEqualTo 1;
+    if (GVAR(useViewDistance)) then {
+        ["cameraViewChanged", {
+            (_this select 0) params ["_new", "_old"];
+            if (cameraView isEqualTo _new) then {
+                "Group" setDynamicSimulationDistance (viewDistance - (viewDistance * fog));
+            } else {
+                "Group" setDynamicSimulationDistance ((viewDistance * 0.8) - (viewDistance * fog));
+            };
+        }] call CFUNC(addEventhandler);
+    };
+}, 1] call CFUNC(wait);
 
 
 

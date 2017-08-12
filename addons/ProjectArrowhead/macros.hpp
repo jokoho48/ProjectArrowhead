@@ -33,5 +33,5 @@
 
 #define MISSIONCLASS missionConfigFile >> "ProjectArrowhead"
 
-#define CFGPRAW(var) QUOTE(PREFIX/ProjectArrowhead/var)
-#define CFGPRAW2(var1,var2) QUOTE(PREFIX/ProjectArrowhead/var1/var2)
+#define CFGPRAW(var) QUOTE(PREFIX/var)
+#define CFGPRAW2(var1,var2) QUOTE(PREFIX/var1/var2)
