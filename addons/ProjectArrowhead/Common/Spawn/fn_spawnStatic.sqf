@@ -137,10 +137,7 @@ for "_s" from 0 to 100 do {
 
 #ifdef ISDEV
 {
-    private _mrk = createMarker [format[QGVAR(static_%1_%2),_x,getPosATL _x], getPos _x];
-    _mrk setMarkerType "mil_dot";
-    _mrk setMarkerColor "ColorEAST";
-    _mrk setMarkerText "STATIC";
+    [getPos _x, "mil_triangle", "ColorEAST", (getDir _x), "STATIC"] call FUNC(createMarker);
     nil
 } count _gunnerArray;
 #endif

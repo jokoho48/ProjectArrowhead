@@ -20,8 +20,9 @@ GVAR(mainAOAirCount) = 2;    // TODO: make settings
 GVAR(mainAOTower) = 3;    // TODO: make settings
 GVAR(mainAOSniper) = 2;    // TODO: make settings
 GVAR(mainAOStatic) = 3;    // TODO: make settings
+
 [QGVAR(spawnClearTownUnits), {
-    (_this select 0) params ["_aoPos"];
+    private _aoPos = MGVAR(mainAOPos);
 
     [_aoPos, GVAR(mainAOSize)*0.5, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic); // Spawn Statics expect from Mortar
     [_aoPos, GVAR(mainAOSize)*0.1, 1, 2, east] call MFUNC(spawnStatic); // Spawn Mortar
@@ -29,7 +30,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
 
     // Spawn Inf Groups
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
-        private _pos = _aoPos vectorAdd [random 200, random 200, 0];
+        private _pos = _aoPos vectorAdd [(random 200) - 100, (random 200) - 100, 0];
         private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
         if (random 1 < 0.7) then {
             [[_grp, _aoPos], (random [GVAR(mainAOSize) * 0.6, GVAR(mainAOSize), GVAR(mainAOSize) * 1.4])] call MFUNC(taskPatrol);

@@ -15,7 +15,15 @@
 */
 
 private _location = selectRandom MGVAR(locations);
-GVAR(mainAOSize) = ((size _location) select 0) * (getNumber (MISSIONCLASS >> "MainAOSize"));
+private _size = 0;
+private _count = {
+    _size = _size + _x;
+    true
+} count (size _location);
+_size = _size / _count;
+_size = _size * ([CFGPRAW(MainAOSize), 2] call CFUNC(getSetting));
+GVAR(mainAOSize) = _size;
 publicVariable QGVAR(mainAOSize);
-[QGVAR(spawnClearTownUnits), [getPos _location]] call CFUNC(localEvent);
-GVAR(mainAOPos) = getPos _location;
+MGVAR(mainAOPos) = getPos _location;
+publicVariable QMGVAR(mainAOPos);
+QGVAR(spawnClearTownUnits) call CFUNC(localEvent);

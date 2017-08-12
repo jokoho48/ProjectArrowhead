@@ -26,4 +26,12 @@ if ((GVAR(missionAmount) > 0) && {GVAR(missionAmount) == GVAR(missionCounter)}) 
     };
 
     [_name, _origin] call _code;
+
+    if !(GVAR(isFirstCallDone)) then {
+        GVAR(isFirstCallDone) = true;
+        [{
+            QMGVAR(mainAOGenerated) call CFUNC(globalEvent);
+        }, 1] call CFUNC(wait);
+    };
+    GVAR(missionCounter) = GVAR(missionCounter) + 1;
 };

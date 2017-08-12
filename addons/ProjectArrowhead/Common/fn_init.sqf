@@ -87,12 +87,12 @@ GVAR(enemySide) = East;    // TODO: Make setting
 GVAR(centerPos) = [worldSize/2, worldSize/2];
 GVAR(worldSize) = (worldSize/2);
 GVAR(locations) = [];
-GVAR(blackListLocations) = [];    // TODO: Make setting
+GVAR(blackListLocations) = ["Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros"];    // TODO: Make setting
 {
     private _locName = text _x;
     private _locPos = getPos _x;
     _locPos set [2,0];
-    if !(_locPos call FUNC(nearBase) || (_locName in [])) then {
+    if !(_locPos call FUNC(nearBase) || (_locName in GVAR(blackListLocations))) then {
         GVAR(locations) pushBack _x;
     };
     nil
@@ -152,4 +152,24 @@ if (GVAR(useViewDistance)) then {
             "Group" setDynamicSimulationDistance ((viewDistance * 0.8) - (viewDistance * fog));
         };
     }] call CFUNC(addEventhandler);
+};
+
+
+
+DFUNC(createMarker) = {
+#ifdef ISDEV
+    params ["_pos", "_icon", "_color", "_dir", "_text"];
+    private _mrk = createMarker [format[QGVAR(%1_%2_%3_%4), _pos, _icon, _color, _dir, _text], _pos];
+    _mrk setMarkerType _icon;
+    if !(isNil "_color") then {
+        _mrk setMarkerColor _color;
+    };
+    if !(isNil "_dir") then {
+        _mrk setMarkerDir (180 - _dir);
+    };
+    if !(isNil "_text")  then {
+        _mrk setMarkerText _text;
+    };
+    _mrk
+#endif
 };

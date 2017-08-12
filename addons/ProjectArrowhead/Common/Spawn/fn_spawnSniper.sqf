@@ -23,31 +23,25 @@ private _posiblePos = [];
 {
     private _checkPos = locationPosition _x;
     #ifdef ISDEV
-    deleteMarker (QGVAR(debugMarkerSniper) + (str _forEachIndex));
-    private _name = createMarker [QGVAR(debugMarkerSniper) + (str _forEachIndex) + (str _checkPos), _checkPos];
-    _name setMarkerShape "ICON";
-    _name setMarkerType "hd_dot";
+    private _mrk = [_checkPos, "hd_dot"] call FUNC(createMarker);
     #endif
     private _height = abs (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
     private _distance = _checkPos distance2D _pos;
     if ((_distance > _min) && {(_distance < _max)} && {_height > 50}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         #ifdef ISDEV
-        _name setMarkerColor "ColorBlue";
+        _mrk setMarkerColor "ColorBlue";
         private _in = str _forEachIndex;
         {
             _x params ["_aslPos"];
-            private _name = createMarker [QGVAR(debugMarkerColSniper) + (str _forEachIndex) + _in + str _aslPos, _aslPos];
-            _name setMarkerShape "ICON";
-            _name setMarkerType "hd_dot";
-            _name setMarkerColor "ColorRed";
+            private _mrk = [_aslPos, "hd_dot", "ColorRed"] call FUNC(createMarker);
             nil
         } forEach _lis;
         #endif
         if (_lis isEqualTo []) then {
             _posiblePos pushback _checkPos;
             #ifdef ISDEV
-            _name setMarkerColor "ColorGreen";
+            _mrk setMarkerColor "ColorGreen";
             #endif
         };
     };
@@ -89,10 +83,7 @@ for "_i" from 1 to _count do {
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";
         #ifdef ISDEV
-        private _mrk = createMarker [format[QGVAR(Tower_%1),_overwatch], _overwatch];
-        _mrk setMarkerType "mil_dot";
-        _mrk setMarkerColor "ColorEAST";
-        _mrk setMarkerText "SNIPER";
+        [getPos _unit, "mil_triangle", "ColorEAST", (getDir _unit), "Sniper"] call FUNC(createMarker);
         #endif
         if (_nocache) then {NOCACHE(_grp);};
     };

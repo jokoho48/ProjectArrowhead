@@ -18,7 +18,7 @@ private _return = [objNull,[0,0,0]];
 for "_s" from 0 to 200 do {
     scopeName "HousePosLoop";
     private _startPos = [_center, 0, _range] call FUNC(selectRandomPos);
-    if !(_startPos call FUNC(nearBase)) then {
+    if (!(_startPos call FUNC(nearBase))) then {
         {
             if (_startPos distance _x < 700) exitWith {breakTo "HousePosLoop";};
         } count GVAR(locations);

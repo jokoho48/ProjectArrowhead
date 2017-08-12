@@ -26,7 +26,7 @@ if !(_houseArray isEqualTo []) then {
             private _dummypad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];
             _dummypad setPos _x;
             private _lis = lineIntersectsSurfaces [(getPosASL _dummypad), (getPosASL _dummypad) vectorAdd [0, 0, 20]];
-            if (_lis isEqualTo []) exitWith { // TODO: replace with ILS
+            if !(_lis isEqualTo []) exitWith {
                 deleteVehicle _dummypad;
                 [_house, _x] breakOut SCRIPTSCOPENAME;
             };

@@ -17,9 +17,9 @@ class EditorData
 	class Camera
 	{
 		pos[]={14658.317,25.564663,16700.568};
-		dir[]={-0.12502849,-0.36370441,0.92308581};
-		up[]={-0.048816685,0.93151408,0.36041373};
-		aside[]={0.99095172,1.853914e-008,0.13422062};
+		dir[]={-0.31256136,-0.080921248,0.94644594};
+		up[]={-0.025376203,0.99672073,0.076840103};
+		aside[]={0.94956064,1.166336e-008,0.31358951};
 	};
 };
 binarizationWanted=0;
@@ -115,7 +115,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4;
+		items=3;
 		class Item0
 		{
 			dataType="Group";
@@ -704,150 +704,6 @@ class Mission
 		};
 		class Item2
 		{
-			dataType="Group";
-			side="East";
-			class Entities
-			{
-				items=8;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14317.021,26.501183,22842.91};
-					};
-					side="East";
-					flags=7;
-					class Attributes
-					{
-						rank="SERGEANT";
-					};
-					id=38;
-					type="O_Soldier_SL_F";
-				};
-				class Item1
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14322.021,25.110006,22837.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-					};
-					id=39;
-					type="O_Soldier_F";
-				};
-				class Item2
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14312.021,26.379337,22837.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-					};
-					id=40;
-					type="O_Soldier_LAT_F";
-				};
-				class Item3
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14327.021,23.977449,22832.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-					};
-					id=41;
-					type="O_soldier_M_F";
-				};
-				class Item4
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14307.021,26.668901,22832.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						rank="SERGEANT";
-					};
-					id=42;
-					type="O_Soldier_TL_F";
-				};
-				class Item5
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14332.021,22.88624,22827.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.44999999;
-						rank="CORPORAL";
-					};
-					id=43;
-					type="O_Soldier_AR_F";
-				};
-				class Item6
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14302.021,26.867048,22827.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-					};
-					id=44;
-					type="O_Soldier_A_F";
-				};
-				class Item7
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={14337.021,21.63229,22822.91};
-					};
-					side="East";
-					flags=5;
-					class Attributes
-					{
-						skill=0.40000001;
-					};
-					id=45;
-					type="O_medic_F";
-				};
-			};
-			class Attributes
-			{
-				dynamicSimulation=1;
-			};
-			id=37;
-		};
-		class Item3
-		{
 			dataType="Marker";
 			position[]={14801.643,0,16618.951};
 			name="base";
@@ -855,7 +711,7 @@ class Mission
 			type="ellipse";
 			a=876.6239;
 			b=1219.1967;
-			angle=39.289425;
+			angle=39.289421;
 			id=46;
 			atlOffset=-17.896158;
 		};

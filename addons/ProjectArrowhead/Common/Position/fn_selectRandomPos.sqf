@@ -22,5 +22,7 @@ private _dir = if (count _dirArray isEqualTo 0) then {
 };
 private _range = (ceil (random _max)) max _min;
 private _pos = [(_center select 0) + (sin _dir) * _range, (_center select 1) + (cos _dir) * _range, 0];
-if (_pos call FUNC(nearBase) && _counter != 0) exitWith { [_center, _min, _max, _dirArray, _counter - 1] call (missionNamespace getVariable [_fnc_scriptName, {}]); };
+if (_pos call FUNC(nearBase) && _counter != 0) exitWith {
+    [_center, _min, _max, _dirArray, _counter - 1] call (missionNamespace getVariable [_fnc_scriptName, {}]);
+};
 _pos

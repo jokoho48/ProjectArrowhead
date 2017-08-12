@@ -14,9 +14,10 @@
     0: Return <Type>
 */
 GVAR(mainMissions) = [];
+GVAR(isFirstCallDone) = false;
+GVAR(missionCounter) = 0;
 
 GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);    // TODO: make settings
-GVAR(missionCounter) = 0;
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;
     {
@@ -29,5 +30,6 @@ GVAR(missionCounter) = 0;
     } count configProperties [_x >> "ProjectArrowhead" >> "mainMissions" , "isClass _x || isText _x", true];
     nil
 } forEach [missionConfigFile, configFile];
-
-call FUNC(selectMainMission);
+["missionStarted", {
+    call FUNC(selectMainMission);
+}] call CFUNC(addEventhandler);

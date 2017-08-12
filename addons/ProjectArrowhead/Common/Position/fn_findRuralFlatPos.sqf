@@ -20,7 +20,7 @@ private _pos = [0,0,0];
 
 for "_s" from 0 to 200 do {
     _pos = [_center, 0, _range] call FUNC(selectRandomPos);
-    if !(_pos call FUNC(nearBase)) then {
+    if (!(_pos call FUNC(nearBase))) then {
         if (count (_pos isFlatEmpty [1, 0, 0.3, 30, 0, false, objNull]) != 0 && {count (_pos isFlatEmpty [1, 0, 0.12, _dist min 300, 0, false, objNull]) != 0}) then {
             if (count (nearestObjects [_pos, ["house"], _dist*1.7]) isEqualTo 0) then {
                 private _dummypad = "Land_HelipadEmpty_F" createVehicleLocal [0,0,0];

@@ -25,34 +25,34 @@ for "_j" from 0 to (_count - 1) do {
     _pos set [2, 0];
     call {
         if (_type isEqualTo 0) exitWith {
-            private _unit = (GETCLASS(_side,_type) createUnit [_pos, _grp]);
+            private _unit = _grp createUnit [GETCLASS(_side,_type), _pos, [], 0, "NONE"];
             _unit allowDamage false;
         };
         private _veh = if (_type isEqualTo 1) then {
             private _type = GETCLASS(_side,_type);
-            createVehicle [_type,_pos,[],500,"NONE"];
+            createVehicle [_type, _pos, [], 0, "NONE"];
         } else {
             private _type = GETCLASS(_side,_type);
-            createVehicle [_type,_pos,[],500,"FLY"];
+            createVehicle [_type, _pos, [], 0, "FLY"];
 
         };
         _vehArray pushBack _veh;
         _veh allowDamage false;
-        private _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 100, "NONE"];
+        private _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 0, "NONE"];
         _unit moveInDriver _veh;
         _unit allowDamage false;
         _driverArray pushBack _unit;
 
         if !((_veh emptyPositions "gunner") isEqualTo 0) then {
             for "_i" from 1 to (_veh emptyPositions "gunner") do {
-                _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 100, "NONE"];
+                _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 0, "NONE"];
                 _unit moveInGunner _veh;
                 _unit allowDamage false;
             };
         };
         if !((_veh emptyPositions "commander") isEqualTo 0) then {
             for "_i" from 1 to (_veh emptyPositions "commander") do {
-                _unit = _grp createUnit [GETCLASS(_side,0), _pos, [], 100, "NONE"];
+                _unit = _grp createUnit [GETCLASS(_side,0), _pos, [], 0, "NONE"];
                 _unit moveInCommander _veh;
                 _unit allowDamage false;
             };
@@ -63,10 +63,7 @@ for "_j" from 0 to (_count - 1) do {
 #ifdef ISDEV
 [{
     (_this select 0) params ["_obj"];
-    private _mrk = createMarker [format[QGVAR(Group_%1_%2), getPos _obj, str _obj], getPos _obj];
-    _mrk setMarkerType "mil_triangle";
-    _mrk setMarkerDir (180 - (getDir _obj));
-    _mrk setMarkerColor "ColorEAST";
+    [getPos _obj, "mil_triangle", "ColorEAST", getDir _obj] call FUNC(createMarker);
 }, 10, [leader _grp]] call CFUNC(addPerFrameHandler);
 #endif
 {

@@ -14,4 +14,5 @@
     0: Return <Type>
 */
 (_this distance (getMarkerPos GVAR(baseMarker))) < 2500 ||
-[_this, GVAR(baseMarker)] call FUNC(inArea)
+_this inArea GVAR(baseMarker)
+//false

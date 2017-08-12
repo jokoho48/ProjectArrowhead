@@ -34,8 +34,8 @@ for "_i" from 1 to 100 do {
         _houseArray deleteAt (_houseArray find _house);
         if !(_housePosArray isEqualTo []) then {
             private _pos2 = getPos _house;
-            _posArray pushBack _pos2;
             if (_pos2 call FUNC(nearBase)) exitWith {};
+            _posArray pushBack _pos2;
             _wpindex = _wpindex + 1;
             private _wp = _grp addWaypoint [_pos2, 0];
             _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
@@ -55,8 +55,8 @@ for "_i" from 1 to 100 do {
         private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
         if !(surfaceIsWater _pos2) then {
             if ({(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0) then {
-                _posArray pushBack _pos2;
                 if (_pos2 call FUNC(nearBase)) exitWith {};
+                _posArray pushBack _pos2;
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [_pos2, 0];
                 _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);

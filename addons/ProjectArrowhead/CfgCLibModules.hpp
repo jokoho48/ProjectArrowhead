@@ -76,6 +76,7 @@ class CfgCLibModules {
         MODULE(RandomCampPatrols) {
             dependency[] = {"ProjectArrowhead/Common"};
             FNC(serverInit);
+            FNC(spawn);
         };
 
         MODULE(SideMission) {
