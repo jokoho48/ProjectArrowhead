@@ -42,4 +42,12 @@
             };
         }] call CFUNC(addEventhandler);
     };
+    // fix UAVs
+    ["getConnectedUAVChanged", {
+        (_this select 0) params ["_new", "_old"];
+        _new enableDynamicSimulation false;
+        _old enableDynamicSimulation false;
+        _new triggerDynamicSimulation true;
+        _old triggerDynamicSimulation true;
+    }] call CFUNC(addEventhandler);
 }] call CFUNC(addEventhandler);

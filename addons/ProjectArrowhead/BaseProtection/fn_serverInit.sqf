@@ -36,6 +36,7 @@ private _stateMachine = call CFUNC(createStatemachine);
     private _exitState = "checkGroup";
     GVAR(index) = (GVAR(index) + 1) mod ((count allGroups));
     private _grp = allGroups select GVAR(index);
+    if (side _grp in [west, civilian, sideUnknown, sideLogic]) exitWith {_exitState};
     GVAR(Group) = _grp;
     private _nearBase = (getPos (leader _grp)) call MFUNC(nearBase);
     if !(_nearBase) exitWith {_exitState};

@@ -14,7 +14,7 @@
     None
 */
 GVAR(baseMarker) = "Base";    // TODO: make settings
-GVAR(blackListLocations) = ["Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"];    // TODO: Make setting
+GVAR(blackListLocations) = ["Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"];    // TODO: Make setting
 
 GVAR(unitPoolFriendly) = [];    // TODO: Make setting
 GVAR(vehiclePoolFriendly) = [];    // TODO: Make setting
