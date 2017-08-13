@@ -14,6 +14,8 @@
     0: Return <Type>
 */
 GVAR(randomEvents) = [];
+GVAR(EventTimings) = [600,1000,1200]; // TODO: Setting
+
 {
     private _configPath = ["Mission", "Server"] select _forEachIndex;
     {
@@ -36,7 +38,7 @@ DFUNC(selectRandomEvent) = {
             _code = compile _function;
         };
         [_name, _origin, _cfg] call _code;
-    }, random [600,1000,1200]] call CFUNC(wait);
+    }, random GVAR(EventTimings)] call CFUNC(wait);
 };
 
 call FUNC(selectRandomEvent);
@@ -45,5 +47,6 @@ DFUNC(earthQuake) = {
     QGVAR(earthQuake) call CFUNC(globalEvent);
 };
 [QGVAR(earthQuake), {
+    if !(hasInterface) exitWith {};
     (ceil (random 4)) spawn BIS_fnc_earthquake;
 }] call CFUNC(addEventhandler);

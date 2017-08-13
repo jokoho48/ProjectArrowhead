@@ -48,6 +48,7 @@ for "_i" from 1 to _count do {
         };
         private _grp = createGroup _side;
         private _unit = _grp createUnit [GETCLASS(_side,3), _overwatch, [], 0, "NONE"];
+        _unit setPos _overwatch;
         _unit setUnitPos "DOWN";
         _unit setSkill ["spotDistance", 1];
         _unit setUnitRank "COLONEL";

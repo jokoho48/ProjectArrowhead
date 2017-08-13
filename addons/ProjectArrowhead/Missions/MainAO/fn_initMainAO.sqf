@@ -15,7 +15,10 @@
 */
 
 GVAR(mainAOGroupCount) = 10;    // TODO: make settings
-GVAR(mainAOVehicleCount) = 5;    // TODO: make settings
+GVAR(mainAOVehicleMRAPCount) = 5;    // TODO: make settings
+GVAR(mainAOVehicleLightCount) = 2;    // TODO: make settings
+GVAR(mainAOVehicleAACount) = 1;    // TODO: make settings
+GVAR(mainAOVehicleHeavyCount) = 1;    // TODO: make settings
 GVAR(mainAOAirCount) = 2;    // TODO: make settings
 GVAR(mainAOTower) = 3;    // TODO: make settings
 GVAR(mainAOSniper) = 2;    // TODO: make settings
@@ -31,7 +34,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
     // Spawn Inf Groups
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
         private _pos = _aoPos vectorAdd [(random 200) - 100, (random 200) - 100, 0];
-        private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
+        private _grp = [_pos, 0, ceil (random [2, 4, 6]), east] call MFUNC(spawnGroup);
         if (random 1 < 0.7) then {
             [[_grp, _aoPos], (random [MGVAR(mainAOSize) * 0.6, MGVAR(mainAOSize), MGVAR(mainAOSize) * 1.4])] call MFUNC(taskPatrol);
         } else {
@@ -78,10 +81,10 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
         ],
         MGVAR(mainAOPos), "Created", 5, true, "attack", true
     ] call BIS_fnc_taskCreate;
-    private _aiCount = count nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)];
+    private _aiCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {alive _x});
     [{
         (_this select 0) params ["_leftToWin", "_taskID"];
-        private _currentCount = count nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)];
+        private _currentCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {alive _x});
         if (_leftToWin >= _currentCount) then {
             private _units = nearestObjects [MGVAR(mainAOPos), ["CAManBase", "AllVehicles"], MGVAR(mainAOSize)];
             {
@@ -98,7 +101,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
             }, 500, _units] call CFUNC(wait);
             [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
             (_this select 1) call CFUNC(removePerFrameHandler);
-            // call EFUNC(MainAO,selectMainMission);
+            call EFUNC(MainAO,selectMainMission);
         };
     }, 20, [ceil ((_aiCount/100)*10), _taskID]] call CFUNC(addPerFrameHandler);
 }] call CFUNC(addEventhandler);
