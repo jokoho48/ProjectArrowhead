@@ -92,6 +92,10 @@ class CfgCLibModules {
             FNC(spawn);
         };
 
+        MODULE(RandomEvents) {
+            FNC(init);
+        };
+
         MODULE(SideMission) {
             dependency[] = {"ProjectArrowhead/Common"};
             FNC(selectSideMission);

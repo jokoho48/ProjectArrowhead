@@ -9,6 +9,15 @@ class ProjectArrowhead {
             function = "ProjectArrowhead_Missions_fnc_clearTown";
         };
     };
+
+    class randomEvents {
+        class earthQuake {
+            function = "ProjectArrowhead_randomEvents_fnc_earthQuake"; // FFS arma why you need that spawned
+        };
+        /*class rebelAttack {
+            function = "ProjectArrowhead_randomEvents_fnc_rebelAttack";
+        };*/
+    };
     class RandomCampPatrols {
         randomCampCount = 10;
         randomPatrolCount = 10;

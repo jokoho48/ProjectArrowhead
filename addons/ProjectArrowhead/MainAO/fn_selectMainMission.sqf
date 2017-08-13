@@ -18,14 +18,14 @@ if ((GVAR(missionAmount) > 0) && {GVAR(missionAmount) == GVAR(missionCounter)}) 
     "WON" call BIS_fnc_EndMissionServer;
 } else {
     private _mission = selectRandom GVAR(mainMissions);
-    _mission params ["_name", "_function", "_origin"];
+    _mission params ["_name", "_function", "_origin", "_cfg"];
 
     private _code = missionNamespace getVariable _function;
     if (isNil "_code") then {
         _code = compile _function;
     };
 
-    [_name, _origin] call _code;
+    [_name, _origin, _cfg] call _code;
 
     if !(GVAR(isFirstCallDone)) then {
         GVAR(isFirstCallDone) = true;

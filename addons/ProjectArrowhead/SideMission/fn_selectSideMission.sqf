@@ -14,9 +14,9 @@
     0: Return <Type>
 */
 private _sideMission = selectRandom GVAR(sideMissions);
-_sideMission params ["_name", "_function", "_origin"];
+_sideMission params ["_name", "_function", "_origin", "_cfg"];
 private _code = missionNamespace getVariable _function;
 if (isNil "_code") then {
     _code = compile _function;
 };
-[_name, _origin] call _code;
+[_name, _origin, _cfg] call _code;
