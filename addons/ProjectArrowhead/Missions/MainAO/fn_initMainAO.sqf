@@ -75,7 +75,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
         true,
         [_taskID],
         [
-            format ["Clear %1 from enemy forces", MGVAR(locationData) select 1],
+            format ["Enemy forces in %1 have been spotted. They seem to have the town on a lock down, it's our job to clear the town of enemy forces. ", MGVAR(locationData) select 1],
             "Clear Town",
             ""
         ],
