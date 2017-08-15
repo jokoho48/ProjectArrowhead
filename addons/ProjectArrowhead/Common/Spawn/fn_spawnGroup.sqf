@@ -13,7 +13,7 @@
     Returns:
     0: Return <Type>
 */
-params [["_spawnPos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side", GVAR(enemySide)], ["_uncache",false]];
+params [["_spawnPos",[0,0,0],[[]]], ["_type",0,[0, []]], ["_count",1,[0]], ["_side", GVAR(enemySide)], ["_uncache",false]];
 _spawnPos set [2, 0];
 
 private _grp = if (_side isEqualTo independent) then {createGroup east} else {createGroup _side};
@@ -34,6 +34,7 @@ for "_j" from 0 to (_count - 1) do {
             createVehicle [_type, _pos, [], 0, "FLY"];
         } else {
             private _type = GETCLASS(_side,_type);
+            if (isNil "_type") exitWith {LOG("Error type is Nil " + str _this + " " + _fnc_scriptNameParent)};
             createVehicle [_type, _pos, [], 0, "NONE"];
         };
         _vehArray pushBack _veh;

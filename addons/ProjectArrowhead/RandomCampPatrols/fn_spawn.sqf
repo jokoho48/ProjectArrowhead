@@ -14,7 +14,7 @@
     0: Return <Type>
 */
 
-private _aoPos = MGVAR(mainAOPos);
+private _aoPos = MGVAR(centerPos);
 
 private _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(randomCampCount), false, 10] call MFUNC(findPosArray);
 {
@@ -45,8 +45,10 @@ private _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(rando
 } count _posArray;
 
 for "_i" from 1 to GVAR(randomPatrolCount) do {
-    private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
-
+    private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
+    while {surfaceIsWater _pos} do {
+        _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
+    };
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [1000, 1500, 2000])] call MFUNC(taskPatrol);
 
@@ -56,10 +58,12 @@ for "_i" from 1 to GVAR(randomPatrolCount) do {
 };
 
 // Spawn Vehicles
-_posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(randomPatrolVehCount), true, 10] call MFUNC(findPosArray);
-{
-    private _pos = [_x, 1000, 5] call MFUNC(findRuralFlatPos);
-    private _vehicles = [_pos, 1, 1, east] call MFUNC(spawnGroup);
+for "_i" from 1 to GVAR(randomPatrolVehCount) do {
+    private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
+    while {surfaceIsWater _pos} do {
+        _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
+    };
+    private _vehicles = [_pos, [1, round (random 2)], 1, east] call MFUNC(spawnGroup);
     {
         [_x, (random [1000, 1500, 2000]), false] call MFUNC(setPatrolVeh);
         nil
@@ -68,5 +72,4 @@ _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(randomPatrolV
     #ifdef ISDEV
     [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createMarker);
     #endif
-    nil
-} count _posArray;
+};

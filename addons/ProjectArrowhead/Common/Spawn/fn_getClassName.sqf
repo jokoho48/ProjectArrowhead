@@ -16,7 +16,7 @@
 */
 params [["_side", east], ["_type", 0]];
 
-private "_vehType";
+private _vehType = round (random 3);
 if (_type isEqualType []) then {
     _vehType = _type select 1;
     _type = _type select 0;
@@ -76,10 +76,10 @@ switch (_side) do {
                         selectRandom GVAR(vehicleHeavyPoolEnemy);
                     };
                     case ("light"): {
-                        selectRandom GVAR(vehicleAAPoolEnemy);
+                        selectRandom GVAR(vehicleLightPoolEnemy);
                     };
                     case ("aa"): {
-                        selectRandom GVAR(vehicleLightPoolEnemy);
+                        selectRandom GVAR(vehicleAAPoolEnemy);
                     };
                     default {
                         selectRandom GVAR(vehicleMRAPPoolEnemy);

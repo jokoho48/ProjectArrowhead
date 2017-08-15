@@ -74,7 +74,7 @@ DFUNC(airAttack) = {
     [_grp, 3] setWaypointCombatMode "RED";
     [_grp, 3] setWaypointCompletionRadius 75;
     [_grp, 3] setWaypointLoiterRadius 75;
-    [_grp, 3] setWaypointStatements ["true", QUOTE(GARBAGE(group this);)];
+    [_grp, 3] setWaypointStatements ["true", 'GARBAGE(group this))'];
 
     [QGVAR(airAttackTask), [_uPos, _grp, _target]] call CFUNC(serverEvent);
 }] call CFUNC(addEventhandler);

@@ -25,10 +25,10 @@ private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
     #ifdef ISDEV
     private _mrk = [_checkPos, "hd_dot"] call FUNC(createMarker);
     #endif
-    private _height = (getTerrainHeightASL _pos - getTerrainHeightASL _checkPos);
+    private _height = (getTerrainHeightASL _checkPos - getTerrainHeightASL _pos);
     private _distance = _checkPos distance2D _pos;
     private _incidenceAngle = _height atan2 _distance;
-    if ((_distance > _min) && {(_distance < _max)} && {_height > 50 || _incidenceAngle < 15}) then {
+    if ((_distance > _min) && {(_distance < _max)} && {_height > 20 || (_incidenceAngle < 60 && _incidenceAngle > 15)}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
         #ifdef ISDEV
         _mrk setMarkerColor "ColorBlue";

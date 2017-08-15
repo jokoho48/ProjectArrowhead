@@ -44,7 +44,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
 
     // Spawn Vehicles
     {
-        private _posArray = [_aoPos, MGVAR(mainAOSize), 0, GVAR(mainAOVehicleCount), true, 10] call MFUNC(findPosArray);
+        private _posArray = [_aoPos, MGVAR(mainAOSize), 0, _x, true, 100] call MFUNC(findPosArray);
         {
             private _vehicles = [_x, [1, _forEachIndex], 1, east] call MFUNC(spawnGroup);
             {
@@ -67,7 +67,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
     };
 
     // Spawn Snipers
-    [_aoPos, GVAR(mainAOSniper), MGVAR(mainAOSize)*0.2, MGVAR(mainAOSize)*1.3, east, false, 2] call MFUNC(spawnSniper);
+    [_aoPos, GVAR(mainAOSniper), MGVAR(mainAOSize)*0.2, MGVAR(mainAOSize)*2.5, east, false, 2] call MFUNC(spawnSniper);
     QGVAR(ClearTownTask) call CFUNC(serverEvent);
 }] call CFUNC(addEventhandler);
 
@@ -101,5 +101,5 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
             (_this select 1) call CFUNC(removePerFrameHandler);
             NEXTMAINAO;
         };
-    }, 20, [ceil ((_aiCount/100)*10), _taskID]] call CFUNC(addPerFrameHandler);
+    }, 20, [round ((_aiCount/100)*10), _taskID]] call CFUNC(addPerFrameHandler);
 }] call CFUNC(addEventhandler);

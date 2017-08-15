@@ -15,14 +15,14 @@
 */
 
 ["", CLib_Player, 0, {
-    [QGVAR(Fired), {((getMarkerPos MGVAR(baseMarker)) distance CLib_Player) >= 300}, 10] call CFUNC(cachedCall);
+    [QGVAR(Fired), {(getPos CLib_Player) call MFUNC(nearBase) }, 10] call CFUNC(cachedCall);
 }, {
     ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
 }, ["priority", 0,"showWindow", false,"shortcut", "DefaultAction"]] call CFUNC(addAction);
 
 ["ace_explosives_place", {
     params ["_obj"];
-    if ((_obj distance (getmarkerpos MGVAR(baseMarker))) < 300) then {
+    if ((getPos _obj) call MFUNC(nearBase)) then {
         if (local (nearestObject [getPos _obj, "Man"])) then {
             ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
         };

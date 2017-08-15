@@ -27,7 +27,7 @@ for "_s" from 0 to 200 do {
         _range = _range min 1000;
         private _roads = _center nearRoads _range;
         _pos = getPosATL (selectRandom _roads);
-        if ((_pos call FUNC(nearBase))) exitWith {};
+        if (_pos call FUNC(nearBase)) exitWith { _usePos = false; };
         if (count _posArray >= 1) then {
             {
                 if (_x distance _pos < _minDist ) exitWith {

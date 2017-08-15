@@ -12,16 +12,19 @@ class CfgCLibModules {
         };
 
         MODULE(Common) {
+            dependency[] = {"CLib"};
             MODULE(Misc) {
                 FNC(fillLocations);
                 FNC(flattenArray);
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
                 FNC(onPinged);
+                FNC(pushBackToGarbageCollector);
+                FNC(readOutMissionData);
+                FNC(selectMissionData);
                 FNC(setUnitSurrender);
                 FNC(setUnitHostage);
                 FNC(taskName);
-                FNC(pushBackToGarbageCollector);
             };
 
             MODULE(ObjectComp) {
@@ -87,7 +90,7 @@ class CfgCLibModules {
             MODULE(SideMissions) {
                 MODULE(LocateHostage) {
                     FNC(initHostage);
-                    FNC(locateHastage);
+                    FNC(locateHostage);
                 };
             };
             FNC(init);
@@ -104,7 +107,7 @@ class CfgCLibModules {
             FNC(init);
             FNC(rebelAttack);
             FNC(selectRandomEvent);
-            FNC(severInit);
+            FNC(serverInit);
         };
 
         MODULE(SideMission) {
