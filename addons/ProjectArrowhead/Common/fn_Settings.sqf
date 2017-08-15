@@ -36,7 +36,7 @@ GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];    // TODO: Make setting
 GVAR(unitPoolRebels) = ["I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"];    // TODO: Make setting
 GVAR(vehiclePoolRebels) = [];    // TODO: Make setting
 
-GVAR(unitPoolCiv) = [];    // TODO: Make setting
+GVAR(unitPoolCiv) = ["C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"];    // TODO: Make setting
 GVAR(vehiclePoolCiv) = [];    // TODO: Make setting
 
 GVAR(enemySide) = East;    // TODO: Make setting

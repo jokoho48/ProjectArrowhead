@@ -30,7 +30,7 @@ GVAR(spawnPos) = [
 ];
 
 DFUNC(airAttack) = {
-    QGVAR(airAttackSpawn) call CFUNC(serverEvent); // TODO: HC
+    QGVAR(airAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
 };
 
 [QGVAR(airAttackSpawn), {
@@ -74,7 +74,7 @@ DFUNC(airAttack) = {
     [_grp, 3] setWaypointCombatMode "RED";
     [_grp, 3] setWaypointCompletionRadius 75;
     [_grp, 3] setWaypointLoiterRadius 75;
-    [_grp, 3] setWaypointStatements ["true", "(group this) call PRAW_fnc_canGarbageCollect;"];
+    [_grp, 3] setWaypointStatements ["true", QUOTE(GARBAGE(group this);)];
 
     [QGVAR(airAttackTask), [_uPos, _grp, _target]] call CFUNC(serverEvent);
 }] call CFUNC(addEventhandler);
@@ -101,7 +101,7 @@ DFUNC(airAttack) = {
             if (_unitCount == 0 || !alive _veh) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
                 (_this select 1) call CFUNC(removePerFrameHandler);
-                _grp call PRAW_fnc_canGarbageCollect;
+                GARBAGE(_grp);
             };
             private _leader = leader _grp;
             private _tarPos = getPos _target;
@@ -117,7 +117,7 @@ DFUNC(airAttack) = {
         [{
             (_this select 0) params ["_grp"];
             if !(alive vehicle leader _grp) exitWith {
-                    _grp call PRAW_fnc_canGarbageCollect;
+                    GARBAGE(_grp);
             };
             _grp setCurrentWaypoint [_grp, 3];
         }, 1000, _grp] call CFUNC(wait);

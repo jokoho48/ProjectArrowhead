@@ -15,26 +15,13 @@
 */
 GVAR(randomEvents) = [];
 GVAR(EventTimings) = [600,1000,1200]; // TODO: Setting
-
-DFUNC(rebelAttack) = {
-    QGVAR(rebelAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
-};
-
-DFUNC(airAttack) = {
-    QGVAR(airAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
-};
-
-DFUNC(earthQuake) = {
-    QGVAR(earthQuake) call CFUNC(globalEvent);
-};
-
 {
-    private _configPath = ["Mission", "Server"] select _forEachIndex;
+    private _origin = ["Mission", "Server"] select _forEachIndex;
     {
         if (isText _x) then {
-            GVAR(randomEvents) pushBack [configName _x, getText _x, _configPath, configNull];
+            GVAR(randomEvents) pushBack [configName _x, getText _x, _origin, configNull];
         } else {
-            GVAR(randomEvents) pushBack [configName _x, getText (_x >> "function"), _configPath, _x];
+            GVAR(randomEvents) pushBack [configName _x, getText (_x >> "function"), _origin, _x];
         };
         nil
     } count configProperties [_x >> "ProjectArrowhead" >> "randomEvents" , "isClass _x || isText _x", true];

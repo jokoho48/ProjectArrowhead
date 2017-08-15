@@ -1,7 +1,10 @@
 class ProjectArrowhead {
     MainAOSize = 2;
-    sideMissionDelay = 240;
+    sideMissionDelay = 250;
     class sideMissions {
+        class locateHastage {
+            function = "ProjectArrowhead_Missions_fnc_locateHastage";
+        };
     };
     missionAmount = 10;
     class mainMissions {

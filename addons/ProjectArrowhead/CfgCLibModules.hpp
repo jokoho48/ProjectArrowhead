@@ -21,6 +21,7 @@ class CfgCLibModules {
                 FNC(setUnitSurrender);
                 FNC(setUnitHostage);
                 FNC(taskName);
+                FNC(pushBackToGarbageCollector);
             };
 
             MODULE(ObjectComp) {
@@ -82,6 +83,12 @@ class CfgCLibModules {
             MODULE(MainAO) {
                 FNC(clearTown);
                 FNC(initMainAO);
+            };
+            MODULE(SideMissions) {
+                MODULE(LocateHostage) {
+                    FNC(initHostage);
+                    FNC(locateHastage);
+                };
             };
             FNC(init);
         };

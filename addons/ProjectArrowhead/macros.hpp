@@ -29,9 +29,13 @@
 #define MGVAR(var) EGVAR(Common,var)
 #define QMGVAR(var) QUOTE(MGVAR(var))
 
-#define GETCLASS(var1,var2) ([var1, var2] call FUNC(getClassName))
 
 #define MISSIONCLASS missionConfigFile >> "ProjectArrowhead"
 
 #define CFGPRAW(var) QUOTE(PREFIX/var)
 #define CFGPRAW2(var1,var2) QUOTE(PREFIX/var1/var2)
+
+#define GETCLASS(var1,var2) ([var1, var2] call MFUNC(getClassName))
+#define NEXTSIDEMISSION call EFUNC(SideMission,selectSideMission);
+#define NEXTMAINAO call EFUNC(MainAO,selectMainMission);
+#define GARBAGE(var) var call MFUNC(pushBackToGarbageCollector)

@@ -96,13 +96,10 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
                 };
             } count _units;
             deleteMarker QGVAR(mainAO);
-            {
-                _x call CLib_GarbageCollector_fnc_pushbackInQueue;
-                nil
-            } count _this;
+            GARBAGE(_units);
             [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
             (_this select 1) call CFUNC(removePerFrameHandler);
-            call EFUNC(MainAO,selectMainMission);
+            NEXTMAINAO;
         };
     }, 20, [ceil ((_aiCount/100)*10), _taskID]] call CFUNC(addPerFrameHandler);
 }] call CFUNC(addEventhandler);

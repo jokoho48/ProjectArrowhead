@@ -16,7 +16,7 @@
 GVAR(rebelAttackSize) = 5;
 
 DFUNC(rebelAttack) = {
-    QGVAR(rebelAttackSpawn) call CFUNC(serverEvent); // TODO: HC
+    QGVAR(rebelAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
 };
 
 [QGVAR(rebelAttackSpawn), {
@@ -71,14 +71,14 @@ DFUNC(rebelAttack) = {
             private _isPlayerEnemy = isPlayer (_leader findNearestEnemy _leader);
             if ((_distance > 2000) && !_isPlayerEnemy) exitWith {
                 [_taskID, "CANCELED"] call BIS_fnc_taskSetState;
-                _grp call PRAW_fnc_canGarbageCollect;
+                GARBAGE(_grp);
                 (_this select 1) call CFUNC(removePerFrameHandler);
             };
             private _unitCount = {alive _x} count (units _grp);
             if (_unitCount == 0) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
                 (_this select 1) call CFUNC(removePerFrameHandler);
-                _grp call PRAW_fnc_canGarbageCollect;
+                GARBAGE(_grp);
             };
         }, 5, [_pos, _grp, _target, _taskID]] call CFUNC(addPerFrameHandler);
     }, 10, _this select 0] call CFUNC(wait);

@@ -17,12 +17,12 @@
 GVAR(sideMissions) = [];
 
 {
-    private _configPath = ["Mission", "Server"] select _forEachIndex;
+    private _origin = ["Mission", "Server"] select _forEachIndex;
     {
         if (isText _x) then {
-            GVAR(sideMissions) pushBack [configName _x, getText _x, _configPath, configNull];
+            GVAR(sideMissions) pushBack [configName _x, getText _x, _origin, configNull];
         } else {
-            GVAR(sideMissions) pushBack [configName _x, getText (_x >> "function"), _configPath, _x];
+            GVAR(sideMissions) pushBack [configName _x, getText (_x >> "function"), _origin, _x];
         };
         nil
     } count configProperties [_x >> "ProjectArrowhead" >> "sideMissions" , "isClass _x || isText _x", true];
@@ -32,13 +32,4 @@ GVAR(sideMissions) = [];
 
 GVAR(sideMissionDelay) = [CFGPRAW(sideMissionDelay), 240] call CFUNC(getSetting);
 
-/* TODO: add Missions
-GVAR(sideMissionRunning) = false;
 call FUNC(selectSideMission);
-
-[{
-    if !(GVAR(sideMissionRunning)) then {
-        call FUNC(selectSideMission);
-    };
-}, 1] call CFUNC(addPerFrameHandler);
-*/
