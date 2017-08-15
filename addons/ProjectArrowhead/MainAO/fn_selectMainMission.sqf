@@ -26,7 +26,7 @@ if ((GVAR(missionAmount) > 0) && {GVAR(missionAmount) == GVAR(missionCounter)}) 
     };
 
     [_name, _origin, _cfg] call _code;
-
+    LOG("load MainAO: """ + _name + """ from: " + _origin);
     if !(GVAR(isFirstCallDone)) then {
         GVAR(isFirstCallDone) = true;
         [{

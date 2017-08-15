@@ -14,9 +14,12 @@ class ProjectArrowhead {
         class earthQuake {
             function = "ProjectArrowhead_randomEvents_fnc_earthQuake"; // FFS arma why you need that spawned
         };
-        /*class rebelAttack {
+        class rebelAttack {
             function = "ProjectArrowhead_randomEvents_fnc_rebelAttack";
-        };*/
+        };
+        class airAttack {
+            function = "ProjectArrowhead_randomEvents_fnc_airAttack";
+        };
     };
     class RandomCampPatrols {
         randomCampCount = 10;

@@ -21,14 +21,19 @@ GVAR(vehiclePoolFriendly) = [];    // TODO: Make setting
 GVAR(airPoolFriendly) = [];    // TODO: Make setting
 
 GVAR(unitPoolEnemy) = ["O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"];    // TODO: Make setting
-GVAR(vehiclePoolEnemy) = ["O_MBT_02_cannon_F", "O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F", "O_APC_Tracked_02_AA_F", "O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];    // TODO: Make setting
+
+GVAR(vehicleMRAPPoolEnemy) = ["O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];    // TODO: Make setting
+GVAR(vehicleLightPoolEnemy) = ["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F"];    // TODO: Make setting
+GVAR(vehicleAAPoolEnemy) = ["O_APC_Tracked_02_AA_F"];    // TODO: Make setting
+GVAR(vehicleHeavyPoolEnemy) = ["O_MBT_02_cannon_F"];    // TODO: Make setting
+
 GVAR(airPoolEnemy) = ["O_Heli_Light_02_F"];    // TODO: Make setting
 GVAR(sniperPoolEnemy) = ["O_sniper_F"];    // TODO: Make setting
 GVAR(staticPoolEnemy) = ["O_GMG_01_F", "O_HMG_01_F"];    // TODO: Make setting
 GVAR(staticHighPoolEnemy) = ["O_GMG_01_high_F", "O_HMG_01_high_F"];    // TODO: Make setting
 GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];    // TODO: Make setting
 
-GVAR(unitPoolRebels) = [];    // TODO: Make setting
+GVAR(unitPoolRebels) = ["I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"];    // TODO: Make setting
 GVAR(vehiclePoolRebels) = [];    // TODO: Make setting
 
 GVAR(unitPoolCiv) = [];    // TODO: Make setting

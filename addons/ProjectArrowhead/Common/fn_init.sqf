@@ -64,3 +64,18 @@ DFUNC(createMarker) = {
     _mrk
 #endif
 };
+
+PRAW_fnc_canGarbageCollect = {
+    params ["_obj"];
+    if (_obj isEqualType objNull) then {
+        _obj call CLib_GarbageCollector_fnc_pushbackInQueue;
+    } else {
+        {
+            if (vehicle _x != _x) then {
+                _x call CLib_GarbageCollector_fnc_pushbackInQueue;
+            };
+            _x call CLib_GarbageCollector_fnc_pushbackInQueue;
+            nil
+        } count (units (group _obj))
+    };
+};

@@ -19,4 +19,5 @@ private _code = missionNamespace getVariable _function;
 if (isNil "_code") then {
     _code = compile _function;
 };
+LOG("load Side Mission: """ + _name + """ from: " + _origin);
 [_name, _origin, _cfg] call _code;

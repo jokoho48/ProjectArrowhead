@@ -47,6 +47,7 @@ for "_i" from 1 to _count do {
             } count (_objs call CFUNC(shuffleArray));
         };
         private _grp = createGroup _side;
+        _overwatch set [2,0];
         private _unit = _grp createUnit [GETCLASS(_side,3), _overwatch, [], 0, "NONE"];
         _unit setPos _overwatch;
         _unit setUnitPos "DOWN";

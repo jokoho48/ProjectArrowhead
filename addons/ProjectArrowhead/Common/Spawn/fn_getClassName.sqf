@@ -16,10 +16,22 @@
 */
 params [["_side", east], ["_type", 0]];
 
+private "_vehType";
+if (_type isEqualType []) then {
+    _vehType = _type select 1;
+    _type = _type select 0;
+};
+
 if (_type isEqualType 0) then {
     _type = ["inf", "veh", "air", "sniper", "static", "statichigh", "staticmortar"] select _type;
 } else {
     _type = toLower _type;
+};
+
+if (_vehType isEqualType 0) then {
+    _vehType = ["mrap", "light", "aa", "heavy"] select _vehType;
+} else {
+    _vehType = toLower _vehType;
 };
 
 switch (_side) do {
@@ -59,7 +71,20 @@ switch (_side) do {
     default {
         switch (_type) do {
             case ("veh"): {
-                selectRandom GVAR(vehiclePoolEnemy);
+                switch (_vehType) do {
+                    case ("heavy"): {
+                        selectRandom GVAR(vehicleHeavyPoolEnemy);
+                    };
+                    case ("light"): {
+                        selectRandom GVAR(vehicleAAPoolEnemy);
+                    };
+                    case ("aa"): {
+                        selectRandom GVAR(vehicleLightPoolEnemy);
+                    };
+                    default {
+                        selectRandom GVAR(vehicleMRAPPoolEnemy);
+                    };
+                };
             };
             case ("air"): {
                 selectRandom GVAR(airPoolEnemy);

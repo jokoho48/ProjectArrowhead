@@ -93,7 +93,11 @@ class CfgCLibModules {
         };
 
         MODULE(RandomEvents) {
+            FNC(airAttack);
             FNC(init);
+            FNC(rebelAttack);
+            FNC(selectRandomEvent);
+            FNC(severInit);
         };
 
         MODULE(SideMission) {

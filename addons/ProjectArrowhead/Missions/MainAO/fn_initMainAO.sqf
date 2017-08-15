@@ -19,7 +19,7 @@ GVAR(mainAOVehicleMRAPCount) = 5;    // TODO: make settings
 GVAR(mainAOVehicleLightCount) = 2;    // TODO: make settings
 GVAR(mainAOVehicleAACount) = 1;    // TODO: make settings
 GVAR(mainAOVehicleHeavyCount) = 1;    // TODO: make settings
-GVAR(mainAOAirCount) = 2;    // TODO: make settings
+GVAR(mainAOAirCount) = 1;    // TODO: make settings
 GVAR(mainAOTower) = 3;    // TODO: make settings
 GVAR(mainAOSniper) = 2;    // TODO: make settings
 GVAR(mainAOStatic) = 3;    // TODO: make settings
@@ -43,15 +43,18 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
     };
 
     // Spawn Vehicles
-    private _posArray = [_aoPos, MGVAR(mainAOSize), 0, GVAR(mainAOVehicleCount), true, 10] call MFUNC(findPosArray);
     {
-        private _vehicles = [_x, 1, 1, east] call MFUNC(spawnGroup);
+        private _posArray = [_aoPos, MGVAR(mainAOSize), 0, GVAR(mainAOVehicleCount), true, 10] call MFUNC(findPosArray);
         {
-            [[_x, _aoPos], (random [MGVAR(mainAOSize)*1.5, MGVAR(mainAOSize)*3, MGVAR(mainAOSize)*4]), false] call MFUNC(setPatrolVeh);
+            private _vehicles = [_x, [1, _forEachIndex], 1, east] call MFUNC(spawnGroup);
+            {
+                [[_x, _aoPos], (random [MGVAR(mainAOSize)*1.5, MGVAR(mainAOSize)*3, MGVAR(mainAOSize)*4]), false] call MFUNC(setPatrolVeh);
+                nil
+            } count _vehicles;
             nil
-        } count _vehicles;
-        nil
-    } count _posArray;
+        } count _posArray;
+    } forEach [GVAR(mainAOVehicleMRAPCount), GVAR(mainAOVehicleLightCount), GVAR(mainAOVehicleAACount), GVAR(mainAOVehicleHeavyCount)];
+
 
     // Spawn Air Vehciles
     for "_i" from 1 to GVAR(mainAOAirCount) do {
@@ -86,19 +89,17 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
         (_this select 0) params ["_leftToWin", "_taskID"];
         private _currentCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {alive _x});
         if (_leftToWin >= _currentCount) then {
-            private _units = nearestObjects [MGVAR(mainAOPos), ["CAManBase", "AllVehicles"], MGVAR(mainAOSize)];
+            private _units = nearestObjects [MGVAR(mainAOPos), [], MGVAR(mainAOSize)];
             {
                 if ((random 1) <= 0.5) then {
                     _x call MFUNC(setUnitSurrender);
                 };
             } count _units;
-            [{
-                deleteMarker QGVAR(mainAO);
-                {
-                    deleteVehicle _x;
-                    nil
-                } count _this;
-            }, 500, _units] call CFUNC(wait);
+            deleteMarker QGVAR(mainAO);
+            {
+                _x call CLib_GarbageCollector_fnc_pushbackInQueue;
+                nil
+            } count _this;
             [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
             (_this select 1) call CFUNC(removePerFrameHandler);
             call EFUNC(MainAO,selectMainMission);
