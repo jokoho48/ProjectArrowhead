@@ -35,11 +35,7 @@ DFUNC(airAttack) = {
 
 [QGVAR(airAttackSpawn), {
 
-    private _target = objNull;
-    {
-        if (alive _target && !([getPos _target] call MFUNC(nearBase))) exitWith {_target = _x;};
-        nil
-    } count (allPlayers call CFUNC(shuffleArray));
+    private _target = call MFUNC(getPlayerTarget);
 
     if !(alive _target) exitWith {};
 
@@ -91,13 +87,13 @@ DFUNC(airAttack) = {
                 "Air Attack",
                 ""
             ],
-            _pos, false,2,true,"destroy",false
+            _pos vectorAdd [random 50, random 50, 0], false,2,true,"destroy",false
         ] call BIS_fnc_taskCreate;
         private _veh = vehicle (leader _grp);
         [{
             (_this select 0) params ["_pos", "_veh", "_grp", "_target", "_taskID"];
 
-            private _unitCount = {alive _x} count (units _grp);
+            private _unitCount = {_x call MFUNC(isAwake)} count (units _grp);
             if (_unitCount == 0 || !alive _veh) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
                 (_this select 1) call CFUNC(removePerFrameHandler);

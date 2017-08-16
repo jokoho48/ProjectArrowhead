@@ -16,7 +16,7 @@
 
 GVAR(sideMissions) = ["ProjectArrowhead", "sideMissions"] call MFUNC(readOutMissionData);
 
-GVAR(sideMissionDelay) = [CFGPRAW(sideMissionDelay), 240] call CFUNC(getSetting);
+GVAR(sideMissionDelay) = [CFGPRAW(sideMissionDelay), 0] call CFUNC(getSetting);
 
 ["missionStarted", {
     call FUNC(selectSideMission);

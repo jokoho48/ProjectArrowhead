@@ -13,5 +13,4 @@
     Returns:
     0: Return <Type>
 */
-_this call FUNC(inBase) ||
-{(_this distance (getMarkerPos GVAR(baseMarker))) < 2500}
+!(_this getVariable ["ace_isUnconscious", false]) && alive _this

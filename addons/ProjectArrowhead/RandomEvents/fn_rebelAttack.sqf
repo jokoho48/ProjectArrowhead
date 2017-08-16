@@ -21,11 +21,7 @@ DFUNC(rebelAttack) = {
 
 [QGVAR(rebelAttackSpawn), {
 
-    private _target = objNull;
-    {
-        if (alive _target && !([getPos _target] call MFUNC(nearBase))) exitWith {_target = _x;};
-        nil
-    } count (allPlayers call CFUNC(shuffleArray));
+    private _target = call MFUNC(getPlayerTarget);
 
     if !(alive _target) exitWith {};
 
@@ -59,7 +55,7 @@ DFUNC(rebelAttack) = {
                 "Rabit Attack",
                 ""
             ],
-            _pos, false,2,true,"C",false
+            _pos vectorAdd [random 50, random 50, 0], false,2,true,"C",false
         ] call BIS_fnc_taskCreate;
 
         [{
@@ -74,7 +70,7 @@ DFUNC(rebelAttack) = {
                 GARBAGE(_grp);
                 (_this select 1) call CFUNC(removePerFrameHandler);
             };
-            private _unitCount = {alive _x} count (units _grp);
+            private _unitCount = {_x call MFUNC(isAwake)} count (units _grp);
             if (_unitCount == 0) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
                 (_this select 1) call CFUNC(removePerFrameHandler);

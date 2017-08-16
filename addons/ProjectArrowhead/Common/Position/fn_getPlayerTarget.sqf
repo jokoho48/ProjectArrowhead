@@ -13,14 +13,10 @@
     Returns:
     0: Return <Type>
 */
-params ["_pos", "_range"];
-private _players = [];
-
+private _target = objNull;
 {
-    if (((_x distance _pos) <= _range) && _x call MFUNC(isAwake)) then {
-        _players pushBack _x
-    };
+    if (_x call MFUNC(isAwake) && !([getPos _x] call MFUNC(nearBase))) exitWith {_target = _x;};
     nil
-} count allPlayers;
+} count (allPlayers call CFUNC(shuffleArray));
 
-_players
+_target

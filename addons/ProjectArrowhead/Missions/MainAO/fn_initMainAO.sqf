@@ -84,10 +84,10 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
         ],
         MGVAR(mainAOPos), "Created", 5, true, "attack", true
     ] call BIS_fnc_taskCreate;
-    private _aiCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {alive _x});
+    private _aiCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {_x call MFUNC(isAwake)});
     [{
         (_this select 0) params ["_leftToWin", "_taskID"];
-        private _currentCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {alive _x});
+        private _currentCount = count ((nearestObjects [MGVAR(mainAOPos), ["CAManBase"], MGVAR(mainAOSize)]) select {_x call MFUNC(isAwake)});
         if (_leftToWin >= _currentCount) then {
             private _units = nearestObjects [MGVAR(mainAOPos), [], MGVAR(mainAOSize)];
             {

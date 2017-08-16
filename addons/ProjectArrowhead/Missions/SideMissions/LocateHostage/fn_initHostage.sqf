@@ -16,12 +16,12 @@
 [QGVAR(spawnUnits), {
     private _posVIP = [0,0,0];
     if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
-        _posVIP = [GVAR(centerPos), GVAR(worldSize),10] call MFUNC(findRuralFlatPos);
+        _posVIP = [MGVAR(centerPos), MGVAR(worldSize),10] call MFUNC(findRuralFlatPos);
     } else {
-        private _houseArray = [GVAR(centerPos), GVAR(worldSize)] call MFUNC(findRuralHousePos);
-        _posVIP = (_houseArray select 0);
-        while {(([_posVIP, 3000] call MFUNC(getNearPlayers)) isEqualTo [] && (surfaceIsWater _posVIP))} do {
-            _houseArray = [GVAR(centerPos), GVAR(worldSize)] call MFUNC(findRuralHousePos);
+        private _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
+        _posVIP = (_houseArray select 1);
+        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP))} do {
+            _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
             _posVIP = (_houseArray select 0);
         };
     };
@@ -33,7 +33,7 @@
     private _vip = _grp createUnit [_type, _posVIP, [], 0, "NONE"];
     _vip setPos _posVIP;
     _units pushBack (group _vip);
-
+    _vip call MFUNC(setUnitSurrender);
     // Spawn Vehicle
     if (random 1 >= 0.4) then {
         private _pos = selectRandom ([_posVIP, 500, 0, 1, true, 10] call MFUNC(findPosArray));
@@ -52,6 +52,9 @@
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _posVIP], (random [100, 150, 200])] call MFUNC(taskPatrol);
     _units pushBack _grp;
+    private _grp2 = [_pos, 0, floor (random [1, 2, 4]), east] call MFUNC(spawnGroup);
+    [_pos, units _grp2, 1000, true] call MFUNC(occupyBuilding);
+    _units pushBack _grp2;
     #ifdef ISDEV
     [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Inf"] call MFUNC(createMarker);
     #endif
@@ -77,13 +80,13 @@
     [{
         params ["_args", "_id"];
         _args params ["_vip", "_units", "_taskID"];
-        if !(alive _vip) exitWith {
+        if !(_vip call MFUNC(isAwake)) exitWith {
             _id call CFUNC(removePerFrameHandler);
             [_taskID, "FAILED",true] call BIS_fnc_taskSetState;
             GARBAGE(_units);
             NEXTSIDEMISSION;
         };
-        if ((getPos _vip) call MFUNC(nearBase)) then {
+        if ((getPos _vip) call MFUNC(inBase)) then {
             _id call CFUNC(removePerFrameHandler);
             [{
                 params ["_units", "_taskID"];

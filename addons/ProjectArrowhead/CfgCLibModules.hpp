@@ -18,6 +18,7 @@ class CfgCLibModules {
                 FNC(flattenArray);
                 FNC(getClosePlayers);
                 FNC(getEnemyStrength);
+                FNC(isAwake);
                 FNC(onPinged);
                 FNC(pushBackToGarbageCollector);
                 FNC(readOutMissionData);
@@ -41,7 +42,9 @@ class CfgCLibModules {
                 FNC(findRuralHousePos);
                 FNC(findTriPos);
                 FNC(getLocation);
+                FNC(getPlayerTarget);
                 FNC(inArea);
+                FNC(inBase);
                 FNC(nearBase);
                 FNC(selectRandomPos);
             };
