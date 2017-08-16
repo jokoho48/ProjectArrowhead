@@ -70,7 +70,7 @@
         true,
         [_taskID],
         [
-            "We have lost contact with one of our operatives out in the field. His last known location has been marked on the map. Bring him back to base safely. Use of deadly force is allowed but we recommend care as we do not have the exact location of our operative.",
+            "We've got intel on a hostage situation. Enemy forces have taken a VIP hostage it is our top priority to rescue him and bring him back to base alive.",
             "Search and Rescue",
             ""
         ],
