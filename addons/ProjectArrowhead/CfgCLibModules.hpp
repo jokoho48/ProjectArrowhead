@@ -14,6 +14,7 @@ class CfgCLibModules {
         MODULE(Common) {
             dependency[] = {"CLib"};
             MODULE(Misc) {
+                FNC(aliveGroup);
                 FNC(fillLocations);
                 FNC(flattenArray);
                 FNC(getClosePlayers);
@@ -43,6 +44,7 @@ class CfgCLibModules {
                 FNC(findTriPos);
                 FNC(getLocation);
                 FNC(getPlayerTarget);
+                FNC(getWorldEdgePos);
                 FNC(inArea);
                 FNC(inBase);
                 FNC(nearBase);

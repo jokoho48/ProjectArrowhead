@@ -64,3 +64,15 @@ DFUNC(createMarker) = {
     _mrk
 #endif
 };
+
+west setFriend [east , 0];
+west setFriend [independent , 0];
+west setFriend [civilian, 1];
+
+east setFriend [west, 0];
+east setFriend [independent, 1];
+east setFriend [civilian, 1];
+
+independent setFriend [west , 0];
+independent setFriend [civilian , 1];
+independent setFriend [east , 1];

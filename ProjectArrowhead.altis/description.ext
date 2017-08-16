@@ -26,6 +26,10 @@ class CLib {
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
     Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead"};
+    class GarbageCollector {
+        EnableGarbageCollector = 1;
+        GarbageCollectorTime = 120;
+    };
 };
 
 class BSO {
@@ -39,6 +43,15 @@ class BSO {
         DistanceEmptyVehicle = "250";
         DistanceProps = "50";
         CoefDefault = "2";
+    };
+    class CfgRBU {
+        hearingDistance = 1500;
+        numberOfAi = 3;
+        waypointsCount = 3;
+        searchRadius = 100;
+        aiMode = "RED";
+        walkTime = 25;
+        maxRunning = 3;
     };
 };
 

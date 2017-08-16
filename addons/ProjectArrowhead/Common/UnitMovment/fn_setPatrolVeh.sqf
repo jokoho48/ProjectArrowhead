@@ -52,13 +52,13 @@ if !(_isAir) then {
                     _posArray pushBack _pos2;
                     _wpindex = _wpindex + 1;
                     private _wp = _grp addWaypoint [_pos2, 0];
-                    _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
-                    [_grp, _wpindex] setWaypointBehaviour "SAFE";
-                    [_grp, _wpindex] setWaypointCombatMode "RED";
-                    [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
-                    [_grp, _wpindex] setWaypointLoiterRadius _waypointsrange;
-                    [_grp, _wpindex] setWaypointTimeout [2,20,6];
-                    [_grp, _wpindex] setWaypointStatements ["true", DFUNC(exitPatrol)];
+                    _wp setWaypointType "MOVE";
+                    _wp setWaypointBehaviour "SAFE";
+                    _wp setWaypointCombatMode "RED";
+                    _wp setWaypointCompletionRadius _waypointsrange;
+                    _wp setWaypointLoiterRadius _waypointsrange;
+                    _wp setWaypointTimeout [2,20,6];
+                    _wp setWaypointStatements ["true", DFUNC(exitPatrol)];
                 };
             };
             if (count _posArray isEqualTo 5) then {
@@ -75,12 +75,13 @@ if !(_isAir) then {
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [(getPosATL _road), 0];
                 _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
-                [_grp, _wpindex] setWaypointBehaviour "SAFE";
-                [_grp, _wpindex] setWaypointCombatMode "RED";
-                [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
-                [_grp, _wpindex] setWaypointLoiterRadius _waypointsrange;
-                [_grp, _wpindex] setWaypointTimeout [2,20,6];
-                [_grp, _wpindex] setWaypointStatements ["true", DFUNC(exitPatrol)];
+                _wp setWaypointType "MOVE";
+                _wp setWaypointBehaviour "SAFE";
+                _wp setWaypointCombatMode "RED";
+                _wp setWaypointCompletionRadius _waypointsrange;
+                _wp setWaypointLoiterRadius _waypointsrange;
+                _wp setWaypointTimeout [2,20,6];
+                _wp setWaypointStatements ["true", DFUNC(exitPatrol)];
             };
 
             if (count _posArray isEqualTo 5) then {
@@ -97,15 +98,20 @@ if !(_isAir) then {
         private _range = (ceil random _maxRange);
         private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, _height];
            if ({(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0) then {
-             _posArray pushBack _pos2;
-             _wpindex = _wpindex + 1;
-             private _wp = _grp addWaypoint [_pos2, 0];
-             _wp setWaypointType "MOVE";
-             [_grp, _wpindex] setWaypointBehaviour "SAFE";
-             [_grp, _wpindex] setWaypointCombatMode "RED";
-             [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
-             [_grp, _wpindex] setWaypointLoiterRadius _waypointsrange;
-             [_grp, _wpindex] setWaypointStatements ["true", DFUNC(exitPatrol)];
+            _posArray pushBack _pos2;
+            _wpindex = _wpindex + 1;
+            private _wp = _grp addWaypoint [_pos2, 0];
+            private _type = (selectRandom ["MOVE", "LOITER"]);
+            _wp setWaypointType _type;
+            if (_type isEqualTo "LOITER") then {
+                _wp setWaypointLoiterType (selectRandom ["CIRCLE", "CIRCLE_L"]);
+                _wp setWaypointLoiterRadius random [250, 500, 700];
+            };
+            _wp setWaypointBehaviour "SAFE";
+            _wp setWaypointCombatMode "RED";
+            _wp setWaypointCompletionRadius _waypointsrange;
+            _wp setWaypointLoiterRadius _waypointsrange;
+            _wp setWaypointStatements ["true", DFUNC(exitPatrol)];
          };
 
         if (count _posArray isEqualTo 5) then {

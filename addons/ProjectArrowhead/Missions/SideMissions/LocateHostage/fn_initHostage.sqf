@@ -76,7 +76,6 @@
         ],
         getPos _vip, "Created", 5, true, "C", true
     ] call BIS_fnc_taskCreate;
-    _units pushBack _vip;
     [{
         params ["_args", "_id"];
         _args params ["_vip", "_units", "_taskID"];
