@@ -83,8 +83,8 @@ DFUNC(airAttack) = {
             west,
             [_taskID],
             [
-                "make them dead",
-                "Air Attack",
+                "Beware of enemy aircraft!",
+                "Enemy aircontact sighted!",
                 ""
             ],
             _pos vectorAdd [random 50, random 50, 0], false,2,true,"destroy",false

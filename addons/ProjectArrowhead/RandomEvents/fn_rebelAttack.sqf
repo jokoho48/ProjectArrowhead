@@ -51,8 +51,8 @@ DFUNC(rebelAttack) = {
             west,
             [_taskID],
             [
-                "make them dead",
-                "Rabit Attack",
+                "Rebel activity has been reported in the area, watch your backs boys.",
+                "Rebel activity reported!",
                 ""
             ],
             _pos vectorAdd [random 50, random 50, 0], false,2,true,"C",false

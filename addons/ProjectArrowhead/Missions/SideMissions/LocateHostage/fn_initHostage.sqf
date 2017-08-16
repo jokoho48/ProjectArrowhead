@@ -70,8 +70,8 @@
         true,
         [_taskID],
         [
-            "get me out biatsch",
-            "Hostage Rescue",
+            "We have lost contact with one of our operatives out in the field. His last known location has been marked on the map. Bring him back to base safely. Use of deadly force is allowed but we recommend care as we do not have the exact location of our operative.",
+            "Search and Rescue",
             ""
         ],
         getPos _vip, "Created", 5, true, "C", true
