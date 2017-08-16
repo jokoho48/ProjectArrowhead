@@ -14,20 +14,33 @@
     None
 */
 
+
 GVAR(centerPos) = [worldSize/2, worldSize/2];
 GVAR(worldSize) = (worldSize/2);
 
-call FUNC(Settings);
+["missionStarted", {
+    call FUNC(Settings);
+    call FUNC(fillLocations);
+    GVAR(locations) call CFUNC(shuffleArray);
+    west setFriend [east , 0];
+    west setFriend [independent , 0];
+    west setFriend [civilian, 1];
 
+    east setFriend [west, 0];
+    east setFriend [independent, 1];
+    east setFriend [civilian, 1];
+
+    independent setFriend [west , 0];
+    independent setFriend [civilian , 1];
+    independent setFriend [east , 1];
+
+}] call CFUNC(addEventhandler);
 ["entityCreated", {
     (_this select 0) params ["_obj"];
     if (_obj isKindOf "ModuleCurator_F") then {
         _obj addEventHandler ["CuratorPinged", { _this call FUNC(onPinged); }];
     };
 }] call CFUNC(addEventhandler);
-
-call FUNC(fillLocations);
-GVAR(locations) call CFUNC(shuffleArray);
 
 ["ACE_handcuffUnit", {
     (_this select 0) params ["_unit", "_state"];
@@ -44,7 +57,6 @@ GVAR(locations) call CFUNC(shuffleArray);
     (_this select 0) params [["_code", {}], "_args"];
     _args call _code;
 }] call CFUNC(addEventhandler);
-
 
 
 DFUNC(createMarker) = {
@@ -64,15 +76,3 @@ DFUNC(createMarker) = {
     _mrk
 #endif
 };
-
-west setFriend [east , 0];
-west setFriend [independent , 0];
-west setFriend [civilian, 1];
-
-east setFriend [west, 0];
-east setFriend [independent, 1];
-east setFriend [civilian, 1];
-
-independent setFriend [west , 0];
-independent setFriend [civilian , 1];
-independent setFriend [east , 1];

@@ -14,15 +14,17 @@
     0: Return <Type>
 */
 
-GVAR(mainAOGroupCount) = [CFGPRAW2(clearTown,mainAOGroupCount), 10] call CFUNC(getSetting);
-GVAR(mainAOVehicleMRAPCount) = [CFGPRAW2(clearTown,mainAOVehicleMRAPCount), 5] call CFUNC(getSetting);
-GVAR(mainAOVehicleLightCount) = [CFGPRAW2(clearTown,mainAOVehicleLightCount), 2] call CFUNC(getSetting);
-GVAR(mainAOVehicleAACount) = [CFGPRAW2(clearTown,mainAOVehicleAACount), 1] call CFUNC(getSetting);
-GVAR(mainAOVehicleHeavyCount) = [CFGPRAW2(clearTown,mainAOVehicleHeavyCount), 1] call CFUNC(getSetting);
-GVAR(mainAOAirCount) = [CFGPRAW2(clearTown,mainAOAirCount), 1] call CFUNC(getSetting);
-GVAR(mainAOTower) = [CFGPRAW2(clearTown,mainAOTowerCount), 3] call CFUNC(getSetting);
-GVAR(mainAOSniper) = [CFGPRAW2(clearTown,mainAOSniperCount), 2] call CFUNC(getSetting);
-GVAR(mainAOStatic) = [CFGPRAW2(clearTown,mainAOStaticCount), 3] call CFUNC(getSetting);
+["missionStarted", {
+    GVAR(mainAOGroupCount) = [CFGPRAW2(clearTown,mainAOGroupCount), 10] call CFUNC(getSetting);
+    GVAR(mainAOVehicleMRAPCount) = [CFGPRAW2(clearTown,mainAOVehicleMRAPCount), 5] call CFUNC(getSetting);
+    GVAR(mainAOVehicleLightCount) = [CFGPRAW2(clearTown,mainAOVehicleLightCount), 2] call CFUNC(getSetting);
+    GVAR(mainAOVehicleAACount) = [CFGPRAW2(clearTown,mainAOVehicleAACount), 1] call CFUNC(getSetting);
+    GVAR(mainAOVehicleHeavyCount) = [CFGPRAW2(clearTown,mainAOVehicleHeavyCount), 1] call CFUNC(getSetting);
+    GVAR(mainAOAirCount) = [CFGPRAW2(clearTown,mainAOAirCount), 1] call CFUNC(getSetting);
+    GVAR(mainAOTower) = [CFGPRAW2(clearTown,mainAOTowerCount), 3] call CFUNC(getSetting);
+    GVAR(mainAOSniper) = [CFGPRAW2(clearTown,mainAOSniperCount), 2] call CFUNC(getSetting);
+    GVAR(mainAOStatic) = [CFGPRAW2(clearTown,mainAOStaticCount), 3] call CFUNC(getSetting);
+}] call CFUNC(addEventhandler);
 
 
 [QGVAR(spawnClearTownUnits), {

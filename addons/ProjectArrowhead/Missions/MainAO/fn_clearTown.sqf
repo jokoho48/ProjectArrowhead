@@ -15,7 +15,9 @@
 */
 
 private _locData = call MFUNC(getLocation);
+
 _locData params ["_pos", "_name", "_size", "_location"];
+_locData set [1, format ["%1", _name]];
 MGVAR(locationData) = _locData select [0,3];
 
 GVAR(location) = _location;

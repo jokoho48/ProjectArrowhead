@@ -65,7 +65,7 @@ switch (_side) do {
     default {
         switch (_type) do {
             case ("veh"): {
-                if (isNil _vehType) then {
+                if (isNil "_vehType") then {
                     _vehType = round (random 3);
                 };
                 if (_vehType isEqualType 0) then {
@@ -89,7 +89,7 @@ switch (_side) do {
                 };
             };
             case ("air"): {
-                if (isNil _vehType) then {
+                if (isNil "_vehType") then {
                     _vehType = round (random 1);
                 };
                 if (_vehType isEqualType 0) then {
@@ -113,16 +113,16 @@ switch (_side) do {
                 selectRandom GVAR(sniperPoolEnemy);
             };
             case ("static"): {
-                if (isNil _vehType) then {
+                if (isNil "_vehType") then {
                     _vehType = round (random 2);
                 };
                 if (_vehType isEqualType 0) then {
-                    _vehType = ["static", "high", "mortar"] select _vehType;
+                    _vehType = ["low", "high", "mortar"] select _vehType;
                 } else {
                     _vehType = toLower _vehType;
                 };
                 switch (_vehType) do {
-                    case ("static"): {
+                    case ("low"): {
                         selectRandom GVAR(staticPoolEnemy);
                     };
                     case ("mortar"): {

@@ -21,7 +21,7 @@ private _posArray = [];
 private _random = _type isEqualTo -1;
 private _roads = _pos nearRoads _range;
 
-for "_s" from 0 to 100 do {
+for "_s" from 0 to 200 do {
     if (_random) then {_type = floor random 2};
     call {
 
@@ -41,7 +41,8 @@ for "_s" from 0 to 100 do {
             if (_check isEqualTo [] || {isOnRoad _staticPos}) exitWith {};
 
             _posArray pushBack _staticPos;
-            private _static = GETCLASS(_side,"static") createVehicle [0,0,0];
+            private _typeClass = ["static", "low"];
+            private _static = GETCLASS(_side,_typeClass) createVehicle [0,0,0];
             _static setPos _staticPos;
             _static setVectorUp surfaceNormal getPos _static;
             private _lis = lineIntersectsSurfaces [(getPosASL _static) vectorAdd [0,0,0.5], ATLToASL(_static modelToWorld [0,30,0.5]), _static];
@@ -82,7 +83,8 @@ for "_s" from 0 to 100 do {
 
             private _lis = lineIntersectsSurfaces [getPosASL _bunker vectorAdd [0,0,1], ATLToASL(_bunker modelToWorld [0,30,1]), _bunker];
             if !(_lis isEqualTo []) exitWith {deleteVehicle _bunker;};
-            private _static = createVehicle [GETCLASS(_side, "statichigh"), [0,0,0], [], 0, "CAN COLLIDE"];
+            private _typeClass = ["static", "high"];
+            private _static = createVehicle [GETCLASS(_side, _typeClass), [0,0,0], [], 0, "CAN COLLIDE"];
             _static setPosATL (_bunker modelToWorld [0,0,-0.8]);
 
             private _grp = createGroup _side;
@@ -107,7 +109,8 @@ for "_s" from 0 to 100 do {
         if (_check isEqualTo [] || isOnRoad _staticPos) exitWith {};
 
         _posArray pushBack _staticPos;
-        private _static = GETCLASS(_side, "staticmortar") createVehicle _staticPos;
+        private _typeClass = ["static", "mortar"];
+        private _static = GETCLASS(_side, _typeClass) createVehicle _staticPos;
 
 
         {

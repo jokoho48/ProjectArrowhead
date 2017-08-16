@@ -18,7 +18,7 @@ GVAR(locations) = [];
     private _locName = text _x;
     private _locPos = getPos _x;
     _locPos set [2,0];
-    if !(_locPos call FUNC(nearBase) || (_locName in GVAR(blackListLocations))) then {
+    if !(_locPos call FUNC(nearBase) || ((format ["%1", _locName]) in GVAR(blackListLocations))) then {
         GVAR(locations) pushBack _x;
     };
     nil

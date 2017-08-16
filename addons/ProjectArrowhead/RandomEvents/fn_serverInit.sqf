@@ -14,5 +14,7 @@
     0: Return <Type>
 */
 GVAR(randomEvents) = ["ProjectArrowhead", "randomEvents"] call MFUNC(readOutMissionData);
-GVAR(EventTimings) = [CFGPRAW(RandomEventTimings), [600,1000,1200]] call CFUNC(getSetting);
-call FUNC(selectRandomEvent);
+["missionStarted", {
+    GVAR(EventTimings) = [CFGPRAW(RandomEventTimings), [600,1000,1200]] call CFUNC(getSetting);
+    call FUNC(selectRandomEvent);
+}] call CFUNC(addEventhandler);
