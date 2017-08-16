@@ -56,6 +56,37 @@ class BSO {
 };
 
 class ProjectArrowhead {
+    BaseMarker = "Base";
+    BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"};
+
+    class Units {
+        unitPoolFriendly[] = {};
+        vehiclePoolFriendly[] = {};
+        airPoolFriendly[] = {};
+
+        unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
+
+        airSlowPoolEnemy[] = {"O_Heli_Light_02_F"};
+        airFastPoolEnemy[] = {"O_Plane_CAS_02_F", "O_T_VTOL_02_vehicle_hex_F"};
+        airAttackPoolEnemy[] = {"O_Heli_Attack_02_F"};
+
+        sniperPoolEnemy[] = {"O_sniper_F"};
+
+        vehicleMRAPPoolEnemy[] = {"O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "O_T_LSV_02_armed_black_F"};
+        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F"};
+        vehicleAAPoolEnemy[] = {"O_APC_Tracked_02_AA_F"};
+        vehicleHeavyPoolEnemy[] = {"O_MBT_02_cannon_F"};
+
+        staticPoolEnemy[] = {"O_GMG_01_F", "O_HMG_01_F"};
+        staticHighPoolEnemy[] = {"O_GMG_01_high_F", "O_HMG_01_high_F"};
+        staticMortarEnemy[] = {"O_Mortar_01_F"};
+
+        unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
+        vehiclePoolRebels[] = {};
+
+        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"};
+        vehiclePoolCiv[] = {};
+    };
     class RandomCampCompositions {
         class testClass {
             classname = "smallTestCamp";

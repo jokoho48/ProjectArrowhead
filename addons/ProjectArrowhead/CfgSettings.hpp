@@ -1,12 +1,27 @@
 class ProjectArrowhead {
     MainAOSize = 2;
     sideMissionDelay = 250;
+    RandomEventTimings[] = {600, 1000,1200};
+    missionAmount = 10;
+
+    class clearTown {
+        mainAOGroupCount = 10;
+        mainAOVehicleMRAPCount = 5;
+        mainAOVehicleLightCount = 2;
+        mainAOVehicleAACount = 1;
+        mainAOVehicleHeavyCount = 1;
+        mainAOAirCount = 1;
+        mainAOTowerCount = 3;
+        mainAOSniperCount = 2;
+        mainAOStaticCount = 3;
+    };
+
     class sideMissions {
         class locateHastage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
         };
     };
-    missionAmount = 10;
+
     class mainMissions {
         class clearTown {
             function = "ProjectArrowhead_Missions_fnc_clearTown";
@@ -24,6 +39,7 @@ class ProjectArrowhead {
             function = "ProjectArrowhead_randomEvents_fnc_airAttack";
         };
     };
+
     class RandomCampPatrols {
         randomCampCount = 10;
         randomPatrolCount = 10;

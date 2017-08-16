@@ -16,7 +16,7 @@
 */
 params [["_side", east], ["_type", 0]];
 
-private _vehType = round (random 3);
+private "_vehType";
 if (_type isEqualType []) then {
     _vehType = _type select 1;
     _type = _type select 0;
@@ -26,12 +26,6 @@ if (_type isEqualType 0) then {
     _type = ["inf", "veh", "air", "sniper", "static", "statichigh", "staticmortar"] select _type;
 } else {
     _type = toLower _type;
-};
-
-if (_vehType isEqualType 0) then {
-    _vehType = ["mrap", "light", "aa", "heavy"] select _vehType;
-} else {
-    _vehType = toLower _vehType;
 };
 
 switch (_side) do {
@@ -71,6 +65,14 @@ switch (_side) do {
     default {
         switch (_type) do {
             case ("veh"): {
+                if (isNil _vehType) then {
+                    _vehType = round (random 3);
+                };
+                if (_vehType isEqualType 0) then {
+                    _vehType = ["mrap", "light", "aa", "heavy"] select _vehType;
+                } else {
+                    _vehType = toLower _vehType;
+                };
                 switch (_vehType) do {
                     case ("heavy"): {
                         selectRandom GVAR(vehicleHeavyPoolEnemy);
@@ -87,20 +89,51 @@ switch (_side) do {
                 };
             };
             case ("air"): {
-                selectRandom GVAR(airPoolEnemy);
+                if (isNil _vehType) then {
+                    _vehType = round (random 1);
+                };
+                if (_vehType isEqualType 0) then {
+                    _vehType = ["slow", "attack", "fast"] select _vehType;
+                } else {
+                    _vehType = toLower _vehType;
+                };
+                switch (_vehType) do {
+                    case ("attack"): {
+                        selectRandom GVAR(airAttackPoolEnemy);
+                    };
+                    case ("fast"): {
+                        selectRandom GVAR(airFastPoolEnemy);
+                    };
+                    default {
+                        selectRandom GVAR(airSlowPoolEnemy);
+                    };
+                };
             };
             case ("sniper"): {
                 selectRandom GVAR(sniperPoolEnemy);
             };
             case ("static"): {
-                selectRandom GVAR(staticPoolEnemy);
+                if (isNil _vehType) then {
+                    _vehType = round (random 2);
+                };
+                if (_vehType isEqualType 0) then {
+                    _vehType = ["static", "high", "mortar"] select _vehType;
+                } else {
+                    _vehType = toLower _vehType;
+                };
+                switch (_vehType) do {
+                    case ("static"): {
+                        selectRandom GVAR(staticPoolEnemy);
+                    };
+                    case ("mortar"): {
+                        selectRandom GVAR(staticMortarEnemy);
+                    };
+                    default {
+                        selectRandom GVAR(staticHighPoolEnemy);
+                    };
+                };
             };
-            case ("statichigh"): {
-                selectRandom GVAR(staticHighPoolEnemy);
-            };
-            case ("staticmortar"): {
-                selectRandom GVAR(staticMortarEnemy);
-            };
+
             default {
                 selectRandom GVAR(unitPoolEnemy);
             };

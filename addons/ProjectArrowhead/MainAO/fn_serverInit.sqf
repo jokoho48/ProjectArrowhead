@@ -16,7 +16,7 @@
 GVAR(mainMissions) = ["ProjectArrowhead", "mainMissions"] call MFUNC(readOutMissionData);;
 GVAR(isFirstCallDone) = false;
 GVAR(missionCounter) = 0;
-GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);    // TODO: make settings
+GVAR(missionAmount) = [CFGPRAW(missionAmount), 10] call CFUNC(getSetting);
 
 ["missionStarted", {
     [{

@@ -14,15 +14,16 @@
     0: Return <Type>
 */
 
-GVAR(mainAOGroupCount) = 10;    // TODO: make settings
-GVAR(mainAOVehicleMRAPCount) = 5;    // TODO: make settings
-GVAR(mainAOVehicleLightCount) = 2;    // TODO: make settings
-GVAR(mainAOVehicleAACount) = 1;    // TODO: make settings
-GVAR(mainAOVehicleHeavyCount) = 1;    // TODO: make settings
-GVAR(mainAOAirCount) = 1;    // TODO: make settings
-GVAR(mainAOTower) = 3;    // TODO: make settings
-GVAR(mainAOSniper) = 2;    // TODO: make settings
-GVAR(mainAOStatic) = 3;    // TODO: make settings
+GVAR(mainAOGroupCount) = [CFGPRAW2(clearTown,mainAOGroupCount), 10] call CFUNC(getSetting);
+GVAR(mainAOVehicleMRAPCount) = [CFGPRAW2(clearTown,mainAOVehicleMRAPCount), 5] call CFUNC(getSetting);
+GVAR(mainAOVehicleLightCount) = [CFGPRAW2(clearTown,mainAOVehicleLightCount), 2] call CFUNC(getSetting);
+GVAR(mainAOVehicleAACount) = [CFGPRAW2(clearTown,mainAOVehicleAACount), 1] call CFUNC(getSetting);
+GVAR(mainAOVehicleHeavyCount) = [CFGPRAW2(clearTown,mainAOVehicleHeavyCount), 1] call CFUNC(getSetting);
+GVAR(mainAOAirCount) = [CFGPRAW2(clearTown,mainAOAirCount), 1] call CFUNC(getSetting);
+GVAR(mainAOTower) = [CFGPRAW2(clearTown,mainAOTowerCount), 3] call CFUNC(getSetting);
+GVAR(mainAOSniper) = [CFGPRAW2(clearTown,mainAOSniperCount), 2] call CFUNC(getSetting);
+GVAR(mainAOStatic) = [CFGPRAW2(clearTown,mainAOStaticCount), 3] call CFUNC(getSetting);
+
 
 [QGVAR(spawnClearTownUnits), {
     private _aoPos = MGVAR(mainAOPos);
@@ -59,7 +60,7 @@ GVAR(mainAOStatic) = 3;    // TODO: make settings
     // Spawn Air Vehciles
     for "_i" from 1 to GVAR(mainAOAirCount) do {
         private _pos = [_aoPos, MGVAR(mainAOSize)*2, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
-        private _vehicles = [_pos, 2, 1, east] call MFUNC(spawnGroup);
+        private _vehicles = [_pos, [2, 0], 1, east] call MFUNC(spawnGroup);
         {
             [[_x, _aoPos], (random [MGVAR(mainAOSize)*2, MGVAR(mainAOSize)*3, MGVAR(mainAOSize)*4]), true] call MFUNC(setPatrolVeh);
             nil

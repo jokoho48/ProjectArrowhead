@@ -13,30 +13,62 @@
     Returns:
     None
 */
-GVAR(baseMarker) = "Base";    // TODO: make settings
-GVAR(blackListLocations) = ["Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"];    // TODO: Make setting
 
-GVAR(unitPoolFriendly) = [];    // TODO: Make setting
-GVAR(vehiclePoolFriendly) = [];    // TODO: Make setting
-GVAR(airPoolFriendly) = [];    // TODO: Make setting
+#define blackListLoc ["Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"]
 
-GVAR(unitPoolEnemy) = ["O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"];    // TODO: Make setting
+#define UPF []
+#define VPF []
+#define APF []
 
-GVAR(vehicleMRAPPoolEnemy) = ["O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F"];    // TODO: Make setting
-GVAR(vehicleLightPoolEnemy) = ["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F"];    // TODO: Make setting
-GVAR(vehicleAAPoolEnemy) = ["O_APC_Tracked_02_AA_F"];    // TODO: Make setting
-GVAR(vehicleHeavyPoolEnemy) = ["O_MBT_02_cannon_F"];    // TODO: Make setting
+#define UPE ["O_soldierU_A_F"]
+#define SPE ["O_sniper_F"]
 
-GVAR(airPoolEnemy) = ["O_Heli_Light_02_F"];    // TODO: Make setting
-GVAR(sniperPoolEnemy) = ["O_sniper_F"];    // TODO: Make setting
-GVAR(staticPoolEnemy) = ["O_GMG_01_F", "O_HMG_01_F"];    // TODO: Make setting
-GVAR(staticHighPoolEnemy) = ["O_GMG_01_high_F", "O_HMG_01_high_F"];    // TODO: Make setting
-GVAR(staticMortarEnemy) = ["O_Mortar_01_F"];    // TODO: Make setting
+#define ASPE ["O_Heli_Light_02_F"]
+#define AFPE ["O_Plane_CAS_02_F"]
+#define AAPE ["O_Heli_Attack_02_F"]
 
-GVAR(unitPoolRebels) = ["I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"];    // TODO: Make setting
-GVAR(vehiclePoolRebels) = [];    // TODO: Make setting
+#define VMPE ["O_MRAP_02_gmg_F"]
+#define VLPE ["O_APC_Tracked_02_cannon_F"]
+#define VAPE ["O_APC_Tracked_02_AA_F"]
+#define VHPE ["O_MBT_02_cannon_F"]
 
-GVAR(unitPoolCiv) = ["C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"];    // TODO: Make setting
-GVAR(vehiclePoolCiv) = [];    // TODO: Make setting
+#define STPE ["O_GMG_01_F"]
+#define STHPE ["O_GMG_01_high_F"]
+#define STMPE ["O_Mortar_01_F"]
 
-GVAR(enemySide) = East;    // TODO: Make setting
+#define UPR ["I_G_Soldier_F"]
+#define VPR []
+
+#define UPC ["C_Nikos_aged"]
+#define VUC []
+GVAR(baseMarker) = [CFGPRAW(BaseMarker), "Base"] call CFUNC(getSetting);
+GVAR(blackListLocations) = [CFGPRAW(BlackListLocations), blackListLoc] call CFUNC(getSetting);
+
+GVAR(unitPoolFriendly) = [CFGPRAW2(Units,unitPoolFriendly), UPF] call CFUNC(getSetting);
+GVAR(vehiclePoolFriendly) = [CFGPRAW2(Units,vehiclePoolFriendly), VPF] call CFUNC(getSetting);
+GVAR(airPoolFriendly) = [CFGPRAW2(Units,airPoolFriendly), APF] call CFUNC(getSetting);
+
+GVAR(unitPoolEnemy) = [CFGPRAW2(Units,unitPoolEnemy), UPE] call CFUNC(getSetting);
+
+GVAR(vehicleMRAPPoolEnemy) = [CFGPRAW2(Units,vehicleMRAPPoolEnemy), VMPE] call CFUNC(getSetting);
+GVAR(vehicleLightPoolEnemy) = [CFGPRAW2(Units,vehicleLightPoolEnemy), VLPE] call CFUNC(getSetting);
+GVAR(vehicleAAPoolEnemy) = [CFGPRAW2(Units,vehicleAAPoolEnemy), VAPE] call CFUNC(getSetting);
+GVAR(vehicleHeavyPoolEnemy) = [CFGPRAW2(Units,vehicleHeavyPoolEnemy), VHPE] call CFUNC(getSetting);
+
+GVAR(airSlowPoolEnemy) = [CFGPRAW2(Units,airSlowPoolEnemy), ASPE] call CFUNC(getSetting);
+GVAR(airFastPoolEnemy) = [CFGPRAW2(Units,airFastPoolEnemy), AFPE] call CFUNC(getSetting);
+GVAR(airAttackPoolEnemy) = [CFGPRAW2(Units,airAttackPoolEnemy), AAPE] call CFUNC(getSetting);
+
+GVAR(sniperPoolEnemy) = [CFGPRAW2(Units,sniperPoolEnemy), SPE] call CFUNC(getSetting);
+
+GVAR(staticPoolEnemy) = [CFGPRAW2(Units,staticPoolEnemy), STPE] call CFUNC(getSetting);
+GVAR(staticHighPoolEnemy) = [CFGPRAW2(Units,staticHighPoolEnemy), STHPE] call CFUNC(getSetting);
+GVAR(staticMortarEnemy) = [CFGPRAW2(Units,staticMortarEnemy), STMPE] call CFUNC(getSetting);
+
+GVAR(unitPoolRebels) = [CFGPRAW2(Units,unitPoolRebels), UPR] call CFUNC(getSetting);
+GVAR(vehiclePoolRebels) = [CFGPRAW2(Units,vehiclePoolRebels), VPR] call CFUNC(getSetting);
+
+GVAR(unitPoolCiv) = [CFGPRAW2(Units,unitPoolCiv), UPC] call CFUNC(getSetting);
+GVAR(vehiclePoolCiv) = [CFGPRAW2(Units,vehiclePoolCiv), VUC] call CFUNC(getSetting);
+
+GVAR(enemySide) = East;
