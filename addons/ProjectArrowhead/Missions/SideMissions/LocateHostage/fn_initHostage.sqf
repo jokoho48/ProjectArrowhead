@@ -48,12 +48,12 @@
         #endif
     };
 
-    private _pos = [_posVIP, 200, 5] call MFUNC(findRuralFlatPos);
-    private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
-    [[_grp, _posVIP], (random [100, 150, 200])] call MFUNC(taskPatrol);
+    private _pos = [_posVIP, 100, 5] call MFUNC(findRuralFlatPos);
+    private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
+    [[_grp, _posVIP], (random [150, 200, 250])] call MFUNC(taskPatrol);
     _units pushBack _grp;
-    private _grp2 = [_pos, 0, floor (random [1, 2, 4]), east] call MFUNC(spawnGroup);
-    [_pos, units _grp2, 1000, true] call MFUNC(occupyBuilding);
+    private _grp2 = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
+    [_pos, units _grp2, 200, true] call MFUNC(occupyBuilding);
     _units pushBack _grp2;
     #ifdef ISDEV
     [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Inf"] call MFUNC(createMarker);
