@@ -65,7 +65,7 @@ class clearTown {
     mainAOTowerCount = 3;
     mainAOSniperCount = 2;
     mainAOStaticCount = 3;
-                };
+};
 
 class ProjectArrowhead {
     BaseMarker = "Base";
