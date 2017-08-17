@@ -20,7 +20,7 @@ private _stateMachine = call CFUNC(createStatemachine);
         true,
         "DefendMainBase",
         [
-            "Defend the Mother Fucking Main Base",
+            "Enemy forces have been spotted near the base, prepare for assault!",
             "Defend Main Base",
             ""
         ],
@@ -47,8 +47,8 @@ private _stateMachine = call CFUNC(createStatemachine);
             true,
             [GVAR(lastTaskName), "DefendMainBase"],
             [
-                "Defend the Mother Fucking Main Base, Support the own forces",
-                "Enemey Spotted At Base",
+                "Enemy forces have been spotted near the base, prepare for assault!",
+                "Defend Main Base",
                 ""
             ],
             objNull, "Created", 5, true, "defend", true
