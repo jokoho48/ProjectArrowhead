@@ -74,7 +74,7 @@ class ProjectArrowhead {
         sniperPoolEnemy[] = {"O_ghillie_sard_F"};
 
         vehicleMRAPPoolEnemy[] = {"rhs_btr80a_msv", "rhs_btr60_msv"};
-        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "LOP_US_UAZ_SPG","LOP_US_UAZ_DshKM"};
+        vehicleLightPoolEnemy[] = {"LOP_US_UAZ_SPG","LOP_US_UAZ_DshKM"};
         vehicleAAPoolEnemy[] = {"rhs_gaz66_zu23_msv","rhs_zsu234_aa"};
         vehicleHeavyPoolEnemy[] = {"rhs_bmp1_msv","rhs_t72bc_tv"};
 
