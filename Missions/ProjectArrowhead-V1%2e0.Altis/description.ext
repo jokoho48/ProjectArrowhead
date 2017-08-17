@@ -1,0 +1,99 @@
+class Header {
+    gameType = "Coop"; // Game type, see 'class' columns in the table below
+    minPlayers = 1; //min # of players the mission supports
+    maxPlayers = 100; //max # of players the mission supports
+};
+joinUnassigned = 1;
+allowFunctionsRecompile = 1;
+allowFunctionsLog = 1;
+briefing = 0;
+debriefing = 0;
+enableDebugConsole = 2;
+
+disabledAI = 1;
+author = "joko // Jonas and ShadowFox";
+onLoadName = "ProjectArrowhead Test Mission V1.00";
+onLoadMission = "ProjectArrowhead Test Mission V1.00";
+
+// skipLobby = 1;
+
+respawn = 3;
+respawnDelay = 3;
+respawnDialog = 0;
+
+class CLib {
+    useExperimentalAutoload = 0;
+    useFallbackRemoteExecution = 0;
+    useCompressedFunction = 0;
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead"};
+    class GarbageCollector {
+        EnableGarbageCollector = 1;
+        GarbageCollectorTime = 120;
+    };
+};
+
+class BSO {
+    class CfgBFT {
+        onlyPlayer = 1;
+        showGroupPlayer = 1;
+    };
+    class CfgCaching {
+        DistanceGroup = "2500";
+        DistanceVehicle = "2500";
+        DistanceEmptyVehicle = "250";
+        DistanceProps = "50";
+        CoefDefault = "2";
+    };
+    class CfgRBU {
+        hearingDistance = 1500;
+        numberOfAi = 3;
+        waypointsCount = 3;
+        searchRadius = 100;
+        aiMode = "RED";
+        walkTime = 25;
+        maxRunning = 3;
+    };
+};
+
+class ProjectArrowhead {
+    BaseMarker = "Base";
+    BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali"};
+
+    class Units {
+        unitPoolFriendly[] = {};
+        vehiclePoolFriendly[] = {};
+        airPoolFriendly[] = {};
+
+      //CSAT Pool  unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
+        unitPoolEnemy[] = {"rhs_msv_emr_at","rhs_msv_emr_aa","rhs_msv_emr_arifleman","rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg","rhs_msv_emr_machinegunner","rhs_msv_emr_marksman","rhs_msv_emr_medic","rhs_msv_emr_grenadier","rhs_msv_emr_sergeant"};
+
+        airSlowPoolEnemy[] = {"RHS_Mi8mt_vdv"};
+        airFastPoolEnemy[] = {"RHS_Su25SM_vvsc", "RHS_Su25SM_CAS_vvs"};
+        airAttackPoolEnemy[] = {"RHS_Mi24V_vvsc"};
+
+        sniperPoolEnemy[] = {"O_ghillie_sard_F"};
+
+        vehicleMRAPPoolEnemy[] = {"rhs_btr80a_msv", "rhs_btr60_msv"};
+        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "LOP_US_UAZ_SPG","LOP_US_UAZ_DshKM"};
+        vehicleAAPoolEnemy[] = {"rhs_gaz66_zu23_msv","rhs_zsu234_aa"};
+        vehicleHeavyPoolEnemy[] = {"rhs_bmp1_msv","rhs_t72bc_tv"};
+
+        staticPoolEnemy[] = {"RHS_AGS30_TriPod_MSV","RHS_NSV_TriPod_MSV"};
+        staticHighPoolEnemy[] = {"rhs_KORD_high_MSV", "rhs_Kornet_9M133_2_msv"};
+        staticMortarEnemy[] = {"O_Mortar_01_F"};
+
+        // Vanilla  unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
+        unitPoolRebels[] = {"LOP_UA_Infantry_Rifleman_3","LOP_UA_Infantry_MG","LOP_UA_Infantry_GL","LOP_UA_Infantry_Corpsman","LOP_UA_Infantry_Marksman","LOP_UA_Infantry_SL"};
+        vehiclePoolRebels[] = {"LOP_UA_UAZ_DshKM","LOP_UA_Ural_open"};
+
+        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"};
+        vehiclePoolCiv[] = {};
+    };
+    class RandomCampCompositions {
+        class testClass {
+            classname = "smallTestCamp";
+            size = 15;
+            useSOF = 0;
+        };
+    };
+};
