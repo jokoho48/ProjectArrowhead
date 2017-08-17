@@ -51,7 +51,7 @@ private _stateMachine = call CFUNC(createStatemachine);
                 "Defend Main Base",
                 ""
             ],
-            objNull, "Created", 5, true, "defend", true
+            MGVAR(baseMarker), "Created", 5, true, "defend", true
         ] call BIS_fnc_taskCreate;
 
         _exitState = "checkTask";
