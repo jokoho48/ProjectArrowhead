@@ -55,22 +55,24 @@ class BSO {
     };
 };
 
-class clearTown {
-    mainAOGroupCount = 8;
-    mainAOVehicleMRAPCount = 2;
-    mainAOVehicleLightCount = 3;
-    mainAOVehicleAACount = 2;
-    mainAOVehicleHeavyCount = 2;
-    mainAOAirCount = 1;
-    mainAOTowerCount = 3;
-    mainAOSniperCount = 2;
-    mainAOStaticCount = 3;
-};
+
 
 class ProjectArrowhead {
     BaseMarker = "Base";
     BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
 
+    class clearTown {
+        mainAOGroupCount = 8;
+        mainAOVehicleMRAPCount = 2;
+        mainAOVehicleLightCount = 3;
+        mainAOVehicleAACount = 2;
+        mainAOVehicleHeavyCount = 2;
+        mainAOAirCount = 1;
+        mainAOTowerCount = 3;
+        mainAOSniperCount = 2;
+        mainAOStaticCount = 3;
+    };
+    
     class Units {
         unitPoolFriendly[] = {};
         vehiclePoolFriendly[] = {};
