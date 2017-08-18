@@ -21,7 +21,6 @@ private _posArray = [_aoPos, MGVAR(worldSize)*3, MGVAR(mainAOSize)*4, GVAR(rando
     private _pos = _x;
     private _randomType = selectRandom GVAR(ObjCompArray);
     _randomType params ["_class", "_size", "_isSOF"];
-    // _pos = [_aoPos, 1000, _size, 3000] call MFUNC(findRuralFlatPos);
 
     private _dir = [(random 2) - 1, (random 2) - 1, 0];
     _pos set [2,-(getTerrainHeightASL _pos)];
