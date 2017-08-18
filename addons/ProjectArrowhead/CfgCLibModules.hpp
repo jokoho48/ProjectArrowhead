@@ -31,6 +31,7 @@ class CfgCLibModules {
 
             MODULE(ObjectComp) {
                 FNC(createObjectComp);
+                FNC(exportObjectComp);
                 FNC(initObjComp);
                 FNC(readObjectComp);
             };

@@ -18,6 +18,10 @@ _spawnPos set [2, 0];
 
 private _grp = if (_side isEqualTo independent) then {createGroup east} else {createGroup _side};
 
+private _tempType = _type;
+if (_tempType isEqualTo []) then {
+    _tempType = _tempType select 0;
+};
 _grp allowfleeing 0;
 private _driverArray = [];
 private _vehArray = [];
@@ -29,12 +33,12 @@ for "_j" from 0 to (_count - 1) do {
             private _unit = _grp createUnit [GETCLASS(_side,_type), _pos, [], 0, "NONE"];
             _unit allowDamage false;
         };
-        private _veh = if (_type isEqualTo 2) then {
+
+        private _veh = if (_tempType isEqualTo 2 || _tempType isEqualTo "air") then {
             private _type = GETCLASS(_side,_type);
             createVehicle [_type, _pos, [], 0, "FLY"];
         } else {
             private _type = GETCLASS(_side,_type);
-            if (isNil "_type") exitWith {LOG("Error type is Nil " + str _this + " " + _fnc_scriptNameParent)};
             createVehicle [_type, _pos, [], 0, "NONE"];
         };
         _vehArray pushBack _veh;

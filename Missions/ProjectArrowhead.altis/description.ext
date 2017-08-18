@@ -88,9 +88,29 @@ class ProjectArrowhead {
         vehiclePoolCiv[] = {};
     };
     class RandomCampCompositions {
-        class testClass {
-            classname = "smallTestCamp";
+        class campTiny {
+            classname = "campTiny";
             size = 15;
+            useSOF = 0;
+        };
+        class reconCamp {
+            classname = "reconCamp";
+            size = 15;
+            useSOF = 0;
+        };
+        class campAnt {
+            classname = "campAnt";
+            size = 20;
+            useSOF = 0;
+        };
+        class campBear {
+            classname = "campBear";
+            size = 20;
+            useSOF = 0;
+        };
+        class campCrow {
+            classname = "campCrow";
+            size = 20;
             useSOF = 0;
         };
     };

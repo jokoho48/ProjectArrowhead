@@ -13,7 +13,8 @@
     Returns:
     None
 */
-
+GVAR(enemyAtBase) = false;
+publicVariable QGVAR(enemyAtBase);
 private _stateMachine = call CFUNC(createStatemachine);
 [_stateMachine, "init", {
     [
@@ -37,10 +38,10 @@ private _stateMachine = call CFUNC(createStatemachine);
     GVAR(index) = (GVAR(index) + 1) mod ((count allGroups));
     private _grp = allGroups select GVAR(index);
     if (side _grp in [west, civilian, sideUnknown, sideLogic]) exitWith {_exitState};
-    GVAR(Group) = _grp;
     private _nearBase = (getPos (leader _grp)) call MFUNC(nearBase);
     if !(_nearBase) exitWith {_exitState};
     if (!(GVAR(lastTaskName) call BIS_fnc_taskExists) || {GVAR(lastTaskName) call BIS_fnc_taskCompleted}) then {
+        GVAR(Group) = _grp;
 
         GVAR(lastTaskName) = "DefendBase" call MFUNC(taskName);
         [
@@ -53,7 +54,8 @@ private _stateMachine = call CFUNC(createStatemachine);
             ],
             MGVAR(baseMarker), "Created", 5, true, "defend", true
         ] call BIS_fnc_taskCreate;
-
+        GVAR(enemyAtBase) = true;
+        publicVariable QGVAR(enemyAtBase);
         _exitState = "checkTask";
     };
     _exitState
@@ -62,6 +64,9 @@ private _stateMachine = call CFUNC(createStatemachine);
 [_stateMachine, "checkTask", {
     private _nearBase = (getPos (leader GVAR(Group))) call MFUNC(nearBase);
     if (_nearBase) exitWith {"checkTask"};
+    GVAR(enemyAtBase) = false;
+    publicVariable QGVAR(enemyAtBase);
+    GVAR(Group) = grpNull;
     [GVAR(lastTaskName), "SUCCEEDED", true] call BIS_fnc_taskSetState;
     "checkGroup"
 }] call CFUNC(addStatemachineState);

@@ -14,4 +14,4 @@
     0: Return <Type>
 */
 _this call FUNC(inBase) ||
-{(_this distance2D (getMarkerPos GVAR(baseMarker))) < 2500}
+{(_this distance2D (getMarkerPos GVAR(baseMarker))) < 2000}
