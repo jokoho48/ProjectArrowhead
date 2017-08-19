@@ -20,6 +20,7 @@ onLoadMission = "ProjectArrowhead Test Mission V001";
 respawn = 3;
 respawnDelay = 3;
 respawnDialog = 0;
+respawnOnStart = 0;
 
 class CLib {
     useExperimentalAutoload = 0;
