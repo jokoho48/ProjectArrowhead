@@ -1,36 +1,4 @@
-/*
-| Author:
-|
-|	Quiksilver.
-|
-| Modified last by: Pfc. Christiansen
-|
-|_____
-|
-| Description:
-|
-|	Created: 14/2/2015. Altered: 16/2/2015
-|	Coded for AhoyWorld EU 3 to replace Patrol Ops with a perpetual mission with few scripts.
-|	You may use and edit the code.
-|	You may not remove any entries from Credits without first removing the relevant author's contributions,
-|	or asking permission from the mission authors/contributors.
-|	You may not remove the Credits tab, without consent of Ahoy World.
-| 	Feel free to re-format or make it look better.
-|_____
-|
-| Usage:
-|
-|	Search below for the diary entries you would like to edit.
-|	DiarySubjects appear in descending order when player map is open.
-|	DiaryRecords appear in ascending order when selected.
-|_____
-|
-| Credit:
-|
-|	This Mission was created by Pfc.Christiansen and BACONMOP
-|
-|	Please be respectful and do not remove credit.
-|______________________________________________________________*/
+
 
 if (!hasInterface) exitWith {};
 
