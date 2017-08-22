@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14067.135,137.31169,16198.001};
-		dir[]={0.71840823,-0.52170962,0.46035746};
-		up[]={0.43938386,0.85302621,0.2815612};
-		aside[]={0.53958935,-5.0594099e-007,-0.84204644};
+		pos[]={14283.41,45.295315,16273.77};
+		dir[]={-0.83896363,-0.36136764,0.40688732};
+		up[]={-0.32514638,0.93242276,0.15769219};
+		aside[]={0.43637556,7.3574483e-008,0.89976579};
 	};
 };
 binarizationWanted=0;
@@ -5348,6 +5348,7 @@ class Mission
 			};
 			id=190;
 			type="Land_TripodScreen_01_large_F";
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -18711,7 +18712,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={14201.629,18.75169,16356.624};
-			angle=3.8374543;
+			angle=3.8374541;
 			class Attributes
 			{
 				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
@@ -19592,7 +19593,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={14476.418,18.479912,16264.853};
-			angle=3.6967163;
+			angle=3.6967161;
 			class Attributes
 			{
 				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
@@ -20623,12 +20624,12 @@ class Mission
 				angles[]={0,3.9982262,0};
 			};
 			side="Empty";
-			flags=4;
 			class Attributes
 			{
 			};
 			id=2473;
 			type="Box_NATO_Equip_F";
+			atlOffset=0.80447197;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -20748,7 +20749,7 @@ class Mission
 			};
 			id=2475;
 			type="Land_CampingTable_F";
-			atlOffset=0.019540787;
+			atlOffset=0.019536972;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -20789,7 +20790,7 @@ class Mission
 			};
 			id=2476;
 			type="Land_CampingTable_F";
-			atlOffset=-0.0079174042;
+			atlOffset=-0.0079231262;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -20830,7 +20831,7 @@ class Mission
 			};
 			id=2477;
 			type="Land_CampingTable_F";
-			atlOffset=-0.0060844421;
+			atlOffset=-0.0060863495;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -21064,7 +21065,7 @@ class Mission
 			};
 			id=2484;
 			type="B_supplyCrate_F";
-			atlOffset=-0.0072231293;
+			atlOffset=-0.0072212219;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -21220,7 +21221,6 @@ class Mission
 			};
 			id=2486;
 			type="Box_NATO_WpsLaunch_F";
-			atlOffset=1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -22500,7 +22500,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14180.604,19.587473,16269.608};
-				angles[]={-0,0,0.0012918708};
+				angles[]={0,0,0.0012918708};
 			};
 			side="Empty";
 			flags=4;
@@ -22531,7 +22531,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14181.146,19.588196,16266.766};
-				angles[]={-0,0,0.0012918708};
+				angles[]={0,0,0.0012918708};
 			};
 			side="Empty";
 			flags=4;
@@ -22547,7 +22547,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={14179.296,19.585728,16268.972};
-				angles[]={-0,0,0.0012918708};
+				angles[]={0,0,0.0012918708};
 			};
 			side="Empty";
 			flags=4;
@@ -22639,6 +22639,7 @@ class Mission
 			};
 			id=2519;
 			type="Land_TripodScreen_01_large_F";
+			atlOffset=0.0039920807;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -48052,6 +48053,7 @@ class Mission
 			};
 			id=2618;
 			type="ACE_medicalSupplyCrate_advanced";
+			atlOffset=1.1444092e-005;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -48129,6 +48131,7 @@ class Mission
 			};
 			id=2620;
 			type="ACE_medicalSupplyCrate_advanced";
+			atlOffset=9.5367432e-006;
 			class CustomAttributes
 			{
 				class Attribute0
