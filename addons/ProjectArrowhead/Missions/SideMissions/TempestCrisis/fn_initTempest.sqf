@@ -64,17 +64,17 @@
 [QGVAR(taskManager), {
     (_this select 0) params ["_vip", "_units"];
 
-    private _taskID = "locateHostage" call MFUNC(taskName);
+    private _taskID = "tempestCrisis" call MFUNC(taskName);
 
     [
         true,
         [_taskID],
         [
-            "We've got intel on a hostage situation. Enemy forces have taken a VIP hostage it is our top priority to rescue him and bring him back to base alive.",
-            "Search and Rescue",
+            "Seismic activity has been detected in the area. We believe enemy forces have obtained a Tempest device... we must retrieve it or destroy it before further damage can be done.",
+            "Retrieve Tempest Device from OPFOR",
             ""
         ],
-        getPos _vip, "Created", 5, true, "C", true
+        getPos _vip, "Created", 5, true, "container", true
     ] call BIS_fnc_taskCreate;
     [{
         params ["_args", "_id"];
