@@ -28,7 +28,7 @@ if (isnil "_pingCount") then {
         _unit setVariable [QGVAR(lastPingTime), time, false];
         _unit setVariable [QGVAR(lastPingTime), 1, false];
     } else {
-        if (_pingCount == 4) then {
+        if (_pingCount in [3,4]) then {
             ["DisplayHint", _unit, ["YOU HAVE ANGERD ZEUS", "wait 20s before pressing the zeus ping button again, or die."]] call CFUNC(targetEvent);
         };
         if (_pingCount >= 5) then {

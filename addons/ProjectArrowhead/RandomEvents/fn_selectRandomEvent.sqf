@@ -14,6 +14,6 @@
     0: Return <Type>
 */
 [{
-    GVAR(sideMissions) call MFUNC(selectMissionData);
+    GVAR(randomEvents) call MFUNC(selectMissionData);
     call FUNC(selectRandomEvent);
 }, random GVAR(EventTimings)] call CFUNC(wait);

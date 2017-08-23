@@ -72,3 +72,6 @@ GVAR(unitPoolCiv) = [CFGPRAW2(Units,unitPoolCiv), UPC] call CFUNC(getSetting);
 GVAR(vehiclePoolCiv) = [CFGPRAW2(Units,vehiclePoolCiv), VUC] call CFUNC(getSetting);
 
 GVAR(enemySide) = East;
+
+GVAR(ignoredBuildingTypes) = [CFGPRAW(ignoredBuildingTypes), ["Piers_base_F"]] call CFUNC(getSetting);
+GVAR(ignoredBuildingTypes) pushBackUnique "Piers_base_F";
