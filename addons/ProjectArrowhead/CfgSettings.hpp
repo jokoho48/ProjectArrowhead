@@ -19,6 +19,9 @@ class ProjectArrowhead {
     class sideMissions {
         class locateHostage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
+        };        
+		class tempestCrisis {
+            function = "ProjectArrowhead_Missions_fnc_tempestCrisis";
         };
     };
 
