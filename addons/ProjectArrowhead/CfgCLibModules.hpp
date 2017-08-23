@@ -99,7 +99,7 @@ class CfgCLibModules {
                     FNC(initHostage);
                     FNC(locateHostage);
                 };                
-				MODULE(TempestCrisis) {
+                MODULE(TempestCrisis) {
                     FNC(initTempest);
                     FNC(tempestCrisis);
                 };
