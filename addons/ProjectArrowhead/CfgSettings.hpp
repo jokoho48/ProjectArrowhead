@@ -17,7 +17,7 @@ class ProjectArrowhead {
     };
 
     class sideMissions {
-        class locateHastage {
+        class locateHostage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
         };
     };
@@ -30,13 +30,13 @@ class ProjectArrowhead {
 
     class randomEvents {
         class earthQuake {
-            function = "ProjectArrowhead_randomEvents_fnc_earthQuake"; // FFS arma why you need that spawned
+            function = "ProjectArrowhead_RandomEvents_fnc_earthQuake"; // FFS arma why you need that spawned
         };
         class rebelAttack {
-            function = "ProjectArrowhead_randomEvents_fnc_rebelAttack";
+            function = "ProjectArrowhead_RandomEvents_fnc_rebelAttack";
         };
         class airAttack {
-            function = "ProjectArrowhead_randomEvents_fnc_airAttack";
+            function = "ProjectArrowhead_RandomEvents_fnc_airAttack";
         };
     };
 

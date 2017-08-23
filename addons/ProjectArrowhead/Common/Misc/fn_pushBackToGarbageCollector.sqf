@@ -31,6 +31,6 @@ switch (typeName _obj) do {
             };
             _x call CLib_GarbageCollector_fnc_pushbackInQueue;
             nil
-        } count (units _obj)
+        } count (units _obj);
     };
 };

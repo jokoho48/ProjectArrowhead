@@ -21,4 +21,4 @@ if (isNil "_code") then {
     _code = compile _function;
 };
 [_name, _origin, _cfg] call _code;
-LOG("load MainAO: """ + _name + """ from: " + _origin);
+LOG("load Mission: """ + _name + """ from: " + _origin);

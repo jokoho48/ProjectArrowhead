@@ -38,7 +38,7 @@ GVAR(worldSize) = (worldSize/2);
 ["entityCreated", {
     (_this select 0) params ["_obj"];
     if (_obj isKindOf "ModuleCurator_F") then {
-        _obj addEventHandler ["CuratorPinged", { _this call FUNC(onPinged); }];
+        _obj addEventHandler ["CuratorPinged", { _this call MFUNC(onPinged); }];
     };
 }] call CFUNC(addEventhandler);
 
