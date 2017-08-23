@@ -20,7 +20,7 @@ class ProjectArrowhead {
         class locateHostage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
         };        
-		class tempestCrisis {
+        class tempestCrisis {
             function = "ProjectArrowhead_Missions_fnc_tempestCrisis";
         };
     };
