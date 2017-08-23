@@ -32,7 +32,7 @@
 
     [_aoPos, MGVAR(mainAOSize)*0.5, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic); // Spawn Statics expect from Mortar
     [_aoPos, MGVAR(mainAOSize)*0.1, 1, 2, east] call MFUNC(spawnStatic); // Spawn Mortar
-    [_aoPos, MGVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, 4] call MFUNC(spawnTower); // Spawn Watch Towers
+    [_aoPos, MGVAR(mainAOSize)*0.9, GVAR(mainAOTower), east, -1] call MFUNC(spawnTower); // Spawn Watch Towers
 
     // Spawn Inf Groups
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
