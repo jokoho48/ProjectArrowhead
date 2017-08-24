@@ -192,7 +192,8 @@ player createDiaryRecord ["credits",
 		- <font size='16'>Joko</font><br />
 
 <br />Other:<br /><br />
-		All BSO Scripts<br />
+			BSO Scripts<br />
 		- Joko<br />
+		- Lawrence />
 "
 ]];
