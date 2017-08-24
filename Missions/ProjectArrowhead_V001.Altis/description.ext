@@ -39,7 +39,7 @@ class BSO {
         showGroupPlayer = 1;
     };
     class CfgCommon {
-        enableLoadouts = 0;           //Completely disable VA loadouts 1:On  0:Off
+        enableLoadouts = 1;           //Completely disable VA loadouts 1:On  0:Off
         onlyBSOLoadouts = 1;          //Only shows loadouts made on BSO servers
         crossMissionBSOLoadouts = 1;  //shares loadouts between missions
     };
