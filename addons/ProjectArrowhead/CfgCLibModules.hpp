@@ -18,7 +18,6 @@ class CfgCLibModules {
                 FNC(fillLocations);
                 FNC(flattenArray);
                 FNC(getClosePlayers);
-                FNC(getEnemyStrength);
                 FNC(isAwake);
                 FNC(isKindOf);
                 FNC(onPinged);
