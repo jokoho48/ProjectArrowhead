@@ -5,13 +5,16 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Create a Patrol Waypoints for Vehicles
 
     Parameter(s):
-    0: Argument <Type>
+    0: Dirver <Object>
+    1: Max Range where waypoints are placed <Number>
+    2: is a Air Vehicle <Bool> (Default: type of Vehicle)
+    3: if Air Flying height <Number> (Default: 160) [only used for Air Vehicles]
 
     Returns:
-    0: Return <Type>
+    None
 */
 params ["_driver", "_maxRange", "_isAir", ["_height", 160]];
 

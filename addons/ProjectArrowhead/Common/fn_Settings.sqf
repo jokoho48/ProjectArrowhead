@@ -5,7 +5,7 @@
     Author: joko // Jonas
 
     Description:
-    Init for Common Module
+    Settings for Units and other Stuff requried in missions
 
     Parameter(s):
     None

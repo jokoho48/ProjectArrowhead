@@ -5,13 +5,7 @@
     Author: joko // Jonas
 
     Description:
-    Description
-
-    Parameter(s):
-    0: Argument <Type>
-
-    Returns:
-    0: Return <Type>
+    In Area Wrapper https://community.bistudio.com/wiki/inArea
 */
 params ["_pos", "_area"];
 _pos inArea _area;

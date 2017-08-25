@@ -5,13 +5,14 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    DONT CALL THAT SCRIPT
+    creates the Real Patrol use MFUNC(taskPatrol)
 
     Parameter(s):
-    0: Argument <Type>
+    DONT CALL THAT SCRIPT
 
     Returns:
-    0: Return <Type>
+    DONT CALL THAT SCRIPT
 */
 params ["_grp", "_maxRange", "_houseArray", ["_waypointCount", 5]];
 private _minDist = _maxRange * 0.30;

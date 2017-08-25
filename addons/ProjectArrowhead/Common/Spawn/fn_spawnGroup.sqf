@@ -5,10 +5,14 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Spawns a AI Group at Spawn Pos
 
     Parameter(s):
-    0: Argument <Type>
+    0: Spawn Position <Position>
+    1: Type of Unit ref: MFUNC(getClassName)
+    2: Amount of Units in a Group <Number> (default: 1)
+    3: Side <Side> (default: EnemySide)
+    4: Dont Cache the Units <Boolean> (default: false)
 
     Returns:
     0: Return <Type>
@@ -29,7 +33,7 @@ for "_j" from 0 to (_count - 1) do {
     private _pos = _spawnPos;
     _pos set [2, 0];
     call {
-        if (_type isEqualTo 0) exitWith {
+        if (_tempType isEqualTo 0) exitWith {
             private _unit = _grp createUnit [GETCLASS(_side,_type), _pos, [], 0, "NONE"];
             _unit allowDamage false;
         };

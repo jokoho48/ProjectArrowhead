@@ -5,13 +5,18 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Spawns Towers Random around a Center Position
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Range for Waypoints <Number> (default: 100)
+    2: Amount <Number> (default: 1)
+    3: Side <Side> (default: EnemySide)
+    4: Amount of Units Spawned on a Tower <Number> (default: 1)
+    5: Dont Cache the Units <Boolean> (default: false)
 
     Returns:
-    0: Return <Type>
+    Group of Spawned Units <Group>
 */
 params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_side", GVAR(enemySide)], ["_unitCount", 1, [0]], ["_nocache", false]];
 

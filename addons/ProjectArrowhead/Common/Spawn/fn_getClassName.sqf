@@ -5,7 +5,7 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Get a random ClassName from the Base Data
 
     Parameter(s):
     0: Side <Side>

@@ -5,13 +5,15 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Find a Position in a Building around a Center Pos
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Range <Number>
 
     Returns:
-    0: Return <Type>
+    0: Hose object <Object>
+    1: Building Position <Position>
 */
 params [["_center", [0,0,0]], ["_range", 100, [0]]];
 private _pos = [0,0,0];

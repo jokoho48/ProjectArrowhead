@@ -5,12 +5,12 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    checks if Pos is in base
 
     Parameter(s):
-    0: Argument <Type>
+    Position <Position>
 
     Returns:
-    0: Return <Type>
+    is in Base <Boolean>
 */
 _this inArea GVAR(baseMarker)

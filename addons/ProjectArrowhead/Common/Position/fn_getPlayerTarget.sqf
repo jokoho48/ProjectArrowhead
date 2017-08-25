@@ -5,13 +5,13 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    get a Player Target that is not in base and is awake
 
     Parameter(s):
-    0: Argument <Type>
+    None
 
     Returns:
-    0: Return <Type>
+    Target Player <Object>
 */
 private _target = objNull;
 {
