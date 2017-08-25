@@ -41,7 +41,7 @@ class BSO {
     class CfgCommon {
         enableLoadouts = 1;           //Completely disable VA loadouts 1:On  0:Off
         onlyBSOLoadouts = 1;          //Only shows loadouts made on BSO servers
-        crossMissionBSOLoadouts = 1;  //shares loadouts between missions
+        crossMissionBSOLoadouts = 0;  //shares loadouts between missions
     };
     class CfgCaching {
         DistanceGroup = "2500";
