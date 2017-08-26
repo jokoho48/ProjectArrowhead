@@ -18,7 +18,7 @@
     0: Return <Type>
 */
 params [["_center", [], [[]]],["_min", 0, [0]],["_max", 100, [0]],["_dirArray", [], [[]]], ["_counter", 5]];
-private _dir = if !(_dirArray isEqualTo []) then {
+private _dir = if (_dirArray isEqualTo []) then {
     random 360
 } else {
     _dirArray params ["_dMin", "_dMax"];
