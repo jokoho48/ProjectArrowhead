@@ -5,13 +5,16 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Let units Occupy nearby Building
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Unit Array <Array<Object>, Group>
+    2: Radius <Number>
+    3: Randomise Positions <Boolean>
 
     Returns:
-    0: Return <Type>
+    None
 */
 params [
     ["_pos", [0,0,0], [[]]],
@@ -45,3 +48,4 @@ if (_random) then {
     _x disableAI "AUTOCOMBAT";
     _x disableAI "PATH";
 } count _units;
+nil

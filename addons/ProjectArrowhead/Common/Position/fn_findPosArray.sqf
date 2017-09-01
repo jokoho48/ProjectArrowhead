@@ -5,11 +5,15 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Find Multible Positions (near Roads or on Flat Pos)
 
     Parameter(s):
-    0: Argument <Type>
-
+    0: Center Position <Position>
+    1: Range for Searching <Number>
+    2: Minimal Distance <Number>
+    3: Amount of Positions <Number>
+    4: Use Road Positions <Boolean>
+    5: Positon Buffer <Number>
     Returns:
     0: Return <Type>
 */

@@ -24,14 +24,7 @@ if (_obj isKindOf "Air") exitWith {
         nil
     } count waypoints _grp;
     private _wp = _grp addWaypoint [[-1000,-1000,-1000], 10];
-    _wp setWaypointStatements ["true", "
-        private _veh = vehicle this;
-        {
-            deleteVehicle _x;
-            nil
-        } count (crew _veh);
-        deleteVehicle _veh;"
-    ];
+    _wp setWaypointStatements ["true", 'GARBAGE(group this)'];
     _grp setCurrentWaypoint _wp;
 };
 
@@ -40,7 +33,7 @@ if (_obj isKindOf "LandVehicle" || {_obj isKindOf "Ship"}) exitWith {
         {
             moveOut _x;
             _x setBehaviour "CARELESS";
-            [_x,true] call ace_captives_fnc_setSurrendered;
+            [_x, true] call FUNC(setUnitHostage);
             DUMP(typeOf _x + " surrenders.");
             nil
         } count (crew _obj);
@@ -55,7 +48,7 @@ if (_obj isKindOf "LandVehicle" || {_obj isKindOf "Ship"}) exitWith {
                 moveOut _x;
                 _x setBehaviour "CARELESS";
                 doStop _x;
-                [_x,true] call ace_captives_fnc_setSurrendered;
+                [_x, true] call FUNC(setUnitHostage);
                 DUMP(typeOf _x + " surrenders.");
                 nil
             } count (crew _obj);

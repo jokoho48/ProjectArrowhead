@@ -1,3 +1,18 @@
+#include "macros.hpp"
+/*
+    Project Arrowhead
+
+    Author: joko // Jonas
+
+    Description:
+    Returns a Random Pos on the Map Border
+
+    Parameter(s):
+    None
+
+    Returns:
+    Position <Position>
+*/
 selectRandom [
     [0, 0, 0],
     [worldSize, worldSize, 0],

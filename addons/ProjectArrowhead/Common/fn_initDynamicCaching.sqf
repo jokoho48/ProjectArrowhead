@@ -5,7 +5,7 @@
     Author: joko // Jonas
 
     Description:
-    Init for Common Module
+    Init for Dynamic Caching Settings
 
     Parameter(s):
     None

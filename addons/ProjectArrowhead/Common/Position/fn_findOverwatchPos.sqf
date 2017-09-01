@@ -5,13 +5,15 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Find a Overwatch Position to a Target Position
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Minimum Distance <Number>
+    2: Maximum Distance <Number>
 
     Returns:
-    0: Return <Type>
+    Posible Overwatch Positions <Array<Position>>
 */
 params ["_pos", "_min", "_max"];
 

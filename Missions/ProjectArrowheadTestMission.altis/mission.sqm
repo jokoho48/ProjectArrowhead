@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14658.317,25.564663,16700.568};
-		dir[]={-0.31256136,-0.080921248,0.94644594};
-		up[]={-0.025376203,0.99672073,0.076840103};
-		aside[]={0.94956064,1.166336e-008,0.31358951};
+		pos[]={14194.445,25.421679,16284.096};
+		dir[]={-0.64458042,-0.4185881,-0.63979238};
+		up[]={-0.29710057,0.90816575,-0.29489273};
+		aside[]={-0.7044782,-4.1839667e-007,0.70975119};
 	};
 };
 binarizationWanted=0;
@@ -128,7 +128,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14656.131,17.911438,16742.668};
+						position[]={14228.313,19.810249,16256.656};
 					};
 					side="West";
 					flags=7;
@@ -189,7 +189,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14661.131,17.911438,16737.668};
+						position[]={14233.313,19.893353,16251.656};
 					};
 					side="West";
 					flags=5;
@@ -201,6 +201,7 @@ class Mission
 					};
 					id=24;
 					type="B_Soldier_F";
+					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -249,7 +250,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14651.131,17.911438,16737.668};
+						position[]={14223.313,19.910093,16251.656};
 					};
 					side="West";
 					flags=5;
@@ -310,7 +311,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14666.131,17.911438,16732.668};
+						position[]={14238.313,19.955606,16246.656};
 					};
 					side="West";
 					flags=5;
@@ -370,7 +371,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14646.131,17.911438,16732.668};
+						position[]={14218.313,19.98431,16246.656};
 					};
 					side="West";
 					flags=5;
@@ -430,7 +431,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14671.131,17.911438,16727.668};
+						position[]={14243.313,20.01342,16241.656};
 					};
 					side="West";
 					flags=5;
@@ -491,7 +492,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14641.131,17.911438,16727.668};
+						position[]={14213.313,20.045591,16241.656};
 					};
 					side="West";
 					flags=5;
@@ -551,7 +552,7 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={14676.131,17.911438,16722.668};
+						position[]={14248.313,20.060095,16236.656};
 					};
 					side="West";
 					flags=5;
@@ -705,15 +706,14 @@ class Mission
 		class Item2
 		{
 			dataType="Marker";
-			position[]={14801.643,0,16618.951};
+			position[]={14240.78,19.393806,16293.182};
 			name="base";
 			markerType="ELLIPSE";
 			type="ellipse";
-			a=876.6239;
-			b=1219.1967;
-			angle=39.289421;
+			a=237.24133;
+			b=288.74249;
+			angle=41.704765;
 			id=46;
-			atlOffset=-17.896158;
 		};
 	};
 };

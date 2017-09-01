@@ -5,13 +5,17 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Spawns Towers Random around a Center Position and trys to pos them near roads
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Placing Range <Number> (default: 100)
+    2: Amount of Turrets <Number> (default: 1)
+    3: Type of Turret <Number> (default: -1) [-1 = random, 0 = open/low, 1 = high in Bunker, 2 = Mortar]
+    4: Side <Side> (default: EnemySide)
 
     Returns:
-    0: Return <Type>
+    Array of Spawned Units <Array<Object>>
 */
 params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_type", -1, [0]], ["_side", GVAR(enemySide)]];
 

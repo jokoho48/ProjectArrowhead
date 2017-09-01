@@ -23,5 +23,6 @@ private _return = [];
     } else {
         _return pushBack _x;
     };
+    nil
 } count _this;
 _return

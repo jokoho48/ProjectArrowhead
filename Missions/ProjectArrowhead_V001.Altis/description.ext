@@ -12,8 +12,8 @@ enableDebugConsole = 2;
 
 disabledAI = 1;
 author = "joko // Jonas and ShadowFox";
-onLoadName = "ProjectArrowhead Test Mission V001";
-onLoadMission = "ProjectArrowhead Test Mission V001";
+onLoadName = "ProjectArrowhead Test Mission V1.1";
+onLoadMission = "ProjectArrowhead Test Mission V1.1";
 
 // skipLobby = 1;
 
@@ -26,10 +26,10 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard"};
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR"};
     class GarbageCollector {
         EnableGarbageCollector = 1;
-        GarbageCollectorTime = 120;
+        GarbageCollectorTime = 360;
     };
 };
 
@@ -37,6 +37,11 @@ class BSO {
     class CfgBFT {
         onlyPlayer = 1;
         showGroupPlayer = 1;
+    };
+    class CfgCommon {
+        enableLoadouts = 1;           //Completely disable VA loadouts 1:On  0:Off
+        onlyBSOLoadouts = 1;          //Only shows loadouts made on BSO servers
+        crossMissionBSOLoadouts = 0;  //shares loadouts between missions
     };
     class CfgCaching {
         DistanceGroup = "2500";

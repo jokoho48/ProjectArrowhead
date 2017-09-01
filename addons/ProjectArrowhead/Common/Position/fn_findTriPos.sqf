@@ -5,13 +5,14 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Find a Thired Triangle Position of 2 Positions
 
     Parameter(s):
-    0: Argument <Type>
+    0: Position 1 <Position>
+    1: Position 2 <Position>
 
     Returns:
-    0: Return <Type>
+    Position <Position>
 */
 params [["_pos1", [],[[]]], ["_pos2", [],[[]]]];
 

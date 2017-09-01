@@ -5,16 +5,20 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    Find a Random Position
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Minimal Distance <Number>
+    2: Maximal Distance <Number>
+    3: Limiting to a Direction Angle <Array<Number>> [Dont need to be defined.]
+    4: Retry Counter <Number> (default: 5)
 
     Returns:
     0: Return <Type>
 */
 params [["_center", [], [[]]],["_min", 0, [0]],["_max", 100, [0]],["_dirArray", [], [[]]], ["_counter", 5]];
-private _dir = if (count _dirArray isEqualTo 0) then {
+private _dir = if (_dirArray isEqualTo []) then {
     random 360
 } else {
     _dirArray params ["_dMin", "_dMax"];

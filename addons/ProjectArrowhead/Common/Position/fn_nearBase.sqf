@@ -5,13 +5,13 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    checks if Pos is Near base
 
     Parameter(s):
-    0: Argument <Type>
+    Position <Position>
 
     Returns:
-    0: Return <Type>
+    is Near Base <Boolean>
 */
 _this call FUNC(inBase) ||
 {(_this distance2D (getMarkerPos GVAR(baseMarker))) < 2000}

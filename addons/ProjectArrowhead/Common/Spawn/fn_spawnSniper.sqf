@@ -8,10 +8,16 @@
     Description
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Amount of Units <Number>
+    2: Minimal Distance to Center Pos <Number> (default: 100)
+    3: Maximal Distance to Center Pos <Number> (default: 1100)
+    4: Side <Side> (default: EnemySide)
+    5: Dont Cache the Units <Boolean> (default: false)
+    6: When Find Fails how often retry <Number> (default: 2)
 
     Returns:
-    0: Return <Type>
+    Array of Spawned Groups <Array<Group>>
 */
 
 params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];

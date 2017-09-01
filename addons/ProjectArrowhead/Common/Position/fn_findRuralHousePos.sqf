@@ -5,10 +5,11 @@
     Author: joko // Jonas
 
     Description:
-    Description
+    get a Random House Pos from a Center Pos
 
     Parameter(s):
-    0: Argument <Type>
+    0: Center Position <Position>
+    1: Range for Searching <Number>
 
     Returns:
     0: Return <Type>
