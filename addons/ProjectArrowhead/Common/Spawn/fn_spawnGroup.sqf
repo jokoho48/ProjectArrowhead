@@ -17,7 +17,7 @@
     Returns:
     0: Return <Type>
 */
-params [["_spawnPos",[0,0,0],[[]]], ["_type",0,[0, []]], ["_count",1,[0]], ["_side", GVAR(enemySide)], ["_uncache",false]];
+params [["_spawnPos",[0,0,0],[[]]], ["_type",0,[0, [], ""]], ["_count",1,[0]], ["_side", GVAR(enemySide)], ["_uncache",false]];
 _spawnPos set [2, 0];
 
 private _grp = if (_side isEqualTo independent) then {createGroup east} else {createGroup _side};
