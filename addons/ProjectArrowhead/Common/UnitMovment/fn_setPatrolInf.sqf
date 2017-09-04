@@ -55,7 +55,7 @@ for "_i" from 1 to 100 do {
         private _range = (ceil random _maxRange);
         private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
         if !(surfaceIsWater _pos2) then {
-            if ({(_pos2 distance _x) < _minDist} count _posArray isEqualTo 0) then {
+            if !([_pos2, _minDist, _posArray] call FUNC(nearPositions)) then {
                 if (_pos2 call FUNC(nearBase)) exitWith {};
                 _posArray pushBack _pos2;
                 _wpindex = _wpindex + 1;

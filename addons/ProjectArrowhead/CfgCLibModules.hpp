@@ -49,6 +49,7 @@ class CfgCLibModules {
                 FNC(inArea);
                 FNC(inBase);
                 FNC(nearBase);
+                FNC(nearPositions);
                 FNC(selectRandomPos);
             };
 

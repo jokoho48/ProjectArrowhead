@@ -38,10 +38,9 @@ for "_s" from 0 to 200 do {
             private _staticPos = [getPosATL _road, getPosATL _roadConnectedTo] call FUNC(findTriPos);
             private _check = _staticPos isFlatEmpty [2, 0, 0.4, 2, 0, false, objNull];
 
-            {
-                if (_x distance _staticPos < 20) exitWith {_check = []};
-                nil
-            } count _posArray;
+            if ([_pos, 20, _posArray] call FUNC(nearPositions)) then {
+                _check = [];
+            };
             if (_check isEqualTo [] || {isOnRoad _staticPos}) exitWith {};
 
             _posArray pushBack _staticPos;
@@ -69,13 +68,8 @@ for "_s" from 0 to 200 do {
             private _staticPos = [getPosATL _road, getPosATL _roadConnectedTo] call FUNC(findTriPos);
             private _check = _staticPos isFlatEmpty [2, 0, 0.4, 3, 0, false, objNull];
 
-            if (count _posArray > 0) then {
-                {
-                    if (_x distance _staticPos < 20) exitWith {
-                        _check = []
-                    };
-                    nil
-                } count _posArray;
+            if ([_pos, 20, _posArray] call FUNC(nearPositions)) then {
+                _check = [];
             };
             if (_check isEqualTo [] || isOnRoad _staticPos) exitWith {};
 
@@ -103,12 +97,8 @@ for "_s" from 0 to 200 do {
         private _staticPos = [_pos, 0, _range] call FUNC(selectRandomPos);
         private _check = _staticPos isFlatEmpty [3, 0, 0.55, 3, 0, false, objNull];
 
-        if (count _posArray > 0) then {
-            {
-                if (_x distance _staticPos < 20) exitWith {
-                    _check = [];
-                };
-            } forEach _posArray;
+        if ([_pos, 20, _posArray] call FUNC(nearPositions)) then {
+            _check = [];
         };
         if (_check isEqualTo [] || isOnRoad _staticPos) exitWith {};
 
