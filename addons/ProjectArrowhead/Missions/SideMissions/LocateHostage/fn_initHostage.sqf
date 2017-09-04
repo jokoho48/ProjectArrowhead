@@ -37,7 +37,7 @@
     // Spawn Vehicle
     if (random 1 >= 0.5) then {
         private _pos = selectRandom ([_posVIP, 500, 0, 1, true, 10] call MFUNC(findPosArray));
-        private _vehicles = [_pos, 1, 1, east] call MFUNC(spawnGroup);
+        private _vehicles = [_pos, [1, selectRandom [0, 1]], 1, east] call MFUNC(spawnGroup);
         {
             [_x, 500, false] call MFUNC(setPatrolVeh);
             _units pushBack (group _x);
