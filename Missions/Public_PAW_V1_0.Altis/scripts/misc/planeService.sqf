@@ -26,7 +26,7 @@ if (_vehicle isKindOf "Plane") then {
     //---------- FINISHED
     sleep 10;
     _vehicle setDamage 0;
-    _vehicle setFuel 0.1;
+    _vehicle setFuel 1;
     _vehicle vehicleChat "We've repaired her and put some fuel in to get you going.";
 
 
