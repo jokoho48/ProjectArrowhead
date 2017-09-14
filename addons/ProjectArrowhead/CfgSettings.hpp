@@ -29,14 +29,16 @@ class ProjectArrowhead {
     };
 
     class randomEvents {
+        #ifdef ISDEV
         class earthQuake {
             function = "ProjectArrowhead_RandomEvents_fnc_earthQuake"; // FFS arma why you need that spawned
         };
+        #endif
         class rebelAttack {
-            function = "ProjectArrowhead_RandomEvents_fnc_rebelAttack";
+            function = "ProjectArrowhead_RandomEvents_fnc_rebelAttackTrigger";
         };
         class airAttack {
-            function = "ProjectArrowhead_RandomEvents_fnc_airAttack";
+            function = "ProjectArrowhead_RandomEvents_fnc_airAttackTrigger";
         };
     };
 

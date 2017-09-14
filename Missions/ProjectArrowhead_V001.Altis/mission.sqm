@@ -48762,7 +48762,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this setvariable [""BSO_loadoutKey"",""lawrenceloadouts1""];}";
+				init="call{this setvariable [""BSO_Loadouts_Key"",""lawrenceloadouts1""];}";
 			};
 			id=2695;
 			type="B_supplyCrate_F";
@@ -48840,7 +48840,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this setvariable [""BSO_loadoutKey"",""lawrenceloadouts2""];}";
+				init="call{this setvariable [""BSO_Loadouts_Key"",""lawrenceloadouts2""];}";
 			};
 			id=2696;
 			type="B_supplyCrate_F";

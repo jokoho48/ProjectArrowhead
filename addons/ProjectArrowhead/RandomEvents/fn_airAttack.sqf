@@ -14,7 +14,7 @@
     0: Return <Type>
 */
 
-DFUNC(airAttack) = {
+DFUNC(airAttackTrigger) = {
     QGVAR(airAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
 };
 

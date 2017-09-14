@@ -15,7 +15,7 @@
 */
 GVAR(rebelAttackSize) = 5;
 
-DFUNC(rebelAttack) = {
+DFUNC(rebelAttackTrigger) = {
     QGVAR(rebelAttackSpawn) call CFUNC(serverEvent); // TODO: Make HC Compatible
 };
 

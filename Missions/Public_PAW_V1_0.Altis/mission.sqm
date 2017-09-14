@@ -10870,7 +10870,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this setvariable [""BSO_loadoutKey"",""PAW_V1""];}";
+				init="call{this setvariable [""BSO_Loadouts_Key"",""PAW_V1""];}";
 			};
 			id=371;
 			type="Box_NATO_AmmoVeh_F";
@@ -10948,7 +10948,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this setvariable [""BSO_loadoutKey"",""PAW_V1""];}";
+				init="call{this setvariable [""BSO_Loadouts_Key"",""PAW_V1""];}";
 			};
 			id=372;
 			type="Box_NATO_AmmoVeh_F";
@@ -10962,7 +10962,7 @@ class Mission
 					{
 						class data
 						{
-							class type
+							class typeF
 							{
 								type[]=
 								{
