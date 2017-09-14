@@ -71,6 +71,10 @@ class BSO {
         walkTime = 25;
         maxRunning = 3;
     };
+    class CfgScoreBoard {
+        usePersistentScoreBoard = 1;
+    };
+    
 };
 
 

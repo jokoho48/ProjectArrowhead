@@ -57,6 +57,7 @@ class BSO {
 };
 
 class ProjectArrowhead {
+    sideMissionDelay = 0;
     BaseMarker = "Base";
     BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
 
