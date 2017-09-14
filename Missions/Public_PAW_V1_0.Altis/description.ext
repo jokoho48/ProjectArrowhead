@@ -74,7 +74,6 @@ class BSO {
     class CfgScoreBoard {
         usePersistentScoreBoard = 1;
     };
-    
 };
 
 
