@@ -34,6 +34,9 @@ class CLib {
 };
 
 class BSO {
+    class CfgCommon {
+        enableDynamicGroups = 1;
+    };
     class CfgBFT {
         onlyPlayer = 1;
         showGroupPlayer = 1;
