@@ -26,7 +26,7 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Loadouts"};
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Loadouts", "BSO/Servicing"};
     class GarbageCollector {
         EnableGarbageCollector = 1;
         GarbageCollectorTime = 320;
@@ -77,6 +77,37 @@ class BSO {
     class CfgScoreBoard {
         usePersistentScoreBoard = 1;
     };
+    class CfgServicing {
+        enableServices = 1;
+        useServiceMarkers = 1;
+        class myCarService {
+            markerName = "myCarServiceMarker";
+            markerText = "Vehicle Servicing";
+            vehTypes[] = {"Car"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 1;
+        };     
+        class myHeloService {
+            markerName = "myHeloServiceMarker";
+            markerText = "Helicopter Servicing";
+            vehTypes[] = {"Helicopter"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 0.75;
+        };        
+        class myPlaneService {
+            markerName = "myPlaneServiceMarker";
+            markerText = "Plane Servicing";
+            vehTypes[] = {"Plane"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 0.5;
+        };
+    };    
 };
 
 
