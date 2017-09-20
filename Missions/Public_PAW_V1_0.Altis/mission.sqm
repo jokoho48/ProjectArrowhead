@@ -8,18 +8,18 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=891;
+		nextID=893;
 	};
 	class LayerIndexProvider
 	{
-		nextID=17;
+		nextID=18;
 	};
 	class Camera
 	{
-		pos[]={14193.198,23.833685,16275.471};
-		dir[]={0.9585883,-0.28005305,0.053180542};
-		up[]={0.27975252,0.95993268,0.015521294};
-		aside[]={0.055392899,4.7043432e-007,-0.99853277};
+		pos[]={14201.544,53.549915,16256.92};
+		dir[]={-0.33423156,-0.47658357,0.81311965};
+		up[]={-0.18118989,0.87912941,0.44079906};
+		aside[]={0.92491525,1.2572855e-008,0.38018471};
 	};
 };
 binarizationWanted=0;
@@ -124,7 +124,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=63;
+		items=65;
 		class Item0
 		{
 			className="A3_Structures_F";
@@ -547,19 +547,33 @@ class AddonsMetaData
 		};
 		class Item60
 		{
+			className="rhsusf_c_troops";
+			name="RHSUSF Infantry & Equipment";
+			author="Red Hammer Studios";
+			url="http://www.rhsmods.org/";
+		};
+		class Item61
+		{
+			className="ace_compat_rhs_usf3";
+			name="ACE3 - RHS USF Compatibility";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item62
+		{
 			className="ace_grenades";
 			name="ACE3 - Grenades";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item61
+		class Item63
 		{
 			className="acex_headless";
 			name="ACEX - Headless";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item62
+		class Item64
 		{
 			className="A3_Structures_F_Argo";
 			name="Arma 3 Malden - Buildings and Structures";
@@ -689,7 +703,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=302;
+		items=303;
 		class Item0
 		{
 			dataType="Object";
@@ -6440,11 +6454,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={14781.411,4.6472168,14709.132};
+				position[]={14781.411,4.6472015,14709.132};
 			};
 			id=169;
 			type="acre_api_basicMissionSetup";
-			atlOffset=69.095024;
+			atlOffset=69.095009;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -23895,6 +23909,230 @@ class Mission
 			id=890;
 			type="Land_BagFence_Long_F";
 			atlOffset=0.00066947937;
+		};
+		class Item302
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={14848.053,-0.0042877197,14709.597};
+			};
+			id=892;
+			type="acre_api_nameChannels";
+			atlOffset=55.582001;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="acre_api_nameChannels_Channel_1";
+					expression="_this setVariable ['Channel_1',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="ALPHA NET";
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="acre_api_nameChannels_Channel_2";
+					expression="_this setVariable ['Channel_2',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="BRAVO NET";
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="acre_api_nameChannels_Channel_3";
+					expression="_this setVariable ['Channel_3',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="CHARLIE NET";
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="acre_api_nameChannels_Channel_4";
+					expression="_this setVariable ['Channel_4',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="PLATOON NET";
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="acre_api_nameChannels_Channel_5";
+					expression="_this setVariable ['Channel_5',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="AIR NET";
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="acre_api_nameChannels_SideSelect";
+					expression="_this setVariable ['SideSelect',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="acre_api_nameChannels_Channel_6";
+					expression="_this setVariable ['Channel_6',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="SUPPORTS NET";
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="acre_api_nameChannels_Channel_7";
+					expression="_this setVariable ['Channel_7',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="RESERVE 7";
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="acre_api_nameChannels_Channel_8";
+					expression="_this setVariable ['Channel_8',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="RESERVE 8";
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="acre_api_nameChannels_Channel_9";
+					expression="_this setVariable ['Channel_9',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="RESERVE 9";
+						};
+					};
+				};
+				class Attribute10
+				{
+					property="acre_api_nameChannels_Channel_10";
+					expression="_this setVariable ['Channel_10',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="RESERVE 10";
+						};
+					};
+				};
+				nAttributes=11;
+			};
 		};
 	};
 	class Connections
