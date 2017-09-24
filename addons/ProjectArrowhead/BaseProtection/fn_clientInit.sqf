@@ -17,25 +17,44 @@
 DFUNC(nearBase) = {
     [QGVAR(Fired), {
         (getPos CLib_Player) call MFUNC(inBase) && !GVAR(enemyAtBase)
-    }, [], 1] call CFUNC(cachedCall);
+    }, [], 1] call CFUNC(cachedCall);    
 };
+
+DFUNC(notCarrying) = {
+    [QGVAR(notCarrying), {
+        private _animState = animationState CLib_Player;
+        ((_animState find "acin") == -1) && {(_animState find "sras") > -1}
+    }, [], 0.2] call CFUNC(cachedCall);
+};
+
+/*
+    Having this on default action is blocking features like ace dragging/carrying.
+    Now using temporary fix with animation names.
+*/
+
 {
-    ["", CLib_Player, 0, {call FUNC(nearBase)}, {
+    ["", CLib_Player, 0, {call FUNC(nearBase) && {call FUNC(notCarrying)}}, {
         ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
     }, ["priority", 0,"showWindow", false, "shortcut", _x]] call CFUNC(addAction);
 
     nil
 } count ["DefaultAction", "throw"];
 
-["ace_explosives_place", {
-    params ["_obj"];
-    if (call FUNC(nearBase)) then {
-        if (local (nearestObject [getPos _obj, "Man"])) then {
-            ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
+/*
+    Getting reports that explosives are being deleted outside of base.
+    Disabing this feature for now.
+    Perhaps better to tie this detonation and not placement?
+
+    ["ace_explosives_place", {
+        params ["_obj"];
+        if (call FUNC(nearBase)) then {
+            if (local (nearestObject [getPos _obj, "Man"])) then {
+                ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
+            };
+            deleteVehicle _obj;
         };
-        deleteVehicle _obj;
-    };
-}] call CBA_fnc_addEventHandler;
+    }] call CBA_fnc_addEventHandler;
+*/
 
 ["ace_advanced_throwing_throwFiredXEH", {
     params [
