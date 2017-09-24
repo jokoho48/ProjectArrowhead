@@ -122,14 +122,15 @@ class BSO {
 
 class ProjectArrowhead {
     BaseMarker = "Base";
+    sideMissionDelay = 250;
     BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
 
     class clearTown {
         mainAOGroupCount = 11;
-        mainAOVehicleMRAPCount = 2;
-        mainAOVehicleLightCount = 3;
-        mainAOVehicleAACount = 2;
-        mainAOVehicleHeavyCount = 2;
+        mainAOVehicleMRAPCount = 4;
+        mainAOVehicleLightCount = 1;
+        mainAOVehicleAACount = 1;
+        mainAOVehicleHeavyCount = 1;
         mainAOAirCount = 1;
         mainAOTowerCount = 3;
         mainAOSniperCount = 2;
@@ -149,7 +150,7 @@ class ProjectArrowhead {
         sniperPoolEnemy[] = {"O_sniper_F"};
 
         vehicleMRAPPoolEnemy[] = {"O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "O_T_LSV_02_armed_black_F"};
-        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F", "O_APC_Tracked_02_cannon_F"};
+        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"};
         vehicleAAPoolEnemy[] = {"O_APC_Tracked_02_AA_F"};
         vehicleHeavyPoolEnemy[] = {"O_MBT_02_cannon_F"};
 
@@ -160,7 +161,7 @@ class ProjectArrowhead {
         unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
         vehiclePoolRebels[] = {};
 
-        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"};
+        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged", "C_Man_ConstructionWorker_01_Vrana_F", "C_Journalist_01_War_F", "C_Man_Paramedic_01_F", "C_Man_Messenger_01_F", "C_Man_UtilityWorker_01_F", "C_Story_Mechanic_01_F", "C_IDAP_Man_AidWorker_07_F", "C_IDAP_Man_AidWorker_08_F", "C_IDAP_Man_EOD_01_F", "C_IDAP_Pilot_01_F", "C_IDAP_Man_UAV_06_antimine_F", "C_IDAP_Man_UAV_06_F"};
         vehiclePoolCiv[] = {};
     };
     class RandomCampCompositions {

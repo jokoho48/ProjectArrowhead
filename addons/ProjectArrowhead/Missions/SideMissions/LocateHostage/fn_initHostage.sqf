@@ -33,7 +33,7 @@
     private _vip = _grp createUnit [_type, _posVIP, [], 0, "NONE"];
     _vip setPos _posVIP;
     _units pushBack (group _vip);
-    _vip call MFUNC(setUnitSurrender);
+    [_vip, true] call MFUNC(setUnitHostage);
     // Spawn Vehicle
     if (random 1 >= 0.5) then {
         private _pos = selectRandom ([_posVIP, 500, 0, 1, true, 10] call MFUNC(findPosArray));
