@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=42;
+		nextID=44;
 	};
 	class Camera
 	{
-		pos[]={14228.719,64.036209,16174.879};
-		dir[]={-0.78150064,-0.58278316,0.22332613};
-		up[]={-0.56041205,0.81249416,0.16015002};
-		aside[]={0.27479273,-6.3766493e-007,0.96160287};
+		pos[]={14222.405,52.755344,16181.684};
+		dir[]={-0.79206038,-0.59456038,0.13926952};
+		up[]={-0.5856365,0.80391812,0.10297709};
+		aside[]={0.17318946,-1.2860401e-006,0.98498523};
 	};
 };
 binarizationWanted=0;
@@ -8579,7 +8579,7 @@ class Mission
 				};
 			};
 			id=223;
-			atlOffset=-0.098495483;
+			atlOffset=-0.17876053;
 		};
 		class Item186
 		{
@@ -24039,7 +24039,7 @@ class Mission
 			};
 			id=907;
 			type="Land_DeckTractor_01_F";
-			atlOffset=-0.013153076;
+			atlOffset=-0.013154984;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -26064,7 +26064,7 @@ class Mission
 			};
 			id=998;
 			type="Land_Bomb_Trolley_01_F";
-			atlOffset=-0.034708023;
+			atlOffset=-0.034698486;
 			class CustomAttributes
 			{
 				class Attribute0
