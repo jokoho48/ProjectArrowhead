@@ -8,6 +8,8 @@ allowFunctionsRecompile = 1;
 allowFunctionsLog = 1;
 briefing = 0;
 debriefing = 0;
+loadScreen = "Data\BSO_Logo.paa";
+overviewPicture = "Data\BSO_Logo.paa";
 //enableDebugConsole = 2;
 enableDebugConsole[] = {"76561198073410815","76561198044297959","76561198073410815","76561198024742337","76561198059004332"}; 
 
