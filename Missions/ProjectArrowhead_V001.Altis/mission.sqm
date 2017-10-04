@@ -8,7 +8,7 @@ class EditorData
 	toggles=2;
 	class ItemIDProvider
 	{
-		nextID=2697;
+		nextID=2698;
 	};
 	class MarkerIDProvider
 	{
@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=6;
+		nextID=7;
 	};
 	class Camera
 	{
@@ -101,7 +101,7 @@ addons[]=
 	"UK3CB_BAF_Weapons_SmallArms",
 	"A3_Weapons_F_Acc",
 	"ace_scopes",
-	"UK3CB_BAF_Weapons",
+	"UK3CB_BAF_Weapons_Ammo",
 	"A3_Characters_F_Mark",
 	"My_Mod_Config",
 	"A3_Weapons_F_Explosives",
@@ -137,13 +137,14 @@ addons[]=
 	"A3_Supplies_F_Exp_Ammoboxes",
 	"A3_Props_F_Argo_Items_Documents",
 	"A3_Modules_F_Curator_Mines",
-	"road_barrier_items"
+	"road_barrier_items",
+	"ace_advanced_ballistics"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=89;
+		items=90;
 		class Item0
 		{
 			className="CUP_Misc3_Config";
@@ -535,7 +536,7 @@ class AddonsMetaData
 		};
 		class Item59
 		{
-			className="UK3CB_BAF_Weapons";
+			className="UK3CB_BAF_Weapons_Ammo";
 			name="3CB BAF Weapons - Ammo";
 			author="3 Commando Brigade";
 			url="www.3commandobrigade.com";
@@ -735,6 +736,13 @@ class AddonsMetaData
 			className="road_barrier_items";
 			name="road_barrier_items";
 		};
+		class Item89
+		{
+			className="ace_advanced_ballistics";
+			name="ACE3 - Advanced Ballistics";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=11335780;
@@ -903,7 +911,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=657;
+		items=658;
 		class Item0
 		{
 			dataType="Object";
@@ -17639,7 +17647,7 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={14201.629,18.75169,16356.624};
-			angle=3.8374524;
+			angle=3.8374519;
 			class Attributes
 			{
 				condition="this and ((getPos (thisList select 0)) select 2 < 1)";
@@ -18154,6 +18162,44 @@ class Mission
 				};
 				class Attribute12
 				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_infantry";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_infantry',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute13
+				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16cratewpsmoke";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16cratewpsmoke',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute14
+				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l134a1ammo";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l134a1ammo',_value,true];";
 					class Value
@@ -18171,7 +18217,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute13
+				class Attribute15
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_section";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_section',_value,true];";
@@ -18190,7 +18236,26 @@ class Mission
 						};
 					};
 				};
-				class Attribute14
+				class Attribute16
+				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_section_light";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_section_light',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute17
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_m6ammoillum";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_m6ammoillum',_value,true];";
@@ -18209,7 +18274,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute15
+				class Attribute18
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16cratehe";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16cratehe',_value,true];";
@@ -18228,7 +18293,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute16
+				class Attribute19
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l111a1";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l111a1',_value,true];";
@@ -18247,7 +18312,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute17
+				class Attribute20
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16',_value,true];";
@@ -18266,7 +18331,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute18
+				class Attribute21
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16ammoillum";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16ammoillum',_value,true];";
@@ -18285,7 +18350,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute19
+				class Attribute22
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16ammohe";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16ammohe',_value,true];";
@@ -18304,7 +18369,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute20
+				class Attribute23
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_nlaw";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_nlaw',_value,true];";
@@ -18323,7 +18388,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute21
+				class Attribute24
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_javelin";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_javelin',_value,true];";
@@ -18342,7 +18407,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute22
+				class Attribute25
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l7a2";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l7a2',_value,true];";
@@ -18361,7 +18426,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute23
+				class Attribute26
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16cratemixed";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16cratemixed',_value,true];";
@@ -18380,7 +18445,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute24
+				class Attribute27
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_explosives";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_explosives',_value,true];";
@@ -18399,7 +18464,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute25
+				class Attribute28
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_crates";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_crates',_value,true];";
@@ -18418,7 +18483,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute26
+				class Attribute29
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16cratesmoke";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16cratesmoke',_value,true];";
@@ -18437,7 +18502,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute27
+				class Attribute30
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_ilaw";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_ilaw',_value,true];";
@@ -18456,7 +18521,26 @@ class Mission
 						};
 					};
 				};
-				class Attribute28
+				class Attribute31
+				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_m6ammowpsmoke";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_m6ammowpsmoke',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute32
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_time";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_time',_value,true];";
@@ -18475,7 +18559,45 @@ class Mission
 						};
 					};
 				};
-				class Attribute29
+				class Attribute33
+				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_l16ammowpsmoke";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_l16ammowpsmoke',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute34
+				{
+					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_additionals_list";
+					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_additionals_list',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"STRING"
+								};
+							};
+							value="null";
+						};
+					};
+				};
+				class Attribute35
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_m6";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_m6',_value,true];";
@@ -18494,7 +18616,7 @@ class Mission
 						};
 					};
 				};
-				class Attribute30
+				class Attribute36
 				{
 					property="UK3CB_BAF_Vehicles_Logistics_Module_uk3cb_baf_vehicles_logistics_loadout_m6ammomixed";
 					expression="_this setVariable ['uk3cb_baf_vehicles_logistics_loadout_m6ammomixed',_value,true];";
@@ -18513,7 +18635,7 @@ class Mission
 						};
 					};
 				};
-				nAttributes=31;
+				nAttributes=37;
 			};
 		};
 		class Item550
@@ -39411,7 +39533,7 @@ class Mission
 						};
 					};
 					id=2589;
-					type="B_Helicrew_F";
+					type="B_helicrew_F";
 					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
@@ -40153,7 +40275,7 @@ class Mission
 						};
 					};
 					id=2592;
-					type="B_Helicrew_F";
+					type="B_helicrew_F";
 					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
@@ -40895,7 +41017,7 @@ class Mission
 						};
 					};
 					id=2595;
-					type="B_Helicrew_F";
+					type="B_helicrew_F";
 					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
@@ -41637,7 +41759,7 @@ class Mission
 						};
 					};
 					id=2598;
-					type="B_Helicrew_F";
+					type="B_helicrew_F";
 					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
@@ -42379,7 +42501,7 @@ class Mission
 						};
 					};
 					id=2601;
-					type="B_Helicrew_F";
+					type="B_helicrew_F";
 					atlOffset=1.9073486e-006;
 					class CustomAttributes
 					{
@@ -48844,6 +48966,7 @@ class Mission
 			};
 			id=2696;
 			type="B_supplyCrate_F";
+			atlOffset=-1.9073486e-006;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -48904,6 +49027,211 @@ class Mission
 					};
 				};
 				nAttributes=3;
+			};
+		};
+		class Item657
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={15660.948,-0.075845718,15689.339};
+			};
+			id=2697;
+			type="ace_advanced_ballistics_ModuleSettings";
+			atlOffset=11.494999;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="ace_advanced_ballistics_ModuleSettings_simulationRadius";
+					expression="_this setVariable ['simulationRadius',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=3000;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ace_advanced_ballistics_ModuleSettings_barrelLengthInfluenceEnabled";
+					expression="_this setVariable ['barrelLengthInfluenceEnabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute2
+				{
+					property="ace_advanced_ballistics_ModuleSettings_bulletTraceEnabled";
+					expression="_this setVariable ['bulletTraceEnabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute3
+				{
+					property="ace_advanced_ballistics_ModuleSettings_simulationInterval";
+					expression="_this setVariable ['simulationInterval',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"SCALAR"
+								};
+							};
+							value=0.050000001;
+						};
+					};
+				};
+				class Attribute4
+				{
+					property="ace_advanced_ballistics_ModuleSettings_disabledInFullAutoMode";
+					expression="_this setVariable ['disabledInFullAutoMode',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute5
+				{
+					property="ace_advanced_ballistics_ModuleSettings_simulateForEveryone";
+					expression="_this setVariable ['simulateForEveryone',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute6
+				{
+					property="ace_advanced_ballistics_ModuleSettings_simulateForSnipers";
+					expression="_this setVariable ['simulateForSnipers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute7
+				{
+					property="ace_advanced_ballistics_ModuleSettings_simulateForGroupMembers";
+					expression="_this setVariable ['simulateForGroupMembers',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				class Attribute8
+				{
+					property="ace_advanced_ballistics_ModuleSettings_ammoTemperatureEnabled";
+					expression="_this setVariable ['ammoTemperatureEnabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				class Attribute9
+				{
+					property="ace_advanced_ballistics_ModuleSettings_enabled";
+					expression="_this setVariable ['enabled',_value,true];";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=1;
+						};
+					};
+				};
+				nAttributes=10;
 			};
 		};
 	};
