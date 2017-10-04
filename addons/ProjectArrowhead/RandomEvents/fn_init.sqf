@@ -19,7 +19,7 @@ DFUNC(earthQuake) = {
 };
 [QGVAR(earthQuake), {
     if !(hasInterface) exitWith {};
-    (_this select 0) spawn BIS_fnc_earthquake;
+    //(_this select 0) spawn BIS_fnc_earthquake;
 }] call CFUNC(addEventhandler);
 
 call FUNC(airAttack);

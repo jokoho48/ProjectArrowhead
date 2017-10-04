@@ -17,14 +17,21 @@
 DFUNC(nearBase) = {
     [QGVAR(Fired), {
         (getPos CLib_Player) call MFUNC(inBase) && !GVAR(enemyAtBase)
-    }, [], 1] call CFUNC(cachedCall);    
+    }, [], 5] call CFUNC(cachedCall);    
 };
 
 DFUNC(notCarrying) = {
     [QGVAR(notCarrying), {
         private _animState = animationState CLib_Player;
         ((_animState find "acin") == -1) && {(_animState find "sras") > -1}
-    }, [], 0.2] call CFUNC(cachedCall);
+    }, [], 0.5] call CFUNC(cachedCall);
+};
+
+DFUNC(notUAVConnected) = {
+    [QGVAR(notUAVConnected), {
+        private _UAV = UAVControl getconnectedUAV CLib_Player;
+        _UAV select 1 isEqualTo ""
+    }, [], 2.5] call CFUNC(cachedCall);
 };
 
 /*
@@ -33,7 +40,7 @@ DFUNC(notCarrying) = {
 */
 
 {
-    ["", CLib_Player, 0, {call FUNC(nearBase) && {call FUNC(notCarrying)}}, {
+    ["", CLib_Player, 0, {call FUNC(nearBase) && {call FUNC(notCarrying)} && {call FUNC(notUAVConnected)}}, {
         ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
     }, ["priority", 0,"showWindow", false, "shortcut", _x]] call CFUNC(addAction);
 
