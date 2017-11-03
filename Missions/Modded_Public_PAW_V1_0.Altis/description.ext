@@ -30,7 +30,7 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Loadouts", "BSO/Servicing"};
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Servicing"};
     class GarbageCollector {
         EnableGarbageCollector = 1;
         GarbageCollectorTime = 320;
