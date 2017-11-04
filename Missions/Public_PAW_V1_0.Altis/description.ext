@@ -16,8 +16,8 @@ enableDebugConsole[] = {"76561198073410815","76561198044297959","765611980734108
 disabledAI = 1;
 //author = "joko // Jonas and ShadowFox";
 author = "BSO Team";
-onLoadName = "ProjectArrowhead V1.0";
-onLoadMission = "ProjectArrowhead V1.0";
+onLoadName = "Project Arrowhead";
+onLoadMission = "Project Arrowhead";
 
 // skipLobby = 1;
 
