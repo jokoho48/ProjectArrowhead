@@ -30,7 +30,7 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Servicing"};
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Loadouts", "BSO/Servicing" , "ProjectArrowhead"};
     class GarbageCollector {
         EnableGarbageCollector = 1;
         GarbageCollectorTime = 320;
@@ -125,11 +125,11 @@ class BSO {
 class ProjectArrowhead {
     BaseMarker = "Base";
     sideMissionDelay = 250;
-    BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
+    BlackListLocations[] = {Rasman};
 
     class clearTown {
-        mainAOGroupCount = 11;
-        mainAOVehicleMRAPCount = 4;
+        mainAOGroupCount = 6;
+        mainAOVehicleMRAPCount = 2;
         mainAOVehicleLightCount = 1;
         mainAOVehicleAACount = 1;
         mainAOVehicleHeavyCount = 1;
