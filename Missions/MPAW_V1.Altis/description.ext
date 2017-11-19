@@ -1,0 +1,198 @@
+class Header {
+    gameType = "Coop"; // Game type, see 'class' columns in the table below
+    minPlayers = 1; //min # of players the mission supports
+    maxPlayers = 100; //max # of players the mission supports
+};
+joinUnassigned = 1;
+allowFunctionsRecompile = 1;
+allowFunctionsLog = 1;
+briefing = 0;
+debriefing = 0;
+loadScreen = "Data\BSO_Logo.paa";
+overviewPicture = "Data\BSO_Logo.paa";
+//enableDebugConsole = 2;
+enableDebugConsole[] = {"76561198073410815","76561198044297959","76561198073410815","76561198024742337","76561198059004332"};
+
+disabledAI = 1;
+//author = "joko // Jonas and ShadowFox";
+author = "BSO Team";
+onLoadName = "ProjectArrowhead V1.0";
+onLoadMission = "ProjectArrowhead V1.0";
+
+// skipLobby = 1;
+
+respawn = 3;
+respawnDelay = 3;
+respawnDialog = 0;
+respawnOnStart = 0;
+
+class CLib {
+    useExperimentalAutoload = 0;
+    useFallbackRemoteExecution = 0;
+    useCompressedFunction = 0;
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Servicing" , "BSO/TFAR"};
+    class GarbageCollector {
+        EnableGarbageCollector = 1;
+        GarbageCollectorTime = 300;
+    };
+};
+
+class BSO {
+    class CfgCommon {
+        enableDynamicGroups = 1;
+        speedModifier = 1; //Pvp is 1.2
+        infiniteStamina = 0;
+    };
+    class CfgBFT {
+        onlyPlayer = 1;
+        showGroupPlayer = 1;
+        useBSOMarker = 0;
+        drawLinesServer = 1;
+    };
+    class CfgLoadouts {
+        enableLoadouts = 1;
+        onlyBSOLoadouts = 1;
+        crossMissionBSOLoadouts = 0;
+        useArsenalKeys = 1;
+        arsenalToClipboard = 0;
+        useSpecialistItems = 1;
+        useRespawnLoadout = 1;
+        class SpecialistItems {
+            //Add specialist classes here. The name should roughly match the unit's in-game role description if not display name.
+            Marksman[] = {"optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_DMS","optic_KHS_blk","optic_KHS_tan","optic_LRPS","ACE_optic_LRPS_2D","optic_SOS","ACE_optic_SOS_2D","optic_SOS_khk_F","optic_MRCO","ACE_optic_MRCO_2D","optic_NVS","srifle_DMR_04_F","arifle_SPAR_03_blk_F","arifle_SPAR_03_khk_F","arifle_SPAR_03_snd_F","srifle_DMR_06_camo_F","srifle_DMR_06_camo_khs_F","srifle_DMR_06_olive_F","srifle_DMR_02_F","srifle_DMR_02_camo_F","srifle_DMR_02_sniper_F","srifle_DMR_03_F"};
+            Autorifleman[] = {"arifle_SPAR_02_blk_F","arifle_SPAR_02_khk_F","arifle_SPAR_02_snd_F","MMG_02_black_F","MMG_02_black_RCO_BI_F","MMG_02_camo_F","MMG_02_sand_F","LMG_03_F","arifle_MX_SW_F","LMG_Mk200_F"};
+            Sniper[] = {"optic_AMS","optic_AMS_khk","optic_AMS_snd","optic_DMS","optic_KHS_blk","optic_KHS_tan","optic_LRPS","ACE_optic_LRPS_2D","optic_LRPS_tna_F","optic_SOS","ACE_optic_SOS_2D","optic_SOS_khk_F","optic_NVS","U_B_FullGhillie_ard","U_B_T_FullGhillie_tna_F","U_B_FullGhillie_lsh","U_B_FullGhillie_sard","U_B_T_Sniper_F","U_B_GhillieSuit","srifle_GM6_F","srifle_GM6_camo_F","srifle_LRR_F","srifle_LRR_camo_F","srifle_LRR_tna_F","srifle_DMR_02_F","srifle_DMR_02_camo_F","srifle_DMR_02_sniper_F"};
+            Missile_Specialist[] = {"launch_B_Titan_F","launch_B_Titan_short_F"};
+            UAV_Operator[] = {"C_UavTerminal","B_UavTerminal","B_UAV_06_backpack_F","B_UAV_06_medical_backpack_F","B_UAV_01_backpack_F"};
+            Grenadier[] = {"arifle_SPAR_01_GL_blk_F","arifle_SPAR_01_GL_khk_F","arifle_SPAR_01_GL_snd_F"};
+        };
+      };
+    class CfgCaching {
+        DistanceGroup = "3000";
+        DistanceVehicle = "3000";
+        DistanceEmptyVehicle = "250";
+        DistanceProps = "50";
+        CoefDefault = "2";
+    };
+    class CfgRBU {
+        hearingDistance = 1500;
+        numberOfAi = 3;
+        waypointsCount = 3;
+        searchRadius = 100;
+        aiMode = "RED";
+        walkTime = 25;
+        maxRunning = 3;
+    };
+    class CfgScoreBoard {
+        enableFix = 1;
+        usePersistentScoreBoard = 1;
+    };
+    class CfgServicing {
+        enableServices = 1;
+        useServiceMarkers = 1;
+        class myCarService {
+            markerName = "myCarServiceMarker";
+            markerText = "Vehicle Servicing";
+            vehTypes[] = {"Car", "Tank"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 1;
+        };
+        class myHeloService {
+            markerName = "myHeloServiceMarker";
+            markerText = "Helicopter Servicing";
+            vehTypes[] = {"Helicopter"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 0.75;
+        };
+        class myPlaneService {
+            markerName = "myPlaneServiceMarker";
+            markerText = "Plane Servicing";
+            vehTypes[] = {"Plane"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 0.5;
+        };
+    };
+};
+
+
+
+class ProjectArrowhead {
+    BaseMarker = "Base";
+    sideMissionDelay = 250;
+    BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
+
+    class clearTown {
+        mainAOGroupCount = 11;
+        mainAOVehicleMRAPCount = 4;
+        mainAOVehicleLightCount = 1;
+        mainAOVehicleAACount = 1;
+        mainAOVehicleHeavyCount = 1;
+        mainAOAirCount = 1;
+        mainAOTowerCount = 3;
+        mainAOSniperCount = 2;
+        mainAOStaticCount = 3;
+    };
+    class Units {
+        unitPoolFriendly[] = {};
+        vehiclePoolFriendly[] = {};
+        airPoolFriendly[] = {};
+
+      //CSAT Pool  unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
+        unitPoolEnemy[] = {"rhs_msv_emr_at","rhs_msv_emr_aa","rhs_msv_emr_arifleman","rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg","rhs_msv_emr_machinegunner","rhs_msv_emr_marksman","rhs_msv_emr_medic","rhs_msv_emr_grenadier","rhs_msv_emr_sergeant"};
+
+        airSlowPoolEnemy[] = {"RHS_Mi8mt_vdv"};
+        airFastPoolEnemy[] = {"RHS_Su25SM_vvsc", "RHS_Su25SM_CAS_vvs"};
+        airAttackPoolEnemy[] = {"RHS_Mi24V_vvsc"};
+
+        sniperPoolEnemy[] = {"O_ghillie_sard_F"};
+
+        vehicleMRAPPoolEnemy[] = {"rhs_btr80a_msv", "rhs_btr60_msv"};
+        vehicleLightPoolEnemy[] = {"LOP_US_UAZ_SPG","LOP_US_UAZ_DshKM"};
+        vehicleAAPoolEnemy[] = {"rhs_gaz66_zu23_msv","rhs_zsu234_aa"};
+        vehicleHeavyPoolEnemy[] = {"rhs_bmp1_msv","rhs_t72bc_tv"};
+
+        staticPoolEnemy[] = {"RHS_AGS30_TriPod_MSV","RHS_NSV_TriPod_MSV"};
+        staticHighPoolEnemy[] = {"rhs_KORD_high_MSV", "rhs_Kornet_9M133_2_msv"};
+        staticMortarEnemy[] = {"O_Mortar_01_F"};
+
+        // Vanilla  unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
+        unitPoolRebels[] = {"LOP_UA_Infantry_Rifleman_3","LOP_UA_Infantry_MG","LOP_UA_Infantry_GL","LOP_UA_Infantry_Corpsman","LOP_UA_Infantry_Marksman","LOP_UA_Infantry_SL"};
+        vehiclePoolRebels[] = {"LOP_UA_UAZ_DshKM","LOP_UA_Ural_open"};
+
+        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"};
+        vehiclePoolCiv[] = {};
+    };
+    class RandomCampCompositions {
+        class campTiny {
+            classname = "campTiny";
+            size = 15;
+            useSOF = 0;
+        };
+        class reconCamp {
+            classname = "reconCamp";
+            size = 15;
+            useSOF = 0;
+        };
+        class campAnt {
+            classname = "campAnt";
+            size = 20;
+            useSOF = 0;
+        };
+        class campBear {
+            classname = "campBear";
+            size = 20;
+            useSOF = 0;
+        };
+        class campCrow {
+            classname = "campCrow";
+            size = 20;
+            useSOF = 0;
+        };
+    };
+};
