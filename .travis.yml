@@ -1,0 +1,8 @@
+testbuild:
+   script:
+      - apt-get update -qy
+      - apt-get install -y python-dev python-pip
+      - pip install sqflint
+      - python3 serverAddons/AAW/tools/sqf_validator.py
+      - sqflint -d addons
+      - sqflint -d Missions
