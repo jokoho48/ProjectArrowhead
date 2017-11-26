@@ -13,7 +13,7 @@
     Returns:
     None
 */
-params ["_curator", "_unit"];
+params ["", "_unit"];
 
 private _pingCount = _unit getVariable QGVAR(curatorPingCount);
 private _lastPingTime = _unit getVariable QGVAR(lastPingTime);

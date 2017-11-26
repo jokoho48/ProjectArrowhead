@@ -1,4 +1,4 @@
-#include "macros.hpp"
+//#include "macros.hpp"
 /*
     Project Arrowhead
 
@@ -19,8 +19,7 @@
     Returns:
     Array of Spawned Groups <Array<Group>>
 */
-
-params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
+params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]], ["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
 private _return = [];
 private _posiblePos = [_pos, _min, _max] call FUNC(findOverwatchPos);
 _posiblePos = _posiblePos call CFUNC(shuffleArray);

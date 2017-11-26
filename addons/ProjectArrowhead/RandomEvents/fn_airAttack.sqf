@@ -81,7 +81,7 @@ DFUNC(airAttackTrigger) = {
         ] call BIS_fnc_taskCreate;
 
         [{
-            (_this select 0) params ["_pos", "_veh", "_grp", "_target", "_taskID"];
+            (_this select 0) params ["_veh", "_grp", "_target", "_taskID"];
             private _unitCount = {_x call MFUNC(isAwake)} count (units _grp);
             if (_unitCount == 0 || !alive _veh) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
@@ -89,7 +89,6 @@ DFUNC(airAttackTrigger) = {
                 GARBAGE(_grp);
             };
             private _leader = leader _grp;
-            private _tarPos = getPos _target;
             private _distance = _target distance2D _leader;
             private _isPlayerEnemy = isPlayer (_leader findNearestEnemy _leader);
             if ((_distance > 2000) && !_isPlayerEnemy) exitWith {
@@ -98,7 +97,7 @@ DFUNC(airAttackTrigger) = {
                 _grp setCurrentWaypoint [_grp, 3];
                 (_this select 1) call CFUNC(removePerFrameHandler);
             };
-        }, 5, [_pos, _veh, _grp, _target, _taskID]] call CFUNC(addPerFrameHandler);
+        }, 5, [_veh, _grp, _target, _taskID]] call CFUNC(addPerFrameHandler);
 
         [{
             params ["_grp"];

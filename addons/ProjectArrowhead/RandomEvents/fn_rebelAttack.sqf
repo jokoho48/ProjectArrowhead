@@ -62,10 +62,9 @@ DFUNC(rebelAttackTrigger) = {
         ] call BIS_fnc_taskCreate;
 
         [{
-            (_this select 0) params ["_pos", "_grp", "_target", "_taskID"];
+            (_this select 0) params ["_grp", "_target", "_taskID"];
 
             private _leader = leader _grp;
-            private _tarPos = getPos _target;
             private _distance = _target distance2D _leader;
             private _isPlayerEnemy = isPlayer (_leader findNearestEnemy _leader);
             if ((_distance > 2000) && !_isPlayerEnemy) exitWith {
@@ -79,6 +78,6 @@ DFUNC(rebelAttackTrigger) = {
                 (_this select 1) call CFUNC(removePerFrameHandler);
                 GARBAGE(_grp);
             };
-        }, 5, [_pos, _grp, _target, _taskID]] call CFUNC(addPerFrameHandler);
+        }, 5, [_grp, _target, _taskID]] call CFUNC(addPerFrameHandler);
     }, 10, _this select 0] call CFUNC(wait);
 }] call CFUNC(addEventhandler);

@@ -17,30 +17,29 @@
 */
 params ["_pos", "_min", "_max"];
 
-private _varName = format [QGVAR(%1_%2_%3), _pos, _min, _max];
+private _varName = format ["%1_%2_%3_%4", _pos, _min, _max];
 private _posiblePos = GVAR(OverwatchCache) getVariable [_varName, []];
 if !(_posiblePos isEqualTo []) exitWith { _posiblePos; };
-private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
+private _posASL = (AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1]);
 
 {
     private _checkPos = locationPosition _x;
     #ifdef ISDEV
     private _mrk = [_checkPos, "hd_dot"] call FUNC(createDebugMarker);
     #endif
-    private _height = (getTerrainHeightASL _checkPos - getTerrainHeightASL _pos);
+    private _height = (getTerrainHeightASL _checkPos) - (getTerrainHeightASL _pos);
     private _distance = _checkPos distance2D _pos;
     private _incidenceAngle = _height atan2 _distance;
-    if ((_distance > _min) && {(_distance < _max)} && {_height > 20 || (_incidenceAngle < 60 && _incidenceAngle > 15)}) then {
+    if ((_distance > _min) && {_distance < _max} && {_height > 20 || (_incidenceAngle < 60 && _incidenceAngle > 15)}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
-        #ifdef ISDEV
+        /*#ifdef ISDEV // Somehow Throws a Error within SQFLinter
         _mrk setMarkerColor "ColorBlue";
-        private _in = str _forEachIndex;
         {
             _x params ["_aslPos"];
-            private _mrk = [_aslPos, "hd_dot", "ColorRed"] call FUNC(createDebugMarker);
+            [_aslPos, "hd_dot", "ColorRed"] call FUNC(createDebugMarker);
             nil
-        } forEach _lis;
-        #endif
+        } count _lis;
+        #endif*/
         if (_lis isEqualTo []) then {
             _posiblePos pushback _checkPos;
             #ifdef ISDEV
@@ -49,7 +48,7 @@ private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
         };
     };
     nil
-} forEach nearestLocations [_pos, ["Hill", "Mount"], _max];
+} count (nearestLocations [_pos, ["Hill", "Mount"], _max]);
 
 GVAR(OverwatchCache) setVariable [_varName, _posiblePos, true];
 _posiblePos
