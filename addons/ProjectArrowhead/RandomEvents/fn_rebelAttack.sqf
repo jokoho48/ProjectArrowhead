@@ -20,7 +20,7 @@ DFUNC(rebelAttackTrigger) = {
 };
 
 [QGVAR(rebelAttackSpawn), {
-
+    RUNTIMESTART;
     private _target = call MFUNC(getPlayerTarget);
 
     if !(alive _target) exitWith {};
@@ -44,6 +44,7 @@ DFUNC(rebelAttackTrigger) = {
     _wp setWaypointCombatMode "RED";
 
     [QGVAR(rebelAttackTask), [_uPos, _grp, _target]] call CFUNC(serverEvent);
+    RUNTIME("Spawn Air Attack");
 }] call CFUNC(addEventhandler);
 
 [QGVAR(rebelAttackTask), {

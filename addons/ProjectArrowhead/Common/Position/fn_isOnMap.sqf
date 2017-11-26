@@ -13,5 +13,4 @@
     Returns:
     Position is On Map <Bool>
 */
-params ["_pos"];
-_pos inArea [GVAR(centerPos), GVAR(worldSize), GVAR(worldSize), 0, true];
+_this inArea [GVAR(centerPos), GVAR(worldSize), GVAR(worldSize), 0, true];

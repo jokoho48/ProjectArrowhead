@@ -76,3 +76,11 @@ DFUNC(createDebugMarker) = {
     _mrk
 #endif
 };
+player createDiarySubject ["PAW", "PAW"];
+player createDiaryRecord ["PAW", ["Changelog",
+"
+v0.2<br/>
+
+v0.1<br/>
+initial Release<br/>
+"]];

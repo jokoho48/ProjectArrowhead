@@ -19,7 +19,7 @@ DFUNC(airAttackTrigger) = {
 };
 
 [QGVAR(airAttackSpawn), {
-
+    RUNTIMESTART;
     private _target = call MFUNC(getPlayerTarget);
 
     if !(alive _target) exitWith {};
@@ -60,6 +60,7 @@ DFUNC(airAttackTrigger) = {
     _wp3 setWaypointStatements ["true", 'GARBAGE(group this)'];
 
     [QGVAR(airAttackTask), [_uPos, _grp, _target]] call CFUNC(serverEvent);
+    RUNTIME("Spawn Air Attack");
 }] call CFUNC(addEventhandler);
 
 [QGVAR(airAttackTask), {

@@ -14,6 +14,7 @@
     Returns:
     0: Return <Type>
 */
+RUNTIMESTART;
 params ["_center", "_range"];
 private _return = [objNull,[0,0,0]];
 for "_s" from 0 to 200 do {
@@ -28,5 +29,5 @@ for "_s" from 0 to 200 do {
         _return = _houseArray;
     };
 };
-
+RUNTIME("findRuntalHousePos");
 _return

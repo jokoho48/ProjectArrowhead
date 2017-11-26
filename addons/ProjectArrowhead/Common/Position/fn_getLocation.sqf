@@ -16,6 +16,7 @@
     2: Location Size <Number>
     3: Location <Location>
 */
+RUNTIMESTART;
 private _location = selectRandom MGVAR(locations);
 while {
     (getPos _location call FUNC(nearBase))
@@ -35,4 +36,5 @@ private _nearestCenter = nearestLocation [getPos _location, "CityCenter"];
 if ((getPos _nearestCenter) distance _pos <= (_size select 0)) then {
     _location = _nearestCenter;
 };
+RUNTIME("get Nearst Location");
 [getPos _location, _name, _size select 0, _location]

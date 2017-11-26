@@ -16,6 +16,7 @@
     Returns:
     None
 */
+RUNTIMESTART;
 params [
     ["_pos", [0,0,0], [[]]],
     ["_units", [], [[], grpNull]],
@@ -48,4 +49,5 @@ if (_random) then {
     _x disableAI "AUTOCOMBAT";
     _x disableAI "PATH";
 } count _units;
+RUNTIME("Occupy");
 nil

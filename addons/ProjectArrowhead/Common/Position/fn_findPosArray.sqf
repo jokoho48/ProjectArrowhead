@@ -17,7 +17,7 @@
     Returns:
     0: Return <Type>
 */
-
+RUNTIMESTART;
 params [["_center", [], [[]]],["_range", 100, [0]],["_minDist", 0, [0]],["_count", 1, [0]],["_ifRoad", false],["_posBuffer", 5, [0]]];
 
 private _posArray = [];
@@ -49,4 +49,5 @@ for "_s" from 0 to 200 do {
     if (count _posArray isEqualTo _count) exitWith {};
 };
 if (_posArray isEqualTo []) then {LOG("no Postions found")};
+RUNTIME("findPosArray");
 _posArray

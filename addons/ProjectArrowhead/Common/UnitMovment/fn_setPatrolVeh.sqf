@@ -16,6 +16,7 @@
     Returns:
     None
 */
+RUNTIMESTART;
 params ["_driver", "_maxRange", "_isAir", ["_height", 160]];
 
 private _pos1 = if (_driver isEqualType []) then {
@@ -51,7 +52,7 @@ if !(_isAir) then {
             private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
             if !(surfaceIsWater _pos2) then {
                 if !([_pos2, _minDist, _posArray] call FUNC(nearPositions)) then {
-                    if (_pos2 call FUNC(nearBase) && !(_pos2 call FUNC(isOnMap))) exitWith {};
+                    if (_pos2 call FUNC(nearBase) || !(_pos2 call FUNC(isOnMap))) exitWith {};
                     _posArray pushBack _pos2;
                     _wpindex = _wpindex + 1;
                     private _wp = _grp addWaypoint [_pos2, 0];
@@ -123,3 +124,4 @@ if !(_isAir) then {
         };
     };
 };
+RUNTIME("VehPatrol");

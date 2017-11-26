@@ -28,6 +28,7 @@ GVAR(lastMissionLocation) = "";
 
 
 [QGVAR(spawnClearTownUnits), {
+    RUNTIMESTART;
     private _aoPos = MGVAR(mainAOPos);
 
     [_aoPos, MGVAR(mainAOSize)*0.5, GVAR(mainAOStatic), -1, east] call MFUNC(spawnStatic); // Spawn Statics expect from Mortar
@@ -72,6 +73,7 @@ GVAR(lastMissionLocation) = "";
     // Spawn Snipers
     [_aoPos, GVAR(mainAOSniper), MGVAR(mainAOSize)*0.2, MGVAR(mainAOSize)*2.5, east, false, 2] call MFUNC(spawnSniper);
     QGVAR(ClearTownTask) call CFUNC(serverEvent);
+    RUNTIME("Spawn Main AO");
 }] call CFUNC(addEventhandler);
 
 [QGVAR(ClearTownTask), {

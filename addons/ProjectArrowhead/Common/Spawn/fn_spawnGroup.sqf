@@ -17,6 +17,7 @@
     Returns:
     0: Return <Type>
 */
+RUNTIMESTART;
 params [["_spawnPos",[0,0,0],[[]]], ["_type",0,[0, [], ""]], ["_count",1,[0]], ["_side", GVAR(enemySide)], ["_uncache",false]];
 _spawnPos set [2, 0];
 
@@ -90,7 +91,7 @@ for "_j" from 0 to (_count - 1) do {
         nil
     } count _vehArray;
 }, 10, [_grp, _vehArray]] call CFUNC(wait);
+RUNTIME("Spawn Group");
 if (_uncache) then {NOCACHE(_grp);};
 if (_type isEqualTo 0) exitWith {_grp};
-
 _driverArray

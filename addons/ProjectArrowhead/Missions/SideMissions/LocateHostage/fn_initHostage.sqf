@@ -14,18 +14,19 @@
     0: Return <Type>
 */
 [QGVAR(spawnUnits), {
+    RUNTIMESTART;
     private _posVIP = [0,0,0];
     if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
         _posVIP = [MGVAR(centerPos), MGVAR(worldSize),10] call MFUNC(findRuralFlatPos);
-        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) && _posVIP call MFUNC(isOnMap)} do {
+        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) || !(_posVIP call MFUNC(isOnMap))} do {
             _posVIP = [MGVAR(centerPos), MGVAR(worldSize),10] call MFUNC(findRuralFlatPos);
         };
     } else {
         private _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
         _posVIP = (_houseArray select 1);
-        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) && _posVIP call MFUNC(isOnMap)} do {
+        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) || !(_posVIP call MFUNC(isOnMap))} do {
             _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
-            _posVIP = (_houseArray select 0);
+            _posVIP = (_houseArray select 1);
         };
     };
 
@@ -62,6 +63,7 @@
     [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Inf"] call MFUNC(createDebugMarker);
     #endif
     [QGVAR(taskManager), [_vip, _units]] call CFUNC(serverEvent);
+    RUNTIME("Spawn localte Hostage");
 }] call CFUNC(addEventhandler);
 
 [QGVAR(taskManager), {

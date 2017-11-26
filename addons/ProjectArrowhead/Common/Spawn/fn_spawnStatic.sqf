@@ -17,6 +17,7 @@
     Returns:
     Array of Spawned Units <Array<Object>>
 */
+RUNTIMESTART;
 params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_type", -1, [0]], ["_side", GVAR(enemySide)]];
 
 private _gunnerArray = [];
@@ -143,5 +144,5 @@ for "_s" from 0 to 200 do {
 } count _gunnerArray;
 #endif
 
-
+RUNTIME("Spawn Static");
 _gunnerArray

@@ -14,6 +14,7 @@
     0: Return <Type>
 */
 
+
 DFUNC(collectIntelAction) = {
     params ["_object"];
     private _title = "Collect Intel";
@@ -47,13 +48,13 @@ DFUNC(collectIntelAction) = {
     };
 
     [_object, _title, _iconIdle, _iconProgress, _showCondition, _showCondition, _onStart, _onProgress, _onComplete, _onInterruption, [], 5000, true, true] call CFUNC(addHoldAction);
-
 };
 
 if (isServer) then {
     GVAR(intelObject) = [];
     publicVariable QGVAR(intelObject);
 };
+
 if (hasInterface) then {
     if !(GVAR(intelObject) isEqualTo []) then {
         {
@@ -66,11 +67,12 @@ if (hasInterface) then {
         _obj call FUNC(collectIntelAction);
     }] call CFUNC(addEventhandler);
 };
+
 [QGVAR(spawnUnitsCollectIntel), {
     params ["_missionData"];
-    private _pos = [MGVAR(worldCenter), MGVAR(worldSize)*4, 0, 0] call MFUNC(findRuralFlatPos);
-    while {surfaceIsWater _pos &&  _pos call MFUNC(isOnMap)} do {
-        _pos = [_pos, MGVAR(worldSize)*4, 0, 0] call MFUNC(findRuralFlatPos);
+    private _pos = [MGVAR(centerPos), 0, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
+    while {surfaceIsWater _pos || !(_pos call MFUNC(isOnMap))} do {
+        _pos = [MGVAR(centerPos), 0, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     };
     private _obj = ("Land_SatellitePhone_F" createVehicle _pos);
     GVAR(intelObject) pushBack _obj;

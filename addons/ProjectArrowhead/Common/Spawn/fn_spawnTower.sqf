@@ -18,6 +18,7 @@
     Returns:
     Group of Spawned Units <Group>
 */
+RUNTIMESTART;
 params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_side", GVAR(enemySide)], ["_unitCount", 1, [0]], ["_nocache", false]];
 
 private _posArray = [_pos,_range,(_range*0.2),_count] call FUNC(findPosArray);
@@ -62,6 +63,7 @@ if !(_posArray isEqualTo []) then {
         nil
     } count _posArray;
 
+    RUNTIME("Spawn Tower");
     _grp
 } else {
     grpNull

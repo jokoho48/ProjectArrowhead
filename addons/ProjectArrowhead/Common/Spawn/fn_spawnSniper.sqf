@@ -19,6 +19,7 @@
     Returns:
     Array of Spawned Groups <Array<Group>>
 */
+RUNTIMESTART;
 params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]], ["_max", 1100, [0]], ["_side", GVAR(enemySide)], ["_nocache", false], ["_force", 2]];
 private _return = [];
 private _posiblePos = [_pos, _min, _max] call FUNC(findOverwatchPos);
@@ -67,5 +68,5 @@ for "_i" from 1 to _count do {
         if (_nocache) then {NOCACHE(_grp);};
     };
 };
-
+RUNTIME("Spawn Sniper");
 _return

@@ -4,7 +4,7 @@
 
 // define Version Information
 #define MAJOR 0
-#define MINOR 1
+#define MINOR 2
 #define PATCHLVL 0
 #define BUILD 0
 
@@ -17,7 +17,7 @@
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 
-//#define ISDEV
+#define ISDEV
 
 #include "\tc\CLib\addons\CLib\macros.hpp"
 
@@ -40,3 +40,11 @@
 #define NEXTSIDEMISSION call EFUNC(SideMission,selectSideMission);
 #define NEXTMAINAO call EFUNC(MainAO,selectMainMission);
 #define GARBAGE(var) var call MFUNC(pushBackToGarbageCollector)
+#ifdef ISDEV
+    #define RUNTIMESTART private _debugStartTime = diag_tickTime
+    #define RUNTIME(var) DUMP(var + " Needed: " + ((diag_tickTime - _debugStartTime) call CFUNC(toFixedNumber)) + " ms")
+
+#else
+    #define RUNTIMESTART /*Disabled*/
+    #define RUNTIME(var) /*Disabled*/
+#endif

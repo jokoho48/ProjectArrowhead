@@ -13,7 +13,7 @@
     Returns:
     0: Return <Type>
 */
-
+RUNTIMESTART;
 private _aoPos = MGVAR(centerPos);
 private _posArray = [];
 
@@ -22,7 +22,7 @@ for "_i" from 1 to GVAR(randomCampCount) do {
     _randomType params ["_class", "_size", "_isSOF"];
 
     private _pos = [_aoPos, MGVAR(worldSize)*4, _size, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
-    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) && _pos call MFUNC(isOnMap)} do {
+    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) || !(_pos call MFUNC(isOnMap))} do {
         _pos = [_aoPos, MGVAR(worldSize)*4, _size, MGVAR(mainAOSize)] call MFUNC(findRuralFlatPos);
     };
 
@@ -56,7 +56,7 @@ _posArray = [];
 
 for "_i" from 1 to GVAR(randomPatrolCount) do {
     private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
-    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) && _pos call MFUNC(isOnMap)} do {
+    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) || !(_pos call MFUNC(isOnMap))} do {
         _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
     };
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
@@ -72,7 +72,7 @@ _posArray = [];
 // Spawn Vehicles
 for "_i" from 1 to GVAR(randomPatrolVehCount) do {
     private _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
-    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) && _pos call MFUNC(isOnMap)} do {
+    while {surfaceIsWater _pos && !([_pos, 1500, _posArray] call MFUNC(nearPositions)) || !(_pos call MFUNC(isOnMap))} do {
         _pos = [_aoPos, MGVAR(worldSize)*4, 5, MGVAR(mainAOSize)*4] call MFUNC(findRuralFlatPos);
     };
     private _vehicles = [_pos, [1, round (random 2)], 1, east] call MFUNC(spawnGroup);
@@ -85,3 +85,4 @@ for "_i" from 1 to GVAR(randomPatrolVehCount) do {
     [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createDebugMarker);
     #endif
 };
+RUNTIME("Spawn Random Camp Patrols")

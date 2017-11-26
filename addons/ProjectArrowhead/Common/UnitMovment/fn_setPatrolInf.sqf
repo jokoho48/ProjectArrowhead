@@ -14,6 +14,7 @@
     Returns:
     DONT CALL THAT SCRIPT
 */
+RUNTIMESTART;
 params ["_grp", "_maxRange", "_houseArray", ["_waypointCount", 5]];
 private _minDist = _maxRange * 0.30;
 private _waypointsrange = 5;
@@ -56,7 +57,7 @@ for "_i" from 1 to 100 do {
         private _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
         if !(surfaceIsWater _pos2) then {
             if !([_pos2, _minDist, _posArray] call FUNC(nearPositions)) then {
-                if (_pos2 call FUNC(nearBase) && !(_pos2 call FUNC(isOnMap))) exitWith {};
+                if (_pos2 call FUNC(nearBase) || !(_pos2 call FUNC(isOnMap))) exitWith {};
                 _posArray pushBack _pos2;
                 _wpindex = _wpindex + 1;
                 private _wp = _grp addWaypoint [_pos2, 0];
@@ -76,3 +77,4 @@ for "_i" from 1 to 100 do {
     };
 };
 _grp setCurrentWaypoint [_grp, 1];
+RUNTIME("InfPatrol");
