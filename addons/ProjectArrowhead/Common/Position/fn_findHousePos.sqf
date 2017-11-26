@@ -16,7 +16,6 @@
     1: Building Position <Position>
 */
 params [["_center", [0,0,0]], ["_range", 100, [0]]];
-private _pos = [0,0,0];
 
 private _houseArray = (_center nearObjects ["House",_range]) select {!([_x, GVAR(ignoredBuildingTypes)] call MFUNC(isKindOf))};
 if !(_houseArray isEqualTo []) then {

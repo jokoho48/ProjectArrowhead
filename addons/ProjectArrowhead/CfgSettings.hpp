@@ -19,6 +19,7 @@ class ProjectArrowhead {
     class sideMissions {
         class locateHostage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
+            requireCollectIntel = 1;
         };
     };
 

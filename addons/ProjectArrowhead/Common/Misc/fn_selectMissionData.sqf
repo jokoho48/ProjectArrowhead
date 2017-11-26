@@ -14,11 +14,18 @@
     0: Return <Type>
 */
 private _mission = selectRandom _this;
-_mission params ["_name", "_function", "_origin", "_cfg"];
+_mission params ["", "", "", "", "_requireCollectIntel"];
 
-private _code = missionNamespace getVariable _function;
-if (isNil "_code") then {
-    _code = compile _function;
+if (_requireCollectIntel != 0) exitWith {
+    if (_requireCollectIntel == 1) then {
+        _mission call EFUNC(Missions,collectIntel);
+    } else {
+        if (random 2 >= 1) then {
+            _mission call EFUNC(Missions,collectIntel);
+        } else {
+            _mission call FUNC(callMissionData);
+        };
+    };
 };
-[_name, _origin, _cfg] call _code;
-LOG("load Mission: """ + _name + """ from: " + _origin);
+
+_mission call FUNC(callMissionData);

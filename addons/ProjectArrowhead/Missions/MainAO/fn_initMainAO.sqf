@@ -13,7 +13,7 @@
     Returns:
     0: Return <Type>
 */
-
+GVAR(lastMissionLocation) = "";
 ["missionStarted", {
     GVAR(mainAOGroupCount) = [CFGPRAW2(clearTown,mainAOGroupCount), 10] call CFUNC(getSetting);
     GVAR(mainAOVehicleMRAPCount) = [CFGPRAW2(clearTown,mainAOVehicleMRAPCount), 5] call CFUNC(getSetting);

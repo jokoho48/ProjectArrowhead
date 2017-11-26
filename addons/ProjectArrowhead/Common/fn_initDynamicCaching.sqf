@@ -34,7 +34,7 @@
     [{
         private _fov = (floor(call CFUNC(getFOV) * 100))/100;
         if (_fov != GVAR(oldFOV)) then {
-            ["FOVChanged", call CFUNC(getFOV)] call CFUNC(localEvent);
+            ["FOVChanged", [call CFUNC(getFOV), GVAR(oldFOV)]] call CFUNC(localEvent);
             GVAR(oldFOV) = _fov;
         };
     }, 1] call CFUNC(addPerFrameHandler);
@@ -42,14 +42,11 @@
     GVAR(useViewDistance) = ([CFGPRAW2(Caching,useViewDistance), 1] call CFUNC(getSetting)) isEqualTo 1;
     if (GVAR(useViewDistance)) then {
         ["FOVChanged", {
-            (_this select 0) params ["_new"];
-            _new = _new min 1;
             [{
-                params ["_new"];
                 private _distance = (viewDistance - (viewDistance * fog));
                 "Group" setDynamicSimulationDistance _distance;
                 "Vehicle" setDynamicSimulationDistance _distance;
-            }, _new] call CFUNC(execNextFrame);
+            }] call CFUNC(execNextFrame);
         }] call CFUNC(addEventhandler);
     };
     // fix UAVs

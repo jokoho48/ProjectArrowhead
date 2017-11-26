@@ -17,10 +17,13 @@
     private _posVIP = [0,0,0];
     if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
         _posVIP = [MGVAR(centerPos), MGVAR(worldSize),10] call MFUNC(findRuralFlatPos);
+        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) && _posVIP call MFUNC(isOnMap)} do {
+            _posVIP = [MGVAR(centerPos), MGVAR(worldSize),10] call MFUNC(findRuralFlatPos);
+        };
     } else {
         private _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
         _posVIP = (_houseArray select 1);
-        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP))} do {
+        while {(([_posVIP, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posVIP)) && _posVIP call MFUNC(isOnMap)} do {
             _houseArray = [MGVAR(centerPos), MGVAR(worldSize)] call MFUNC(findRuralHousePos);
             _posVIP = (_houseArray select 0);
         };

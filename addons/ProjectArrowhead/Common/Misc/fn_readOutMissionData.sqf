@@ -25,9 +25,9 @@ private _return = [];
     private _origin = ["Mission", "Server"] select _forEachIndex;
     {
         if (isText _x) then {
-            _return pushBack [configName _x, getText _x, _origin, configNull];
+            _return pushBack [configName _x, getText _x, _origin, _x, false];
         } else {
-            _return pushBack [configName _x, getText (_x >> "function"), _origin, _x];
+            _return pushBack [configName _x, getText (_x >> "function"), _origin, _x, getNumber (_x >> "requireCollectIntel")];
         };
         nil
     } count configProperties [_cfg , "isClass _x || isText _x", true];

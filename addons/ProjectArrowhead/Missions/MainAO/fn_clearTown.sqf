@@ -16,7 +16,19 @@
 
 private _locData = call MFUNC(getLocation);
 
+private _name = _locData select 1;
+
+if (GVAR(lastMissionLocation) != "" && GVAR(lastMissionLocation) == _name) then {
+    while {GVAR(lastMissionLocation) == _name} do {
+        _locData = call MFUNC(getLocation);
+
+        _name = _locData select 1;
+    };
+};
 _locData params ["_pos", "_name", "_size", "_location"];
+
+GVAR(lastMissionLocation) = _name;
+
 _locData set [1, format ["%1", _name]];
 MGVAR(locationData) = _locData select [0,3];
 
@@ -34,4 +46,4 @@ publicVariable QMGVAR(locationData);
 publicVariable QMGVAR(mainAOPos);
 publicVariable QMGVAR(mainAOSize);
 
-QGVAR(spawnClearTownUnits) call CFUNC(localEvent);
+QGVAR(spawnClearTownUnits) call CFUNC(serverEvent);

@@ -15,6 +15,7 @@ class CfgCLibModules {
             dependency[] = {"CLib"};
             MODULE(Misc) {
                 FNC(aliveGroup);
+                FNC(callMissionData);
                 FNC(fillLocations);
                 FNC(flattenArray);
                 FNC(getClosePlayers);
@@ -48,6 +49,7 @@ class CfgCLibModules {
                 FNC(getWorldEdgePos);
                 FNC(inArea);
                 FNC(inBase);
+                FNC(isOnMap);
                 FNC(nearBase);
                 FNC(nearPositions);
                 FNC(selectRandomPos);
@@ -100,6 +102,7 @@ class CfgCLibModules {
                     FNC(locateHostage);
                 };
             };
+            FNC(collectIntel);
             FNC(init);
         };
 
