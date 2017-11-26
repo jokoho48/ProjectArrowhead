@@ -86,6 +86,9 @@ DFUNC(airAttackTrigger) = {
             private _unitCount = {_x call MFUNC(isAwake)} count (units _grp);
             if (_unitCount == 0 || !alive _veh) exitWith {
                 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
+                [{
+                    _this call BIS_fnc_deleteTask;
+                }, 10, _taskID] call CFUNC(wait);
                 (_this select 1) call CFUNC(removePerFrameHandler);
                 GARBAGE(_grp);
             };
@@ -94,6 +97,9 @@ DFUNC(airAttackTrigger) = {
             private _isPlayerEnemy = isPlayer (_leader findNearestEnemy _leader);
             if ((_distance > 2000) && !_isPlayerEnemy) exitWith {
                 [_taskID, "CANCELED"] call BIS_fnc_taskSetState;
+                [{
+                    _this call BIS_fnc_deleteTask;
+                }, 10, _taskID] call CFUNC(wait);
                 _veh forceSpeed (_veh getSpeed "FAST");
                 _grp setCurrentWaypoint [_grp, 3];
                 (_this select 1) call CFUNC(removePerFrameHandler);

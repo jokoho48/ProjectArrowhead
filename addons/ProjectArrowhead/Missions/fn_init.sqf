@@ -99,6 +99,9 @@ if (hasInterface) then {
     private _data = _obj getVariable QGVAR(intelMissionData);
     _data params ["_missionData", "_taskID"];
     [_taskID, "SUCCEEDED", true] call BIS_fnc_taskSetState;
+    [{
+        _this call BIS_fnc_deleteTask;
+    }, 10, _taskID] call CFUNC(wait);
     if (isNil "_missionData") exitWith {};
     _missionData call MFUNC(callMissionData);
     deleteVehicle _obj;

@@ -70,12 +70,18 @@ DFUNC(rebelAttackTrigger) = {
             private _isPlayerEnemy = isPlayer (_leader findNearestEnemy _leader);
             if ((_distance > 2000) && !_isPlayerEnemy) exitWith {
                 [_taskID, "CANCELED", true] call BIS_fnc_taskSetState;
+                [{
+                    _this call BIS_fnc_deleteTask;
+                }, 10, _taskID] call CFUNC(wait);
                 GARBAGE(_grp);
                 (_this select 1) call CFUNC(removePerFrameHandler);
             };
             private _unitCount = {_x call MFUNC(isAwake)} count (units _grp);
             if (_unitCount == 0) exitWith {
                 [_taskID, "SUCCEEDED", true] call BIS_fnc_taskSetState;
+                [{
+                    _this call BIS_fnc_deleteTask;
+                }, 10, _taskID] call CFUNC(wait);
                 (_this select 1) call CFUNC(removePerFrameHandler);
                 GARBAGE(_grp);
             };

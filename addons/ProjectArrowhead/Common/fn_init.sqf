@@ -14,7 +14,6 @@
     None
 */
 
-
 GVAR(centerPos) = [worldSize/2, worldSize/2];
 GVAR(worldSize) = (worldSize/2);
 
@@ -76,11 +75,16 @@ DFUNC(createDebugMarker) = {
     _mrk
 #endif
 };
-player createDiarySubject ["PAW", "PAW"];
+player createDiarySubject ["PAW", "ProjectArrowHead"];
 player createDiaryRecord ["PAW", ["Changelog",
 "
 v0.2<br/>
-
+ - fix general Lint issues<br/>
+ - add Collect Intel Pretask Posiblilty<br/>
+ - fix that HC can be a Target for attack Missions<br/>
+ - improve Performance of some functions<br/>
+ - remove Task that are Completed to reduce task spamm in the beginning of the mission
+<br/>
 v0.1<br/>
-initial Release<br/>
+ - initial Release<br/>
 "]];

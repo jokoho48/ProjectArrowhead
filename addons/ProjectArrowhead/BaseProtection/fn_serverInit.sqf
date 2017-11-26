@@ -68,6 +68,9 @@ private _stateMachine = call CFUNC(createStatemachine);
     publicVariable QGVAR(enemyAtBase);
     GVAR(Group) = grpNull;
     [GVAR(lastTaskName), "SUCCEEDED", true] call BIS_fnc_taskSetState;
+    [{
+        GVAR(lastTaskName) call BIS_fnc_deleteTask;
+    }, 10] call CFUNC(wait);
     "checkGroup"
 }] call CFUNC(addStatemachineState);
 

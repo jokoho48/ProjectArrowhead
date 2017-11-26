@@ -103,6 +103,9 @@ GVAR(lastMissionLocation) = "";
             deleteMarker QGVAR(mainAO);
             GARBAGE(_units);
             [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
+            [{
+                _this call BIS_fnc_deleteTask;
+            }, 10, _taskID] call CFUNC(wait);
             (_this select 1) call CFUNC(removePerFrameHandler);
             NEXTMAINAO;
         };

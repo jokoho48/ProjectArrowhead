@@ -15,7 +15,7 @@
 */
 private _target = objNull;
 {
-    if (_x call MFUNC(isAwake) && !(getPos _x call MFUNC(nearBase))) exitWith {_target = _x;};
+    if (_x call MFUNC(isAwake) && !(getPos _x call MFUNC(nearBase)) && !(player getVariable [QGVAR(isHCClient), false])) exitWith {_target = _x;};
     nil
 } count (allPlayers call CFUNC(shuffleArray));
 
