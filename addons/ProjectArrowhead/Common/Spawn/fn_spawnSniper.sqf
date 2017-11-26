@@ -63,7 +63,7 @@ for "_i" from 1 to _count do {
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";
         #ifdef ISDEV
-        [getPos _unit, "mil_triangle", "ColorEAST", (getDir _unit), "Sniper"] call FUNC(createMarker);
+        [getPos _unit, "mil_triangle", "ColorEAST", (getDir _unit), "Sniper"] call FUNC(createDebugMarker);
         #endif
         if (_nocache) then {NOCACHE(_grp);};
     };

@@ -72,7 +72,7 @@ for "_j" from 0 to (_count - 1) do {
 #ifdef ISDEV
 [{
     (_this select 0) params ["_obj"];
-    [getPos _obj, "mil_triangle", "ColorEAST", getDir _obj] call FUNC(createMarker);
+    [getPos _obj, "mil_triangle", "ColorEAST", getDir _obj] call FUNC(createDebugMarker);
 }, 10, [leader _grp]] call CFUNC(addPerFrameHandler);
 #endif
 {

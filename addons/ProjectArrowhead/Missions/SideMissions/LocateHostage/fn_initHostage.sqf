@@ -47,7 +47,7 @@
             nil
         } count _vehicles;
         #ifdef ISDEV
-        [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Veh"] call MFUNC(createMarker);
+        [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Veh"] call MFUNC(createDebugMarker);
         #endif
     };
 
@@ -59,7 +59,7 @@
     [_pos, units _grp2, 200, true] call MFUNC(occupyBuilding);
     _units pushBack _grp2;
     #ifdef ISDEV
-    [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Inf"] call MFUNC(createMarker);
+    [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Inf"] call MFUNC(createDebugMarker);
     #endif
     [QGVAR(taskManager), [_vip, _units]] call CFUNC(serverEvent);
 }] call CFUNC(addEventhandler);

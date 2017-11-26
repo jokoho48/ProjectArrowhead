@@ -57,7 +57,7 @@ if !(_posArray isEqualTo []) then {
             _unit disableAI "MOVE";
         };
         #ifdef ISDEV
-        [_x, "mil_triangle", "ColorEAST", _dir, "TOWER"] call FUNC(createMarker);
+        [_x, "mil_triangle", "ColorEAST", _dir, "TOWER"] call FUNC(createDebugMarker);
         #endif
         nil
     } count _posArray;

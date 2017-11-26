@@ -138,7 +138,7 @@ for "_s" from 0 to 200 do {
 
 #ifdef ISDEV
 {
-    [getPos _x, "mil_triangle", "ColorEAST", (getDir _x), "STATIC"] call FUNC(createMarker);
+    [getPos _x, "mil_triangle", "ColorEAST", (getDir _x), "STATIC"] call FUNC(createDebugMarker);
     nil
 } count _gunnerArray;
 #endif

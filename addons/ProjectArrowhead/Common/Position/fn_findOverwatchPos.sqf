@@ -25,7 +25,7 @@ private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
 {
     private _checkPos = locationPosition _x;
     #ifdef ISDEV
-    private _mrk = [_checkPos, "hd_dot"] call FUNC(createMarker);
+    private _mrk = [_checkPos, "hd_dot"] call FUNC(createDebugMarker);
     #endif
     private _height = (getTerrainHeightASL _checkPos - getTerrainHeightASL _pos);
     private _distance = _checkPos distance2D _pos;
@@ -37,7 +37,7 @@ private _posASL = AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1];
         private _in = str _forEachIndex;
         {
             _x params ["_aslPos"];
-            private _mrk = [_aslPos, "hd_dot", "ColorRed"] call FUNC(createMarker);
+            private _mrk = [_aslPos, "hd_dot", "ColorRed"] call FUNC(createDebugMarker);
             nil
         } forEach _lis;
         #endif

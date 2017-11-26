@@ -31,7 +31,7 @@ DFUNC(airAttackTrigger) = {
     private _grp = group (([_pos, 2, 1, east, true] call MFUNC(spawnGroup)) select 0);
     private _veh = (vehicle (leader _grp));
     #ifdef ISDEV
-    [_pos, "o_unknown", "ColorCIV", 0, "Air Attack"] call MFUNC(createMarker);
+    [_pos, "o_unknown", "ColorCIV", 0, "Air Attack"] call MFUNC(createDebugMarker);
     #endif
 
     private _wp1 = _grp addWaypoint [_uPos, 0];

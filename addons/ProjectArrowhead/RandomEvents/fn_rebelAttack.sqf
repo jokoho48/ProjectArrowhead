@@ -35,7 +35,7 @@ DFUNC(rebelAttackTrigger) = {
     private _grp = [_pos, 0, random [GVAR(rebelAttackSize) - 2, GVAR(rebelAttackSize), GVAR(rebelAttackSize) + 4], independent] call MFUNC(spawnGroup);
     _grp setVariable ["BSO_RBU_allowed", false, true];
     #ifdef ISDEV
-    [_pos, "o_unknown", "ColorCIV", 0, "Rebel"] call MFUNC(createMarker);
+    [_pos, "o_unknown", "ColorCIV", 0, "Rebel"] call MFUNC(createDebugMarker);
     #endif
 
     private _wp = _grp addWaypoint [getPos _target, 0];

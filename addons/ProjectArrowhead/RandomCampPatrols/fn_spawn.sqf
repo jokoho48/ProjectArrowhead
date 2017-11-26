@@ -48,7 +48,7 @@ for "_i" from 1 to GVAR(randomCampCount) do {
     [[_grp, _pos], (random [300, 500, 700])] call MFUNC(taskPatrol);
 
     #ifdef ISDEV
-    [_pos, "mil_triangle", "ColorEAST", 0, "Random Camp Pos"] call MFUNC(createMarker);
+    [_pos, "mil_triangle", "ColorEAST", 0, "Random Camp Pos"] call MFUNC(createDebugMarker);
     #endif
 };
 
@@ -63,7 +63,7 @@ for "_i" from 1 to GVAR(randomPatrolCount) do {
     [[_grp, _pos], (random [500, 700, 1000])] call MFUNC(taskPatrol);
 
     #ifdef ISDEV
-    [_pos, "mil_triangle", "ColorEAST", 0, "Random Inf Patrol"] call MFUNC(createMarker);
+    [_pos, "mil_triangle", "ColorEAST", 0, "Random Inf Patrol"] call MFUNC(createDebugMarker);
     #endif
 };
 
@@ -82,6 +82,6 @@ for "_i" from 1 to GVAR(randomPatrolVehCount) do {
     } count _vehicles;
 
     #ifdef ISDEV
-    [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createMarker);
+    [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createDebugMarker);
     #endif
 };

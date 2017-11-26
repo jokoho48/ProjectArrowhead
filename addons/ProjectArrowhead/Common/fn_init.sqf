@@ -59,7 +59,7 @@ GVAR(worldSize) = (worldSize/2);
 }] call CFUNC(addEventhandler);
 
 
-DFUNC(createMarker) = {
+DFUNC(createDebugMarker) = {
 #ifdef ISDEV
     params ["_pos", "_icon", "_color", "_dir", "_text"];
     private _mrk = createMarker [format[QGVAR(%1_%2_%3_%4), _pos, _icon, _color, _dir, _text], _pos];
