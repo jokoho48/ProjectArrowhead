@@ -39,67 +39,10 @@ player createDiaryRecord ["rules",
 
 player createDiaryRecord ["Platoon Roster",
 [
-"Arty Team",
-"
-<br /> Squad Comms on Freq. 39 (Arty Net).
-
-"
-]];
-
-player createDiaryRecord ["Platoon Roster",
-[
-"CLS Team",
-"
-<br /> Squad Comms on Freq. 38 (CLS Net).
-
-"
-]];
-
-player createDiaryRecord ["Platoon Roster",
-[
-"Sappers Team",
-"
-<br /> Squad Comms on Freq. 37 (Sappers Net).
-
-"
-]];
-
-player createDiaryRecord ["Platoon Roster",
-[
-"QRF/Recon Team",
-"
-<br /> Squad Comms on Freq. 36 (Recon Net).
-
-"
-]];
-
-
-player createDiaryRecord ["Platoon Roster",
-[
-"AT Team",
-"
-<br /> Squad Comms on Freq. 35 (AT Net).
-
-"
-]];
-
-player createDiaryRecord ["Platoon Roster",
-[
-"Delta Squad",
-"
-<br /> SL and TL Talk on Freq. 34 (Delta Net).
-<br /> Delta Fireteams are allowed to use Subchannels (34.1,34.2).
-<br /> SL is free to split up over these channels however he desires.
-
-"
-]];
-
-player createDiaryRecord ["Platoon Roster",
-[
 "Charlie Squad",
 "
-<br /> SL and TL Talk on Freq. 33 (Charlie Net).
-<br /> Fireteams are allowed to use Subchannels (33.1,33.2).
+<br /> SL and TL Talk on 152 Channel 3 (Charlie Net).
+<br /> Bravo Fireteams are allowed to use channels 7-9 on the 343.
 <br /> SL is free to split up over these channels however he desires.
 
 "
@@ -109,8 +52,8 @@ player createDiaryRecord ["Platoon Roster",
 [
 "Bravo Squad",
 "
-<br /> SL and TL Talk on Freq. 32 (Bravo Net).
-<br /> Fireteams are allowed to use Subchannels (32.1,32.2).
+<br /> SL and TL Talk on 152 Channel 2 (Bravo Net).
+<br /> Bravo Fireteams are allowed to use channels 4-6 on the 343.
 <br /> SL is free to split up over these channels however he desires.
 
 "
@@ -122,8 +65,8 @@ player createDiaryRecord ["Platoon Roster",
 [
 "Alpha Squad",
 "
-<br /> SL and TL Talk on Freq. 31 (Alpha Net).
-<br /> Fireteams are allowed to use Subchannels (31.1,31.2).
+<br /> SL and TL Talk on 152 Channel 1 (Alpha Net).
+<br /> Alpha Fireteams are allowed to use channels 1-3 on the 343.
 <br /> SL is free to split up over these channels however he desires.
 
 "
@@ -134,9 +77,9 @@ player createDiaryRecord ["Platoon Roster",
 [
 "HQ Setup",
 "
-<br /> SL use their 152 to get in to touch with HQ on Freq. 30 (Platoon Net).
-<br /> FAC and air communicate on Freq. 60 (Air Net).
-<br /> Armor and HQ/armor commander communicate on Freq 70 (Armor Net).
+<br /> SL use their 152 to get in to touch with HQ on Channel 5 (Platoon Net).
+<br /> FAC and air communicate on 117/152 Channel 6 (Air Net).
+<br /> Armor and HQ/armor comander communicate on 117/152 Channel 7 (Armor Net).
 
 "
 ]];
