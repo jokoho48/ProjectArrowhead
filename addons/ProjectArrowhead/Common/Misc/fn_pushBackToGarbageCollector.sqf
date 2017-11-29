@@ -27,7 +27,7 @@ switch (typeName _obj) do {
     case ("GROUP"): {
         {
             if (vehicle _x != _x) then {
-                _x call CLib_GarbageCollector_fnc_pushbackInQueue;
+                (vehicle _x) call CLib_GarbageCollector_fnc_pushbackInQueue;
             };
             _x call CLib_GarbageCollector_fnc_pushbackInQueue;
             nil
