@@ -21,8 +21,8 @@ class ProjectArrowhead {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
             requireCollectIntel = 2;
         };
-        class elimateOfficer {
-            function = "ProjectArrowhead_Missions_fnc_elimateOfficer";
+        class eliminateOfficer {
+            function = "ProjectArrowhead_Missions_fnc_eliminateOfficer";
             requireCollectIntel = 2;
         };
     };

@@ -32,7 +32,6 @@
     private _officer = _grp createUnit [_type, _posOff, [], 0, "NONE"];
     _officer setPos _posOff;
     _units pushBack (group _officer);
-    [_officer, true] call MFUNC(setUnitHostage);
     // Spawn Vehicle
     if (random 1 >= 0.5) then {
         private _pos = selectRandom ([_posOff, 500, 0, 1, true, 10] call MFUNC(findPosArray));
@@ -58,20 +57,20 @@
     [_pos, "mil_triangle", "ColorEAST", 0, "Eliminate Inf"] call MFUNC(createDebugMarker);
     #endif
     [QGVAR(taskManager), [_officer, _units, _objs]] call CFUNC(serverEvent);
-    RUNTIME("Spawn elimate Officer");
+    RUNTIME("Spawn eliminate Officer");
 }] call CFUNC(addEventhandler);
 
 [QGVAR(taskManager), {
     (_this select 0) params ["_officer", "_units", "_objs"];
 
-    private _taskID = "elimateOfficer" call MFUNC(taskName);
+    private _taskID = "eliminateOfficer" call MFUNC(taskName);
 
     [
         true,
         [_taskID],
         [
-            "Kill That Biatsch",
-            "Kill Officer",
+            "Locate and assassinate enemy officer",
+            "Eliminate Officer",
             ""
         ],
         getPos _officer, "Created", 5, true, "C", true
