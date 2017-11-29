@@ -17,7 +17,7 @@
 DFUNC(nearBase) = {
     [QGVAR(Fired), {
         (getPos CLib_Player) call MFUNC(inBase) && !GVAR(enemyAtBase)
-    }, [], 5] call CFUNC(cachedCall);    
+    }, [], 5] call CFUNC(cachedCall);
 };
 
 DFUNC(notCarrying) = {
@@ -42,26 +42,21 @@ DFUNC(notUAVConnected) = {
 {
     ["", CLib_Player, 0, {call FUNC(nearBase) && {call FUNC(notCarrying)} && {call FUNC(notUAVConnected)}}, {
         ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
-    }, ["priority", 0,"showWindow", false, "shortcut", _x]] call CFUNC(addAction);
+    }, ["priority", 0,"showWindow", false, "shortcut", _x, "ignoredCanInteractConditions", ["isNotInVehicle", "isNotReloading"]]] call CFUNC(addAction);
 
     nil
 } count ["DefaultAction", "throw"];
 
-/*
-    Getting reports that explosives are being deleted outside of base.
-    Disabing this feature for now.
-    Perhaps better to tie this detonation and not placement?
 
-    ["ace_explosives_place", {
-        params ["_obj"];
-        if (call FUNC(nearBase)) then {
-            if (local (nearestObject [getPos _obj, "Man"])) then {
-                ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
-            };
-            deleteVehicle _obj;
+["ace_explosives_place", {
+    params ["_obj"];
+    if (call FUNC(nearBase)) then {
+        if (local (nearestObject [getPos _obj, "Man"])) then {
+            ["DisplayHint", ["WEAPON DISCHARGE IS NOT PERMITTED IN BASE!", "Use the shooting range to try out weapons."]] call CFUNC(localEvent);
         };
-    }] call CBA_fnc_addEventHandler;
-*/
+        deleteVehicle _obj;
+    };
+}] call CBA_fnc_addEventHandler;
 
 ["ace_advanced_throwing_throwFiredXEH", {
     params [
