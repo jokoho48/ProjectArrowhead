@@ -67,6 +67,8 @@ class ProjectArrowhead {
 
         unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
 
+        officerPoolEnemy[] = {"O_officer_F"};
+
         airSlowPoolEnemy[] = {"O_Heli_Light_02_F"};
         airFastPoolEnemy[] = {"O_Plane_CAS_02_F", "O_T_VTOL_02_vehicle_hex_F"};
         airAttackPoolEnemy[] = {"O_Heli_Attack_02_F"};

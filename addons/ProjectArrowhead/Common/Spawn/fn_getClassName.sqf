@@ -135,7 +135,22 @@ switch (_side) do {
             };
 
             default {
-                selectRandom GVAR(unitPoolEnemy);
+                if (isNil"_vehType") then {
+                    _vehType = "inf";
+                };
+                if (_vehType isEqualType 0) then {
+                    _vehType = ["o", "i"] select _vehType;
+                } else {
+                    _vehType = toLower _vehType;
+                };
+                switch (_vehType) do {
+                    case ("o"): {
+                        selectRandom GVAR(officerPoolEnemy);
+                    };
+                    default {
+                        selectRandom GVAR(unitPoolEnemy);
+                    };
+                };
             };
         };
     };

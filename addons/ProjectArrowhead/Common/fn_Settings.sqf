@@ -61,6 +61,10 @@ GVAR(unitPoolEnemy) = [CFGPRAW2(Units,unitPoolEnemy), UPE] call CFUNC(getSetting
 GVAR(unitPoolEnemy) = GVAR(unitPoolEnemy) call FUNC(flattenArray);
 GVAR(unitPoolEnemy) = GVAR(unitPoolEnemy) call CFUNC(shuffleArray);
 
+GVAR(officerPoolEnemy) = [CFGPRAW2(Units,officerPoolEnemy), UPE] call CFUNC(getSetting);
+GVAR(officerPoolEnemy) = GVAR(officerPoolEnemy) call FUNC(flattenArray);
+GVAR(officerPoolEnemy) = GVAR(officerPoolEnemy) call CFUNC(shuffleArray);
+
 GVAR(vehicleMRAPPoolEnemy) = [CFGPRAW2(Units,vehicleMRAPPoolEnemy), VMPE] call CFUNC(getSetting);
 GVAR(vehicleMRAPPoolEnemy) = GVAR(vehicleMRAPPoolEnemy) call FUNC(flattenArray);
 GVAR(vehicleMRAPPoolEnemy) = GVAR(vehicleMRAPPoolEnemy) call CFUNC(shuffleArray);

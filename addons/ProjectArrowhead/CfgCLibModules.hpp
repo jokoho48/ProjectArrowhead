@@ -101,7 +101,12 @@ class CfgCLibModules {
                     FNC(initHostage);
                     FNC(locateHostage);
                 };
+                MODULE(elimateOfficer) {
+                    FNC(elimateOfficer);
+                    FNC(initelimateOfficer);
+                };
             };
+
             FNC(collectIntel);
             FNC(init);
         };

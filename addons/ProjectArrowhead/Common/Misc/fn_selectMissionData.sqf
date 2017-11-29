@@ -20,7 +20,7 @@ if (_requireCollectIntel != 0) exitWith {
     if (_requireCollectIntel == 1) then {
         _mission call EFUNC(Missions,collectIntel);
     } else {
-        if (floor (random 2) >= 1) then {
+        if (floor (random 2) == 1) then {
             _mission call EFUNC(Missions,collectIntel);
         } else {
             _mission call FUNC(callMissionData);
