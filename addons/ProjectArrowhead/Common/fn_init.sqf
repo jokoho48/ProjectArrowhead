@@ -78,6 +78,11 @@ DFUNC(createDebugMarker) = {
 player createDiarySubject ["PAW", "ProjectArrowHead"];
 player createDiaryRecord ["PAW", ["Changelog",
 "
+v0.2.1<br/>
+ - add Eliminate Officer Mission<br/>
+ - Fix Collect Intel Mission<br/>
+ - Fix that 1 frame after Reload BaseProtection is was not working
+<br/>
 v0.2<br/>
  - fix general Lint issues<br/>
  - add Collect Intel Pretask Posiblilty<br/>
