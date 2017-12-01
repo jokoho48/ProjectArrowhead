@@ -83,7 +83,7 @@ for "_s" from 0 to 200 do {
             private _lis = lineIntersectsSurfaces [getPosASL _bunker vectorAdd [0,0,1], ATLToASL(_bunker modelToWorld [0,30,1]), _bunker];
             if !(_lis isEqualTo []) exitWith {deleteVehicle _bunker;};
             private _typeClass = ["static", "high"];
-            private _static = createVehicle [GETCLASS(_side, _typeClass), [0,0,0], [], 0, "CAN COLLIDE"];
+            private _static = createVehicle [GETCLASS(_side, _typeClass), [0,0,0], [], 0, "CAN_COLLIDE"];
             _static setPosATL (_bunker modelToWorld [0,0,-0.8]);
 
             private _grp = createGroup _side;

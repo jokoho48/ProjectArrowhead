@@ -23,12 +23,21 @@
     };
     private _objs = [];
     if (_spawnBase) then {
-        _objs = ["smallBase", _posOff, floor (random 360)] call MFUNC(createObjComp);
+        private _offPos = +_posOff;
+        _offPos set [2,-(getTerrainHeightASL _offPos)];
+        _objs = ["smallBase", _offPos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
+        /*{
+            private _pos = getPosASL _x;
+            private _ils = (lineIntersectsSurfaces [_pos vectorAdd [0,0,10], _pos vectorAdd [0,0,-100], _x, objNull]) select 0;
+            _x setVectorUp (_ils select 1);
+            _x setPosASL (_ils select 0);
+            nil
+        } count _objs;*/
     };
     private _units = [];
 
-    private _type = GETCLASS(civilian,0);
-    private _grp = createGroup civilian;
+    private _type = GETCLASS2(east,0,0);
+    private _grp = createGroup east;
     private _officer = _grp createUnit [_type, _posOff, [], 0, "NONE"];
     _officer setPos _posOff;
     _units pushBack (group _officer);
@@ -42,8 +51,13 @@
             nil
         } count _vehicles;
         #ifdef ISDEV
-        [_pos, "mil_triangle", "ColorEAST", 0, "Eliminate Veh"] call MFUNC(createDebugMarker);
+        [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Veh"] call MFUNC(createDebugMarker);
         #endif
+    };
+
+    if (_spawnBase) then {
+        private _grp2 = [_posOff, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
+        [_posOff, units _grp2, 200, true] call MFUNC(occupyBuilding);
     };
 
     private _pos = [_posOff, 100, 5] call MFUNC(findRuralFlatPos);

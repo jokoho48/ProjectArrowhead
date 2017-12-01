@@ -37,6 +37,8 @@
 #define CFGPRAW4(var1,var2,var3,var4) QUOTE(PREFIX/var1/var2/var3/var4)
 
 #define GETCLASS(var1,var2) ([var1, var2] call MFUNC(getClassName))
+#define GETCLASS2(var1,var2,var3) ([var1, [var2, var3]] call MFUNC(getClassName))
+
 #define NEXTSIDEMISSION call EFUNC(SideMission,selectSideMission);
 #define NEXTMAINAO call EFUNC(MainAO,selectMainMission);
 #define GARBAGE(var) var call MFUNC(pushBackToGarbageCollector)

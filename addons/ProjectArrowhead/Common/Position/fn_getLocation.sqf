@@ -20,7 +20,7 @@ RUNTIMESTART;
 private _location = selectRandom MGVAR(locations);
 while {
     (getPos _location call FUNC(nearBase))
-     || !(([getPos _location, 2000] call FUNC(getClosePlayers)) isEqualTo [])
+     || !(([getPos _location, 4000] call FUNC(getClosePlayers)) isEqualTo [])
 } do {
     _location = selectRandom MGVAR(locations);
 };

@@ -89,19 +89,22 @@ if (hasInterface) then {
         ["Land_SatelliteAntenna_01_F", [2.05762,4.5,0.00112915]],
         ["Land_CampingTable_F", [0,3,0.00112915]]
     ];
-    private _obj = createVehicle ["Land_SatellitePhone_F", [0, 0, 0], [], 0, "CAN_COLLIDE"];
-    _obj enableSimulation false;
+    private _obj = createVehicle ["Land_SatellitePhone_F", [0, 0, 0], [], 0, "NONE"];
     _obj allowDamage false;
     _obj setPos (_pos vectorAdd [0.00292969,2.99512,-0.00343895]);
+    _obj attachTo [_objs select 0, [0.00292969,2.99512,0]];
     _objs pushBack _obj;
 
     if (floor (random 2) == 1) then {
-        private _sPos = [_pos, 20, 500] call MFUNC(selectRnadomPos);
+        private _sPos = [_pos, 20, 500] call MFUNC(selectRandomPos);
         private _grp = [_sPos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
         [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
-        if (floor (random 2) == 1) then {
-            [_pos, 1, 1000, 3000, east, false, 2] call MFUNC(spawnSniper);
-        };
+        #ifdef ISDEV
+        [_sPos, "mil_triangle", "ColorEAST", 0, "Intent Inf"] call MFUNC(createDebugMarker);
+        #endif
+    };
+    if (floor (random 2) == 1) then {
+        [_pos, 1, 1000, 3000, east, false, 2] call MFUNC(spawnSniper);
     };
     GVAR(intelObject) pushBack _obj;
 
