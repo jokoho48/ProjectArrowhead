@@ -43,7 +43,7 @@
     _units pushBack (group _officer);
     // Spawn Vehicle
     if (random 1 >= 0.5) then {
-        private _pos = selectRandom ([_posOff, 500, 0, 1, true, 10] call MFUNC(findPosArray));
+        private _pos = selectRandom ([_posOff, 100, 0, 1, true, 10] call MFUNC(findPosArray));
         private _vehicles = [_pos, [1, selectRandom [0, 1]], 1, east] call MFUNC(spawnGroup);
         {
             [_x, 500, false] call MFUNC(setPatrolVeh);
@@ -60,15 +60,14 @@
         [_posOff, units _grp2, 200, true] call MFUNC(occupyBuilding);
     };
 
-    private _pos = [_posOff, 100, 5] call MFUNC(findRuralFlatPos);
-    private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
+    private _grp = [_posOff, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
     [[_grp, _posOff], (random [150, 200, 250])] call MFUNC(taskPatrol);
     _units pushBack _grp;
-    private _grp2 = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
-    [_pos, units _grp2, 200, true] call MFUNC(occupyBuilding);
+    private _grp2 = [_posOff, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
+    [_posOff, units _grp2, 200, true] call MFUNC(occupyBuilding);
     _units pushBack _grp2;
     #ifdef ISDEV
-    [_pos, "mil_triangle", "ColorEAST", 0, "Eliminate Inf"] call MFUNC(createDebugMarker);
+    [_posOff, "mil_triangle", "ColorEAST", 0, "Eliminate Inf"] call MFUNC(createDebugMarker);
     #endif
     [QGVAR(taskManager), [_officer, _units, _objs]] call CFUNC(serverEvent);
     RUNTIME("Spawn eliminate Officer");

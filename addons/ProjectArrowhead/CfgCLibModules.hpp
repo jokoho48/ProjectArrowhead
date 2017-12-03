@@ -24,6 +24,7 @@ class CfgCLibModules {
                 FNC(onPinged);
                 FNC(pushBackToGarbageCollector);
                 FNC(readOutMissionData);
+                FNC(replaceObjects);
                 FNC(selectMissionData);
                 FNC(setUnitSurrender);
                 FNC(setUnitHostage);

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=47;
+		nextID=153;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14194.445,25.421679,16284.096};
-		dir[]={-0.64458042,-0.4185881,-0.63979238};
-		up[]={-0.29710057,0.90816575,-0.29489273};
-		aside[]={-0.7044782,-4.1839667e-007,0.70975119};
+		pos[]={23050.883,26.945347,18530.898};
+		dir[]={-0.58870524,-0.79907763,-0.12249549};
+		up[]={-0.78231972,0.60123301,-0.16278146};
+		aside[]={-0.20372103,1.7147395e-006,0.97908819};
 	};
 };
 binarizationWanted=0;
@@ -27,13 +27,19 @@ addons[]=
 {
 	"A3_Characters_F",
 	"A3_Modules_F_Curator_Curator",
-	"A3_Ui_F"
+	"A3_Ui_F",
+	"A3_Structures_F_Mil_Shelters",
+	"A3_Structures_F_Civ_Camping",
+	"A3_Props_F_Exp_Military_Camps",
+	"A3_Misc_F_Helpers",
+	"A3_Structures_F_Argo_Walls_Military",
+	"A3_Structures_F_Mil_BagFence"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=3;
+		items=8;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -52,6 +58,41 @@ class AddonsMetaData
 		{
 			className="A3_Ui_F";
 			name="Arma 3 - User Interface";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item3
+		{
+			className="A3_Structures_F_Mil";
+			name="Arma 3 - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item4
+		{
+			className="A3_Structures_F";
+			name="Arma 3 - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item5
+		{
+			className="A3_Props_F_Exp";
+			name="Arma 3 Apex - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item6
+		{
+			className="A3_Misc_F";
+			name="Arma 3 - 3D Aids and Helpers";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item7
+		{
+			className="A3_Structures_F_Argo";
+			name="Arma 3 Malden - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -115,7 +156,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=3;
+		items=23;
 		class Item0
 		{
 			dataType="Group";
@@ -323,6 +364,7 @@ class Mission
 					};
 					id=26;
 					type="B_soldier_M_F";
+					atlOffset=2.2888184e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -383,6 +425,7 @@ class Mission
 					};
 					id=27;
 					type="B_Soldier_TL_F";
+					atlOffset=2.0980835e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -714,6 +757,322 @@ class Mission
 			b=288.74249;
 			angle=41.704765;
 			id=46;
+		};
+		class Item3
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23041.42,5.2599373,18525.861};
+				angles[]={-0,3.2635853,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=83;
+			type="CamoNet_OPFOR_big_F";
+		};
+		class Item4
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23041.529,3.601552,18530.588};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=84;
+			type="Land_CampingTable_F";
+		};
+		class Item5
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23043.438,3.5656693,18530.76};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=86;
+			type="Land_PortableGenerator_01_F";
+		};
+		class Item6
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23045.998,4.1156478,18536.418};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=88;
+			type="Land_SatelliteAntenna_01_F";
+		};
+		class Item7
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23041.525,4.3788576,18530.584};
+			};
+			side="Empty";
+			class Attributes
+			{
+			};
+			id=97;
+			type="Sign_Arrow_Yellow_F";
+			atlOffset=0.81559706;
+		};
+		class Item8
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23037.08,4.8898721,18536.105};
+				angles[]={0,3.2409899,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=101;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23034.307,4.890276,18536.133};
+				angles[]={0,1.7930417,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=102;
+			type="Land_Mil_WallBig_corner_battered_F";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23041.021,4.8898721,18535.705};
+				angles[]={0,3.2409899,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=103;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23044.865,4.8898721,18535.426};
+				angles[]={0,3.2409899,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=104;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item12
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23048.807,4.8898721,18535.025};
+				angles[]={0,3.2409899,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=105;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item13
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23051.443,4.890276,18534.461};
+				angles[]={0,3.3832855,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=106;
+			type="Land_Mil_WallBig_corner_battered_F";
+		};
+		class Item14
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23051.854,4.8898721,18531.629};
+				angles[]={0,4.6324143,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=107;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item15
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23052.162,4.8898721,18527.678};
+				angles[]={0,4.6324143,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=108;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item16
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23052.572,4.8898721,18523.846};
+				angles[]={0,4.6324143,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=109;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item17
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23052.883,4.8898721,18519.896};
+				angles[]={0,4.6324143,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=110;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item18
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23031.758,4.8898721,18530.02};
+				angles[]={0,1.9282559,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=111;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item19
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23033.148,4.8898721,18533.729};
+				angles[]={0,1.9282559,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=112;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23029.111,4.8898721,18522.664};
+				angles[]={0,1.9282559,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=113;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={23030.506,4.8898721,18526.373};
+				angles[]={0,1.9282559,0};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=114;
+			type="Land_Mil_WallBig_4m_battered_F";
+		};
+		class Item22
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={22970.604,5.2842722,19016.555};
+				angles[]={6.2458687,2.2970262,6.1089697};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=94;
+			type="Land_BagFence_Long_F";
 		};
 	};
 };

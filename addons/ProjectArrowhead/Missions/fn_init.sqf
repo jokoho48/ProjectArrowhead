@@ -70,37 +70,28 @@ if (hasInterface) then {
 
 [QGVAR(spawnUnitsCollectIntel), {
     params ["_missionData"];
-    private _pos = [MGVAR(centerPos), 0, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
+    private _pos = [MGVAR(centerPos), 20, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     while {surfaceIsWater _pos || !(_pos call MFUNC(isOnMap))} do {
-        _pos = [MGVAR(centerPos), 0, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
+        _pos = [MGVAR(centerPos), 20, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     };
-    private _objs = [];
+    private _objs = ["collectIntel", [_pos select 0, _pos select 1, -(getTerrainHeightASL _pos)], [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
     {
-        _x params ["_class", "_offset"];
-        private _oPos = (_pos vectorAdd _offset);
-        private _obj = createVehicle [_class, [0, 0, 0], [], 0, "CAN_COLLIDE"];
-        _obj enableSimulation false;
-        _obj allowDamage false;
-        _obj setPos _oPos;
-        _objs pushBack _obj;
+        if !(_x isKindOf "Sign_Arrow_Yellow_F") then {
+            private _pos = getPosASL _x;
+            private _ils = (lineIntersectsSurfaces [_pos vectorAdd [0,0,10], _pos vectorAdd [0,0,-100], _x, objNull]) select 0;
+            _x setVectorUp (_ils select 1);
+            _x setPosASL (_ils select 0);
+        };
         nil
-    } count [
-        ["CampEast", [0, 0, 0]],
-        ["Land_SatelliteAntenna_01_F", [2.05762,4.5,0.00112915]],
-        ["Land_CampingTable_F", [0,3,0.00112915]]
-    ];
-    private _obj = createVehicle ["Land_SatellitePhone_F", [0, 0, 0], [], 0, "NONE"];
-    _obj allowDamage false;
-    _obj setPos (_pos vectorAdd [0.00292969,2.99512,-0.00343895]);
-    _obj attachTo [_objs select 0, [0.00292969,2.99512,0]];
-    _objs pushBack _obj;
+    } count _objs;
+    private _obj = ["Sign_Arrow_Yellow_F", "Land_SatellitePhone_F", _objs] call MFUNC(replaceObjects);
+    _obj = _obj select 0;
 
     if (floor (random 2) == 1) then {
-        private _sPos = [_pos, 20, 500] call MFUNC(selectRandomPos);
-        private _grp = [_sPos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
+        private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
         [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
         #ifdef ISDEV
-        [_sPos, "mil_triangle", "ColorEAST", 0, "Intent Inf"] call MFUNC(createDebugMarker);
+        [_sPos, "mil_triangle", "ColorEAST", 0, "Intel Inf"] call MFUNC(createDebugMarker);
         #endif
     };
     if (floor (random 2) == 1) then {
