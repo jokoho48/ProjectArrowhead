@@ -13,6 +13,8 @@
     Returns:
     0: Return <Type>
 */
-[{
-    GVAR(sideMissions) call MFUNC(selectMissionData);
-}, GVAR(sideMissionDelay)] call CFUNC(wait);
+for "_i" from 0 to 3 do {
+    [{
+        GVAR(sideMissions) call MFUNC(selectMissionData);
+    }, ((GVAR(sideMissionDelay)/2) + (random GVAR(sideMissionDelay)))] call CFUNC(wait);
+};

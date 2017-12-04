@@ -1,6 +1,7 @@
 class ProjectArrowhead {
     MainAOSize = 2;
     sideMissionDelay = 250;
+    sideMissionCount = 3;
     RandomEventTimings[] = {600, 1000,1200};
     missionAmount = 10;
 
