@@ -65,7 +65,7 @@ for "_i" from 1 to _count do {
         #ifdef ISDEV
         [getPos _unit, "mil_triangle", "ColorEAST", (getDir _unit), "Sniper"] call FUNC(createDebugMarker);
         #endif
-        if (_nocache) then {NOCACHE(_grp);};
+        if (_nocache) then { NOCACHE(_grp); };
     };
 };
 RUNTIME("Spawn Sniper");

@@ -135,8 +135,8 @@ switch (_side) do {
             };
 
             default {
-                if (isNil"_vehType") then {
-                    _vehType = "inf";
+                if (isNil "_vehType") then {
+                    _vehType = "i";
                 };
                 if (_vehType isEqualType 0) then {
                     _vehType = ["o", "i"] select _vehType;

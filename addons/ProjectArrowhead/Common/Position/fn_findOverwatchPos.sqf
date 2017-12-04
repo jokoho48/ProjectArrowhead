@@ -32,14 +32,14 @@ private _posASL = (AGLToASL(_pos) vectorAdd [0,0, getTerrainHeightASL _pos + 1])
     private _incidenceAngle = _height atan2 _distance;
     if ((_distance > _min) && {_distance < _max} && {_height > 20 || (_incidenceAngle < 60 && _incidenceAngle > 15)}) then {
         private _lis = lineIntersectsSurfaces [_posASL, AGLToASL(_checkPos), objNull, objNull, true, -1, "NONE", "NONE"];
-        /*#ifdef ISDEV // Somehow Throws a Error within SQFLinter
+        #ifdef ISDEV
         _mrk setMarkerColor "ColorBlue";
         {
             _x params ["_aslPos"];
             [_aslPos, "hd_dot", "ColorRed"] call FUNC(createDebugMarker);
             nil
         } count _lis;
-        #endif*/
+        #endif
         if (_lis isEqualTo []) then {
             _posiblePos pushback _checkPos;
             #ifdef ISDEV

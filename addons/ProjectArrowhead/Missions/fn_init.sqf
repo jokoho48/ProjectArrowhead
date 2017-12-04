@@ -26,8 +26,7 @@ DFUNC(collectIntelAction) = {
 
     GVAR(collectStartTime) = -1;
     private _onStart = {
-        params ["_target"];
-
+        params [""];
         GVAR(collectStartTime) = time;
     };
 
