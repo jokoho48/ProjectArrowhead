@@ -11,7 +11,7 @@ debriefing = 0;
 loadScreen = "Data\BSO_Logo.paa";
 overviewPicture = "Data\BSO_Logo.paa";
 //enableDebugConsole = 2;
-enableDebugConsole[] = {"76561198073410815","76561198044297959","76561198073410815","76561198024742337","76561198059004332"}; 
+enableDebugConsole[] = {"76561198073410815","76561198044297959","76561198073410815","76561198024742337","76561198059004332"};
 
 disabledAI = 1;
 //author = "joko // Jonas and ShadowFox";
@@ -30,7 +30,7 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "BSO/ACRE", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Loadouts", "BSO/Servicing"};
+    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "ProjectArrowhead" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Servicing"};
     class GarbageCollector {
         EnableGarbageCollector = 1;
         GarbageCollectorTime = 600;
@@ -100,7 +100,7 @@ class BSO {
             canRearm = 1;
             canRefuel = 1;
             speedMultiplier = 1;
-        };     
+        };
         class myHeloService {
             markerName = "myHeloServiceMarker";
             markerText = "Helicopter Servicing";
@@ -109,7 +109,7 @@ class BSO {
             canRearm = 1;
             canRefuel = 1;
             speedMultiplier = 0.75;
-        };        
+        };
         class myPlaneService {
             markerName = "myPlaneServiceMarker";
             markerText = "Plane Servicing";
@@ -118,7 +118,7 @@ class BSO {
             canRearm = 1;
             canRefuel = 1;
             speedMultiplier = 0.5;
-        };        
+        };
         class myBoatService {
             markerName = "myBoatServiceMarker";
             markerText = "Ship Servicing";
@@ -128,7 +128,7 @@ class BSO {
             canRefuel = 1;
             speedMultiplier = 1.5;
         };
-    };    
+    };
 };
 
 
@@ -162,6 +162,7 @@ class ProjectArrowhead {
         airAttackPoolEnemy[] = {"O_Heli_Attack_02_F"};
 
         sniperPoolEnemy[] = {"O_sniper_F"};
+        officerPoolEnemy[] = {"O_officer_F"};
 
         vehicleMRAPPoolEnemy[] = {"O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "O_T_LSV_02_armed_black_F"};
         vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"};
