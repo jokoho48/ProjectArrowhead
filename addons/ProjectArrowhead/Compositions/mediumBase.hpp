@@ -579,3 +579,529 @@ class mediumBase {
         Simulate = 1;
     };
 };
+class freeHostageBase {
+    class item0 {
+         classname = "Land_Fort_Watchtower";
+         offset[] = {19.4165, 26.0923, 2.2118};
+         dirVector[] = {0.00391617, -0.999992, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item1 {
+         classname = "Land_Fort_Watchtower";
+         offset[] = {-25.978, -25.3936, 2.2118};
+         dirVector[] = {0.0055213, 0.999985, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item2 {
+         classname = "Land_Cargo_Patrol_V3_F";
+         offset[] = {18.0015, -25.3481, 4.905};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item3 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-18.8564, -30.0635, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item4 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-10.6201, -29.8647, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item5 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {8.84131, -29.7798, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item6 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {17.187, -29.5947, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item7 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {21.8882, -0.282227, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item8 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {22.1147, -8.87305, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item9 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {22.2827, -17.5142, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item10 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {22.4297, -26.2007, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item11 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {21.3535, 17.0269, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item12 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {21.6348, 8.32227, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item13 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-27.0356, -16.2554, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item14 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-27.5386, 0.969727, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item15 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-27.334, -7.61719, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item16 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-16.8862, 23.312, 1.21};
+         dirVector[] = {-0.5669, 0.823787, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item17 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-9.28516, 27.5283, 1.21};
+         dirVector[] = {-0.362404, 0.932021, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item18 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-26.3057, 9.11621, 1.21};
+         dirVector[] = {-0.911682, 0.410896, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item19 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-22.4824, 16.7026, 1.21};
+         dirVector[] = {-0.852045, 0.523469, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item20 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {3.55615, 29.4971, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item21 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {12.1475, 29.7627, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item22 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-0.759277, -40.0337, 1.21};
+         dirVector[] = {0.999877, -0.0156709, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item23 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-17.7739, -15.0195, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item24 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-23.52, -14.9902, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item25 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-17.8027, -2.22363, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item26 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-23.5488, -2.19434, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item27 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-14.1143, -12.8711, 0.740514};
+         dirVector[] = {0.999938, 0.0110963, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item28 {
+         classname = "Land_BagFence_Long_F";
+         offset[] = {-3.78564, 28.5674, 0.419312};
+         dirVector[] = {0.116007, -0.993248, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item29 {
+         classname = "Land_BagFence_Short_F";
+         offset[] = {-1.40918, 28.7397, 0.414283};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item30 {
+         classname = "Land_Cargo_Tower_V3_F";
+         offset[] = {-20.3223, -7.81006, 12.8862};
+         dirVector[] = {-0.00631242, -0.99998, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item31 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-14.2729, -4.39746, 0.740514};
+         dirVector[] = {0.999931, -0.0117381, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item32 {
+         classname = "Land_New_WiredFence_10m_F";
+         offset[] = {14.1436, 15.1465, 1.21385};
+         dirVector[] = {-0.000564424, -1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item33 {
+         classname = "Land_New_WiredFence_10m_F";
+         offset[] = {14.0195, 5.42822, 1.21385};
+         dirVector[] = {-0.0829147, 0.996557, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item34 {
+         classname = "Land_New_WiredFence_10m_F";
+         offset[] = {18.8228, 10.4258, 1.21385};
+         dirVector[] = {-0.999994, -0.00355099, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item35 {
+         classname = "Land_New_WiredFence_5m_F";
+         offset[] = {9.4873, 13.1567, 1.09245};
+         dirVector[] = {0.999635, -0.0270008, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item36 {
+         classname = "Land_Net_Fence_Gate_F";
+         offset[] = {9.01563, 7.58447, 1.0375};
+         dirVector[] = {-0.999983, -0.00578685, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item37 {
+         classname = "Sign_Arrow_Yellow_F"; // Replace With Civs
+         offset[] = {15.7007, 13.5103, 0.00143909};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item38 {
+         classname = "Sign_Arrow_Yellow_F"; // Replace With Civs
+         offset[] = {15.9795, 10.3657, 0.00143909};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item39 {
+         classname = "Sign_Arrow_Yellow_F"; // Replace With Civs
+         offset[] = {15.5137, 7.9292, 0.00143909};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item40 {
+         classname = "Sign_Arrow_Yellow_F"; // Replace With Civs
+         offset[] = {13.1553, 7.37109, 0.00143909};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item41 {
+         classname = "Sign_Arrow_Yellow_F"; // Replace With Civs
+         offset[] = {12.9429, 9.75732, 0.00143909};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+};
+class hackComTower {
+    class item0 {
+         classname = "Land_Fort_Watchtower";
+         offset[] = {22.3887, 30.166, 2.2118};
+         dirVector[] = {0.00391617, -0.999992, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item1 {
+         classname = "Land_Fort_Watchtower";
+         offset[] = {-23.0059, -21.3198, 2.2118};
+         dirVector[] = {0.0055213, 0.999985, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item2 {
+         classname = "Land_Cargo_HQ_V3_F";
+         offset[] = {-12.8271, 16.3877, 3.8754};
+         dirVector[] = {0.851518, -0.524326, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item3 {
+         classname = "Land_Cargo_Patrol_V3_F";
+         offset[] = {20.9736, -21.2744, 4.905};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item4 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-15.8843, -25.9897, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item5 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-7.64795, -25.791, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item6 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {11.8135, -25.7061, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item7 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {20.1592, -25.521, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item8 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {24.8604, 3.7915, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item9 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {25.0869, -4.79932, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item10 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {25.2549, -13.4404, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item11 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {25.4019, -22.127, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item12 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {24.3257, 21.1006, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item13 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {24.6069, 12.396, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item14 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-25.3091, -12.2686, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item15 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-25.812, 4.95654, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item16 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-25.6074, -3.63037, 1.21};
+         dirVector[] = {0.999995, -0.00330202, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item17 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-13.9141, 27.3857, 1.21};
+         dirVector[] = {-0.5669, 0.823787, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item18 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-6.31299, 31.6021, 1.21};
+         dirVector[] = {-0.362404, 0.932021, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item19 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-23.7905, 13.3237, 1.21};
+         dirVector[] = {-0.852045, 0.523469, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item20 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {-19.5103, 20.7764, 1.21};
+         dirVector[] = {-0.852045, 0.523469, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item21 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {6.52832, 33.5708, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item22 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {15.1196, 33.8364, 1.21};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item23 {
+         classname = "Land_HBarrier_Big_F";
+         offset[] = {2.21289, -35.96, 1.21};
+         dirVector[] = {0.999877, -0.0156709, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item24 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {15.0127, -11.0508, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item25 {
+         classname = "Land_Cargo_House_V3_F";
+         offset[] = {18.4375, 0.79834, 0.69};
+         dirVector[] = {0.999978, 0.00661626, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item26 {
+         classname = "Land_Cargo_House_V3_F";
+         offset[] = {18.5098, -7.21533, 0.69};
+         dirVector[] = {0.999978, 0.00661626, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item27 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {15.0239, 4.93018, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item28 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {9.32031, 5.01855, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item29 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {9.2666, -11.0215, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item30 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {6.63965, -3.14404, 0.740514};
+         dirVector[] = {-0.999999, 0.00132848, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item31 {
+         classname = "Sign_Arrow_Yellow_F"; // replace With Land_Communication_F
+         offset[] = {-22.4189, -7.13232, 16.5634};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item32 {
+         classname = "Misc_Cargo1B_military";
+         offset[] = {-4.80273, -3.35205, 1.26788};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item33 {
+         classname = "Misc_Cargo1B_military";
+         offset[] = {-0.378906, -3.20947, 1.26788};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item34 {
+         classname = "Land_Research_house_V1_F";
+         offset[] = {-18.4326, -3.39258, 0.7};
+         dirVector[] = {-0.999912, -0.0132705, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item35 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-15.4614, -9.13477, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item36 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-21.2075, -9.10547, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item37 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-15.7417, 2.05615, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item38 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-21.4878, 2.08545, 0.740514};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item39 {
+         classname = "Land_HBarrier_5_F";
+         offset[] = {-13.4731, -5.46436, 0.740514};
+         dirVector[] = {0.999938, 0.0110963, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item40 {
+         classname = "HeliH";
+         offset[] = {11.5654, 16.6582, 0};
+         dirVector[] = {-0.999998, 0.00214482, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item41 {
+         classname = "Land_BagFence_Long_F";
+         offset[] = {-0.813477, 32.6411, 0.419312};
+         dirVector[] = {0.116007, -0.993248, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item42 {
+         classname = "Land_BagFence_Short_F";
+         offset[] = {1.56299, 32.8135, 0.414283};
+         dirVector[] = {0, 1, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item43 {
+         classname = "Misc_Cargo1B_military";
+         offset[] = {-10.0552, -19.8442, 1.26788};
+         dirVector[] = {-0.999994, -0.00342558, 0};
+         upVector[] = {0, 0, 1};
+    };
+    class item44 {
+         classname = "Misc_Cargo1B_military";
+         offset[] = {-10.2129, -15.4209, 1.26788};
+         dirVector[] = {-0.999994, -0.00342558, 0};
+         upVector[] = {0, 0, 1};
+    };
+};
