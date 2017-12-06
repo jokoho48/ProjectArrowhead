@@ -30,10 +30,10 @@ private _output = "";
     private _dir = vectorDir _x;
     private _up = vectorUp _x;
     _output = _output + _data;
-    _output = _output + format ["     classname = ""%1"";", _class] + toString [10];
-    _output = _output + format ["     offset[] = {%1, %2, %3};", _pos select 0, _pos select 1, _pos select 2] + toString [10];
-    _output = _output + format ["     dirVector[] = {%1, %2, %3};", _dir select 0, _dir select 1, _dir select 2] + toString [10];
-    _output = _output + format ["     upVector[] = {%1, %2, %3};", _up select 0, _up select 1, _up select 2] + toString [10];
+    _output = _output + format ["    classname = ""%1"";", _class] + toString [10];
+    _output = _output + format ["    offset[] = {%1, %2, %3};", _pos select 0, _pos select 1, _pos select 2] + toString [10];
+    _output = _output + format ["    dirVector[] = {%1, %2, %3};", _dir select 0, _dir select 1, _dir select 2] + toString [10];
+    _output = _output + format ["    upVector[] = {%1, %2, %3};", _up select 0, _up select 1, _up select 2] + toString [10];
     _output = _output + "};" + toString [10];
 
 } forEach _objects;
