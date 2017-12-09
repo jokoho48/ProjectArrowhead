@@ -55,6 +55,8 @@ for "_i" from 1 to GVAR(randomPatrolCount) do {
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [500, 700, 1000])] call MFUNC(taskPatrol);
 
+    _posArray pushBack _pos;
+
     #ifdef ISDEV
     [_pos, "mil_triangle", "ColorEAST", 0, "Random Inf Patrol"] call MFUNC(createDebugMarker);
     #endif
@@ -73,6 +75,8 @@ for "_i" from 1 to GVAR(randomPatrolVehCount) do {
         [_x, (random [1500, 2000, 2500]), false] call MFUNC(setPatrolVeh);
         nil
     } count _vehicles;
+
+    _posArray pushBack _pos;
 
     #ifdef ISDEV
     [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createDebugMarker);
