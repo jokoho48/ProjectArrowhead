@@ -24,15 +24,7 @@
     private _objs = [];
     if (_spawnBase) then {
         private _offPos = +_posOff;
-        _offPos set [2,-(getTerrainHeightASL _offPos)];
         _objs = ["smallBase", _offPos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
-        /*{
-            private _pos = getPosASL _x;
-            private _ils = (lineIntersectsSurfaces [_pos vectorAdd [0,0,10], _pos vectorAdd [0,0,-100], _x, objNull]) select 0;
-            _x setVectorUp (_ils select 1);
-            _x setPosASL (_ils select 0);
-            nil
-        } count _objs;*/
     };
     private _units = [];
 

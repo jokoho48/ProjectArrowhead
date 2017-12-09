@@ -73,17 +73,9 @@ if (hasInterface) then {
     while {surfaceIsWater _pos || !(_pos call MFUNC(isOnMap))} do {
         _pos = [MGVAR(centerPos), 60, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     };
-    private _objs = ["collectIntel", [_pos select 0, _pos select 1, -(getTerrainHeightASL _pos)], [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
-    {
-        if !(_x isKindOf "Sign_Arrow_Yellow_F") then {
-            private _pos = getPosASL _x;
-            private _ils = (lineIntersectsSurfaces [_pos vectorAdd [0,0,10], _pos vectorAdd [0,0,-100], _x, objNull]) select 0;
-            _x setVectorUp (_ils select 1);
-            _x setPosASL (_ils select 0);
-        };
-        nil
-    } count _objs;
-    private _obj = ["Sign_Arrow_Yellow_F", "Land_SatellitePhone_F", _objs] call MFUNC(replaceObjects);
+    private _objs = ["CollectIntelCamp", _pos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
+
+    private _obj = ["Sign_Arrow_Yellow_F", "Intel_File2_F", _objs] call MFUNC(replaceObjects);
     _obj = _obj select 0;
 
     if (floor (random 2) == 1) then {

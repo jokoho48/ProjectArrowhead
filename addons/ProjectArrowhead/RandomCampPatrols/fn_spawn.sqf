@@ -29,19 +29,12 @@ for "_i" from 1 to GVAR(randomCampCount) do {
     _posArray pushBack _pos;
 
     private _dir = [(random 2) - 1, (random 2) - 1, 0];
-    _pos set [2,-(getTerrainHeightASL _pos)];
+    //_pos set [2,-(getTerrainHeightASL _pos)];
 
     if (_isSOF) then {
         [_class, _pos, _dir] call CFUNC(createSimpleObjectComp);
     } else {
-        private _objs = [_class, _pos, _dir] call MFUNC(createObjectComp);
-        {
-            private _pos = getPosASL _x;
-            private _ils = (lineIntersectsSurfaces [_pos vectorAdd [0,0,10], _pos vectorAdd [0,0,-100], _x, objNull]) select 0;
-            _x setVectorUp (_ils select 1);
-            _x setPosASL (_ils select 0);
-            nil
-        } count _objs;
+        [_class, _pos, _dir] call MFUNC(createObjectComp);
     };
 
     private _grp = [_pos, 0, floor (random [2, 4, 6]), east] call MFUNC(spawnGroup);

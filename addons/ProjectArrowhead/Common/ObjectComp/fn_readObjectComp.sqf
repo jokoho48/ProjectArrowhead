@@ -30,6 +30,7 @@ private _fnc_readObjectClass = {
     private _dir = getArray (_config >> "dirVector");
     private _up = getArray (_config >> "upVector");
     private _sim = ((getNumber (_config >> "Simulate")) == 1);
+    private _snap = ((getNumber (_config >> "TerrainSnap")) == 1);
     if (_up isEqualTo []) then {
         _up = [0, 0, 0];
     };
@@ -40,7 +41,7 @@ private _fnc_readObjectClass = {
         _offset = [0, 0, 0];
     };
 
-    [_path, _offset, _dir, _up, _sim]
+    [_path, _offset, _dir, _up, _sim, _snap]
 };
 
 private _return = [];

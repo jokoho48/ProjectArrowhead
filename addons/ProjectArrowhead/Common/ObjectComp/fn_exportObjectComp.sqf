@@ -21,7 +21,7 @@ private _numPos = {
 } count _objects;
 
 _meanPos = _meanPos apply {_x / _numPos};
-_meanPos set [2, getTerrainHeightASL _meanPos];
+_meanPos set [2, 0];
 private _output = "";
 {
     private _data = format ["class item%1 {", _forEachIndex] + toString [10];
