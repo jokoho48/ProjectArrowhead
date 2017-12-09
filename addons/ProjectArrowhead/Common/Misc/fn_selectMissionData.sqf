@@ -18,10 +18,10 @@ _mission params ["", "", "", "", "_requireCollectIntel"];
 
 if (_requireCollectIntel != 0) exitWith {
     if (_requireCollectIntel == 1) then {
-        _mission call EFUNC(Missions,collectIntel);
+        _mission call EFUNC(CollectIntel,collectIntel);
     } else {
         if (floor (random 2) == 1) then {
-            _mission call EFUNC(Missions,collectIntel);
+            _mission call EFUNC(CollectIntel,collectIntel);
         } else {
             _mission call FUNC(callMissionData);
         };

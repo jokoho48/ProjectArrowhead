@@ -104,11 +104,14 @@ class CfgCLibModules {
                 };
                 MODULE(EliminateOfficer) {
                     FNC(eliminateOfficer);
-                    FNC(initeliminateOfficer);
+                    FNC(initEliminateOfficer);
+                };
+                MODULE(CollectIntel) {
+                    FNC(collectIntel);
+                    FNC(initCollectIntel);
                 };
             };
 
-            FNC(collectIntel);
             FNC(init);
         };
 
