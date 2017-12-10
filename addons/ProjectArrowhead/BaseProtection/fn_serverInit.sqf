@@ -35,7 +35,7 @@ private _stateMachine = call CFUNC(createStatemachine);
 
 [_stateMachine, "checkGroup", {
     private _exitState = "checkGroup";
-    GVAR(index) = (GVAR(index) + 1) mod ((count allGroups) - 1);
+    GVAR(index) = ((GVAR(index) + 1) mod ((count allGroups) - 1));
     private _grp = allGroups select GVAR(index);
     if (side _grp in [west, civilian, sideUnknown, sideLogic]) exitWith {_exitState};
     private _nearBase = (getPos (leader _grp)) call MFUNC(nearBase);
@@ -52,7 +52,7 @@ private _stateMachine = call CFUNC(createStatemachine);
                 "Defend Main Base",
                 ""
             ],
-            MGVAR(baseMarker), "Created", 5, true, "defend", true
+            getPos (leader GVAR(Group)) vectorAdd [(random 100) - 50, (random 100) - 50, 0], "Created", 5, true, "defend", true
         ] call BIS_fnc_taskCreate;
         GVAR(enemyAtBase) = true;
         publicVariable QGVAR(enemyAtBase);
@@ -74,4 +74,4 @@ private _stateMachine = call CFUNC(createStatemachine);
     "checkGroup"
 }] call CFUNC(addStatemachineState);
 
-[_stateMachine, "init", 1] call CFUNC(startStatemachine);
+[_stateMachine, "init", 0.5] call CFUNC(startStatemachine);

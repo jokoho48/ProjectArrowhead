@@ -39,7 +39,7 @@ GVAR(lastMissionLocation) = "";
     for "_i" from 1 to GVAR(mainAOGroupCount) do {
         private _pos = _aoPos vectorAdd [(random (MGVAR(mainAOSize)/3)) - (MGVAR(mainAOSize)/5), (random (MGVAR(mainAOSize)/3)) - (MGVAR(mainAOSize)/5), 0];
         private _grp = [_pos, 0, ceil (random [2, 4, 6]), east] call MFUNC(spawnGroup);
-        if (random 1 < 0.5) then {
+        if (RND(50)) then {
             [[_grp, _aoPos], (random [MGVAR(mainAOSize) * 0.6, MGVAR(mainAOSize), MGVAR(mainAOSize) * 1.4])] call MFUNC(taskPatrol);
         } else {
             [_pos, units _grp, 50, true] call MFUNC(occupyBuilding);
@@ -96,7 +96,7 @@ GVAR(lastMissionLocation) = "";
         if (_leftToWin >= _currentCount) then {
             private _units = nearestObjects [MGVAR(mainAOPos), [], MGVAR(mainAOSize)];
             {
-                if ((random 1) <= 0.5) then {
+                if (RND(50)) then {
                     _x call MFUNC(setUnitSurrender);
                 };
             } count _units;

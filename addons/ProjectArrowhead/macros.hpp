@@ -45,8 +45,9 @@
 #ifdef ISDEV
     #define RUNTIMESTART private _debugStartTime = diag_tickTime
     #define RUNTIME(var) DUMP(var + " Needed: " + ((diag_tickTime - _debugStartTime) call CFUNC(toFixedNumber)) + " ms")
-
 #else
     #define RUNTIMESTART /*Disabled*/
     #define RUNTIME(var) /*Disabled*/
 #endif
+
+#define RND(var) (round(random 100))<=var

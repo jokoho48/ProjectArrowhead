@@ -39,7 +39,7 @@
     _units pushBack (group _vip);
     [_vip, true] call MFUNC(setUnitHostage);
     // Spawn Vehicle
-    if (random 1 >= 0.5) then {
+    if (RND(50)) then {
         private _pos = selectRandom ([_posVIP, 500, 0, 1, true, 10] call MFUNC(findPosArray));
         private _vehicles = [_pos, [1, selectRandom [0, 1]], 1, east] call MFUNC(spawnGroup);
         {

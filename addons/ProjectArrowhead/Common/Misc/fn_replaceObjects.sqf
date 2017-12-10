@@ -20,7 +20,7 @@ private _return = [];
         private _pos = getPos _x;
         private _dir = getDir _x;
         private _obj = createVehicle [_objTypeR, _pos, [], 0, "CAN_COLLIDE"];
-        _obj attachTo [_x, [0,0,0]];
+        _obj attachTo [_x, [0,0,-0.367]];
         ["hideObject", [_x, true]] call CFUNC(serverEvent);
         _obj setDir _dir;
         _return pushBack _obj;

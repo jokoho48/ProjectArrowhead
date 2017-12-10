@@ -78,14 +78,14 @@ if (hasInterface) then {
     private _obj = ["Sign_Arrow_Yellow_F", "Intel_File2_F", _objs] call MFUNC(replaceObjects);
     _obj = _obj select 0;
 
-    if (floor (random 2) == 1) then {
+    if (RND(50)) then {
         private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
         [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
         #ifdef ISDEV
         [_sPos, "mil_triangle", "ColorEAST", 0, "Intel Inf"] call MFUNC(createDebugMarker);
         #endif
     };
-    if (floor (random 2) == 1) then {
+    if (RND(50)) then {
         [_pos, 1, 1000, 3000, east, false, 2] call MFUNC(spawnSniper);
     };
     GVAR(intelObject) pushBack _obj;

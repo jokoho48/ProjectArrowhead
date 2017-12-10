@@ -13,8 +13,12 @@
     Returns:
     0: Return <Type>
 */
-for "_i" from 0 to 3 do {
-    [{
-        GVAR(sideMissions) call MFUNC(selectMissionData);
-    }, ((GVAR(sideMissionDelay)/2) + (random GVAR(sideMissionDelay)))] call CFUNC(wait);
-};
+
+#ifdef ISDEV
+    private _time = 10;
+#else
+    private _time = ((GVAR(sideMissionDelay)/2) + random GVAR(sideMissionDelay));
+#endif
+[{
+    GVAR(sideMissions) call MFUNC(selectMissionData);
+}, _time] call CFUNC(wait);

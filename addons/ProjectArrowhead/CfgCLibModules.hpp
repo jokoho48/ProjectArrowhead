@@ -98,6 +98,14 @@ class CfgCLibModules {
                 FNC(initMainAO);
             };
             MODULE(SideMissions) {
+                MODULE(CollectIntel) {
+                    FNC(collectIntel);
+                    FNC(initCollectIntel);
+                };
+                MODULE(DestroyComTower) {
+                    FNC(destroyComTower);
+                    FNC(initDestroyComTower);
+                };
                 MODULE(LocateHostage) {
                     FNC(initHostage);
                     FNC(locateHostage);
@@ -105,10 +113,6 @@ class CfgCLibModules {
                 MODULE(EliminateOfficer) {
                     FNC(eliminateOfficer);
                     FNC(initEliminateOfficer);
-                };
-                MODULE(CollectIntel) {
-                    FNC(collectIntel);
-                    FNC(initCollectIntel);
                 };
             };
 

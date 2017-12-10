@@ -26,6 +26,10 @@ class ProjectArrowhead {
             function = "ProjectArrowhead_Missions_fnc_eliminateOfficer";
             requireCollectIntel = 1;
         };
+        class destroyComTower {
+            function = "ProjectArrowhead_Missions_fnc_destroyComTower";
+            requireCollectIntel = 1;
+        };
     };
 
     class mainMissions {

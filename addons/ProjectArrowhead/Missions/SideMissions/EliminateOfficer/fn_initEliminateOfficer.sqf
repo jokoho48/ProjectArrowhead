@@ -34,7 +34,7 @@
     _officer setPos _posOff;
     _units pushBack (group _officer);
     // Spawn Vehicle
-    if (random 1 >= 0.5) then {
+    if (RND(50)) then {
         private _pos = selectRandom ([_posOff, 100, 0, 1, true, 10] call MFUNC(findPosArray));
         private _vehicles = [_pos, [1, selectRandom [0, 1]], 1, east] call MFUNC(spawnGroup);
         {
@@ -43,7 +43,7 @@
             nil
         } count _vehicles;
         #ifdef ISDEV
-        [_pos, "mil_triangle", "ColorEAST", 0, "Hostage Veh"] call MFUNC(createDebugMarker);
+        [_pos, "mil_triangle", "ColorEAST", 0, "Eliminate Veh"] call MFUNC(createDebugMarker);
         #endif
     };
 

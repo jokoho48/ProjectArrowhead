@@ -30,7 +30,7 @@ private _wpindex = 0;
 private _usesHouses = !(_houseArray isEqualTo []);
 
 for "_i" from 1 to 100 do {
-    if (_usesHouses && {random 1 < 0.45}) then {
+    if (_usesHouses && {RND(45)}) then {
         private _house = selectRandom _houseArray;
         private _housePosArray = _house buildingPos -1;
         _houseArray deleteAt (_houseArray find _house);
