@@ -59,6 +59,7 @@ class CfgCLibModules {
             MODULE(Spawn) {
                 FNC(getClassName);
                 FNC(spawnGroup);
+                FNC(spawnReinforcements);
                 FNC(spawnSniper);
                 FNC(spawnStatic);
                 FNC(spawnTower);

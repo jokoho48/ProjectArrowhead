@@ -22,12 +22,15 @@ switch (typeName _obj) do {
         } count _obj
     };
     case ("OBJECT"): {
+        if (vehicle _obj != _obj) then {
+            GARBAGE(vehicle _obj);
+        };
         _obj call CLib_GarbageCollector_fnc_pushbackInQueue;
     };
     case ("GROUP"): {
         {
             if (vehicle _x != _x) then {
-                (vehicle _x) call CLib_GarbageCollector_fnc_pushbackInQueue;
+                GARBAGE(_x);
             };
             _x call CLib_GarbageCollector_fnc_pushbackInQueue;
             nil
