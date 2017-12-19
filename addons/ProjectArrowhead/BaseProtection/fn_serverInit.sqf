@@ -21,7 +21,7 @@ private _stateMachine = call CFUNC(createStatemachine);
         true,
         "DefendMainBase",
         [
-            "Enemy forces have been spotted near the base, prepare for assault!",
+            "",
             "Defend Main Base",
             ""
         ],

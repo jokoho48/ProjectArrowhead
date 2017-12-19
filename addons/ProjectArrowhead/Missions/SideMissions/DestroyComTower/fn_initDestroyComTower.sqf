@@ -64,8 +64,8 @@
         true,
         [_taskID],
         [
-            "Make Tower BOOOOOM",
-            "BOOM BOOM Tower",
+            "Destroy Comms Tower",
+            "Your Task is to disrupt Enemy communications by destroying their local Communications Tower.",
             ""
         ],
         getPos _tower, "Created", 5, true, "C", true
