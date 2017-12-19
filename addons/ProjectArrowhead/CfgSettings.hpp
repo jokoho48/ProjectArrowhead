@@ -20,15 +20,19 @@ class ProjectArrowhead {
     class sideMissions {
         class locateHostage {
             function = "ProjectArrowhead_Missions_fnc_locateHostage";
-            requireCollectIntel = 1;
+            requireCollectIntel = 2;
         };
         class eliminateOfficer {
             function = "ProjectArrowhead_Missions_fnc_eliminateOfficer";
-            requireCollectIntel = 1;
+            requireCollectIntel = 2;
         };
         class destroyComTower {
             function = "ProjectArrowhead_Missions_fnc_destroyComTower";
-            requireCollectIntel = 1;
+            requireCollectIntel = 2;
+        };
+        class destroyMortar {
+            function = "ProjectArrowhead_Missions_fnc_destroyMortar";
+            requireCollectIntel = 2;
         };
     };
 

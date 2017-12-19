@@ -115,6 +115,10 @@ class CfgCLibModules {
                     FNC(eliminateOfficer);
                     FNC(initEliminateOfficer);
                 };
+                MODULE(DestroyMortar) {
+                    FNC(destroyMortar);
+                    FNC(initDestroyMortar);
+                };
             };
 
             FNC(init);

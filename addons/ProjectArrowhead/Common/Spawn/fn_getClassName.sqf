@@ -23,7 +23,7 @@ if (_type isEqualType []) then {
 };
 
 if (_type isEqualType 0) then {
-    _type = ["inf", "veh", "air", "sniper", "static", "statichigh", "staticmortar"] select _type;
+    _type = ["inf", "veh", "air", "sniper", "static"] select _type;
 } else {
     _type = toLower _type;
 };
