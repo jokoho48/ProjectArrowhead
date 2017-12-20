@@ -51,9 +51,11 @@ class ProjectArrowhead {
         class rebelAttack {
             function = "ProjectArrowhead_RandomEvents_fnc_rebelAttackTrigger";
         };
+        /*
         class airAttack {
             function = "ProjectArrowhead_RandomEvents_fnc_airAttackTrigger";
         };
+        */
     };
 
     class RandomCampPatrols {

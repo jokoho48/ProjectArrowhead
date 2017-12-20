@@ -27,7 +27,10 @@
     private _type = [east, "inf"] call MFUNC(getClassName);
     private _mortarGroup = createGroup east;
     {
-        _type createUnit [getPos _x, _mortarGroup];
+        private _unit = _type createUnit [getPos _x, _mortarGroup];
+        _objs pushBack _unit;
+        _unit moveInGunner _x;
+        _unit assignAsGunner _x;
         nil
     } count _mortars;
     _objs pushBack _mortarGroup;

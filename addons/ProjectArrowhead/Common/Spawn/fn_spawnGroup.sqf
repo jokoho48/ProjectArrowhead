@@ -50,6 +50,7 @@ for "_j" from 0 to (_count - 1) do {
         _veh allowDamage false;
         private _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 0, "NONE"];
         _unit moveInDriver _veh;
+        _unit assignAsDriver _veh;
         _unit allowDamage false;
         _driverArray pushBack _unit;
 
@@ -57,6 +58,7 @@ for "_j" from 0 to (_count - 1) do {
             for "_i" from 1 to (_veh emptyPositions "gunner") do {
                 _unit = _grp createUnit [GETCLASS(_side,0),_pos, [], 0, "NONE"];
                 _unit moveInGunner _veh;
+                _unit assignAsGunner _veh;
                 _unit allowDamage false;
             };
         };
@@ -64,6 +66,7 @@ for "_j" from 0 to (_count - 1) do {
             for "_i" from 1 to (_veh emptyPositions "commander") do {
                 _unit = _grp createUnit [GETCLASS(_side,0), _pos, [], 0, "NONE"];
                 _unit moveInCommander _veh;
+                _unit assignAsCommander _veh;
                 _unit allowDamage false;
             };
         };
