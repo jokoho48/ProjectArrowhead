@@ -68,7 +68,7 @@
             "Destroy Comms Tower",
             ""
         ],
-        getPos _tower, "Created", 5, true, "C", true
+        getPos _tower, "Created", 5, true, "destroy", true
     ] call BIS_fnc_taskCreate;
     _tower setVariable [QGVAR(towerData), [_units, _objs, _taskID]];
     _tower addEventHandler ["Killed", {

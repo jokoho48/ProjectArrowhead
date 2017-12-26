@@ -50,7 +50,7 @@
     private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
     [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
     #ifdef ISDEV
-    [_sPos, "mil_triangle", "ColorEAST", 0, "Mortar Inf"] call MFUNC(createDebugMarker);
+    [_pos, "mil_triangle", "ColorEAST", 0, "Mortar Inf"] call MFUNC(createDebugMarker);
     #endif
     _objs pushBack _grp;
     for "_i" from 1 to 3 do {
@@ -58,30 +58,18 @@
             private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
             [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
             #ifdef ISDEV
-            [_sPos, "mil_triangle", "ColorEAST", 0, "Mortar Inf"] call MFUNC(createDebugMarker);
+            [_pos, "mil_triangle", "ColorEAST", 0, "Mortar Inf"] call MFUNC(createDebugMarker);
             #endif
             _objs pushBack _grp;
         };
     };
 
-    private _taskID = "destryMortar" call MFUNC(taskName);
-    [
-        true,
-        [_taskID],
-        [
-            "Destroy Mortar Position",
-            "Make it BOOOOOM",
-            ""
-        ],
-        _pos vectorAdd [((random 200) - 100), ((random 200) - 100), 0], "Created", 5, true, "destroy", true
-    ] call BIS_fnc_taskCreate;
-    NOCACHE(_obj);
     NOCACHE(_mortarGroup);
-    [QGVAR(taskManager), [_mortars, _taskID, _objs]] call CFUNC(serverEvent);
+    [QGVAR(taskManager), [_mortars, _objs, _pos]] call CFUNC(serverEvent);
 }] call CFUNC(addEventhandler);
 
 [QGVAR(taskManager), {
-    (_this select 0) params ["_mortars", "_taskID", "_objs"];
+    (_this select 0) params ["_mortars", "_objs", "_pos"];
 
     private _taskID = "destroyMortar" call MFUNC(taskName);
 
@@ -93,19 +81,19 @@
             "Mortar Bad Boy make Boom",
             ""
         ],
-        getPos _tower, "Created", 5, true, "C", true
+        _pos, "Created", 5, true, "destroy", true
     ] call BIS_fnc_taskCreate;
 
     [{
         params ["_data", "_pfhID"];
         _data params [["_mortars", []], ["_objs", []], "_taskID"];
 
-        GARBAGE(_objs);
         if (({alive _x} count _mortars) != 0) exitWith {};
+        GARBAGE(_objs);
         [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
         [{
             _this call BIS_fnc_deleteTask;
         }, 10, _taskID] call CFUNC(wait);
         _pfhID call CFUNC(removePerFrameHandler);
-    }, 5, [_mortars, _taskID, _objs]] call CFUNC(addPerFrameHandler);
+    }, 5, [_mortars, _objs, _taskID]] call CFUNC(addPerFrameHandler);
 }] call CFUNC(addEventhandler);

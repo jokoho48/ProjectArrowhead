@@ -82,7 +82,7 @@ if (hasInterface) then {
         private _grp = [_pos, 0, floor (random [4, 6, 8]), east] call MFUNC(spawnGroup);
         [[_grp, _pos], (random [150, 200, 250])] call MFUNC(taskPatrol);
         #ifdef ISDEV
-        [_sPos, "mil_triangle", "ColorEAST", 0, "Intel Inf"] call MFUNC(createDebugMarker);
+        [_pos, "mil_triangle", "ColorEAST", 0, "Intel Inf"] call MFUNC(createDebugMarker);
         #endif
     };
     if (RND(50)) then {
