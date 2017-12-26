@@ -99,7 +99,7 @@ if (hasInterface) then {
             "Collect intelligence",
             ""
         ],
-        _pos vectorAdd [((random 200) - 100), ((random 200) - 100), 0], "Created", 5, true, "search", true
+        _pos vectorAdd [((random 200) - 100), ((random 200) - 100), 0], "Created", 5, true, "intel", true
     ] call BIS_fnc_taskCreate;
     NOCACHE(_obj);
     NOCLEAN(_obj);
