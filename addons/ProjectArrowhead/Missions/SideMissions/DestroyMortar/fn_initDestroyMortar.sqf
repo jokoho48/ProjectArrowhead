@@ -77,8 +77,8 @@
         true,
         [_taskID],
         [
-            "Mortar Boom",
-            "Mortar Bad Boy make Boom",
+            "S&D OPFOR artillery position",
+            "A hostile artillery position has been attacking our forces in the area. Annihilate it!",
             ""
         ],
         _pos, "Created", 5, true, "destroy", true

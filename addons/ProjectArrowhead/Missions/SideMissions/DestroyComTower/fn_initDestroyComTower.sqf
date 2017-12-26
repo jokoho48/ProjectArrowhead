@@ -64,8 +64,8 @@
         true,
         [_taskID],
         [
-            "Your Task is to disrupt Enemy communications by destroying their local Communications Tower.",
-            "Destroy Comms Tower",
+            "Disrupt enemy Comms",
+            "Destroy the OPFOR communications array to slow down their movements.",
             ""
         ],
         getPos _tower, "Created", 5, true, "destroy", true
