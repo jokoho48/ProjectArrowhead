@@ -1,6 +1,7 @@
 
 *.pbo
-
+*.zip
+*.back
 *.bisign
 
 *.bikey
