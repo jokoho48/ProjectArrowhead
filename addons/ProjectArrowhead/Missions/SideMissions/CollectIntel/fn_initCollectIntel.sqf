@@ -95,8 +95,8 @@ if (hasInterface) then {
         true,
         [_taskID],
         [
-            "Collect intelligence",
             "Search and aquire intel on OPFOR operations",
+            "Collect intelligence",
             ""
         ],
         _pos vectorAdd [((random 200) - 100), ((random 200) - 100), 0], "Created", 5, true, "search", true

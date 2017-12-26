@@ -21,16 +21,29 @@
         _pos = [MGVAR(centerPos), 120, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     };
     private _objs = ["mortarBase", _pos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
-    private _mortars = ["Sign_Arrow_Yellow_F",  [east, ["static", "mortar"]] call MFUNC(getClassName), _objs] call MFUNC(replaceObjects);
+    private _mortars = ["Sign_Arrow_Yellow_F",  [east, ["static", "mortar"]] call MFUNC(getClassName), _objs, false] call MFUNC(replaceObjects);
     _objs pushBack _mortars;
 
     private _type = [east, "inf"] call MFUNC(getClassName);
     private _mortarGroup = createGroup east;
     {
-        private _unit = _type createUnit [getPos _x, _mortarGroup];
-        _objs pushBack _unit;
-        _unit moveInGunner _x;
-        _unit assignAsGunner _x;
+        _x enableSimulationGlobal true;
+        private _gunner = _mortarGroup createUnit [_type, getPos _x, [], 0, "NONE"];
+        _gunner assignAsGunner _x;
+        _gunner moveInGunner _x;
+        _gunner setFormDir (getDir _x);
+        _gunner setDir (getDir _x);
+        _gunner doWatch (_gunner modelToWorld [0,100,30]);
+        _gunner disableAI "MOVE";
+        _gunner disableAI "ANIM";
+        _gunner disableAI "FSM";
+        _gunner disableAI "TARGET";
+        _gunner disableAI "AUTOTARGET";
+        _gunner disableAI "AIMINGERROR";
+        _gunner disableAI "SUPPRESSION";
+        NOCACHE(_x);
+        NOCACHE(_gunner);
+        _objs pushBack _gunner;
         nil
     } count _mortars;
     _objs pushBack _mortarGroup;

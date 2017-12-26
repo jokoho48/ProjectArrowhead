@@ -13,5 +13,4 @@
     Returns:
     0: Return <Type>
 */
-
-[QGVAR(spawnUnits), _this] call CFUNC(serverEvent);
+QGVAR(spawnUnits) call CFUNC(serverEvent);

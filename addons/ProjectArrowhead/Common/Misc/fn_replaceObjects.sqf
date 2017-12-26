@@ -13,14 +13,16 @@
     Returns:
     0: Return <Type>
 */
-params ["_objType", "_objTypeR", "_objArray"];
+params ["_objType", "_objTypeR", "_objArray", ["_attach", true]];
 private _return = [];
 {
     if (_x isKindOf _objType) then {
         private _pos = getPos _x;
         private _dir = getDir _x;
         private _obj = createVehicle [_objTypeR, _pos, [], 0, "CAN_COLLIDE"];
-        _obj attachTo [_x, [0,0,-0.367]];
+        if (_attach) then {
+            _obj attachTo [_x, [0,0,-0.367]];
+        };
         ["hideObject", [_x, true]] call CFUNC(serverEvent);
         _obj setDir _dir;
         _return pushBack _obj;
