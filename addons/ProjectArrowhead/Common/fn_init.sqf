@@ -78,18 +78,23 @@ DFUNC(createDebugMarker) = {
 player createDiarySubject ["PAW", "ProjectArrowHead"];
 player createDiaryRecord ["PAW", ["Changelog",
 "
+v0.3<br/>
+ - Total Rework of Composition Spawing<br/>
+ - add Destroy Comms Tower Side Mission<br/>
+ - add Destroy Mortar Positon Side Mission<br/>
+ - Rework Collect Intel Mission<br/>
+ - Fix issues in Base Protection<br/>
+ - Generel Bug Fixes and Improvements<br/>
 v0.2.1<br/>
  - add Eliminate Officer Mission<br/>
  - Fix Collect Intel Mission<br/>
- - Fix that 1 frame after Reload BaseProtection is was not working
-<br/>
+ - Fix that 1 frame after Reload BaseProtection is was not working<br/>
 v0.2<br/>
  - fix general Lint issues<br/>
  - add Collect Intel Pretask Posiblilty<br/>
  - fix that HC can be a Target for attack Missions<br/>
  - improve Performance of some functions<br/>
- - remove Task that are Completed to reduce task spamm in the beginning of the mission
-<br/>
+ - remove Task that are Completed to reduce task spamm in the beginning of the mission<br/>
 v0.1<br/>
  - initial Release<br/>
 "]];

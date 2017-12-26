@@ -76,8 +76,8 @@ for "_j" from 0 to (_count - 1) do {
 #ifdef ISDEV
 [{
     (_this select 0) params ["_obj"];
-    [getPos _obj, "mil_triangle", "ColorEAST", getDir _obj] call FUNC(createDebugMarker);
-}, 10, [leader _grp]] call CFUNC(addPerFrameHandler);
+    [getPos _obj, "mil_triangle", "ColorEAST", (getDir _obj) - 180] call FUNC(createDebugMarker);
+}, 2, [leader _grp]] call CFUNC(addPerFrameHandler);
 #endif
 {
     _x setRank (selectRandom ["PRIVATE", "CORPORAL", "SERGEANT", "LIEUTENANT", "CAPTAIN", "MAJOR", "COLONEL"]);
