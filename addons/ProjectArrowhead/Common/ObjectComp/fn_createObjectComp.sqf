@@ -60,8 +60,8 @@ private _return = [];
     if (_snap) then {
         _pos set [2, 0];
     };
-    _obj setPos _pos;
     _obj setVectorDirAndUp [AGLToASL (_originObj modelToWorld _dirOffset) vectorDiff _originPosASL, AGLToASL (_originObj modelToWorld _upOffset) vectorDiff _originPosASL];
+    _obj setPos _pos;
     _return pushBack _obj;
     nil
 } count _objects;
