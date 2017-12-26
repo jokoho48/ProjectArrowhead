@@ -16,8 +16,8 @@ enableDebugConsole[] = {"76561198073410815","76561198044297959","765611980734108
 disabledAI = 1;
 //author = "joko // Jonas and ShadowFox";
 author = "BSO Team";
-onLoadName = "ProjectArrowhead V1.0";
-onLoadMission = "ProjectArrowhead V1.0";
+onLoadName = "Project Arrowhead";
+onLoadMission = "Project Arrowhead";
 
 // skipLobby = 1;
 
@@ -30,10 +30,11 @@ class CLib {
     useExperimentalAutoload = 0;
     useFallbackRemoteExecution = 0;
     useCompressedFunction = 0;
-    Modules[] = {"CLib", "BSO/RBU", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching" , "BSO/Scoreboard" , "BSO/ACE_CPR" , "BSO/Servicing" , "BSO/ACRE", "ProjectArrowhead" };
+    Modules[] = {"CLib", "BSO/EarPlugs", "BSO/BFT_light", "BSO/Zeus", "BSO/Caching", "ProjectArrowhead", "BSO/Servicing"};
+
     class GarbageCollector {
         EnableGarbageCollector = 1;
-        GarbageCollectorTime = 300;
+        GarbageCollectorTime = 600;
     };
 };
 
@@ -100,17 +101,29 @@ class BSO {
             canRefuel = 1;
             speedMultiplier = 0.5;
         };
+        class myBoatService {
+            markerName = "myBoatServiceMarker";
+            markerText = "Ship Servicing";
+            vehTypes[] = {"Ship"};
+            canRepair = 1;
+            canRearm = 1;
+            canRefuel = 1;
+            speedMultiplier = 1.5;
+        };
     };
 };
+
+
 
 class ProjectArrowhead {
     BaseMarker = "Base";
     sideMissionDelay = 250;
-    BlackListLocations[] = {};
+    RandomEventTimings[] = {1250, 2000, 2400};
+    BlackListLocations[] = {"Nifi", "Kalithea", "Agia Triada", "Telos", "Gravia", "Koroni", "Ifestiona", "Agios Petros", "Ekali", "Agios Konstantinos"};
 
     class clearTown {
-        mainAOGroupCount = 6;
-        mainAOVehicleMRAPCount = 1;
+        mainAOGroupCount = 11;
+        mainAOVehicleMRAPCount = 4;
         mainAOVehicleLightCount = 1;
         mainAOVehicleAACount = 1;
         mainAOVehicleHeavyCount = 1;
@@ -124,29 +137,28 @@ class ProjectArrowhead {
         vehiclePoolFriendly[] = {};
         airPoolFriendly[] = {};
 
-      //CSAT Pool  unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
-        unitPoolEnemy[] = {"rhs_msv_emr_at","rhs_msv_emr_aa","rhs_msv_emr_arifleman","rhs_msv_emr_efreitor","rhs_msv_emr_grenadier_rpg","rhs_msv_emr_machinegunner","rhs_msv_emr_marksman","rhs_msv_emr_medic","rhs_msv_emr_grenadier","rhs_msv_emr_sergeant"};
+        unitPoolEnemy[] = {"O_soldierU_A_F", "O_soldierU_AAR_F", "O_soldierU_AAA_F", "O_soldierU_AAT_F", "O_soldierU_AR_F", "O_soldierU_medic_F", "O_engineer_U_F", "O_soldierU_exp_F", "O_soldierU_GL_F", "O_Urban_HeavyGunner_F", "O_soldierU_M_F", "O_soldierU_AA_F", "O_soldierU_AT_F", "O_soldierU_repair_F", "O_soldierU_F", "O_soldierU_LAT_F", "O_Urban_Sharpshooter_F", "O_soldierU_SL_F", "O_soldierU_TL_F"};
 
-        airSlowPoolEnemy[] = {"RHS_Mi8mt_vdv"};
-        airFastPoolEnemy[] = {"RHS_Su25SM_vvsc", "RHS_Su25SM_CAS_vvs"};
-        airAttackPoolEnemy[] = {"RHS_Mi24V_vvsc"};
+        airSlowPoolEnemy[] = {"O_Heli_Light_02_F"};
+        airFastPoolEnemy[] = {"O_Plane_CAS_02_F", "O_T_VTOL_02_vehicle_hex_F"};
+        airAttackPoolEnemy[] = {"O_Heli_Attack_02_F"};
 
-        sniperPoolEnemy[] = {"O_ghillie_sard_F"};
+        sniperPoolEnemy[] = {"O_sniper_F"};
+        officerPoolEnemy[] = {"O_officer_F"};
 
-        vehicleMRAPPoolEnemy[] = {"rhs_btr80a_msv", "rhs_btr60_msv"};
-        vehicleLightPoolEnemy[] = {"LOP_US_UAZ_SPG","LOP_US_UAZ_DshKM"};
-        vehicleAAPoolEnemy[] = {"rhs_gaz66_zu23_msv","rhs_zsu234_aa"};
-        vehicleHeavyPoolEnemy[] = {"rhs_bmp1_msv","rhs_t72bc_tv"};
+        vehicleMRAPPoolEnemy[] = {"O_MRAP_02_gmg_F", "O_MRAP_02_hmg_F", "O_T_LSV_02_armed_black_F"};
+        vehicleLightPoolEnemy[] = {"O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_F"};
+        vehicleAAPoolEnemy[] = {"O_APC_Tracked_02_AA_F"};
+        vehicleHeavyPoolEnemy[] = {"O_MBT_02_cannon_F"};
 
-        staticPoolEnemy[] = {"RHS_AGS30_TriPod_MSV","RHS_NSV_TriPod_MSV"};
-        staticHighPoolEnemy[] = {"rhs_KORD_high_MSV", "rhs_Kornet_9M133_2_msv"};
+        staticPoolEnemy[] = {"O_GMG_01_F", "O_HMG_01_F"};
+        staticHighPoolEnemy[] = {"O_GMG_01_high_F", "O_HMG_01_high_F"};
         staticMortarEnemy[] = {"O_Mortar_01_F"};
 
-        // Vanilla  unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
-        unitPoolRebels[] = {"LOP_UA_Infantry_Rifleman_3","LOP_UA_Infantry_MG","LOP_UA_Infantry_GL","LOP_UA_Infantry_Corpsman","LOP_UA_Infantry_Marksman","LOP_UA_Infantry_SL"};
-        vehiclePoolRebels[] = {"LOP_UA_UAZ_DshKM","LOP_UA_Ural_open"};
+        unitPoolRebels[] = {"I_G_Soldier_F", "I_G_Soldier_lite_F", "I_G_Soldier_SL_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_Soldier_M_F", "I_G_Soldier_LAT_F", "I_G_Soldier_LAT_F", "I_G_Soldier_A_F", "I_G_officer_F"};
+        vehiclePoolRebels[] = {};
 
-        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged"};
+        unitPoolCiv[] = {"C_scientist_F", "C_man_w_worker_F", "C_man_hunter_1_F", "C_Nikos_aged", "C_Man_ConstructionWorker_01_Vrana_F", "C_Journalist_01_War_F", "C_Man_Paramedic_01_F", "C_Man_Messenger_01_F", "C_Man_UtilityWorker_01_F", "C_Story_Mechanic_01_F", "C_IDAP_Man_AidWorker_07_F", "C_IDAP_Man_AidWorker_08_F", "C_IDAP_Man_EOD_01_F", "C_IDAP_Pilot_01_F", "C_IDAP_Man_UAV_06_antimine_F", "C_IDAP_Man_UAV_06_F"};
         vehiclePoolCiv[] = {};
     };
     class RandomCampCompositions {

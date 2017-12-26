@@ -42,7 +42,7 @@ player createDiaryRecord ["Platoon Roster",
 "Charlie Squad",
 "
 <br /> SL and TL Talk on 152 Channel 3 (Charlie Net).
-<br /> Bravo Fireteams are allowed to use channels 7-9 on the 343.
+<br /> Charlie Fireteams are allowed to use channels 7-9 on the 343.
 <br /> SL is free to split up over these channels however he desires.
 
 "
