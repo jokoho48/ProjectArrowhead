@@ -468,6 +468,7 @@ class mortarBase {
         offset[] = {8.39563, 8.31641, 5.74051};
         dirVector[] = {0.474859, -0.880062, 0};
         upVector[] = {0, 0, 1};
+        TerrainSnap = 1;
     };
     class item17 {
         classname = "Land_Cargo_HQ_V3_F";

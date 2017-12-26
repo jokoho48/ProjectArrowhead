@@ -16,9 +16,9 @@
 [QGVAR(spawnUnits), {
     RUNTIMESTART;
 
-    private _posTower = [MGVAR(centerPos), MGVAR(worldSize), 150] call MFUNC(findRuralFlatPos);
+    private _posTower = [MGVAR(centerPos), MGVAR(worldSize), 250] call MFUNC(findRuralFlatPos);
     while {(([_posTower, 3000] call MFUNC(getClosePlayers)) isEqualTo [] && (surfaceIsWater _posTower)) || !(_posTower call MFUNC(isOnMap))} do {
-        _posTower = [MGVAR(centerPos), MGVAR(worldSize), 150] call MFUNC(findRuralFlatPos);
+        _posTower = [MGVAR(centerPos), MGVAR(worldSize), 250] call MFUNC(findRuralFlatPos);
     };
     private _objs = [];
     _objs = ["destroyComTower", _posTower, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);

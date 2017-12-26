@@ -57,10 +57,12 @@ private _return = [];
         _obj enableDynamicSimulation true;
     };
     private _pos = _originObj modelToWorld _posOffset;
+    _obj setVectorDirAndUp [AGLToASL (_originObj modelToWorld _dirOffset) vectorDiff _originPosASL, AGLToASL (_originObj modelToWorld _upOffset) vectorDiff _originPosASL];
+
     if (_snap) then {
         _pos set [2, 0];
+        _obj setVectorUp (surfaceNormal _pos);
     };
-    _obj setVectorDirAndUp [AGLToASL (_originObj modelToWorld _dirOffset) vectorDiff _originPosASL, AGLToASL (_originObj modelToWorld _upOffset) vectorDiff _originPosASL];
     _obj setPos _pos;
     _return pushBack _obj;
     nil

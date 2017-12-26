@@ -16,9 +16,9 @@
 
 [QGVAR(spawnUnits), {
 
-    private _pos = [MGVAR(centerPos), 120, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
+    private _pos = [MGVAR(centerPos), 250, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     while {surfaceIsWater _pos || !(_pos call MFUNC(isOnMap))} do {
-        _pos = [MGVAR(centerPos), 120, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
+        _pos = [MGVAR(centerPos), 250, MGVAR(worldSize)*4] call MFUNC(selectRandomPos);
     };
     private _objs = ["mortarBase", _pos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
     private _mortars = ["Sign_Arrow_Yellow_F",  [east, ["static", "mortar"]] call MFUNC(getClassName), _objs, false] call MFUNC(replaceObjects);
