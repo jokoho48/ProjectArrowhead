@@ -75,7 +75,7 @@ if (hasInterface) then {
     };
     private _objs = ["CollectIntelCamp", _pos, [(random 2) - 1, (random 2) - 1, 0]] call MFUNC(createObjectComp);
 
-    private _obj = ["Sign_Arrow_Yellow_F", "Land_DataTerminal_01_F", _objs] call MFUNC(replaceObjects);
+    private _obj = ["Sign_Arrow_Yellow_F", "Land_DataTerminal_01_F", _objs, false] call MFUNC(replaceObjects);
     _obj = _obj select 0;
 
     if (RND(50)) then {

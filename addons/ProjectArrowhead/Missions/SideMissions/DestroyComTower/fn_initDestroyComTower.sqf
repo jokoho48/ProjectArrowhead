@@ -64,8 +64,8 @@
         true,
         [_taskID],
         [
-            "Disrupt enemy Comms",
             "Destroy the OPFOR communications array to slow down their movements.",
+            "Disrupt enemy Comms",
             ""
         ],
         getPos _tower, "Created", 5, true, "destroy", true

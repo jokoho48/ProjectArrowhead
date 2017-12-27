@@ -77,8 +77,8 @@
         true,
         [_taskID],
         [
-            "S&D OPFOR artillery position",
             "A hostile artillery position has been attacking our forces in the area. Annihilate it!",
+            "S&D OPFOR artillery position",
             ""
         ],
         _pos, "Created", 5, true, "destroy", true
