@@ -86,10 +86,7 @@
         _args params ["_vip", "_units", "_taskID"];
         if !(_vip call MFUNC(isAwake)) exitWith {
             _id call CFUNC(removePerFrameHandler);
-            [_taskID, "FAILED",true] call BIS_fnc_taskSetState;
-            [{
-                _this call BIS_fnc_deleteTask;
-            }, 10, _taskID] call CFUNC(wait);
+            CLEARMISSIONTASK(_taskID, "FAILED");
             GARBAGE(_units);
             NEXTSIDEMISSION;
         };
@@ -97,10 +94,7 @@
             _id call CFUNC(removePerFrameHandler);
             [{
                 params ["_units", "_taskID"];
-                [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
-                [{
-                    _this call BIS_fnc_deleteTask;
-                }, 10, _taskID] call CFUNC(wait);
+                CLEARMISSIONTASK(_taskID, "SUCCEEDED");
                 GARBAGE(_units);
                 NEXTSIDEMISSION;
             }, 20, [_units, _taskID]] call CFUNC(wait);

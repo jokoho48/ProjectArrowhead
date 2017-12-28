@@ -105,6 +105,17 @@ if (hasInterface) then {
     NOCLEAN(_obj);
     _obj setVariable [QGVAR(intelMissionData), [_missionData, _taskID, _objs], true];
     publicVariable QGVAR(intelObject);
+    _obj addEventhandler ["Killed", {
+        params ["_obj"];
+        private _data = _obj getVariable QGVAR(intelMissionData);
+        _data params ["", "_taskID", "_objs"];
+
+        CLEARMISSIONTASK(_taskID, "FAILED");
+        GARBAGE(_objs); // Push objs to Garbage Collector
+        deleteVehicle _obj;
+        GVAR(intelObject) = GVAR(intelObject) - [objNull];
+        publicVariable QGVAR(intelObject);
+    }];
     [QGVAR(addIntelAction), _obj] call CFUNC(globalEvent);
 }] call CFUNC(addEventhandler);
 
@@ -113,10 +124,7 @@ if (hasInterface) then {
     private _data = _obj getVariable QGVAR(intelMissionData);
     _data params ["_missionData", "_taskID", "_objs"];
     GARBAGE(_objs); // Push objs to Garbage Collector
-    [_taskID, "SUCCEEDED", true] call BIS_fnc_taskSetState;
-    [{
-        _this call BIS_fnc_deleteTask;
-    }, 10, _taskID] call CFUNC(wait);
+    CLEARMISSIONTASK(_taskID, "SUCCEEDED");
     if (isNil "_missionData") exitWith {};
     _missionData call MFUNC(callMissionData);
     deleteVehicle _obj;

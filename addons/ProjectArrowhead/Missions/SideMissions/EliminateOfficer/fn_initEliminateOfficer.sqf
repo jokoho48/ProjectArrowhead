@@ -88,10 +88,7 @@
         GARBAGE(_units);
         GARBAGE(_objs);
         GARBAGE(_unit);
-        [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
-        [{
-            _this call BIS_fnc_deleteTask;
-        }, 10, _taskID] call CFUNC(wait);
+        CLEARMISSIONTASK(_taskID, "SUCCEEDED");
         NEXTSIDEMISSION;
     }];
 }] call CFUNC(addEventhandler);

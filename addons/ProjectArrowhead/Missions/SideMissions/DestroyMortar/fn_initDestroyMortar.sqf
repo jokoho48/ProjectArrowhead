@@ -90,10 +90,7 @@
 
         if (({alive _x} count _mortars) != 0) exitWith {};
         GARBAGE(_objs);
-        [_taskID, "SUCCEEDED",true] call BIS_fnc_taskSetState;
-        [{
-            _this call BIS_fnc_deleteTask;
-        }, 10, _taskID] call CFUNC(wait);
+        CLEARMISSIONTASK(_taskID, "SUCCEEDED");
         _pfhID call CFUNC(removePerFrameHandler);
         NEXTSIDEMISSION;
     }, 5, [_mortars, _objs, _taskID]] call CFUNC(addPerFrameHandler);
