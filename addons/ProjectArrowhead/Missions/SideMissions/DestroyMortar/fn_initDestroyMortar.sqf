@@ -95,5 +95,6 @@
             _this call BIS_fnc_deleteTask;
         }, 10, _taskID] call CFUNC(wait);
         _pfhID call CFUNC(removePerFrameHandler);
+        NEXTSIDEMISSION;
     }, 5, [_mortars, _objs, _taskID]] call CFUNC(addPerFrameHandler);
 }] call CFUNC(addEventhandler);

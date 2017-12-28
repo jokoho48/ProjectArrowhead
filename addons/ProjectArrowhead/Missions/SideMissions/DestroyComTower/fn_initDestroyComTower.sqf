@@ -82,5 +82,6 @@
         [{
             _this call BIS_fnc_deleteTask;
         }, 10, _taskID] call CFUNC(wait);
+        NEXTSIDEMISSION;
     }];
 }] call CFUNC(addEventhandler);
