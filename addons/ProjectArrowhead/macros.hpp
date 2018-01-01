@@ -41,6 +41,8 @@
 
 #define NEXTSIDEMISSION call EFUNC(SideMission,selectSideMission);
 #define NEXTMAINAO call EFUNC(MainAO,selectMainMission);
+
+#define CLEARMISSIONTASK(var1,var2) [var1, var2, true] call BIS_fnc_taskSetState; [{_this call BIS_fnc_deleteTask;}, 10, var1] call CFUNC(wait);
 #define GARBAGE(var) var call MFUNC(pushBackToGarbageCollector)
 #ifdef ISDEV
     #define RUNTIMESTART private _debugStartTime = diag_tickTime

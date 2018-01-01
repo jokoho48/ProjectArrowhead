@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: python:3-alpine
+    steps:
+      - checkout
+      - run:
+        name: Validate SQF Addons
+        command: python3 sqfLint/sqflint.py -d addons
+      - run:
+        name: Validate SQF Mission
+        command: python3 sqfLint/sqflint.py -d Missions
