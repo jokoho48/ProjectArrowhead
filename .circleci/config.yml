@@ -6,6 +6,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Installing Requiremnts
+          command: apt-get install git
+      - run:
           name: Checkout sqfLint
           command: git clone https://github.com/jokoho48/sqf.git sqfLint
       - run:
