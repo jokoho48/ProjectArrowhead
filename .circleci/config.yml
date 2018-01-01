@@ -6,11 +6,11 @@ jobs:
     steps:
       - checkout
       - run:
-        name: Checkout sqfLint
-        command: git clone https://github.com/jokoho48/sqf.git sqfLint
+          name: Checkout sqfLint
+          command: git clone https://github.com/jokoho48/sqf.git sqfLint
       - run:
-        name: Validate SQF Addons
-        command: python3 sqfLint/sqflint.py -d addons
+          name: Validate SQF Addons
+          command: python3 sqfLint/sqflint.py -d addons
       - run:
-        name: Validate SQF Missions
-        command: python3 sqfLint/sqflint.py -d Missions
+          name: Validate SQF Missions
+          command: python3 sqfLint/sqflint.py -d Missions
