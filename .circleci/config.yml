@@ -5,7 +5,7 @@ jobs:
       - image: python:3-alpine
     steps:
       - checkout
-      -run:
+      - run:
         name: Checkout sqfLint
         command: git clone https://github.com/jokoho48/sqf.git sqfLint
       - run:
