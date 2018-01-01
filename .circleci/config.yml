@@ -8,6 +8,6 @@ jobs:
       - run:
         name: Validate SQF Addons
         command: python3 sqfLint/sqflint.py -d addons
-      - run:
+      - run2:
         name: Validate SQF Mission
         command: python3 sqfLint/sqflint.py -d Missions
