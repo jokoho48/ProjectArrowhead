@@ -9,7 +9,7 @@ python:
 install: true
 before_script:
   - git clone https://github.com/jokoho48/sqf.git sqfLint
-  - pip intall sqfLint
+  - pip install sqfLint
 script:
   - python3 Tools/sqf_validator.py
   - python3 sqfLint -d addons
