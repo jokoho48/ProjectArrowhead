@@ -60,7 +60,7 @@ GVAR(worldSize) = (worldSize/2);
 
 DFUNC(createDebugMarker) = {
 #ifdef ISDEV
-    params ["_pos", "_icon", "_color", "_dir", "_text"];
+    params ["_pos", ["_icon", "hd_dot"], "_color", "_dir", "_text"];
     private _mrk = createMarker [format[QGVAR(%1_%2_%3_%4), _pos, _icon, _color, _dir, _text], _pos];
     _mrk setMarkerType _icon;
     if !(isNil "_color") then {
