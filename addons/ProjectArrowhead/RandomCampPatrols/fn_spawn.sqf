@@ -82,4 +82,4 @@ for "_i" from 1 to GVAR(randomPatrolVehCount) do {
     [_pos, "mil_triangle", "ColorEAST", 0, "Random Veh Patrol"] call MFUNC(createDebugMarker);
     #endif
 };
-RUNTIME("Spawn Random Camp Patrols")
+RUNTIME("Spawn Random Camp Patrols");
