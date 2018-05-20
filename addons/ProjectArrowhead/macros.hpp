@@ -17,7 +17,7 @@
 #define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
 #define VERSION MAJOR.MINOR.PATCHLVL.BUILD
 
-#define ISDEV
+//#define ISDEV
 
 #include "\tc\CLib\addons\CLib\macros.hpp"
 
@@ -44,12 +44,14 @@
 
 #define CLEARMISSIONTASK(var1,var2) [var1, var2, true] call BIS_fnc_taskSetState; [{_this call BIS_fnc_deleteTask;}, 10, var1] call CFUNC(wait);
 #define GARBAGE(var) var call MFUNC(pushBackToGarbageCollector)
-#ifdef ISDEV
+
+/*#ifdef ISDEV
     #define RUNTIMESTART private _debugStartTime = diag_tickTime
     #define RUNTIME(var) DUMP(var + " Needed: " + ((diag_tickTime - _debugStartTime) call CFUNC(toFixedNumber)) + " ms")
 #else
-    #define RUNTIMESTART /*Disabled*/
-    #define RUNTIME(var) /*Disabled*/
+    #define RUNTIMESTART /*Disabled*//*
+    #define RUNTIME(var) /*Disabled*//*
 #endif
+*/
 
 #define RND(var) (round(random 100))<=var
